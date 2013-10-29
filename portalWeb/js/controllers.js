@@ -57,7 +57,7 @@ app.controller('homepageCtrl',['$scope',function($scope){
         if ($scope.home_slide_0.current == $scope.home_slide_0.list.length) $scope.home_slide_0.current= 0;
         $scope.$apply();
     }
-    setInterval($scope.home_slide_0.next,5000);
+    setInterval($scope.home_slide_0.next,3000);
 }]);
 /*
 app.controller('homeCtrl',['$scope','$routeParams','$http',
