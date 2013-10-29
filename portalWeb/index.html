@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app" lang="cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>上海高校技术市场官方网站</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script src="lib/angular.min.js"></script>
+<script src="lib/angular-route.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+</head>
+<body>
+<!--topstar-->
+<div ng-controller="menuContoller">
+  <div class="top">
+    <div id="logo"><a href=""></a></div>
+    <div id="topdh"><a href="">联系我们</a><span><img src="images/huaxian.jpg" /></span> <a href="">友情链接</a> <span><img src="images/huaxian.jpg" /></span><a href="">网站地图</a><span><img src="images/huaxian.jpg" /></span></div>
+    <div id="searchtop">
+        <div id="search_box">
+            <form id="search_form" method="post" action="#">
+                <input type="text" id="s" value="输入搜索内容" class="swap_value" />
+                <input type="image" src="images/sousu.jpg" width="34" height="18" id="go" alt="Search" title="Search" />
+            </form>
+        </div>
+    </div>
+
+  </div>
+  <!--topend-->
+
+  <!--导航开始-->
+
+  <div id="menu">
+    <ul>
+        <li ng-repeat-start="item in menuItems" class="m_line" ><img src="images/line1.gif" /></li>
+        <li ng-repeat-end id="m_1" ng-class="($index == activeMenu)?'m_li_a':'m_li'" ng-mouseover="menuShow($index)">
+            <a href="#">{{item.caption}}</a>
+        </li>
+    </ul>
+  </div>
+  <div style="height:32px; background-color:#F1F1F1;">
+    <ul class="smenu">
+        <li ng-repeat="item in menuItems" ng-style="{'padding-left':item.left+'px'}" ng-hide="($index != activeMenu)" class='s_li_a'>
+            <a ng-repeat="sub in item.subMenu" href="#{{sub.linkTo}}">
+                {{$first?'':'&nbsp;&nbsp;'}}{{sub.caption}}{{$last?'':'&nbsp;&nbsp;'}}
+                <img ng-hide="$last" src="images/fg.jpg" />
+            </a>
+
+        </li>
+   </ul>
+  </div>
+</div>
+<!--导航结束-->
+<!--body开始-->
+<div ng-view></div>
+</body>
+
+</html>

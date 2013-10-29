@@ -2,13 +2,115 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a84b896-9486-49e1-ae72-da1ed3aed205" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/lib/angular.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/contentTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/lib/pure-min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contentService/static/images/IMG_3086.JPG" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contentService/static/images/IMG_3369.JPG" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contentService/static/images/IMG_3400.JPG" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contentService/static/images/IMG_3419.JPG" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contentService/static/images/IMG_3486.JPG" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contentService/static/images/IMG_3487.JPG" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/anli_bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/banquan_bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/bg-c.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/bg-chengguo.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/bg-gaoxiao.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/bg-gaoxiao88.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/bg-qiye.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/bg-xinwen.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/bg-zhishi.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/d.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/d1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/dh_bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/dh_lan.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/dh_touming.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/fdj.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/fg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/fg2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/gqnr.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/gsfb.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/gshz.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/huaxian.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/jianbian_bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/jianbianqians_bge.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/jt.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/kuang.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/kuang1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/line1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/logo65-35.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/menu_bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/menu_bg2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/pt.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/qyfb.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/sousu.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-10.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-11.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-12.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-13.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-7.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-8.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/t-9.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/topsear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/tz.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/tz2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/tzbj.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/xia.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/xia2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/xwdt.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/you.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/zhong.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/zuo.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/首页-版本1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/images/首页-版本1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/ui/app.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/js/controllers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/ui/home.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/ui/homepage.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/ngindex.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portalWeb/css/style.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/portalWeb/lib/angular.min.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/portalWeb/contentTest.html" afterPath="$PROJECT_DIR$/portalWeb/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contentService/serviceGate.js" afterPath="$PROJECT_DIR$/contentService/serviceGate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="webNG.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382253369377" ignored="false" />
+    <file path="/Dummy.txt" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382934212050" ignored="false" />
+    <file path="/contentTest.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382254431950" ignored="false" />
+    <file path="/home.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382609238390" ignored="false" />
+    <file path="/serviceGate.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382430782874" ignored="false" />
+    <file path="/controllers.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382887825449" ignored="false" />
+    <file path="/app.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382342217923" ignored="false" />
+    <file path="/index.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382872912790" ignored="false" />
+    <file path="/app.css" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382407087899" ignored="false" />
+    <file path="/helpers.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382410401708" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/print/printerServer.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382668972217" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/print/printerTest.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382668987037" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/print/m.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382669771887" ignored="false" />
+    <file path="/m.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382670332532" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/dealQR/print/printerServer.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383012700672" ignored="false" />
+    <file path="/printerServer.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382672756070" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/dealQR/print/m.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383012700672" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/dealQR/print/printerTest.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383012700672" ignored="false" />
+    <file path="/printerTest.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382672814926" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/dealQR/print/printer/js/app.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383012700672" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/dealQR/print/printer/js/controllers.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383012700671" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/anniversary/mobile/redeem.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382694530983" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/dealQR/print/printer/index.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383012700671" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/anniversary/screen/js/dealQR-sdk.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383013204995" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/dealQR/dealQR_serverV2.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383012700672" ignored="false" />
+    <file path="/style.css" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382890319562" ignored="false" />
+    <file path="/homepage.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382929484401" ignored="false" />
+    <file path="$PROJECT_DIR$/../jll/anniversary/server/baloonShootServer.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383012700672" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,38 +130,70 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="serviceGate.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/contentService/serviceGate.js">
+      <file leaf-file-name="homepage.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portalWeb/ui/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="12" column="111" selection-start="654" selection-end="654" vertical-scroll-proportion="-8.16">
+              <folding>
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#3;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#4;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portalWeb/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="210" column="34" selection-start="9485" selection-end="9485" vertical-scroll-proportion="-4.0384617">
+              <folding>
+                <marker date="1382890327000" expanded="true" signature="12289:12313" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portalWeb/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="137" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contentTest.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portalWeb/contentTest.html">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portalWeb/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
+            <state line="6" column="24" selection-start="381" selection-end="381" vertical-scroll-proportion="0.27642277">
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="angular.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portalWeb/lib/angular.min.js">
+      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portalWeb/ui/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="3" column="131" selection-start="287" selection-end="310" vertical-scroll-proportion="-2.04">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#1;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pure-min.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/portalWeb/lib/pure-min.css">
+      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portalWeb/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="20" selection-start="18619" selection-end="18619" vertical-scroll-proportion="0.4473684">
-              <folding />
+            <state line="59" column="147" selection-start="2082" selection-end="2082" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1382929537000" expanded="true" signature="1443:1814" placeholder="{&quot;current&quot;: 0...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,10 +213,27 @@
       <MyDateState />
     </option>
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/portalWeb/contentTest.html" />
+        <option value="$PROJECT_DIR$/portalWeb/lib/angular.min.js" />
+        <option value="$PROJECT_DIR$/portalWeb/ui/app.css" />
+        <option value="$PROJECT_DIR$/portalWeb/js/helpers.js" />
+        <option value="$PROJECT_DIR$/contentService/serviceGate.js" />
+        <option value="$PROJECT_DIR$/portalWeb/ui/home.html" />
+        <option value="$PROJECT_DIR$/portalWeb/js/app.js" />
+        <option value="$PROJECT_DIR$/portalWeb/css/style.css" />
+        <option value="$PROJECT_DIR$/portalWeb/js/controllers.js" />
+        <option value="$PROJECT_DIR$/portalWeb/ui/homepage.html" />
+        <option value="$PROJECT_DIR$/portalWeb/index.html" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="66" />
+    <option name="x" value="62" />
     <option name="y" value="22" />
-    <option name="width" value="1642" />
+    <option name="width" value="1546" />
     <option name="height" value="729" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -157,7 +308,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webNG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webNG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portalWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webNG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webNG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portalWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webNG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webNG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portalWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -183,16 +388,25 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="File.Encoding" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/contentService/serviceGate.js" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/portalWeb" />
+      <recent name="$PROJECT_DIR$/contentService/static/images" />
+      <recent name="$PROJECT_DIR$/portalWeb/lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/portalWeb/lib" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.serviceGate.js">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -201,7 +415,24 @@
       <option name="testName" />
       <method />
     </configuration>
-    <list size="0" />
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="$PROJECT_DIR$">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
+    <configuration default="false" name="serviceGate.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="/usr/local/bin/node" path-to-js-file="contentService/serviceGate.js" working-dir="$PROJECT_DIR$">
+      <RunnerSettings RunnerId="NodeJS.run" />
+      <ConfigurationWrapper RunnerId="NodeJS.run" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Node.js.serviceGate.js" />
+    </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
@@ -213,17 +444,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="66" y="22" width="1642" height="729" extended-state="0" />
+    <frame x="62" y="22" width="1546" height="729" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24953675" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2652659" sideWeight="0.71428573" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2857143" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -295,31 +526,112 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/contentService/serviceGate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portalWeb/contentTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portalWeb/lib/angular.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portalWeb/lib/pure-min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="20" selection-start="18619" selection-end="18619" vertical-scroll-proportion="0.4473684">
+        <state line="15" column="76" selection-start="18675" selection-end="18675" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contentService/static/images/IMG_3086.JPG">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contentService/serviceGate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="48" selection-start="809" selection-end="809" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/images/t-4.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/images/t-5.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/images/t-7.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/images/t-1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/ngindex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="11" selection-start="404" selection-end="438" vertical-scroll-proportion="-10.88">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/ui/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="137" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/ui/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="131" selection-start="287" selection-end="310" vertical-scroll-proportion="-2.04">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#1;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="210" column="34" selection-start="9485" selection-end="9485" vertical-scroll-proportion="-4.0384617">
+          <folding>
+            <marker date="1382890327000" expanded="true" signature="12289:12313" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="147" selection-start="2082" selection-end="2082" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1382929537000" expanded="true" signature="1443:1814" placeholder="{&quot;current&quot;: 0...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/ui/homepage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="111" selection-start="654" selection-end="654" vertical-scroll-proportion="-8.16">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#3;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#4;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="24" selection-start="381" selection-end="381" vertical-scroll-proportion="0.27642277">
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
