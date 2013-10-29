@@ -4,7 +4,6 @@
     <list default="true" id="8a84b896-9486-49e1-ae72-da1ed3aed205" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portalWeb/js/controllers.js" afterPath="$PROJECT_DIR$/portalWeb/js/controllers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portalWeb/ui/homepage.html" afterPath="$PROJECT_DIR$/portalWeb/ui/homepage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="webNG.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -12,7 +11,7 @@
     <file path="/contentTest.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382254431950" ignored="false" />
     <file path="/home.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382609238390" ignored="false" />
     <file path="/serviceGate.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382430782874" ignored="false" />
-    <file path="/controllers.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382887825449" ignored="false" />
+    <file path="/controllers.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383041480876" ignored="false" />
     <file path="/app.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382342217923" ignored="false" />
     <file path="/index.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382872912790" ignored="false" />
     <file path="/app.css" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382407087899" ignored="false" />
@@ -33,7 +32,7 @@
     <file path="$PROJECT_DIR$/../jll/anniversary/screen/js/dealQR-sdk.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383013204995" ignored="false" />
     <file path="$PROJECT_DIR$/../jll/dealQR/dealQR_serverV2.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383012700672" ignored="false" />
     <file path="/style.css" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1382890319562" ignored="false" />
-    <file path="/homepage.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383016901543" ignored="false" />
+    <file path="/homepage.html" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383042018939" ignored="false" />
     <file path="$PROJECT_DIR$/../jll/anniversary/server/baloonShootServer.js" changelist="8a84b896-9486-49e1-ae72-da1ed3aed205" time="1383012700672" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +56,7 @@
       <file leaf-file-name="homepage.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portalWeb/ui/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="132" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.631664">
+            <state line="24" column="121" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.3660287">
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#3;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
@@ -114,7 +113,7 @@
       <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portalWeb/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="67" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.0">
+            <state line="62" column="94" selection-start="2195" selection-end="2206" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -156,7 +155,7 @@
     <option name="x" value="62" />
     <option name="y" value="22" />
     <option name="width" value="1411" />
-    <option name="height" value="979" />
+    <option name="height" value="778" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -366,17 +365,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="22" width="1411" height="979" extended-state="0" />
+    <frame x="62" y="22" width="1411" height="778" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17939481" sideWeight="0.79743886" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17939481" sideWeight="0.7355623" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20256111" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26443768" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -528,13 +527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portalWeb/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="67" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portalWeb/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="107" selection-start="897" selection-end="897" vertical-scroll-proportion="-4.08">
@@ -544,9 +536,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portalWeb/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="94" selection-start="2195" selection-end="2206" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portalWeb/ui/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="132" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.631664">
+        <state line="24" column="121" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.3660287">
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#3;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />

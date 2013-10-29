@@ -26,15 +26,9 @@
 
     </div>
     <div id="hdy">
-        <h2><a href="/" target="_blank">上海高校技术市场、上海知识产权园迁址合作签约仪式隆重举行</a></h2>
-        <p>日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...</p>
-        <div id="xuxian"></div>
-        <h2><a href="/" target="_blank">上海高校技术市场、上海知识产权园迁址合作签约</a></h2>
-        <p>日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...</p>
-        <div id="xuxian"></div>
-        <h2><a href="/" target="_blank">上海高校技术市场、上海知识产权园迁址合作签约仪式隆重举行</a></h2>
-        <p>日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...</p>
-        <div id="xuxian"></div>
+        <h2 ng-repeat-start="item in home_list_news"><a href="#{{item.linkTo}}" target="_blank">{{item.linkCaption}}</a></h2>
+        <p>{{item.briefPhrase}}</p>
+        <div ng-repeat-end id="xuxian"></div>
         <div class="hdymore"><a href="">...更多>></a></div>
     </div>
     <div id="hdyy"><img src="images/t-1.jpg" border="0" alt="" /></div>

@@ -58,6 +58,12 @@ app.controller('homepageCtrl',['$scope',function($scope){
         $scope.$apply();
     }
     setInterval($scope.home_slide_0.next,3000);
+
+    $scope.home_list_news=[
+        {linkCaption:'上海高校技术市场、上海知识产权园迁址合作签约仪式隆重举行', linkTo:'/news/detail/asdasdf',briefPhrase:'日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...'},
+        {linkCaption:'上海高校技术市场、上海知识产权园迁址合作签约', linkTo:'/news/detail/!@!!#!!@!',briefPhrase:'日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...'},
+        {linkCaption:'上海高校技术市场、上海知识产权园迁址合作签约仪式隆重举行', linkTo:'/news/detail/ADADDEDSD',briefPhrase:'日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...'}
+    ];
 }]);
 /*
 app.controller('homeCtrl',['$scope','$routeParams','$http',
