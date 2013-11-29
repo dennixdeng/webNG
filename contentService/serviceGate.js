@@ -1,7 +1,7 @@
 var PORT_Content_Service=8881;
 var uuid=require('uuid');
 var ossAPI = require('oss-client');
-var oss = new ossAPI.OssClient({accessKeyId: 'Ybx6lzed1szPRAuI',accessKeySecret: 'yoih8NiSadOlPJ9Syi65w7LdRsc6zA'});
+var oss = new ossAPI.OssClient({host:'oss-internal.aliyuncs.com',accessKeyId: 'Ybx6lzed1szPRAuI',accessKeySecret: 'yoih8NiSadOlPJ9Syi65w7LdRsc6zA'});
 var ossBucket= 'webngimage';
 oss.listObject({bucket: ossBucket},
     function (error, result) {
