@@ -1,0 +1,60 @@
+<div style="background-color: gray;color:white;font-family: 微软雅黑;padding:5px">
+    <h3>相册编辑器
+       <button class="pure-button pure-button-primary" style="margin-left:50px ">保存</button></button>
+    </h3>
+</div>
+<h1> 列表-{{imageList.name}} </h1>
+<div id="imageListViewer" style="margin-bottom:10px">
+    <div style="display: inline-block">
+        <div style="background-image:url({{imageList.list[imgInx].imgUrl}});
+                    position: relative;
+                    background-size:cover;height:400px;width:600px;margin: 40px ">
+
+            <div style="background-color: gray;opacity: 0.8;padding:10px">
+                <form name="imgMeta">
+                    标题：<input name="caption" required id="img_caption" placeholder="请输入标题" type="text" ng-model="imageList.list[imgInx].caption" style="width:50%;height:20px" />
+                    <span ng-hide="imgMeta.caption.$valid" style="">需要输入标题</span><br><br>
+
+                链接：<input  name="link" type="url" placeholder="请输入链接地址" ng-model="imageList.list[imgInx].linkTo" style="width:50%;height:20px"  />
+                    <span ng-hide="imgMeta.link.$valid" style="">网址链接格式不正确</span>
+                </form>
+            </div>
+            <div style="background-color: gray;opacity: 0.8;padding:10px;position: absolute;bottom: 0px;right:0px">
+                {{$index+1}}
+                <button ng-disabled="(-1 == imgInx)" ng-click="removeImg()" class="imgCtl pure-button">删除</button>
+                <button ng-disabled="(0 >= imgInx)" ng-click="moveImgUp()" class="imgCtl pure-button">前移</button>
+                <button ng-disabled="(imageList.list.length-1 <= imgInx)" ng-click="moveImgDown()" class="imgCtl pure-button">后移</button>
+                <div class="imgCtl pure-button">停留<input ng-model="imageList.list[imgInx].timeSpan" class="imgCtl" size="1" />秒</div><br>
+            </div>
+
+         </div>
+    </div>
+    <div style="display: block; overflow-x:auto;">
+        <div style="
+                display: inline-block;
+                background-image:url(images/addImage.jpg);background-size:contain;background-repeat: no-repeat;background-position: center;
+                height:80px;width:120px; cursor: pointer"
+             ng-click="showImagePicker=true;"
+        ></div>
+        <div ng-repeat="img in imageList.list" style="
+            display: inline-block;
+            background-image:url({{img.imgUrl}});
+            height:80px;width:120px;background-size:cover;cursor: pointer;"
+             ng-class="($index==imgInx)?'activeImg':''"
+             ng-click="setInx($index)"
+        ></div>
+
+    </div>
+</div>
+<div id="imagePool" style="height:700px;width:800px;border: solid 1px gray;
+                background-color: white;
+                box-shadow: 10px 10px 5px #999;
+                position: absolute; top:100px;left:100px"
+     ng-hide="!showImagePicker">
+     <div class="imgPickerThm" ng-repeat="img in imagePool.list"
+          style="background-image:url({{img.url}});
+                 margin:20px; box-shadow: 5px 5px 5px #aaa;  display: inline-block;
+                 height:80px;width:120px;background-size:cover; cursor: pointer"
+          ng-click="addImage(img.url)"
+     ></div>
+</div>

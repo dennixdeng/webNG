@@ -2,50 +2,15 @@
 
 console.log('Controllers init');
 //Controllers section
-app.controller('menuContoller',['$scope',function($scope){
-    $scope.menuItems=[
-        {caption:'网站首页', left:29, linkTo:'/home',
-            subMenu:[
-            ]},
-        {caption:'市场概况', left:80,  linkTo:'',
-            subMenu:[
-                {caption:'简介',linkTo:'/intro/brief'},
-                {caption:'机构设置',linkTo:'/intro/orgnization'},
-                {caption:'工作人员',linkTo:'/intro/staff'}
-            ]},
-        {caption:'新闻动态', left:152,  linkTo:'',
-            subMenu:[
-            ]},
-        {caption:'高校会展', left:322,  linkTo:'',subMenu:[
-            {caption:'热点信息',linkTo:''},
-            {caption:'工博会',linkTo:''},
-            {caption:'其他展览',linkTo:''}
-        ]},
-        {caption:'成果转化', left:404,  linkTo:'',subMenu:[
-            {caption:'企业需求发布',linkTo:''},
-            {caption:'高校成果发布',linkTo:''},
-            {caption:'经纪人评估',linkTo:''},
-            {caption:'案例展示',linkTo:''}
-        ]},
-        {caption:'合同登记', left:407,  linkTo:'',subMenu:[
-
-        ]},
-        {caption:'技术转移', left:666,  linkTo:'', subMenu:[
-
-        ]},
-        {caption:'政策法规', left:577,  linkTo:'', subMenu:[
-
-        ]},
-        {caption:'相关下载', left:577,  linkTo:'', subMenu:[
-
-        ]}
-    ];
-
+app.controller('menuContoller',['$scope','$http',function($scope,$http){
+    $http.get('../contentService/static/menus/topNavi.json').success(function(data){
+        $scope.menuItems=data;
+    });
     $scope.menuShow=function(inx){
         $scope.activeMenu=inx;
     }
 }]);
-app.controller('homepageCtrl',['$scope',function($scope){
+app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     $scope.home_slide_0={current:0,list:[
         {imgUrl:'images/1.jpg',caption:'上海高校技术市场、上海知识产权园迁址合作签约仪式隆重举行',linkTo:'/news/detail/123445'},
         {imgUrl:'images/2.jpg',caption:'Demo 2',linkTo:'/news/detail/asdasdf'},
@@ -58,9 +23,8 @@ app.controller('homepageCtrl',['$scope',function($scope){
         $scope.$apply();
     }
     setInterval($scope.home_slide_0.next,3000);
-
     $scope.home_list_news=[
-        {linkCaption:'上海高校技术市场、上海知识产权园迁址合作签约仪式隆重举行', linkTo:'/news/detail/asdasdf',briefPhrase:'日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...'},
+        {linkCaption:'上海高校技术市场、上海知识产权园迁址合作签约仪式隆重举行', linkTo:'/news/detail/asdasdf',briefPhrase:'日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...'},
         {linkCaption:'上海高校技术市场、上海知识产权园迁址合作签约', linkTo:'/news/detail/!@!!#!!@!',briefPhrase:'日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...'},
         {linkCaption:'上海高校技术市场、上海知识产权园迁址合作签约仪式隆重举行', linkTo:'/news/detail/ADADDEDSD',briefPhrase:'日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...'}
     ];

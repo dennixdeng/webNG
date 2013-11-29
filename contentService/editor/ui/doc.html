@@ -1,0 +1,311 @@
+<div style="background-color: gray;color:white;padding:5px">
+    <h3>文档编辑器
+        <button class="pure-button pure-button-primary" style="margin-left:50px ">保存</button></button>
+    </h3>
+</div>
+
+<div>本文档属于{{doc.inLists.length}}个列表
+    <div ng-repeat="item in allLists" class="listBtn" ng-class="( -1 == doc.inLists.indexOf(item.id) )?'falseList':'trueList'" ng-click="toggleList(item.id)">{{item.name}}</div>
+</div>
+
+<div style="padding:10px;font-size:20px"><label>标题 </label><input type="text" ng-model="doc.title"  style="width: 500px;padding:2px;border: none; border-bottom: solid 1px blue"/></div>
+<div id="docPreview" style="margin:10px;width:80%;padding:5px;">
+    <div ng-repeat="para in doc.paraList" style="margin: 5px;position: relative"
+         ng-mouseover="delBtnShow=$index" ng-mouseout="delBtnShow=-1"
+         ng-class="($index==delBtnShow)?'activePara':''"   >
+        <div class="pure-control-group" style="position: absolute;right:5px;top:5px" ng-show="delBtnShow == $index">
+            <button class="pure-button" ng-click="removePara($index)">删除</button>
+            <button class="pure-button" ng-click="editPara($index)">编辑</button>
+            <button class="pure-button" ng-click="newHtml($index)" >插入文字</button>
+            <button class="pure-button" ng-click="newImage($index)" >插入图片</button>
+            <button class="pure-button" ng-click="newAttachment($index)" >插入附件</button>
+        </div>
+
+        <span ng-show="para.html" ng-bind-html="para.html.raw"></span>
+        <img ng-show="para.image" ng-src="{{para.image.url}}"/>
+        <span ng-show="para.attachment">附件 - {{para.attachment.name}}</span>
+
+    </div>
+</div>
+<div style="margin: 20px">
+    <button class="pure-button " ng-click="newHtml(-1)" >添加文字</button>
+    <button class="pure-button " ng-click="newImage(-1)" >添加图片</button>
+    <button class="pure-button " ng-click="newAttachment(-1)" >添加附件</button>
+</div>
+<div ng-show="editing==1" class="contentPool" >
+    <textarea id="docEditinput" name="docEditinput"></textarea>
+    <button class="pure-button" ng-click="editing=0;addHtml()" style="position: absolute;right:95px;bottom:5px">{{replace?'完成编辑':'加入文字'}}</button>
+    <button class="pure-button" ng-click="editing=0" style="position: absolute;right:5px;bottom:5px">取消</button>
+</div>
+<div ng-show="editing==2" class="contentPool">
+  <div class="titleBar" style="width: 100%">
+      <span style="margin-left: 60px;font-size: 44px">图片库</span>
+      <button class="pure-button" ng-click="editing=0" style="float:right; margin: 15px">上传图片</button>
+      <button class="pure-button" ng-click="editing=0" style="float:right; margin: 15px">取消</button>
+  </div>
+  <div  style="overflow: auto;width:100%;height: 100%">
+    <div >
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+        <div style="width:120;height:80px;margin: 10px; display: inline-block">11111111111111111</div>
+    </div>
+  </div>
+</div>
+<div ng-show="editing==3" class="contentPool">
+    <div class="titleBar" style="width: 100%">
+        <span style="margin-left: 60px;font-size: 44px">附件库</span>
+        <button class="pure-button" ng-click="editing=0" style="float:right; margin: 15px">上传附件</button>
+        <button class="pure-button" ng-click="editing=0" style="float:right; margin: 15px">取消</button>
+    </div>
+    <div  style="overflow: auto;width:100%;height: 100%">
+        <div >
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">asdflkjashkljasdfh</div>
+            <div style="width:120;height:80px;margin: 10px; display: inline-block">11111111111111111</div>
+        </div>
+    </div>
+</div>
+<div id="fileUploadView">
+    <input type="text" ng-model="myModelObj">
+    <input type="file" ng-file-select="onFileSelect($files)" >
+    <input type="file" ng-file-select="onFileSelect($files)" multiple>
+    <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class"
+         ng-show="dropSupported">drop files here</div>
+    <div ng-file-drop-available="dropSupported=true"
+         ng-show="!dropSupported">HTML5 Drop File is not supported!</div>
+    <button ng-click="upload.abort()">Cancel Upload</button>
+</div>
