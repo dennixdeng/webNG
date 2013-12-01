@@ -7,7 +7,7 @@ app.controller('homeCtrl',['$scope','$http',function($scope,$http){
 
 }]);
 
-var Server="http://localhost:8881/";
+var Server="http://115.29.179.40:8881/";
 
 app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
     $scope.allLists=[{id:'l1',name:'列表1'},{id:'l2',name:'列表2'},{id:'l3',name:'列表3'},{id:'l4',name:'列表4'},{id:'l5',name:'列表5'},{id:'l6',name:'列表6'},{id:'l7',name:'列表7'}];
@@ -108,7 +108,7 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
             }else{
                 $scope.upload = $upload.upload({
                     // url: 'http://115.29.179.40:8881/image/upload',
-                    url: 'http://localhost:8881/image/upload',
+                    url: Server + 'image/upload',
                     // headers: {'headerKey': 'headerValue'}, withCredential: true,
                     data: {myObj: $scope.myModelObj},
                     file: $file
@@ -164,8 +164,7 @@ app.controller('imageListCtrl',function($scope,$http,$routeParams,$upload){
                 $scope.messageFile = '需要PNG, JPG 或 GIF文件';
             }else{
                 $scope.upload = $upload.upload({
-                    // url: 'http://115.29.179.40:8881/image/upload',
-                    url: 'http://localhost:8881/image/upload',
+                    url: Server + 'image/upload',
                     // headers: {'headerKey': 'headerValue'}, withCredential: true,
                     data: {myObj: $scope.myModelObj},
                     file: $file
