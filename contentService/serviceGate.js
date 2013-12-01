@@ -62,7 +62,7 @@ app.get('/get_list/:pool',function(req,res){
 app.post('/image/upload',express.bodyParser(),function(req,res){
     if (req.files){
         var uid =   uuid.v4();
-        oss.putObject({bucket: ossBucket,object: uid,srcFile: req.files.file.path},
+        oss.putObject({bucket: 'webngimage',object: uid,srcFile: req.files.file.path},
           function (error, result) {
             if (error){
                 res.status(400).send(error);
@@ -79,7 +79,26 @@ app.post('/image/upload',express.bodyParser(),function(req,res){
         })
     }
 });
-
+app.post('/attachment/upload',express.bodyParser(),function(req,res){
+    if (req.files){
+        var uid =   uuid.v4();
+        oss.putObject({bucket: 'webngattachment',object: uid,srcFile: req.files.file.path},
+            function (error, result) {
+                if (error){
+                    res.status(400).send(error);
+                }else{
+                    var fileInfo= {
+                        fileId : uid,
+                        url: 'http://webngattachment.oss-cn-hangzhou.aliyuncs.com/'+uid,
+                        name:req.files.file.originalFilename,
+                        type:req.files.file.type,
+                        size: req.files.file.size
+                    };
+                    mdb['attachmentPool'].insert(fileInfo, function(){ res.send(fileInfo); });
+                };
+            })
+    }
+});
 app.get('/open/:pool/:_id',function(req,res){
     var docid =  ObjectID(req.params._id);
     mdb[req.params.pool].find({_id:docid}).nextObject(function(e,d){

@@ -27,6 +27,13 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
         }).error(function(data, status, headers, config) {
             console.log(status);
         });
+    $http.get( Server + 'get_list/attachmentPool').
+        success(function(data, status, headers, config) {
+            $scope.attachmentPoolData = data;
+        }).error(function(data, status, headers, config) {
+            console.log(status);
+        });
+
     var docId= $routeParams.docId;
     if ('new' == docId) {
         $scope.doc={
@@ -129,6 +136,26 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
                     $scope.imagePoolData.push(data);
                 });
             }
+            //.error(...)
+            //.then(success, error, progress);
+        }
+    };
+    $scope.onAttachmentSelect = function($files) {
+        for (var i = 0; i < $files.length; i++) {
+            var $file = $files[i];
+            $scope.upload = $upload.upload({
+                url: Server + 'attachment/upload',
+                // headers: {'headerKey': 'headerValue'}, withCredential: true,
+                data: {myObj: $scope.myModelObj},
+                file: $file
+            }).progress(function(evt) {
+                    $scope.attUploadPercet =   parseInt(100.0 * evt.loaded / evt.total);
+                    console.log(evt.loaded);
+                }).success(function(data, status, headers, config) {
+                    // file is uploaded successfully
+                    $scope.messageFile = '上传成功';
+                    $scope.attachmentPoolData.push(data);
+                });
             //.error(...)
             //.then(success, error, progress);
         }
