@@ -26,8 +26,8 @@ function getDBCollection(db_alias,cList){
 getDBCollection('webNG_SUEU',['imagePool','attachmentPool','listPool','imageListPool','docPool']);
 
 var ossAPI = require('oss-client');
-var ossHost='oss.aliyuncs.com';
-//  var ossHost='oss-internal.aliyuncs.com';
+//var ossHost='oss.aliyuncs.com';
+var ossHost='oss-internal.aliyuncs.com';
 var ossBucket= 'webngimage';
 
 var oss = new ossAPI.OssClient({host:ossHost,accessKeyId: 'Ybx6lzed1szPRAuI',accessKeySecret: 'yoih8NiSadOlPJ9Syi65w7LdRsc6zA'});
