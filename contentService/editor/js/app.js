@@ -7,5 +7,6 @@ app.config(['$routeProvider',function($routeProvider){
             when('/home',{templateUrl:'ui/home.html',controller:'homeCtrl'}).
             when('/doc/:docId',{templateUrl:'ui/doc.html',controller:'docCtrl'}).
             when('/imageList/:listId',{templateUrl:'ui/imageList.html',controller:'imageListCtrl'}).
+            when('/docList/:listId',{templateUrl:'ui/docList.html',controller:'docListCtrl'}).
             otherwise({redirectTo:'/home'});
     }]);
