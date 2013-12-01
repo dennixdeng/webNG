@@ -50,7 +50,7 @@
 <div ng-show="editing==2" class="contentPool">
     <div class="titleBar" style="width: 100%">
         <span style="margin-left: 60px;font-size: 44px">图片库</span>
-        <button class="pure-button" ng-click="editing=0" style="float:right; margin: 15px">{{(uploadPercet<100)?uploadPercet:'上传图片' }}</button>
+        <button class="pure-button" ng-click="editing=0" style="float:right; margin: 15px">{{(uploadPercet<100)?'上传进度 ' +uploadPercet+'%':'上传图片' }}</button>
         <input type="file" class="pure-button" ng-file-select="onFileSelect($files)" style="float:right; margin: 15px -130px 15px 15px; opacity: 0;width:80px" multiple>
 
         <button class="pure-button" ng-click="editing=0" style="float:right; margin: 15px">取消</button>
