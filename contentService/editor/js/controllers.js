@@ -115,6 +115,12 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
         $scope.writePara(p);
         $scope.editing=0;
     };
+    $scope.addAttachment=function(attachmentInx){
+        var p={attachment:$scope.attachmentPoolData[attachmentInx]};
+        $scope.writePara(p);
+        $scope.editing=0;
+    };
+
     $scope.onFileSelect = function($files) {
         for (var i = 0; i < $files.length; i++) {
             var $file = $files[i];
@@ -222,8 +228,35 @@ app.controller('docListCtrl',function($scope,$http,$routeParams){
 
 });
 //Filters section
-angular.module('etFilters', []).filter('checkmark', function() {
+var extList=[
+    'ai','aiff','ani','asf','au','avi','bat','bin','bmp','bup',
+    'cab','cal','cat','cur','dat','dcr','der','dic','dll','doc',
+    'docx','dvd','dwg','dwt','fon','gif','hlp','hst','html','ico',
+    'ifo','inf','ini','java','jif','jpg','log','m4a','mmf','mmm',
+    'mov','mp2','mp2v','mp3','mp4','mpeg','msp','pdf','png','ppt',
+    'pptx','psd','ra','rar','reg','rtf','theme','tiff','tlb','ttf',
+    'txt','vob','wav','wma','wmv','wpl','wri','xls','xlsx','xml',
+    'xsl','zip','ac3'
+];
+angular.module('etFilters', [])
+  .filter('checkmark', function() {
     return function(input) {
         return input ? '\u2713' : '\u2718';
     };
-});
+}).filter('stringLeft', function() {
+    return function(src,len) {
+        if(!src) return null;
+        if (src.length > len){
+            return src.slice(0,len) + '...';
+        }else{
+            return src;
+        }
+    };
+}).filter('fileExtIcon', function() {
+    return function(filename) {
+        var ext = filename.slice(filename.lastIndexOf('.')+1,filename.length).toLowerCase();
+        var inx= extList.indexOf(ext);
+        if (-1 == inx){ inx = 79 ;}
+        return  '-' + ((inx % 10) * 96) +'px -' + (Math.floor(inx / 10)*92) + 'px';
+    };
+})
