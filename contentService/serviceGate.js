@@ -48,8 +48,8 @@ app.options("*",function(req,res){res.end('Good day');});
 app.listen(PORT_Content_Service);
 console.log('Content Service listening on ' + PORT_Content_Service);
 
-app.get('/list/:pool/:listId',function(req,res){
-    mdb[req.params.pool].find({inLists:{$in:[req.params.listId]}}).toArray(function(e,d){
+app.get('/list/:pool/:top/:listId',function(req,res){
+    mdb[req.params.pool].find({inLists:{$in:[req.params.listId]}},{},{sort:[['_id','desc']],limit:req.params.top}).toArray(function(e,d){
         res.send(d);
     });
 });

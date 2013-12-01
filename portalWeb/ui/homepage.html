@@ -26,8 +26,8 @@
 
     </div>
     <div id="hdy">
-        <h2 ng-repeat-start="item in home_list_news"><a href="#{{item.linkTo}}" target="_blank">{{item.linkCaption}}</a></h2>
-        <p>{{item.briefPhrase}}</p>
+        <h2 ng-repeat-start="doc in home_list_news.list"><a href="#/news/{{doc._id}}">{{doc.title}}</a></h2>
+        <p>{{doc | docBrief}}</p>
         <div ng-repeat-end id="xuxian"></div>
         <div class="hdymore"><a href="">...更多>></a></div>
     </div>

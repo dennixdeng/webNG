@@ -1,12 +1,12 @@
 <div style="background-color: gray;color:white;padding:5px">
     <h3>文档编辑器
-        <button class="pure-button pure-button-primary" ng-click="saveDoc()" style="margin-left:50px ">保存</button>
-        <span style="margin-left: 50px">{{serverMessage}}</span>
+        <button class="pure-button pure-button-primary" ng-click="saveDoc()" ng-blur="serverMessage=''" style="margin-left:50px ">保存</button>
+        <span style="margin-left: 50px;font-size: 12px;">{{serverMessage}}</span>
     </h3>
 </div>
 
 <div>本文档属于{{doc.inLists.length}}个列表
-    <div ng-repeat="item in allLists" class="listBtn" ng-class="( -1 == doc.inLists.indexOf(item.id) )?'falseList':'trueList'" ng-click="toggleList(item.id)">{{item.name}}</div>
+    <div ng-repeat="item in allLists" class="listBtn" ng-class="( -1 == doc.inLists.indexOf(item._id) )?'falseList':'trueList'" ng-click="toggleList(item._id)">{{item.name}}</div>
 </div>
 
 <div style="padding:10px;font-size:20px"><label>标题 </label><input type="text" ng-model="doc.title"  style="width: 500px;padding:2px;border: none; border-bottom: solid 1px blue"/></div>
@@ -22,7 +22,7 @@
             <button class="pure-button" ng-click="newAttachment($index)" >插入附件</button>
         </div>
 
-        <span ng-show="para.html" ng-bind-html="para.html.raw"></span>
+        <span ng-show="para.html" ng-bind-html="para.html.show"></span>
         <img ng-show="para.image" ng-src="{{para.image.url}}"/>
         <span ng-show="para.attachment">附件 - {{para.attachment.name}}</span>
 

@@ -23,7 +23,7 @@ newimageList :function(Id){
 newList:function(Id){
     var obj={};
     Component.http.get(Server +'list/docPool/' + Id).success(function(d){
-        obj.list= d.list;
+        obj.list= d;
     });
     return obj;
     }
@@ -42,12 +42,13 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     $scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
     $scope.home_list_news= Component.newList('529addfb0e66761d078fe35b');
 
+    /*
     $scope.home_list_news=[
         {linkCaption:'上海高校技术市场、上海知识产权园迁址合作签约仪式隆重举行', linkTo:'/news/detail/asdasdf',briefPhrase:'日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...'},
         {linkCaption:'上海高校技术市场、上海知识产权园迁址合作签约', linkTo:'/news/detail/!@!!#!!@!',briefPhrase:'日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...'},
         {linkCaption:'上海高校技术市场、上海知识产权园迁址合作签约仪式隆重举行', linkTo:'/news/detail/ADADDEDSD',briefPhrase:'日前，上海技术交易所组织了青浦基层驿站的40名金融机构工作人员参加了2013年上海市执业技术经纪人培训...'}
     ];
-
+    */
 }]);
 /*
 app.controller('homeCtrl',['$scope','$routeParams','$http',
@@ -83,3 +84,16 @@ angular.module('etFilters', []).filter('checkmark', function() {
         return input ? '\u2713' : '\u2718';
     };
 });
+
+angular.module('etFilters', []).filter('docBrief', function() {
+    return function(doc) {
+        var brief='';
+        for (var i in doc.paraList){
+            if( doc.paraList[i].html ) {
+                brief += doc.paraList[i].html.raw.replace(/<[^>]*>/g, "");
+            }
+        }
+        return brief.substr(0,150);
+    };
+});
+

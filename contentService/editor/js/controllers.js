@@ -10,7 +10,9 @@ app.controller('homeCtrl',['$scope','$http',function($scope,$http){
 var Server="http://115.29.179.40:8881/";
 
 app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
-    $scope.allLists=[{id:'l1',name:'列表1'},{id:'l2',name:'列表2'},{id:'l3',name:'列表3'},{id:'l4',name:'列表4'},{id:'l5',name:'列表5'},{id:'l6',name:'列表6'},{id:'l7',name:'列表7'}];
+    $http.get(Server + 'get_list/listPool').success(function(d){
+        $scope.allLists=d ; //[{id:'l1',name:'列表1'},{id:'l2',name:'列表2'},{id:'l3',name:'列表3'},{id:'l4',name:'列表4'},{id:'l5',name:'列表5'},{id:'l6',name:'列表6'},{id:'l7',name:'列表7'}];
+    });
     $scope.toggleList=function(l){
         var inx = $scope.doc.inLists.indexOf(l);
        if ( -1 == inx ){
@@ -19,9 +21,8 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
             $scope.doc.inLists.splice(inx,1);
         }
     };
-    $http({method: 'GET', url: Server + 'get_list/imagePool'}).
+    $http.get( Server + 'get_list/imagePool').
         success(function(data, status, headers, config) {
-            console.log(data);
             $scope.imagePoolData = data;
         }).error(function(data, status, headers, config) {
             console.log(status);
@@ -35,12 +36,18 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
             ,inLists:[]
         };
     }else{
-        $http.get(Server + 'open/docPool/' + docId).success(function(data){
+        $http.get(Server + 'open/docPool/' + docId)
+        .success(function(data){
             $scope.doc=data;
+            for (var i in $scope.doc.paraList) {
+                var p = $scope.doc.paraList[i];
+                if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
+            }
         })
     };
 
     $scope.saveDoc=function(){
+        console.log($scope.doc);
         $http.post( Server + 'save/docPool', {doc:$scope.doc}).
             success(function(data, status, headers, config) {
                 $scope.serverMessage='保存成功';
@@ -92,7 +99,8 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
         }
     };
     $scope.addHtml=function(){
-        var p={html:{raw: $sce.trustAsHtml($("#docEditinput").val())}};
+        var p={html:{raw: $("#docEditinput").val(),show:$sce.trustAsHtml($("#docEditinput").val())}};
+        console.log(p);
         $scope.writePara(p);
     };
     $scope.addImage=function(imgInx){
