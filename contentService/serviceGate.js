@@ -65,6 +65,24 @@ app.get('/list/:pool/:top/:listId',function(req,res){
         res.send(d);
     });
 });
+app.get('/list_title/:pool/:top/:listId',function(req,res){
+    var qObj={};
+    var sortObj= {sort:[['_id','desc']]};
+    switch (req.params.listId){
+        case 'all':qObj = {};
+            break;
+        case 'none':qObj = {inLists:{$size: 0}};
+            break;
+        default : qObj = {inLists:{$in:[req.params.listId]}};
+            break;
+    }
+    if ('all' != req.params.top){
+        sortObj.limit =  req.params.top;
+    }
+    mdb[req.params.pool].find(qObj,{title:1},sortObj).toArray(function(e,d){
+        res.send(d);
+    });
+});
 app.get('/get_list/:pool',function(req,res){
     mdb[req.params.pool].find().toArray(function(e,d){
         res.send(d);
