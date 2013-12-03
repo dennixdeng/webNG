@@ -48,7 +48,20 @@ app.listen(PORT_Content_Service);
 console.log('Content Service listening on ' + PORT_Content_Service);
 
 app.get('/list/:pool/:top/:listId',function(req,res){
-    mdb[req.params.pool].find({inLists:{$in:[req.params.listId]}},{},{sort:[['_id','desc']],limit:req.params.top}).toArray(function(e,d){
+    var qObj={};
+    var sortObj= {sort:[['_id','desc']]};
+    switch (req.params.listId){
+        case 'all':qObj = {};
+            break;
+        case 'none':qObj = {inLists:{$size: 0}};
+            break;
+        default : qObj = {inLists:{$in:[req.params.listId]}};
+            break;
+    }
+    if ('all' != req.params.top){
+        sortObj.limit =  req.params.top;
+    }
+    mdb[req.params.pool].find(qObj,{},sortObj).toArray(function(e,d){
         res.send(d);
     });
 });

@@ -1,0 +1,16 @@
+<div style="background-color: gray;color:white;padding:5px">
+    <h3>WebNG 内容管理系统
+        <span style="margin-left: 50px;font-size: 12px;">{{serverMessage}}</span>
+    </h3>
+</div>
+
+<div >
+    <ul style="display: inline-block">
+        <li style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px" ng-class="( -1 ==listActive )?'trueList':'falseList'" ng-click="activateList(-1)">草稿箱</li>
+        <li ng-repeat="item in allLists" style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px" ng-class="( listActive == $index )?'trueList':'falseList'" ng-click="activateList($index)">{{item.name}}</li>
+    </ul>
+    <ul style="display: inline-block; vertical-align: top">
+        <li><button class="pure-button pure-button-primary" >创建新文档</button></li>
+        <li ng-repeat="doc in docList"><a href="#/doc/{{doc._id}}" target="_blank">{{doc.title}}</a></li>
+    </ul>
+</div>

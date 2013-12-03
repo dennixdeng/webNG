@@ -24,14 +24,14 @@ font-family: "Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,ST
     outline: none;border:solid 2px #9ecaed;box-shadow: 0 0 20px #000;
 }
 .contentPool{
-    height:700px;
+    height:600px;
     width:800px;
     border: solid 1px gray;
     background-color: white;
     box-shadow: 10px 10px 5px #999;
     position: fixed;
-    top:100px;
-    left:100px
+    top:10px;
+    left:50px
 }
 .contentPool .titleBar{
     width: 100%;

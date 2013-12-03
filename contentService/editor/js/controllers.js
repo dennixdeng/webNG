@@ -225,7 +225,21 @@ app.controller('imageListCtrl',function($scope,$http,$routeParams,$upload){
 });
 
 app.controller('docListCtrl',function($scope,$http,$routeParams){
-
+    $http.get(Server + 'get_list/listPool').success(function(d){
+        $scope.allLists=d ;
+    });
+    $scope.activateList=function(inx){
+        $scope.listActive=inx;
+        if(-1 == inx){
+            $http.get(Server + 'list/docPool/-1/-1').success(function(d){
+                $scope.docList=d ;
+            });
+        }else{
+            $http.get(Server + 'list/docPool/-1/' +  $scope.allLists[inx]._id).success(function(d){
+                $scope.docList=d ;
+            });
+        }
+    }
 });
 //Filters section
 var extList=[
@@ -256,7 +270,10 @@ angular.module('etFilters', [])
     return function(filename) {
         var ext = filename.slice(filename.lastIndexOf('.')+1,filename.length).toLowerCase();
         var inx= extList.indexOf(ext);
-        if (-1 == inx){ inx = 79 ;}
-        return  '-' + ((inx % 10) * 96) +'px -' + (Math.floor(inx / 10)*92) + 'px';
+        if (-1 == inx){
+            return  'background-image:url(images/fileDownload.png);background-size: contain';
+        }else{
+            return  'background:url(images/fileTypes.jpg) -' + ((inx % 10) * 96) +'px -' + (Math.floor(inx / 10)*92) + 'px';
+        }
     };
 })
