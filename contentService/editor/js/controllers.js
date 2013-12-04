@@ -10,6 +10,7 @@ app.controller('homeCtrl',['$scope','$http',function($scope,$http){
 var Server="http://115.29.179.40:8881/";
 
 app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
+
     $http.get(Server + 'get_list/listPool').success(function(d){
         $scope.allLists=d ; //[{id:'l1',name:'列表1'},{id:'l2',name:'列表2'},{id:'l3',name:'列表3'},{id:'l4',name:'列表4'},{id:'l5',name:'列表5'},{id:'l6',name:'列表6'},{id:'l7',name:'列表7'}];
     });
@@ -35,12 +36,12 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
         });
 
     var docId= $routeParams.docId;
-    if ('new' == docId) {
+    console.log($routeParams.docId);
+    if (undefined == docId) {
         $scope.doc={
-            _id: null,
             title:''
             ,paraList:[]
-            ,inLists:[]
+            ,inLists:($routeParams.listId)?[$routeParams.listId]:[]
         };
     }else{
         $http.get(Server + 'open/docPool/' + docId)
@@ -225,6 +226,7 @@ app.controller('imageListCtrl',function($scope,$http,$routeParams,$upload){
 });
 
 app.controller('docListCtrl',function($scope,$http,$routeParams){
+    $scope.serverMessage='HTML5技术全新支持，建议使用Chrome, Safari, FireFox, QQ, 搜狗，百度，猎豹, 360等现代浏览器';
     $http.get(Server + 'get_list/listPool').success(function(d){
         $scope.allLists=d ;
     });

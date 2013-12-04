@@ -17,7 +17,7 @@
         {"caption":"其他展览","linkTo":""}
     ]},
     {"caption":"成果转化", "left":404,  "linkTo":"","subMenu":[
-        {"caption":"企业需求发布","linkTo":""},
+        {"caption":"企业需求发布","linkTo":"/qiyefabu/"},
         {"caption":"高校成果发布","linkTo":""},
         {"caption":"经纪人评估","linkTo":""},
         {"caption":"案例展示","linkTo":""}

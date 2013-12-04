@@ -26,7 +26,7 @@
 
     </div>
     <div id="hdy">
-        <h2 ng-repeat-start="doc in home_list_news.list"><a href="#/news/{{doc._id}}">{{doc.title}}</a></h2>
+        <h2 ng-repeat-start="doc in xwdt.list"><a href="#/news/{{doc._id}}">{{doc.title}}</a></h2>
         <p>{{doc|docBrief:140}}</p>
         <div ng-repeat-end id="xuxian"></div>
         <div class="hdymore"><a href="">...更多>></a></div>
@@ -229,37 +229,9 @@
             <li ng-repeat="doc in alzs.list"><a href="#/news/{{doc._id}}"><img ng-src="{{doc|docImage}}" alt="" border="0" /></a><p><a href="#/news/{{doc._id}}">{{doc.title}}</a></p></li>
         </Ol>
     </div>
-    <div class="fw">网站访问量：234888    电话：021-11111111</div>
+
 </div>
 <!--案例展示结束-->
 
 <!--body结束-->
-
-<!--foot开始-->
-<div class="foot">
-    <div class="foottxt">
-        <p>copyright2013 上海高校技术市场 版权所有</p>
-    </div>
 </div>
-<!--foot结束-->
-</div>
-<script language="JavaScript" type="text/javascript">
-    function addListener(element,e,fn){
-        if(element.addEventListener){
-            element.addEventListener(e,fn,false);
-        } else {
-            element.attachEvent("on" + e,fn);
-        }
-    }
-    var myinput = document.getElementById("s");
-    addListener(myinput,"click",function(){
-        myinput.value = "";
-    })
-    addListener(myinput,"blur",function(){
-        myinput.value = "输入搜索内容";
-    })
-
-</script>
-
-
-</body>

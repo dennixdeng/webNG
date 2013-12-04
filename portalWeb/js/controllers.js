@@ -1,7 +1,7 @@
 'use strict';
-var Server="http://115.29.179.40:8881/";
+//var Server="http://115.29.179.40:8881/";
+var Server="http://localhost:8881/";
 
-console.log('Controllers init @ svr ' + Server);
 //component section
 var Component={
     http:null,
@@ -26,11 +26,18 @@ newList:function(top,Id){
         obj.list= d;
     });
     return obj;
-    }
+    },
+newTitleList:function(pool,top,list){
+    var obj={};
+    Component.http.get(Server +'/list_title/'+pool+'/'+top+'/'+list).success(function(d){
+        obj.list= d;
+    });
+    return obj;
+}
 }
 //Controllers section
 app.controller('menuContoller',['$scope','$http',function($scope,$http){
-    $http.get('../contentService/static/menus/topNavi.json').success(function(data){
+    $http.get('menus/topNavi.json').success(function(data){
         $scope.menuItems=data;
     });
     $scope.menuShow=function(inx){
@@ -40,7 +47,7 @@ app.controller('menuContoller',['$scope','$http',function($scope,$http){
 app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     Component.http=$http;Component.scope=$scope;
     $scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
-    $scope.home_list_news= Component.newList(3,'529addfb0e66761d078fe35b');
+    $scope.xwdt= Component.newList(3,'529addfb0e66761d078fe35b');
     $scope.xxdt= Component.newList(4,'529b14ceec282bac9148ac10');
     $scope.ptjz= Component.newList(5,'529b1da2ec282bac9148ac11');
     $scope.ptjj= Component.newList(1,'529b22dcec282bac9148ac12');
@@ -52,7 +59,20 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     $scope.xzzq= Component.newList(9,'529b37deec282bac9148ac18');
     $scope.alzs= Component.newList(9,'529b3c53ec282bac9148ac19');
 }]);
-
+app.controller('qiyefabuCtrl',function($scope,$http){
+    Component.http=$http;Component.scope=$scope;
+    //$scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
+    $scope.xwdt= Component.newList(5,'529addfb0e66761d078fe35b');
+    $scope.qyfb= Component.newTitleList('qiyefabuPool',5,'all');
+    $scope.doc={};
+    $scope.submitDoc=function(){
+        $http.post(Server + 'save/qiyefabuPool',{doc:$scope.doc})
+            .success(function(){
+                alert('发布成功！')
+                $scope.doc={};
+            });
+    };
+});
 //Filters section
 angular.module('etFilters', [])
   .filter('checkmark', function() {
@@ -102,5 +122,13 @@ angular.module('etFilters', [])
             return src;
         }
     };
-})
+}).filter('Id2Date',function(){
+        return function(id){
+            return new Date(parseInt(id.toString().slice(0,8), 16)*1000).toLocaleString().split(' ')[0];
+        }
+}).filter('cnDate',function(){
+        return function(date){
+
+        }
+    })
 
