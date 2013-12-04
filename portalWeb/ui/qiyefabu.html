@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>企业需求发布</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/qiyefabu.css" rel="stylesheet" type="text/css" />
+<script>
+//初始化
+var def="1";
+function mover(object){
+  //主菜单
+  var mm=document.getElementById("m_"+object);
+  mm.className="m_li_a";
+  //初始主菜单先隐藏效果
+  if(def!=0){
+    var mdef=document.getElementById("m_"+def);
+    mdef.className="m_li";
+  }
+  //子菜单
+  var ss=document.getElementById("s_"+object);
+  ss.style.display="block";
+  //初始子菜单先隐藏效果
+  if(def!=0){
+    var sdef=document.getElementById("s_"+def);
+    sdef.style.display="none";
+  }
+}
+
+function mout(object){
+  //主菜单
+  var mm=document.getElementById("m_"+object);
+  mm.className="m_li";
+  //初始主菜单还原效果
+  if(def!=0){
+    var mdef=document.getElementById("m_"+def);
+    mdef.className="m_li_a";
+  }
+  //子菜单
+  var ss=document.getElementById("s_"+object);
+  ss.style.display="none";
+  //初始子菜单还原效果
+  if(def!=0){
+    var sdef=document.getElementById("s_"+def);
+    sdef.style.display="block";
+  }
+}
+</script>
+<script type=text/javascript>
+	function setTab03Syn ( i )
+	{
+		selectTab03Syn(i);
+	} //切换JS
+	
+	function selectTab03Syn ( i )
+	{
+		switch(i){
+			case 1:
+			document.getElementById("TabTab03Con1").style.display="block";
+			document.getElementById("TabTab03Con2").style.display="none";
+			document.getElementById("font1").style.color="#000000";
+			document.getElementById("font2").style.color="#000000";
+			break;
+			case 2:
+			document.getElementById("TabTab03Con1").style.display="none";
+			document.getElementById("TabTab03Con2").style.display="block";
+			document.getElementById("font1").style.color="#000000";
+			document.getElementById("font2").style.color="#000000";
+			break;
+		}
+	}
+
+</script>
+<script type=text/javascript>
+	function setTab03Syn ( i )
+	{
+		selectTab03Syn(i);
+	} //切换JS
+	
+	function selectTab03Syn ( i )
+	{
+		switch(i){
+			case 1:
+			document.getElementById("TabTab03Con12").style.display="block";
+			document.getElementById("TabTab03Con22").style.display="none";
+			document.getElementById("font12").style.color="#000000";
+			document.getElementById("font22").style.color="#000000";
+			break;
+			case 2:
+			document.getElementById("TabTab03Con12").style.display="none";
+			document.getElementById("TabTab03Con22").style.display="block";
+			document.getElementById("font12").style.color="#000000";
+			document.getElementById("font22").style.color="#000000";
+			break;
+		}
+	}
+
+</script>
+<script>
+function textdown(e) 
+{textevent = e ; 
+if(textevent.keyCode == 8) 
+{ 
+return; 
+} 
+if(document.getElementById('text').value.length >= 300)  
+{ 
+alert("大侠，框太小装不下这么多字，先输入这么多字好不？")  
+if(!document.all) 
+{ 
+textevent.preventDefault(); 
+} 
+else 
+{ 
+textevent.returnValue = false; 
+} 
+} 
+} 
+function textup() 
+{ 
+var s = document.getElementById('text').value; 
+//判断ID为text的文本区域字数是否超过300个 
+if(s.length > 300)  
+{ 
+document.getElementById('text').value=s.substring(0,300); 
+} 
+}
+
+</script>
+</head>
+
+<body>
+<!--topstar-->
+<div class="top">
+<div id="logo"><a href=""></a></div>
+<div id="topdh"><a href="">联系我们</a><span><img src="images/huaxian.jpg" /></span> <a href="">友情链接</a> <span><img src="images/huaxian.jpg" /></span><a href="">网站地图</a><span><img src="images/huaxian.jpg" /></span></div>
+<div id="searchtop">
+<div id="search_box"> 
+<form id="search_form" method="post" action="#"> 
+<input type="text" id="s" value="输入搜索内容" class="swap_value" /> 
+<input type="image" src="images/sousu.jpg" width="34" height="18" id="go" alt="Search" title="Search" /> 
+</form> 
+</div>
+</div>
+
+</div>
+<!--topend-->
+
+<!--导航开始-->
+
+<div id="menu">
+  <ul>
+    <li class="m_line"><img src="images/line1.gif" /></li>
+    <li id="m_1" class='m_li_a'><a href="#">网站首页</a></li>
+    <li class="m_line"><img src="images/line1.gif" /></li>
+    <li id="m_2" class='m_li' onmouseover='mover(2);' onmouseout='mout(2);'><a href="#">市场概况</a></li>
+    <li class="m_line"><img src="images/line1.gif" /></li>
+    <li id="m_3" class='m_li' onmouseover='mover(3);' onmouseout='mout(3);'><a href="#">新闻动态</a></li>
+    <li class="m_line"><img src="images/line1.gif" /></li>
+    <li id="m_4" class='m_li' onmouseover='mover(4);' onmouseout='mout(4);'><a href="#">高校会展</a></li>
+    <li class="m_line"><img src="images/line1.gif" /></li>
+    <li id="m_5" class='m_li' onmouseover='mover(5);' onmouseout='mout(5);'><a href="#">成果转换</a></li>
+    <li class="m_line"><img src="images/line1.gif" /></li>
+    <li id="m_6" class='m_li' onmouseover='mover(6);' onmouseout='mout(6);'><a href="#">合同登记</a></li>
+    <li class="m_line"><img src="images/line1.gif" /></li>
+    <li id="m_7" class='m_li' onmouseover='mover(7);' onmouseout='mout(7);'><a href="#">技术转移</a></li>
+    <li class="m_line"><img src="images/line1.gif" /></li>
+	<li id="m_8" class='m_li' onmouseover='mover(8);' onmouseout='mout(8);'><a href="#">政策法规</a></li>
+    <li class="m_line"><img src="images/line1.gif" /></li>
+	<li id="m_9" class='m_li' onmouseover='mover(9);' onmouseout='mout(9);'><a href="#">相关下载</a></li>
+    <li class="m_line"><img src="images/line1.gif" /></li>
+  </ul>
+</div>
+<div style="height:32px; background-color:#F1F1F1;">
+  <ul class="smenu">
+    <li style="padding-left:29px;" id="s_1" class='s_li_a'><a href="#">简介</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">机构设置</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">工作人员</a></li>
+    <li style="padding-left:80px;" id="s_2" class='s_li' onmouseover='mover(2);' onmouseout='mout(2);'><a href="#">财税简介</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">机构设置</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">办事指南</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">税种简介</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">财税动态</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">公车动态</a></li>
+    <li style="padding-left:152px;" id="s_3" class='s_li' onmouseover='mover(3);' onmouseout='mout(3);'><a href="#">下载专区</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">上传专区</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="j#">申请报名</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">查询系统</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">咨询投诉</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">满意调查</a></li>
+    <li style="padding-left:322px;" id="s_4" class='s_li' onmouseover='mover(4);' onmouseout='mout(4);'><a href="#">最新公告</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">会计通知</a></li>
+    <li style="padding-left:404px;" id="s_5" class='s_li' onmouseover='mover(5);' onmouseout='mout(5);'><a href="#">最新政策</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">政策法规查询</a></li>
+    <li style="padding-left:407px;" id="s_6" class='s_li' onmouseover='mover(6);' onmouseout='mout(6);'><a href="#">税收宣传</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">队伍建设</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">文明创建</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#" target="_blank">青年论坛</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">廉政课堂</a></li>
+    <li style="padding-left:666px;" id="s_7" class='s_li' onmouseover='mover(7);' onmouseout='mout(7);'><a href="#">专题宣传区</a></li>
+	<li style="padding-left:577px;" id="s_8" class='s_li' onmouseover='mover(8);' onmouseout='mout(8);'><a href="#">税收宣传</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">队伍建设</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">文明创建</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#" target="_blank">青年论坛</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">廉政课堂</a></li>
+	<li style="padding-left:577px;" id="s_9" class='s_li' onmouseover='mover(9);' onmouseout='mout(9);'><a href="#">税收宣传</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">队伍建设</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">文明创建</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#" target="_blank">青年论坛</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">廉政课堂</a></li>
+  </ul>
+</div>
+
+
+
+<!--导航结束-->
+
+<!--body开始-->
+<div class="content">
+<!--body左侧开始-->
+<div class="contm">
+<div id="cont_left" class="row">
+<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
+<div class="live_new">
+<div class="topname">
+新闻动态
+</div>
+<div class="new">
+<ul class="newlist">
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
+</ul>
+</div>
+<div class="newsmore"><a href="">更多</a></div>
+</div>
+<div class="video">
+<div class="topname">
+视频
+</div>
+<div class="video_p">
+<embed src="http://player.youku.com/player.php/sid/XNjI1MDkxMTEy/v.swf" allowFullScreen="true" quality="high" width="305" height="208" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+</div>
+<div class="video_s">
+Aenean  sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at,  odio.
+</div>
+</div>
+<div class="qiehuan1">
+<div class="tab">
+	<div id="bg" class="tao2t1">
+		<div id="font1" class="tab1" onMouseOver="setTab03Syn(1);document.getElementById('bg').className='tao2t1'">企业发布</div>
+		<div id="font2" class="tab2" onMouseOver="setTab03Syn(2);document.getElementById('bg').className='tao2t2'">经纪人评估</div>
+	</div>
+    <div id=TabTab03Con1><ul class="qhlist">
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
+</ul></div>
+	<div id=TabTab03Con2 style="display:none"><ul class="qhlist">
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
+</ul></div>
+</div>
+<div class="qhsmore"><a href="">更多企业需求发布</a></div>
+</div>
+<div class="qiehuan2">
+<div class="tab">
+	<div id="bg2" class="tao2t1">
+		<div id="font12" class="tab1" onMouseOver="setTab03Syn(1);document.getElementById('bg2').className='tao2t1'">高校发布</div>
+		<div id="font22" class="tab2" onMouseOver="setTab03Syn(2);document.getElementById('bg2').className='tao2t2'">经纪人评估</div>
+	</div>
+    <div id=TabTab03Con12><ul class="qhlist">
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
+</ul></div>
+	<div id=TabTab03Con22 style="display:none"><ul class="qhlist">
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
+<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
+</ul></div>
+</div>
+<div class="qhsmore"><a href="">更多高校成果发布</a></div>
+</div>
+
+</div>
+<!--body右侧开始-->
+<div id="cont_right">
+<div class="conttit">
+高校成果发布
+</div>
+<div class="fgx"></div>
+<div class="contlb">
+<div class="fbtit">
+企业技术难题（项目）需求信息表
+</div>
+<div class="biaod">
+<form action="" method="get">
+<div class="biaodname">单位名称</div><input name="n1" type="text" value="输入单位名称" onclick="this.value=''" onblur="this.value='输入单位名称'" class="image-sprites_x" />
+<div class="bdxx"></div>
+<div class="biaodname">单位地址</div><input name="n2" type="text" class="image-sprites_x"  />
+<div class="bdxx"></div>
+<div class="biaodname">联系人</div><input name="n3" type="text" class="image-sprites_w" /><span class="qyphone">电 话</span><input name="n4" type="text" class="image-sprites_w"/>
+<div class="bdxx"></div>
+<div class="biaodname">E-mail</div><input name="n3" type="text" class="image-sprites_w" />邮政编码<input name="n4" type="text" class="image-sprites_w"/>
+<div class="bdxx"></div>
+<div class="biaodnament">难题（项目）需求名称</div><input name="n22" type="text" class="image-sprites_wd"  />
+<div class="bdxx5"></div>
+<div class="hzfs">
+<div class="biaodname5">合作方式</div><div class="hzfsy"><div class="hzfs_n"><textarea name="" cols="" rows=""  id="text" onKeyDown="textdown(event)" onKeyUp="textup()" class="image-sprites_nd"></textarea></div></div>
+<div class="jdsmwzh">（300字内）</div>
+
+</div>
+<div class="bdxx"></div>
+<div class="hzfs">
+<div class="biaodname5">主要技术 参数要求</div><div class="hzfsy"><div class="hzfs_n"><textarea name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div></div>
+</div>
+<div class="bdxx4"></div>
+<div class="hzfs">
+<div class="biaodname5">企业简介</div><div class="hzfsy"><div class="hzfs_n"><textarea name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div></div>
+<div class="jdsmwz">（注明企业现有厂房、设备、产品等）</div>
+</div>
+</form>
+
+</div>
+</div>
+<div class="contlbx">
+<div class="fb"><input name="img" type="image" src="images/fabu.png" /></div>
+
+</div>
+
+
+</div>
+</div>
+<!--body结束-->
+<!--foot开始-->
+<div class="foot">
+<div class="foottxt">
+<p>copyright2013 上海高校技术市场 版权所有</p>
+</div>
+</div>
+<!--foot结束-->
+</div>
+<script language="JavaScript" type="text/javascript">
+			function addListener(element,e,fn){    
+    	 		if(element.addEventListener){    
+          			element.addEventListener(e,fn,false);    
+     			 } else {    
+         	 		element.attachEvent("on" + e,fn);    
+     	 		 }    
+			}
+			var myinput = document.getElementById("s");
+			addListener(myinput,"click",function(){
+				myinput.value = "";
+			})
+			addListener(myinput,"blur",function(){
+				myinput.value = "输入搜索内容";
+			})
+
+</script>
+
+<script type="text/javascript">
+				var d = document;
+				var safari = (navigator.userAgent.toLowerCase().indexOf('safari') != -1) ? true : false;
+				
+				var gebtn = function(parEl,child) { return parEl.getElementsByTagName(child); };
+				onload = function() {
+					var body = gebtn(d,'body')[0];
+					body.className = body.className && body.className != '' ? body.className + ' has-js' : 'has-js';
+					if (!d.getElementById || !d.createTextNode) {
+						return;
+					}
+					var ls = gebtn(d,'label');
+					for (var i = 0; i < ls.length; i++) {
+						var l = ls[i];
+						if (l.className.indexOf('label_') == -1) {
+							continue;
+						}
+						var inp = gebtn(l,'input')[0];
+						if (l.className == 'label_check') {
+							//l.className = (safari && inp.checked == true || inp.checked) ? 'label_check c_on' : 'label_check c_off';
+							l.className = (safari && inp.checked == true || inp.checked) ? 'label_check c_off' : 'label_check c_on';
+							l.onclick = check_it;
+						};
+						if (l.className == 'label_radio') {
+							l.className = (safari && inp.checked == true || inp.checked) ? 'label_radio r_on' : 'label_radio r_off';
+							l.onclick = turn_radio;
+						};
+					};
+				};
+				var check_it = function() {
+					var inp = gebtn(this,'input')[0];
+					if (this.className == 'label_check c_off' || (!safari && inp.checked)) {
+						this.className = 'label_check c_on';
+						if (safari) {
+							inp.click();
+						};
+					} else {
+						this.className = 'label_check c_off';
+						if (safari){ 
+							inp.click();
+						};
+					};
+				};
+				var turn_radio = function() {
+					var inp = gebtn(this,'input')[0];
+					if (this.className == 'label_radio r_off' || inp.checked) {
+						var ls = gebtn(this.parentNode,'label');
+						for (var i = 0; i < ls.length; i++) {
+							var l = ls[i];
+							if (l.className.indexOf('label_radio') == -1) {
+								continue;
+							};
+							l.className = 'label_radio r_off';
+						};
+						this.className = 'label_radio r_on';
+						if (safari){ 
+							inp.click();
+						};
+					} else {
+						this.className = 'label_radio r_off';
+						if (safari) {
+							inp.click();
+						};
+					};
+				}; 
+			</script>
+</body>
+</html>
