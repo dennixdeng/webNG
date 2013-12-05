@@ -1,5 +1,4 @@
 var PORT_Content_Service=8881;
-var querystring = require("querystring");
 var uuid=require('uuid');
 
 var Db = require('mongodb').Db
@@ -27,8 +26,8 @@ function getDBCollection(db_alias,cList){
 getDBCollection('webNG_SUEU',['imagePool','attachmentPool','listPool','imageListPool','docPool','qiyefabuPool','gaoxiaofabuPool']);
 
 var ossAPI = require('oss-client');
-var ossHost='oss.aliyuncs.com';
-//var ossHost='oss-internal.aliyuncs.com';
+//var ossHost='oss.aliyuncs.com';
+var ossHost='oss-internal.aliyuncs.com';
 
 var oss = new ossAPI.OssClient({host:ossHost,accessKeyId: 'Ybx6lzed1szPRAuI',accessKeySecret: 'yoih8NiSadOlPJ9Syi65w7LdRsc6zA'});
 
