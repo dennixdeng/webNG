@@ -99,7 +99,7 @@ P {
 .xzzq_tw_w { width:105px; height:120px; float:right}
 .xzzq_tw_w_h { padding-left:0px; font-size:14px; padding-top:10px; font-weight:bold}
 .xzzq_tw_w_c { font-size:11px;}
-.xzlist {padding-left: 3px;margin-top: 10px;overflow: hidden; width:200px;background:url(../images/you.jpg) no-repeat} 
+.xzlist {padding-left: 3px;margin-top: 10px;overflow: hidden; width:200px;background:url(../images/you.jpg) no-repeat}
 .xzlist li {width: 204px;height: 30px;line-height: 30px;overflow: hidden; FLOAT: left; padding-left:20px;}
 
 
@@ -121,67 +121,67 @@ P {
 .fw { clear:both;text-align:center; font-size:15px; color:#999999; height:25px; padding-top:10px;}
 
 .foot {clear: both; background:url(../images/banquan_bg.png) repeat-x; height:44px;}
-.foottxt { width:980px; margin: 0 auto;  font-size:15px; color:#FFFFFF; font:"����"}
+.foottxt { width:980px; margin: 0 auto;  font-size:15px; color:#FFFFFF; font:"微软雅黑"}
 .foottxt p { margin-top:8px; padding-top:12px;}
 
 
 
-form { 
-margin: 0; 
-} 
-#search_box { 
-width: 153px; 
-height: 23px; 
-background: url(../images/topsear.png); float:right
-} 
-#search_boxz { 
-width: 153px; 
-height: 23px; 
+form {
+margin: 0;
+}
+#search_box {
+width: 153px;
+height: 23px;
 background: url(../images/topsear.png); float:right
 }
-#search_boxx { 
-width: 153px; 
-height: 23px; 
+#search_boxz {
+width: 153px;
+height: 23px;
 background: url(../images/topsear.png); float:right
 }
-#search_box #s { 
-float: left; 
-padding: 0; 
-margin: 5px 0 0 20px; 
-border: 0; 
-width: 80px; 
-background: none; 
-font-size: .9em; 
-} 
-#search_boxz #sz { 
-float: left; 
-padding: 0; 
-margin: 5px 0 0 20px; 
-border: 0; 
-width: 80px; 
-background: none; 
-font-size: .9em; 
+#search_boxx {
+width: 153px;
+height: 23px;
+background: url(../images/topsear.png); float:right
 }
-#search_boxx #sx { 
-float: left; 
-padding: 0; 
-margin: 5px 0 0 20px; 
-border: 0; 
-width: 80px; 
-background: none; 
-font-size: .9em; 
+#search_box #s {
+float: left;
+padding: 0;
+margin: 5px 0 0 20px;
+border: 0;
+width: 80px;
+background: none;
+font-size: .9em;
 }
-#search_box #go { 
-float: right; 
-margin: 3px 4px 0 0; 
+#search_boxz #sz {
+float: left;
+padding: 0;
+margin: 5px 0 0 20px;
+border: 0;
+width: 80px;
+background: none;
+font-size: .9em;
 }
-#search_boxz #go { 
-float: right; 
-margin: 3px 4px 0 0; 
+#search_boxx #sx {
+float: left;
+padding: 0;
+margin: 5px 0 0 20px;
+border: 0;
+width: 80px;
+background: none;
+font-size: .9em;
 }
-#search_boxx #go { 
-float: right; 
-margin: 3px 4px 0 0; 
+#search_box #go {
+float: right;
+margin: 3px 4px 0 0;
+}
+#search_boxz #go {
+float: right;
+margin: 3px 4px 0 0;
+}
+#search_boxx #go {
+float: right;
+margin: 3px 4px 0 0;
 }
 
 /*�õ�*/
@@ -238,7 +238,7 @@ margin: 3px 4px 0 0;
 .zsfwleft_l { width:233px;background:url(../images/zuo.jpg) no-repeat;overflow: hidden; }
 .zsfwleft_l li {width:233px; height:20px; line-height:20px; overflow: hidden; FLOAT: left; padding-left:6px;}
 
-.xzlist {padding-left: 3px;margin-top: 10px;overflow: hidden; width:200px;background:url(../images/you.jpg) no-repeat} 
+.xzlist {padding-left: 3px;margin-top: 10px;overflow: hidden; width:200px;background:url(../images/you.jpg) no-repeat}
 .xzlist li {width: 204px;height: 30px;line-height: 30px;overflow: hidden; FLOAT: left; padding-left:20px;}
 
 

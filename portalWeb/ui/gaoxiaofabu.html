@@ -1,187 +1,193 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>¸ßĞ£³É¹û·¢²¼</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/fabu.css" rel="stylesheet" type="text/css" />
-<script>
-//³õÊ¼»¯
-var def="1";
-function mover(object){
-  //Ö÷²Ëµ¥
-  var mm=document.getElementById("m_"+object);
-  mm.className="m_li_a";
-  //³õÊ¼Ö÷²Ëµ¥ÏÈÒş²ØĞ§¹û
-  if(def!=0){
-    var mdef=document.getElementById("m_"+def);
-    mdef.className="m_li";
-  }
-  //×Ó²Ëµ¥
-  var ss=document.getElementById("s_"+object);
-  ss.style.display="block";
-  //³õÊ¼×Ó²Ëµ¥ÏÈÒş²ØĞ§¹û
-  if(def!=0){
-    var sdef=document.getElementById("s_"+def);
-    sdef.style.display="none";
-  }
-}
-
-function mout(object){
-  //Ö÷²Ëµ¥
-  var mm=document.getElementById("m_"+object);
-  mm.className="m_li";
-  //³õÊ¼Ö÷²Ëµ¥»¹Ô­Ğ§¹û
-  if(def!=0){
-    var mdef=document.getElementById("m_"+def);
-    mdef.className="m_li_a";
-  }
-  //×Ó²Ëµ¥
-  var ss=document.getElementById("s_"+object);
-  ss.style.display="none";
-  //³õÊ¼×Ó²Ëµ¥»¹Ô­Ğ§¹û
-  if(def!=0){
-    var sdef=document.getElementById("s_"+def);
-    sdef.style.display="block";
-  }
-}
-</script>
-<script type=text/javascript>
-	function setTab03Syn ( i )
-	{
-		selectTab03Syn(i);
-	} //ÇĞ»»JS
-	
-	function selectTab03Syn ( i )
-	{
-		switch(i){
-			case 1:
-			document.getElementById("TabTab03Con1").style.display="block";
-			document.getElementById("TabTab03Con2").style.display="none";
-			document.getElementById("font1").style.color="#000000";
-			document.getElementById("font2").style.color="#000000";
-			break;
-			case 2:
-			document.getElementById("TabTab03Con1").style.display="none";
-			document.getElementById("TabTab03Con2").style.display="block";
-			document.getElementById("font1").style.color="#000000";
-			document.getElementById("font2").style.color="#000000";
-			break;
-		}
-	}
-
-</script>
-<script type=text/javascript>
-	function setTab03Syn ( i )
-	{
-		selectTab03Syn(i);
-	} //ÇĞ»»JS
-	
-	function selectTab03Syn ( i )
-	{
-		switch(i){
-			case 1:
-			document.getElementById("TabTab03Con12").style.display="block";
-			document.getElementById("TabTab03Con22").style.display="none";
-			document.getElementById("font12").style.color="#000000";
-			document.getElementById("font22").style.color="#000000";
-			break;
-			case 2:
-			document.getElementById("TabTab03Con12").style.display="none";
-			document.getElementById("TabTab03Con22").style.display="block";
-			document.getElementById("font12").style.color="#000000";
-			document.getElementById("font22").style.color="#000000";
-			break;
-		}
-	}
-
-</script>
-</head>
-
-<body>
-<!--topstar-->
-<div class="top">
-<div id="logo"><a href=""></a></div>
-<div id="topdh"><a href="">ÁªÏµÎÒÃÇ</a><span><img src="images/huaxian.jpg" /></span> <a href="">ÓÑÇéÁ´½Ó</a> <span><img src="images/huaxian.jpg" /></span><a href="">ÍøÕ¾µØÍ¼</a><span><img src="images/huaxian.jpg" /></span></div>
-<div id="searchtop">
-<div id="search_box"> 
-<form id="search_form" method="post" action="#"> 
-<input type="text" id="s" value="ÊäÈëËÑË÷ÄÚÈİ" class="swap_value" /> 
-<input type="image" src="images/sousu.jpg" width="34" height="18" id="go" alt="Search" title="Search" /> 
-</form> 
-</div>
-</div>
-
-</div>
-<!--topend-->
-
-<!--µ¼º½¿ªÊ¼-->
-
-<div id="menu">
-  <ul>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_1" class='m_li_a'><a href="#">ÍøÕ¾Ê×Ò³</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_2" class='m_li' onmouseover='mover(2);' onmouseout='mout(2);'><a href="#">ÊĞ³¡¸Å¿ö</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_3" class='m_li' onmouseover='mover(3);' onmouseout='mout(3);'><a href="#">ĞÂÎÅ¶¯Ì¬</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_4" class='m_li' onmouseover='mover(4);' onmouseout='mout(4);'><a href="#">¸ßĞ£»áÕ¹</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_5" class='m_li' onmouseover='mover(5);' onmouseout='mout(5);'><a href="#">³É¹û×ª»»</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_6" class='m_li' onmouseover='mover(6);' onmouseout='mout(6);'><a href="#">ºÏÍ¬µÇ¼Ç</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_7" class='m_li' onmouseover='mover(7);' onmouseout='mout(7);'><a href="#">¼¼Êõ×ªÒÆ</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-	<li id="m_8" class='m_li' onmouseover='mover(8);' onmouseout='mout(8);'><a href="#">Õş²ß·¨¹æ</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-	<li id="m_9" class='m_li' onmouseover='mover(9);' onmouseout='mout(9);'><a href="#">Ïà¹ØÏÂÔØ</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-  </ul>
-</div>
-<div style="height:32px; background-color:#F1F1F1;">
-  <ul class="smenu">
-    <li style="padding-left:29px;" id="s_1" class='s_li_a'><a href="#">¼ò½é</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">»ú¹¹ÉèÖÃ</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">¹¤×÷ÈËÔ±</a></li>
-    <li style="padding-left:80px;" id="s_2" class='s_li' onmouseover='mover(2);' onmouseout='mout(2);'><a href="#">²ÆË°¼ò½é</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">»ú¹¹ÉèÖÃ</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">°ìÊÂÖ¸ÄÏ</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">Ë°ÖÖ¼ò½é</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">²ÆË°¶¯Ì¬</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">¹«³µ¶¯Ì¬</a></li>
-    <li style="padding-left:152px;" id="s_3" class='s_li' onmouseover='mover(3);' onmouseout='mout(3);'><a href="#">ÏÂÔØ×¨Çø</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">ÉÏ´«×¨Çø</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="j#">ÉêÇë±¨Ãû</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">²éÑ¯ÏµÍ³</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">×ÉÑ¯Í¶Ëß</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">ÂúÒâµ÷²é</a></li>
-    <li style="padding-left:322px;" id="s_4" class='s_li' onmouseover='mover(4);' onmouseout='mout(4);'><a href="#">×îĞÂ¹«¸æ</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">»á¼ÆÍ¨Öª</a></li>
-    <li style="padding-left:404px;" id="s_5" class='s_li' onmouseover='mover(5);' onmouseout='mout(5);'><a href="#">×îĞÂÕş²ß</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">Õş²ß·¨¹æ²éÑ¯</a></li>
-    <li style="padding-left:407px;" id="s_6" class='s_li' onmouseover='mover(6);' onmouseout='mout(6);'><a href="#">Ë°ÊÕĞû´«</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">¶ÓÎé½¨Éè</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">ÎÄÃ÷´´½¨</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#" target="_blank">ÇàÄêÂÛÌ³</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">Á®Õş¿ÎÌÃ</a></li>
-    <li style="padding-left:666px;" id="s_7" class='s_li' onmouseover='mover(7);' onmouseout='mout(7);'><a href="#">×¨ÌâĞû´«Çø</a></li>
-	<li style="padding-left:577px;" id="s_8" class='s_li' onmouseover='mover(8);' onmouseout='mout(8);'><a href="#">Ë°ÊÕĞû´«</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">¶ÓÎé½¨Éè</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">ÎÄÃ÷´´½¨</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#" target="_blank">ÇàÄêÂÛÌ³</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">Á®Õş¿ÎÌÃ</a></li>
-	<li style="padding-left:577px;" id="s_9" class='s_li' onmouseover='mover(9);' onmouseout='mout(9);'><a href="#">Ë°ÊÕĞû´«</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">¶ÓÎé½¨Éè</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">ÎÄÃ÷´´½¨</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#" target="_blank">ÇàÄêÂÛÌ³</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">Á®Õş¿ÎÌÃ</a></li>
-  </ul>
-</div>
+<style>
+    .contm { width:980px; height:100%; margin:0 auto}
+    #cont_left { width:340px; height:1570px;; float:left; background:#f1f1f1;}
+    b.rtop, b.rbottom{display:block;background: #FFF}
+    b.rtop b, b.rbottom b{display:block;height: 1px;
+        overflow: hidden; background: #f1f1f1}
+    b.r1{margin: 0 5px}
+    b.r2{margin: 0 3px}
+    b.r3{margin: 0 2px}
+    b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px}
+    .live_new { width:312px; height:187px; background:url(images/bg.png) no-repeat;margin-left:14px; margin-top:5px}
+    .topname { padding-top:12px;padding-left:14px;font-size:15px; font-weight:bold; color:#FFFFFF}
+    .new { width:300px; height:115px;}
+    .newlist {padding-left: 15px;margin-top: 11px;overflow: hidden; }
+    .newlist li {overflow: hidden; FLOAT: left; padding-left:10px; font-size:12px; color:#999999; line-height:14px; height:14px; padding-top:6px;}
+    .newlist li a {color:#114a84;}
+    .newlist li a:hover{color:#FF3300;}
+    .newlist li span { padding-right:5px; padding-left:5px;}
+    .newsmore {float:right; padding-right:27px;}
 
 
+    .video { width:315px; height:292px; background:url(images/vidobg.png) no-repeat;  margin-left:14px; margin-top:15px}
+    .video_p { width:305px; height:208px; padding-top:3px; padding-left:5px;}
+    .video_s { padding-left:10px; padding-top:5px;}
+    #cont_right { width:625px; height:100%; float:right;}
+    .conttit { width:615px; height:24px; padding-top:20px; padding-left:10px; font-size:15PX; color:#000000; font-weight:bold}
+    .fgx { width:625px; height:4px; background:url(images/xian.jpg) no-repeat; margin-left:0px;}
+    .contlb { width:615px; height:408px; padding-left:10px; padding-top:15px;}
+    .contlbx { width:615px; height:100%; padding-left:10px; color:#999999; font-size:12px;}
+    .contlbx p {line-height:20px; padding-top:20px;}
+    .contcom { padding-left:10px;padding-top:20px;color:#999999; font-size:13px;}
+    .page {background:url(images/jiantoubeijing.png) no-repeat; width:611px; height:14px; margin-left:10px; margin-top:50px;}
+    .pglf { float:left; width:250px; padding-left:20px;}
+    .pgrt { float:right; width:300px; text-align:right; padding-right:20px}
+    .qiehuan1 {width:328px; height:169px; background:url(images/qiehuan.jpg) no-repeat;  margin-left:8px; margin-top:15px;}
+    .qiehuan2 {width:328px; height:169px; background:url(images/qiehuan.jpg) no-repeat;  margin-left:8px; margin-top:15px;}
+    .qhlist {padding-left: 15px;margin-top: 4px;overflow: hidden;}
+    .qhlist li {overflow: hidden; padding-left:10px; font-size:12px; color:#999999; line-height:14px; height:14px; padding-top:6px;}
+    .qhsmore {float:right; padding-right:15px; padding-top:3px}
+        /*ï¿½Ğ»ï¿½*/
+    .tab{margin-top:0px; margin-left:10PX; padding-top:6PX;}
+    #TabTab03Con1{width:305px;height:100px;line-height:100px;}
+    #TabTab03Con2{width:305px;height:100px;line-height:100px;}
 
-<!--µ¼º½½áÊø-->
+    .tao2t1{width:305px;height:31px;line-height:31px;background-image:url(images/qiez.png);cursor:pointer; font-weight:900;}
+    .tao2t2{width:305px;height:31px;line-height:31px;background-image:url(images/qiey.png);cursor:pointer;font-weight:900;}
 
-<!--body¿ªÊ¼-->
+    .tab1{width:81px;height:31px;line-height:31px;float:left;text-align:center;cursor:pointer;}
+    .tab2{width:81px;height:31px;line-height:31px;float:left;text-align:center;cursor:pointer;}
+
+
+        /*ï¿½ï¿½Í¼ï¿½ï¿½ï¿½İ»Ãµï¿½*/
+    .bannerbox { width: 615px; height: 408px; overflow: hidden; margin: 0px auto; }
+    #focus { width: 615px; height: 408px; clear: both; overflow: hidden; position: relative;  }
+    #focus ul { width: 615px; height: 408px; float: left; position: absolute; clear: both; padding: 0px; margin: 0px; }
+    #focus ul li { float: left; width: 615px; height: 408px; overflow: hidden;  padding: 0px; margin: 0px; }
+    #focus .preNext { width: 550px; height: 408px; position: absolute; top: 0px; cursor: pointer; }
+    #focus .pre { left: 0; background: url(images/sprite.png) no-repeat left center; }
+    #focus .next { right: 0; background: url(images/sprite1.png) no-repeat right center; }
+
+
+    .fbtit { text-align:center; font-size:15px; font-weight:bold; color:#000000;}
+    .biaod { padding-top:20px;}
+    .jssm { width:524px; height:475px; background:url(images/bg-1.jpg) no-repeat; margin:0 auto}
+    .syjz { width:524px; height:315px; background:url(images/bg-2.jpg) no-repeat; margin:0 auto}
+    .qt { width:524px; height:143px; background:url(images/bg-3-2.jpg) no-repeat; margin:0 auto}
+    .hzfs { width:524px; height:147px; background:url(images/bg-3-1.jpg) no-repeat; margin:0 auto}
+    .bdxx { width:524px; height:4px; background:url(images/xuxian.jpg) no-repeat; margin-left:46px; margin-bottom:5px; margin-top:5px;}
+    .bdxx2 { width:524px; height:4px; background:url(images/xuxian.jpg) no-repeat; margin-left:46px; margin-bottom:1px; margin-top:5px; clear:both}
+    .bdxx3 { width:524px; height:4px; background:url(images/xuxian.jpg) no-repeat; margin-left:46px; margin-bottom:0px; margin-top:0px; clear:both}
+    .biaodname { width:70px; padding-left:60px; float:left; line-height:25px; font-size:13px;}
+    .biaodname2 { width:70px; height:80px; padding-left:60px; float:left; line-height:20px}
+    .biaodname3 { width:60px; height:475px; padding-left:15px; float:left; line-height:20px; padding-top:5px; float:left;}
+    .biaodname4 {width:60px; height:315px; padding-left:15px; float:left; line-height:20px; padding-top:5px; float:left}
+    .biaodname5 {width:60px; height:147px; padding-left:15px; float:left; line-height:20px; padding-top:5px; float:left}
+    .biaodname6 {width:140px; padding-left:15px; float:left; line-height:15px; padding-top:5px; float:left}
+    .jssmy { float:right; width:440px;}
+    .jssm_n { width:440px; height:100px; padding-top:10px;}
+    .jssm_t { height:20px; line-height:20px; overflow:hidden; padding-top:12px; color:#999999}
+    .jssm_ttt { height:20px; line-height:20px; overflow:hidden; padding-top:2px; color:#999999}
+    .syjzy { float:right; width:440px;}
+    .syjz_n { width:440px; height:110px; padding-top:10px;}
+    .syjz_t { height:20px; line-height:20px; overflow:hidden; padding-top:3px; color:#999999}
+    .syjz_tt { height:20px; line-height:20px; overflow:hidden; padding-top:18px; color:#999999}
+    .syjzy { float:right; width:440px;}
+    .qty { float:right; width:440px;}
+    .qt_n { width:440px; height:110px; padding-top:10px;}
+    .hzfsy { float:right; width:440px;}
+    .hzfs_n { width:440px; height:110px; padding-top:10px;}
+    .fb { text-align:center; padding-top:20px; padding-bottom:30px; clear:both}
+    .zih {color:#999999; padding-left:15px;}
+    input.image-sprites_x {
+        padding: 2px 1px 4px 18px;
+        line-height:20px;
+        height: 24px;
+        width: 365px;
+        outline: none;
+        background: url('images/sr.png') top center no-repeat;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        border: 0;
+        -webkit-box-shadow: 0 0 0;
+        -moz-box-shadow: 0 0 0;
+        box-shadow: 0 0 0;
+    }
+    input.image-sprites_w {
+        padding: 2px 1px 0px 18px;
+        height: 24px;
+        width: 176px;
+        line-height:20px;
+        outline: none;
+        background: url('images/il.png') top center no-repeat;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        border: 0;
+        -webkit-box-shadow: 0 0 0;
+        -moz-box-shadow: 0 0 0;
+        box-shadow: 0 0 0;
+    }
+    input.image-sprites_wd {
+        padding: 0px 5px 0px 15px;
+        height: 19px;
+        width: 320px;
+        line-height:20px;
+        outline: none;
+        background: url('images/qt.jpg') top center no-repeat;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        border: 0;
+        -webkit-box-shadow: 0 0 0;
+        -moz-box-shadow: 0 0 0;
+        box-shadow: 0 0 0;
+    }
+    textarea.image-sprites_nd{
+        padding: 5px 1px 4px 5px;
+        height:110px;
+        width:400px;
+        outline: none;
+        background: url('images/nd.png') top center no-repeat;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        border: 0;
+        -webkit-box-shadow: 0 0 0;
+        -moz-box-shadow: 0 0 0;
+        box-shadow: 0 0 0;
+        overflow-x:hidden;
+        overflow-y:hidden
+    }
+
+    textarea.image-sprites_nd1 {padding: 5px 1px 4px 5px;
+        height:110px;
+        width:400px;
+        outline: none;
+        background: url('images/nd.png') top center no-repeat;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        border: 0;
+        -webkit-box-shadow: 0 0 0;
+        -moz-box-shadow: 0 0 0;
+        box-shadow: 0 0 0;
+        overflow-x:hidden;
+        overflow-y:hidden
+    }
+    #text_content{resize:none;}
+</style>
+<!--bodyå¼€å§‹-->
 <div class="content">
-<!--body×ó²à¿ªÊ¼-->
+<!--bodyå·¦ä¾§å¼€å§‹-->
 <div class="contm">
 <div id="cont_left" class="row">
 <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
 <div class="live_new">
 <div class="topname">
-ĞÂÎÅ¶¯Ì¬
+æ–°é—»åŠ¨æ€
 </div>
 <div class="new">
 <ul class="newlist">
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></li>
+    <li ng-repeat="doc in xwdt.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/news/{{doc._id}}">{{doc.title}}</a></li>
 </ul>
 </div>
-<div class="newsmore"><a href="">¸ü¶à</a></div>
+<div class="newsmore"><a href="">æ›´å¤š</a></div>
 </div>
 <div class="video">
 <div class="topname">
-ÊÓÆµ
+è§†é¢‘
 </div>
 <div class="video_p">
 <embed src="http://player.youku.com/player.php/sid/XNjI1MDkxMTEy/v.swf" allowFullScreen="true" quality="high" width="305" height="208" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
@@ -193,261 +199,128 @@ Aenean  sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at,
 <div class="qiehuan1">
 <div class="tab">
 	<div id="bg" class="tao2t1">
-		<div id="font1" class="tab1" onMouseOver="setTab03Syn(1);document.getElementById('bg').className='tao2t1'">ÆóÒµ·¢²¼</div>
-		<div id="font2" class="tab2" onMouseOver="setTab03Syn(2);document.getElementById('bg').className='tao2t2'">¾­¼ÍÈËÆÀ¹À</div>
+		<div id="font1" class="tab1" >ä¼ä¸šå‘å¸ƒ</div>
 	</div>
-    <div id=TabTab03Con1><ul class="qhlist">
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></li>
-</ul></div>
-	<div id=TabTab03Con2 style="display:none"><ul class="qhlist">
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></li>
+    <div id=TabTab03Con1>
+<ul class="qhlist">
+        <li ng-repeat="doc in qyfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
 </ul></div>
 </div>
-<div class="qhsmore"><a href="">¸ü¶àÆóÒµĞèÇó·¢²¼</a></div>
+<div class="qhsmore"><a href="">æ›´å¤šä¼ä¸šéœ€æ±‚å‘å¸ƒ</a></div>
 </div>
 <div class="qiehuan2">
 <div class="tab">
 	<div id="bg2" class="tao2t1">
-		<div id="font12" class="tab1" onMouseOver="setTab03Syn(1);document.getElementById('bg2').className='tao2t1'">¸ßĞ£·¢²¼</div>
-		<div id="font22" class="tab2" onMouseOver="setTab03Syn(2);document.getElementById('bg2').className='tao2t2'">¾­¼ÍÈËÆÀ¹À</div>
+		<div id="font12" class="tab1" >é«˜æ ¡å‘å¸ƒ</div>
 	</div>
-    <div id=TabTab03Con12><ul class="qhlist">
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></li>
-</ul></div>
-	<div id=TabTab03Con22 style="display:none"><ul class="qhlist">
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></li>
-<li>13Äê7ÔÂ18ºÅ <span>|</span> <a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></li>
+    <div id=TabTab03Con1><ul class="qhlist">
+        <li ng-repeat="doc in gxfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
 </ul></div>
 </div>
-<div class="qhsmore"><a href="">¸ü¶à¸ßĞ£³É¹û·¢²¼</a></div>
+<div class="qhsmore"><a href="">æ›´å¤šé«˜æ ¡æˆæœå‘å¸ƒ</a></div>
 </div>
 
 </div>
-<!--bodyÓÒ²à¿ªÊ¼-->
+<!--bodyå³ä¾§å¼€å§‹-->
 <div id="cont_right">
 <div class="conttit">
-¸ßĞ£³É¹û·¢²¼
+é«˜æ ¡æˆæœå‘å¸ƒ
 </div>
 <div class="fgx"></div>
 <div class="contlb">
 <div class="fbtit">
-¸ßĞ£¿Æ¼¼³É¹ûÍÆ½é
+é«˜æ ¡ç§‘æŠ€æˆæœæ¨ä»‹
 </div>
 <div class="biaod">
 <form action="" method="get">
-<div class="biaodname">Ñ§Ğ£</div><input name="n1" type="text" value="ÊäÈëÑ§Ğ£Ãû³Æ" onclick="this.value=''" onblur="this.value='ÊäÈëÑ§Ğ£Ãû³Æ'" class="image-sprites_x" />
+<div class="biaodname">å­¦æ ¡</div><input name="n1" ng-model="doc.name" type="text" placeholder="è¾“å…¥å­¦æ ¡åç§°" class="image-sprites_x" />
 <div class="bdxx"></div>
-<div class="biaodname">ÏîÄ¿Ãû³Æ</div><input name="n2" type="text" class="image-sprites_x"  />
+<div class="biaodname">é¡¹ç›®åç§°</div><input  ng-model="doc.title" name="n2" type="text" class="image-sprites_x"  />
 <div class="bdxx"></div>
-<div class="biaodname">ÏîÄ¿ÁªÏµÈË</div><input name="n3" type="text" class="image-sprites_w" />ÁªÏµ·½Ê½<input name="n4" type="text" class="image-sprites_w"/>
+<div class="biaodname">é¡¹ç›®è”ç³»äºº</div><input  ng-model="doc.contacts" name="n3" type="text" class="image-sprites_w" />è”ç³»æ–¹å¼<input  ng-model="doc.contactinfo" name="n4" type="text" class="image-sprites_w"/>
 <div class="bdxx"></div>
-<div class="biaodname2">¼¼ÊõÁìÓò<br /><span class="zih">(¿É¶àÑ¡)</span></div>
-<script language="javascript">
-function myCheckbox(obj,thisobj)
-{
-	var o = document.getElementById(obj);
-	if(o.checked)
-	{
-		thisobj.style.backgroundImage="url(images/dr.png)";
-		o.checked = false;
-	}
-	else
-	{
-		thisobj.style.backgroundImage="url(images/xuanz.png)";
-		o.checked = true;
-	}
-}
-</script>
+<div class="biaodname2">æŠ€æœ¯é¢†åŸŸ<br /><span class="zih">(å¯å¤šé€‰)</span></div>
+
 <table width="420" border="0" class="zih">
   <tr>
     <td><input  type="checkbox" value="" name="cc" id="aa" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" onclick="myCheckbox('aa',this);"></div></td>
-    <td>ĞÂÄÜÔ´</span></td>
+<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
+    <td>æ–°èƒ½æº</span></td>
     <td>
 <input  type="checkbox" value="" name="cc" id="bb" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" onclick="myCheckbox('bb',this);"></div></td>
-    <td>ÉúÎïÒ½Ò©</td>
+<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
+    <td>ç”Ÿç‰©åŒ»è¯</td>
     <td>
 <input  type="checkbox" value="" name="cc" id="cc" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" onclick="myCheckbox('cc',this);"></div></td>
-    <td>ĞÂÄÜÔ´Æû³µ</td>
+<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
+    <td>æ–°èƒ½æºæ±½è½¦</td>
   </tr>
   <tr>
     <td>
 <input  type="checkbox" value="" name="cc" id="dd" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" onclick="myCheckbox('dd',this);"></div></td>
-    <td>ÃñÓÃº½¿ÕÖÆÔìÒµ</td>
+<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
+    <td>æ°‘ç”¨èˆªç©ºåˆ¶é€ ä¸š</td>
     <td>
 <input  type="checkbox" value="" name="cc" id="ee" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" onclick="myCheckbox('ee',this);"></div></td>
-    <td>µç×ÓĞÅÏ¢ÖÆÔìÒµ</td>
+<div style="width:15px; height:15px;background-image:url(images/dr.png);"></div></td>
+    <td>ç”µå­ä¿¡æ¯åˆ¶é€ ä¸š</td>
     <td>
 <input  type="checkbox" value="" name="cc" id="ff" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" onclick="myCheckbox('ff',this);"></div></td>
-    <td>º£Ñó¹¤³ÌÉè±¸</td>
+<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
+    <td>æµ·æ´‹å·¥ç¨‹è®¾å¤‡</td>
   </tr>
   <tr>
     <td>
 <input  type="checkbox" value="" name="cc" id="gg" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" onclick="myCheckbox('gg',this);"></div></td>
-    <td>ÏÈ½øÖØ´óÉè±¸</td>
+<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
+    <td>å…ˆè¿›é‡å¤§è®¾å¤‡</td>
     <td>
 <input  type="checkbox" value="" name="cc" id="hh" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" onclick="myCheckbox('hh',this);"></div></td>
-    <td>Èí¼şºÍĞÅÏ¢·şÎñÒµ</td>
+<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
+    <td>è½¯ä»¶å’Œä¿¡æ¯æœåŠ¡ä¸š</td>
     <td>
 <input  type="checkbox" value="" name="cc" id="ii" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" onclick="myCheckbox('ii',this);"></div></td>
-    <td>ĞÂ²ÄÁÏ</td>
+<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
+    <td>æ–°ææ–™</td>
   </tr>
   <tr>
     <td>
 <input  type="checkbox" value="" name="cc" id="jj" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" onclick="myCheckbox('jj',this);"></div></td>
-    <td colspan="5">ÆäËû
+<div style="width:15px; height:15px;background-image:url(images/dr.png);"></div></td>
+    <td colspan="5">å…¶ä»–
       <input name="n22" type="text" class="image-sprites_wd"  /></td>
     </tr>
 </table>
 
 <div class="bdxx2"></div>
 <div class="jssm">
-<div class="biaodname3">¼¼ÊõËµÃ÷</div> <div class="jssmy"><div class="jssm_ttt">1¡¢¼¼ÊõĞÔËµÃ÷</div>
+<div class="biaodname3">æŠ€æœ¯è¯´æ˜</div> <div class="jssmy"><div class="jssm_ttt">1ã€æŠ€æœ¯æ€§è¯´æ˜</div>
   <div class="jssm_n">
-    <textarea name="textarea" cols="" rows="" id="text_content" class="image-sprites_nd1"></textarea>
+    <textarea  ng-model="doc.techbrief" name="textarea" cols="" rows="" id="text_content" class="image-sprites_nd1"></textarea>
   </div>
   <br />
-<div class="jssm_t">2¡¢¼¼Êõ´´ĞÂµã</div><div class="jssm_n"><textarea name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div><br /><div class="jssm_t">3¡¢ÖªÊ¶²úÈ¨Çé¿ö</div><div class="jssm_n"><textarea  cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div><br /></div>
+<div class="jssm_t">2ã€æŠ€æœ¯åˆ›æ–°ç‚¹</div><div class="jssm_n"><textarea  ng-model="doc.techhighlight" name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div><br /><div class="jssm_t">3ã€çŸ¥è¯†äº§æƒæƒ…å†µ</div><div class="jssm_n"><textarea  ng-model="doc.techIP" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div><br /></div>
 </div>
 <div class="bdxx3"></div>
 <div class="syjz">
-<div class="biaodname4">ÊµÓÃ¼ÛÖµ</div> <div class="syjzy"><div class="syjz_t">1¡¢¼¼ÊõµÄ³ÉÊì¶È</div><div class="syjz_n"><textarea name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div><div class="syjz_tt">2¡¢¼¼ÊõµÄÊµÓÃĞÔºÍÊÊÓÃÁìÓò</div><div class="syjz_n"><textarea name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div></div>
+<div class="biaodname4">å®ç”¨ä»·å€¼</div> <div class="syjzy"><div class="syjz_t">1ã€æŠ€æœ¯çš„æˆç†Ÿåº¦</div><div class="syjz_n"><textarea  ng-model="doc.techlevel" name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div><div class="syjz_tt">2ã€æŠ€æœ¯çš„å®ç”¨æ€§å’Œé€‚ç”¨é¢†åŸŸ</div><div class="syjz_n"><textarea  ng-model="doc.techapllication" name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div></div>
 </div>
 <div class="bdxx3"></div>
 <div class="hzfs">
-<div class="biaodname5">ºÏ×÷·½Ê½</div><div class="hzfsy"><div class="hzfs_n"><textarea name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div></div></div>
+<div class="biaodname5">åˆä½œæ–¹å¼</div><div class="hzfsy"><div class="hzfs_n"><textarea  ng-model="doc.terms" name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div></div></div>
 <div class="bdxx"></div>
 <div class="qt">
-<div class="biaodname5">ÆäËû</div><div class="qty"><div class="qt_n"><textarea name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div></div>
+<div class="biaodname5">å…¶ä»–</div><div class="qty"><div class="qt_n"><textarea  ng-model="doc.other" name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div></div>
 </div>
 </form>
 
 </div>
 </div>
 <div class="contlbx">
-<div class="fb"><input name="img" type="image" src="images/fabu.png" /></div>
-
-</div>
-
+<div class="fb"><input ng-click="submitDoc()" name="img" type="image" src="images/fabu.png" /></div>
 
 </div>
 </div>
-<!--body½áÊø-->
-<!--foot¿ªÊ¼-->
-<div class="foot">
-<div class="foottxt">
-<p>copyright2013 ÉÏº£¸ßĞ£¼¼ÊõÊĞ³¡ °æÈ¨ËùÓĞ</p>
 </div>
+<!--bodyç»“æŸ-->
 </div>
-<!--foot½áÊø-->
-</div>
-<script language="JavaScript" type="text/javascript">
-			function addListener(element,e,fn){    
-    	 		if(element.addEventListener){    
-          			element.addEventListener(e,fn,false);    
-     			 } else {    
-         	 		element.attachEvent("on" + e,fn);    
-     	 		 }    
-			}
-			var myinput = document.getElementById("s");
-			addListener(myinput,"click",function(){
-				myinput.value = "";
-			})
-			addListener(myinput,"blur",function(){
-				myinput.value = "ÊäÈëËÑË÷ÄÚÈİ";
-			})
-
-</script>
-
-<script type="text/javascript">
-				var d = document;
-				var safari = (navigator.userAgent.toLowerCase().indexOf('safari') != -1) ? true : false;
-				
-				var gebtn = function(parEl,child) { return parEl.getElementsByTagName(child); };
-				onload = function() {
-					var body = gebtn(d,'body')[0];
-					body.className = body.className && body.className != '' ? body.className + ' has-js' : 'has-js';
-					if (!d.getElementById || !d.createTextNode) {
-						return;
-					}
-					var ls = gebtn(d,'label');
-					for (var i = 0; i < ls.length; i++) {
-						var l = ls[i];
-						if (l.className.indexOf('label_') == -1) {
-							continue;
-						}
-						var inp = gebtn(l,'input')[0];
-						if (l.className == 'label_check') {
-							//l.className = (safari && inp.checked == true || inp.checked) ? 'label_check c_on' : 'label_check c_off';
-							l.className = (safari && inp.checked == true || inp.checked) ? 'label_check c_off' : 'label_check c_on';
-							l.onclick = check_it;
-						};
-						if (l.className == 'label_radio') {
-							l.className = (safari && inp.checked == true || inp.checked) ? 'label_radio r_on' : 'label_radio r_off';
-							l.onclick = turn_radio;
-						};
-					};
-				};
-				var check_it = function() {
-					var inp = gebtn(this,'input')[0];
-					if (this.className == 'label_check c_off' || (!safari && inp.checked)) {
-						this.className = 'label_check c_on';
-						if (safari) {
-							inp.click();
-						};
-					} else {
-						this.className = 'label_check c_off';
-						if (safari){ 
-							inp.click();
-						};
-					};
-				};
-				var turn_radio = function() {
-					var inp = gebtn(this,'input')[0];
-					if (this.className == 'label_radio r_off' || inp.checked) {
-						var ls = gebtn(this.parentNode,'label');
-						for (var i = 0; i < ls.length; i++) {
-							var l = ls[i];
-							if (l.className.indexOf('label_radio') == -1) {
-								continue;
-							};
-							l.className = 'label_radio r_off';
-						};
-						this.className = 'label_radio r_on';
-						if (safari){ 
-							inp.click();
-						};
-					} else {
-						this.className = 'label_radio r_off';
-						if (safari) {
-							inp.click();
-						};
-					};
-				}; 
-			</script>
-</body>
-</html>

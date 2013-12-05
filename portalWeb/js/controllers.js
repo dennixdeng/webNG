@@ -1,13 +1,13 @@
 'use strict';
-//var Server="http://115.29.179.40:8881/";
-var Server="http://localhost:8881/";
+var Server="http://115.29.179.40:8881/";
+//var Server="http://localhost:8881/";
 
 //component section
 var Component={
     http:null,
     scope:null,
 newimageList :function(Id){
-    var obj ={};
+    var obj ={_id:Id};
     Component.http.get(Server +'open/imageListPool/' + Id).success(function(d){
         obj.list= d.list;
         obj.current = 0;
@@ -21,15 +21,15 @@ newimageList :function(Id){
     return obj;
     },
 newList:function(top,Id){
-    var obj={};
+    var obj={_id:Id};
     Component.http.get(Server +'list/docPool/'+top + '/' + Id).success(function(d){
         obj.list= d;
     });
     return obj;
     },
 newTitleList:function(pool,top,list){
-    var obj={};
-    Component.http.get(Server +'/list_title/'+pool+'/'+top+'/'+list).success(function(d){
+    var obj={_id:list};
+    Component.http.get(Server +'list_title/'+pool+'/'+top+'/'+list).success(function(d){
         obj.list= d;
     });
     return obj;
@@ -59,14 +59,54 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     $scope.xzzq= Component.newList(9,'529b37deec282bac9148ac18');
     $scope.alzs= Component.newList(9,'529b3c53ec282bac9148ac19');
 }]);
+app.controller('newslistCtrl',function($scope,$http,$routeParams){
+    Component.http=$http;Component.scope=$scope;
+    $scope.name=$routeParams.listName;
+    //$scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
+    $scope.mainlist= Component.newList(30,$routeParams.listId);
+    $scope.xwdt= Component.newList(5,'529addfb0e66761d078fe35b');
+    $scope.qyfb= Component.newTitleList('qiyefabuPool',5,'all');
+    $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',5,'all');
+});
+
+app.controller('newsCtrl',function($scope,$http,$routeParams,$sce){
+    $http.get(Server + 'open/docPool/' + $routeParams.docId)
+        .success(function(data){
+            $scope.doc=data;
+            for (var i in $scope.doc.paraList) {
+                var p = $scope.doc.paraList[i];
+                if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
+            }
+        })
+    $scope.xwdt= Component.newList(5,'529addfb0e66761d078fe35b');
+    $scope.qyfb= Component.newTitleList('qiyefabuPool',5,'all');
+    $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',5,'all');
+});
+
 app.controller('qiyefabuCtrl',function($scope,$http){
     Component.http=$http;Component.scope=$scope;
     //$scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
     $scope.xwdt= Component.newList(5,'529addfb0e66761d078fe35b');
     $scope.qyfb= Component.newTitleList('qiyefabuPool',5,'all');
+    $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',5,'all');
     $scope.doc={};
     $scope.submitDoc=function(){
         $http.post(Server + 'save/qiyefabuPool',{doc:$scope.doc})
+            .success(function(){
+                alert('发布成功！')
+                $scope.doc={};
+            });
+    };
+});
+app.controller('gaoxiaofabuCtrl',function($scope,$http){
+    Component.http=$http;Component.scope=$scope;
+    //$scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
+    $scope.xwdt= Component.newList(5,'529addfb0e66761d078fe35b');
+    $scope.qyfb= Component.newTitleList('qiyefabuPool',5,'all');
+    $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',5,'all');
+    $scope.doc={areas:[]};
+    $scope.submitDoc=function(){
+        $http.post(Server + 'save/gaoxiaofabuPool',{doc:$scope.doc})
             .success(function(){
                 alert('发布成功！')
                 $scope.doc={};
@@ -89,7 +129,7 @@ angular.module('etFilters', [])
                 brief += doc.paraList[i].html.raw.replace(/<[^>]*>/g, "");
             }
         }
-        return brief.substr(0,len);
+        return brief.substr(0,len)+'...';
     };
 }).filter('docImage', function() {
     return function(doc,inx) {

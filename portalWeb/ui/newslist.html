@@ -39,7 +39,7 @@
     .qhlist {padding-left: 15px;margin-top: 4px;overflow: hidden;}
     .qhlist li {overflow: hidden;  padding-left:10px; font-size:12px; color:#999999; line-height:14px; height:14px; padding-top:6px;}
     .qhsmore {float:right; padding-right:15px; padding-top:3px}
-        /*?§İ?*/
+        /*ï¿½Ğ»ï¿½*/
     .tab{margin-top:0px; margin-left:10PX; padding-top:6PX;}
     #TabTab03Con1{width:305px;height:100px;line-height:100px;}
     #TabTab03Con2{width:305px;height:100px;line-height:100px;}
@@ -50,7 +50,7 @@
     .tab1{width:81px;height:31px;line-height:31px;float:left;text-align:center;cursor:pointer;}
     .tab2{width:81px;height:31px;line-height:31px;float:left;text-align:center;cursor:pointer;}
 
-        /*?????????*/
+        /*ï¿½ï¿½Í¼ï¿½ï¿½ï¿½İ»Ãµï¿½*/
     .bannerbox { width: 615px; height: 408px; overflow: hidden; margin: 0px auto; }
     #focus { width: 615px; height: 408px; clear: both; overflow: hidden; position: relative;  }
     #focus ul { width: 615px; height: 408px; float: left; position: absolute; clear: both; padding: 0px; margin: 0px; }
@@ -62,7 +62,7 @@
 
 
 
-        /*????CSS*/
+        /*ï¿½ï¿½ï¿½ï¿½CSS*/
     .newslisto { width:626PX; height:auto; min-height:402px; background:url(images/dbg.jpg) repeat-y}
     .newslisto li {overflow: hidden; font-size:11px; line-height:12px; height:12px;padding-top:8px; }
     .dx { width:490px; padding-left:20px; float:left; padding-top:4px;}
@@ -75,26 +75,26 @@
 
 
 </style>
-<!--body¿ªÊ¼-->
+<!--bodyå¼€å§‹-->
 <div class="content">
-    <!--body×ó²à¿ªÊ¼-->
+    <!--bodyå·¦ä¾§å¼€å§‹-->
     <div class="contm">
         <div id="cont_left" class="row">
             <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
             <div class="live_new">
                 <div class="topname">
-                    ĞÂÎÅ¶¯Ì¬
+                    æ–°é—»åŠ¨æ€
                 </div>
                 <div class="new">
                     <ul class="newlist">
                         <li ng-repeat="doc in xwdt.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/news/{{doc._id}}">{{doc.title}}</a></li>
                     </ul>
                 </div>
-                <div class="newsmore"><a href="">¸ü¶à</a></div>
+                <div class="newsmore"><a href="">æ›´å¤š</a></div>
             </div>
             <div class="video">
                 <div class="topname">
-                    ÊÓÆµ
+                    è§†é¢‘
                 </div>
                 <div class="video_p">
                     <embed src="http://player.youku.com/player.php/sid/XNjI1MDkxMTEy/v.swf" allowFullScreen="true" quality="high" width="305" height="208" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
@@ -106,136 +106,45 @@
             <div class="qiehuan1">
                 <div class="tab">
                     <div id="bg" class="tao2t1">
-                        <div id="font1" class="tab1" >ÆóÒµ·¢²¼</div>
+                        <div id="font1" class="tab1" >ä¼ä¸šå‘å¸ƒ</div>
                     </div>
                     <div id=TabTab03Con1>
                         <ul class="qhlist">
                             <li ng-repeat="doc in qyfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
                         </ul></div>
                 </div>
-                <div class="qhsmore"><a href="">¸ü¶àÆóÒµĞèÇó·¢²¼</a></div>
+                <div class="qhsmore"><a href="">æ›´å¤šä¼ä¸šéœ€æ±‚å‘å¸ƒ</a></div>
             </div>
             <div class="qiehuan2">
                 <div class="tab">
                     <div id="bg2" class="tao2t1">
-                        <div id="font12" class="tab1" >¸ßĞ£·¢²¼</div>
+                        <div id="font12" class="tab1" >é«˜æ ¡å‘å¸ƒ</div>
                     </div>
                     <div id=TabTab03Con1><ul class="qhlist">
                         <li ng-repeat="doc in gxfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
                     </ul></div>
                 </div>
-                <div class="qhsmore"><a href="">¸ü¶à¸ßĞ£³É¹û·¢²¼</a></div>
+                <div class="qhsmore"><a href="">æ›´å¤šé«˜æ ¡æˆæœå‘å¸ƒ</a></div>
             </div>
 
         </div>
-<!--bodyÓÒ²à¿ªÊ¼-->
+<!--bodyå³ä¾§å¼€å§‹-->
 <div id="cont_right">
 <div class="conttit">
-¿Æ¼¼ĞÂÎÅ
+{{name}}
 </div>
 <div class="fgx"></div>
 <div class="newslisto">
 <ul class="dx">
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ·ÏÆúÉúÎïµçÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ·ÏÆúÉúÎïµçÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></span></li>
+<li ng-repeat="doc in mainlist.list" class="ddl"> <span><a href="#/news/{{doc._id}}">{{doc.title}}</a></span></li>
 </ul>
 <ul class="dy">
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
+<li  ng-repeat="doc in mainlist.list" class="dd2"><span>{{doc._id|Id2Date}}</span></li>
 </ul>
 </div>
 <div class="claer"></div>
-<div class="newspg"><img src="images/sanjiaoz.jpg" alt="ÏòÇ°" border="0" align="absmiddle"/> <a href="">1</a> | <a href="">2</a> | <a href="">3</a> | <a href="">4</a> | <a href="">5</a> <img src="images/sanjiaoy.jpg" alt="Ïòºó" border="0"  align="absmiddle"/></div>
-<div class="claer"></div>
-<div class="conttit">
-Í¨Öª¹«¸æ
+<div class="newspg"><img src="images/sanjiaoz.jpg" alt="å‘å‰" border="0" align="absmiddle"/> <a href="">1</a> | <a href="">2</a> | <a href="">3</a> | <a href="">4</a> | <a href="">5</a> <img src="images/sanjiaoy.jpg" alt="å‘å" border="0"  align="absmiddle"/></div>
+
 </div>
-<div class="fgx"></div>
-<div class="newslisto">
-<ul class="dx">
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ·ÏÆúÉúÎïµçÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ·ÏÆúÉúÎïµçÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÀÂ...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏµçÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/ºÏµçÀÂ¾øÔµ²ÄÁÏ</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´...</a></span></li>
-<li class="ddl"> <span><a href="">·ÏÆúÉúÎïÖÊ/PVC¸´ºÏÔµ²ÄÁÏ</a></span></li>
-</ul>
-<ul class="dy">
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-<li class="dd2"><span>13Äê7ÔÂ18ºÅ</span></li>
-</ul>
-</div>
-<div class="claer"></div>
-<div class="newspg"><img src="images/sanjiaoz.jpg" alt="ÏòÇ°" border="0" align="absmiddle"/> <a href="">1</a> | <a href="">2</a> | <a href="">3</a> | <a href="">4</a> | <a href="">5</a> <img src="images/sanjiaoy.jpg" alt="Ïòºó" border="0"  align="absmiddle"/></div>
-<div class="claer"></div>
-</div>
-        <!--body½áÊø-->
+        <!--bodyç»“æŸ-->
 </div></div>

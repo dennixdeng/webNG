@@ -26,10 +26,10 @@
 
     </div>
     <div id="hdy">
-        <h2 ng-repeat-start="doc in xwdt.list"><a href="#/news/{{doc._id}}">{{doc.title}}</a></h2>
-        <p>{{doc|docBrief:140}}</p>
+        <h2 ng-repeat-start="doc in xwdt.list"><a href="#/news/{{doc._id}}">{{doc.title|stringLeft:22}}</a></h2>
+        <p>{{doc|docBrief:100}}</p>
         <div ng-repeat-end id="xuxian"></div>
-        <div class="hdymore"><a href="">...更多>></a></div>
+        <div class="hdymore"><a href="#/newslist/{{xwdt._id}}/新闻动态/">...更多>></a></div>
     </div>
     <div id="hdyy"><img src="images/t-1.jpg" border="0" alt="" /></div>
 </div>
@@ -46,7 +46,7 @@
         <div id="zsfwleft">
             <h5>信息动态</h5>
             <div class="zsfwleft_h"><A href="#/news/{{xxdt.list[0]._id}}">{{xxdt.list[0].title}}</A></div>
-            <div class="zsfwleft_t"><span><a href="#/news/{{xxdt.list[0]._id}}"><img ng-src="{{xxdt.list[0]|docImage:0}}" border="0" alt="" style="width:118px;height:84px"/></a></span><p>{{xxdt.list[0]|docBrief:40}}..</p></div>
+            <div class="zsfwleft_t"><span><a href="#/news/{{xxdt.list[0]._id}}"><img ng-src="{{xxdt.list[0]|docImage:0}}" border="0" alt="" style="width:118px;height:84px"/></a></span><p>{{xxdt.list[0]|docBrief:40}}</p></div>
             <Ul class="zsfwleft_l">
                 <li ng-repeat="doc in xxdt.list|listSeg:1:3"><A href="#/news/{{doc._id}}">{{doc.title}}</A></li>
             </Ul>

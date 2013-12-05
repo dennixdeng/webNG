@@ -35,7 +35,7 @@
     .qiehuan1 {width:328px; height:169px; background:url(images/qiehuan.jpg) no-repeat;  margin-left:8px; margin-top:15px;}
     .qiehuan2 {width:328px; height:169px; background:url(images/qiehuan.jpg) no-repeat;  margin-left:8px; margin-top:15px;}
     .qhlist {padding-left: 15px;margin-top: 4px;overflow: hidden;}
-    .qhlist li {overflow: hidden; FLOAT: left; padding-left:10px; font-size:12px; color:#999999; line-height:14px; height:14px; padding-top:6px;}
+    .qhlist li {overflow: hidden; padding-left:10px; font-size:12px; color:#999999; line-height:14px; height:14px; padding-top:6px;}
     .qhsmore {float:right; padding-right:15px; padding-top:3px}
         /*�л�*/
     .tab{margin-top:0px; margin-left:10PX; padding-top:6PX;}
@@ -202,18 +202,11 @@ Aenean  sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at,
 <div class="qiehuan1">
 <div class="tab">
 	<div id="bg" class="tao2t1">
-		<div id="font1" class="tab1" onMouseOver="setTab03Syn(1);document.getElementById('bg').className='tao2t1'">企业发布</div>
-		<div id="font2" class="tab2" onMouseOver="setTab03Syn(2);document.getElementById('bg').className='tao2t2'">经纪人评估</div>
+		<div id="font1" class="tab1" >企业发布</div>
 	</div>
-    <div id=TabTab03Con1><ul class="qhlist">
-<li ng-repeat="doc in qyfb">{{doc._id|Id2Date}}<span>|</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
-</ul></div>
-	<div id=TabTab03Con2 style="display:none"><ul class="qhlist">
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
+    <div id=TabTab03Con1>
+<ul class="qhlist">
+<li ng-repeat="doc in qyfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
 </ul></div>
 </div>
 <div class="qhsmore"><a href="">更多企业需求发布</a></div>
@@ -221,25 +214,14 @@ Aenean  sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at,
 <div class="qiehuan2">
 <div class="tab">
 	<div id="bg2" class="tao2t1">
-		<div id="font12" class="tab1" onMouseOver="setTab03Syn(1);document.getElementById('bg2').className='tao2t1'">高校发布</div>
-		<div id="font22" class="tab2" onMouseOver="setTab03Syn(2);document.getElementById('bg2').className='tao2t2'">经纪人评估</div>
+		<div id="font12" class="tab1" >高校发布</div>
 	</div>
-    <div id=TabTab03Con12><ul class="qhlist">
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
+    <div id=TabTab03Con1><ul class="qhlist">
+        <li ng-repeat="doc in gxfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
 </ul></div>
-	<div id=TabTab03Con22 style="display:none"><ul class="qhlist">
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
-</ul></div>
+
 </div>
-<div class="qhsmore"><a href="">更多高校成果发布</a></div>
+ <div class="qhsmore"><a href="">更多高校成果发布</a></div>
 </div>
 
 </div>
