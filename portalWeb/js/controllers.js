@@ -70,6 +70,7 @@ app.controller('newslistCtrl',function($scope,$http,$routeParams){
 });
 
 app.controller('newsCtrl',function($scope,$http,$routeParams,$sce){
+    Component.http=$http;Component.scope=$scope;
     $http.get(Server + 'open/docPool/' + $routeParams.docId)
         .success(function(data){
             $scope.doc=data;
@@ -115,60 +116,75 @@ app.controller('gaoxiaofabuCtrl',function($scope,$http){
 });
 //Filters section
 angular.module('etFilters', [])
-  .filter('checkmark', function() {
+    .filter('checkmark', function() {
     return function(input) {
         return input ? '\u2713' : '\u2718';
     };
-}).filter('docBrief', function() {
-    return function(doc,len) {
-        if (!doc) return null;
-        var brief='';
-        var l=len||150;
-        for (var i in doc.paraList){
-            if( doc.paraList[i].html ) {
-                brief += doc.paraList[i].html.raw.replace(/<[^>]*>/g, "");
-            }
-        }
-        return brief.substr(0,len)+'...';
-    };
-}).filter('docImage', function() {
-    return function(doc,inx) {
-        if (!doc) return null;
-        var imgInx=inx||0;
-        for (var i in doc.paraList){
-            if( doc.paraList[i].image ) {
-                if ( 0 == imgInx){
-                    return doc.paraList[i].image.url;
-                }else{
-                    imgInx--;
+    }).filter('docBrief', function() {
+        return function(doc,len) {
+            if (!doc) return null;
+            var brief='';
+            var l=len||150;
+            for (var i in doc.paraList){
+                if( doc.paraList[i].html ) {
+                    brief += doc.paraList[i].html.raw.replace(/<[^>]*>/g, "");
                 }
             }
-        }
-        return null;
-    };
-}).filter('listSeg', function() {
-    return function(list,start,len) {
-        if(!list) return null;
-        var s=start||0;
-        var l=len||list.length;
-        return list.slice(s,s+l);
-    };
-}).filter('stringLeft', function() {
-    return function(src,len) {
-        if(!src) return null;
-        if (src.length > len){
-            return src.slice(0,len) + '...';
-        }else{
-            return src;
-        }
-    };
-}).filter('Id2Date',function(){
-        return function(id){
-            return new Date(parseInt(id.toString().slice(0,8), 16)*1000).toLocaleString().split(' ')[0];
-        }
-}).filter('cnDate',function(){
-        return function(date){
+            return brief.substr(0,len)+'...';
+        };
+    }).filter('docAttachment', function() {
+        return function(doc,inx) {
+            if (!doc) return null;
+            var dlInx=inx||0;
+            for (var i in doc.paraList){
+                if( doc.paraList[i].attachment ) {
+                    if ( 0 == dlInx){
+                        return doc.paraList[i].attachment.url;
+                    }else{
+                        dlInx--;
+                    }
+                }
+            }
+            return null;
+        };
+    }).filter('docImage', function() {
+        return function(doc,inx) {
+            if (!doc) return null;
+            var imgInx=inx||0;
+            for (var i in doc.paraList){
+                if( doc.paraList[i].image ) {
+                    if ( 0 == imgInx){
+                        return doc.paraList[i].image.url;
+                    }else{
+                        imgInx--;
+                    }
+                }
+            }
+            return null;
+        };
+    }).filter('listSeg', function() {
+        return function(list,start,len) {
+            if(!list) return null;
+            var s=start||0;
+            var l=len||list.length;
+            return list.slice(s,s+l);
+        };
+    }).filter('stringLeft', function() {
+        return function(src,len) {
+            if(!src) return null;
+            if (src.length > len){
+                return src.slice(0,len) + '...';
+            }else{
+                return src;
+            }
+        };
+    }).filter('Id2Date',function(){
+            return function(id){
+                return new Date(parseInt(id.toString().slice(0,8), 16)*1000).toLocaleString().split(' ')[0];
+            }
+    }).filter('cnDate',function(){
+            return function(date){
 
-        }
-    })
+            }
+        });
 
