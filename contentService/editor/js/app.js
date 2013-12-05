@@ -10,5 +10,5 @@ app.config(['$routeProvider',function($routeProvider){
             when('/newdoc/',{templateUrl:'ui/doc.html',controller:'docCtrl'}).
             when('/imageList/:listId',{templateUrl:'ui/imageList.html',controller:'imageListCtrl'}).
             when('/docList',{templateUrl:'ui/docList.html',controller:'docListCtrl'}).
-            otherwise({redirectTo:'/home'});
+            otherwise({redirectTo:'/docList'});
     }]);
