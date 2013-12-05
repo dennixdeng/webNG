@@ -138,7 +138,7 @@
 <div ng-repeat="para in doc.paraList" >
     <span ng-show="para.html" ng-bind-html="para.html.show"></span>
     <img ng-show="para.image" style="max-width: 600px" ng-src="{{para.image.url}}"/>
-    <span ng-show="para.attachment"><img src="images/fileDownload2.png" style="max-height: 20px">附件 - {{para.attachment.name}}</span>
+    <span ng-show="para.attachment"><img src="images/fileDownload2.png" style="max-height: 20px">附件 - <a href="{{para.attachment.url}}">{{para.attachment.name}}</a></span>
 </div>
 
 <div class="claer"></div>

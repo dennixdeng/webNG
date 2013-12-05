@@ -112,7 +112,10 @@ app.post('/image/upload',express.bodyParser(),function(req,res){
 app.post('/attachment/upload',express.bodyParser(),function(req,res){
     if (req.files){
         var uid =   uuid.v4();
-        oss.putObject({bucket: 'webngattachment',object: uid,srcFile: req.files.file.path},
+        oss.putObject({bucket: 'webngattachment',
+                 object: uid,
+                srcFile: req.files.file.path,
+                "Content-Disposition":'attachment;filename="' + req.files.file.originalFilename + '"'},
             function (error, result) {
                 if (error){
                     res.status(400).send(error);
