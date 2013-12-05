@@ -33,14 +33,14 @@
     <ul>
         <li ng-repeat-start="item in menuItems" class="m_line" ><img src="images/line1.gif" /></li>
         <li ng-repeat-end id="m_1" ng-class="($index == activeMenu)?'m_li_a':'m_li'" ng-mouseover="menuShow($index)">
-            <a href="#">{{item.caption}}</a>
+            <a href="#/{{item.linkTo}}">{{item.caption}}</a>
         </li>
     </ul>
   </div>
   <div style="height:32px; background-color:#F1F1F1;">
     <ul class="smenu">
         <li ng-repeat="item in menuItems" ng-style="{'padding-left':item.left+'px'}" ng-hide="($index != activeMenu)" class='s_li_a'>
-            <a ng-repeat="sub in item.subMenu" href="#{{sub.linkTo}}">
+            <a ng-repeat="sub in item.subMenu" href="#/{{sub.linkTo}}">
                 {{$first?'':'&nbsp;&nbsp;'}}{{sub.caption}}{{$last?'':'&nbsp;&nbsp;'}}
                 <img ng-hide="$last" src="images/fg.jpg" />
             </a>

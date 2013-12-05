@@ -1,14 +1,14 @@
 [
-    {"caption":"网站首页", "left":29, "linkTo":"/home",
+    {"caption":"网站首页", "left":29, "linkTo":"home",
         "subMenu":[
         ]},
     {"caption":"市场概况", "left":80,  "linkTo":"",
         "subMenu":[
-            {"caption":"简介","linkTo":"/intro/brief"},
-            {"caption":"机构设置","linkTo":"/intro/orgnization"},
-            {"caption":"工作人员","linkTo":"/intro/staff"}
+            {"caption":"简介","linkTo":"intro/brief"},
+            {"caption":"机构设置","linkTo":"intro/orgnization"},
+            {"caption":"工作人员","linkTo":"intro/staff"}
         ]},
-    {"caption":"新闻动态", "left":152,  "linkTo":"",
+    {"caption":"新闻动态", "left":152,  "linkTo":"newslist/529addfb0e66761d078fe35b/新闻动态/",
         "subMenu":[
         ]},
     {"caption":"高校会展", "left":322,  "linkTo":"","subMenu":[
@@ -17,8 +17,8 @@
         {"caption":"其他展览","linkTo":""}
     ]},
     {"caption":"成果转化", "left":404,  "linkTo":"","subMenu":[
-        {"caption":"企业需求发布","linkTo":"/qiyefabu/"},
-        {"caption":"高校成果发布","linkTo":"/gaoxiaofabu/"},
+        {"caption":"企业需求发布","linkTo":"qiyefabu/"},
+        {"caption":"高校成果发布","linkTo":"gaoxiaofabu/"},
         {"caption":"经纪人评估","linkTo":""},
         {"caption":"案例展示","linkTo":""}
     ]},
