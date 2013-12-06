@@ -57,7 +57,7 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     $scope.pttx= Component.newList(8,'529b2e3bec282bac9148ac16');
     $scope.zcfg= Component.newList(9,'529b3487ec282bac9148ac17');
     $scope.xzzq= Component.newList(9,'529b37deec282bac9148ac18');
-    $scope.alzs= Component.newList(9,'529b3c53ec282bac9148ac19');
+    $scope.alzs= Component.newList(5,'529b3c53ec282bac9148ac19');
 }]);
 app.controller('newslistCtrl',function($scope,$http,$routeParams){
     Component.http=$http;Component.scope=$scope;
