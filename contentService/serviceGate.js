@@ -142,6 +142,14 @@ app.get('/open/:pool/:_id',function(req,res){
         }
     });
 });
+app.get('/remove/:pool/:_id',function(req,res){
+    var docid =  ObjectID(req.params._id);
+    mdb[req.params.pool].remove({_id:docid},function(err, numberOfRemovedDocs){
+        if (err) {res.status(401).send({detail:err});}
+        if (0 == numberOfRemovedDocs){res.status(404).send({detail:'ID not found'});}
+        res.send({_id:docid});
+    });
+});
 
 app.post('/save/:pool',express.bodyParser(),function(req,res){
     var docid =  ObjectID(req.body.doc._id);
