@@ -143,6 +143,12 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
             //.then(success, error, progress);
         }
     };
+    $scope.deleteImage=function(inx){
+        $http.get(Server + 'remove/imagePool/' + $scope.imagePoolData[inx]._id)
+            .success(function(){
+                $scope.imagePoolData.splice(inx,1);
+            })
+    }
     $scope.onAttachmentSelect = function($files) {
         for (var i = 0; i < $files.length; i++) {
             var $file = $files[i];
@@ -162,6 +168,12 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
             //.then(success, error, progress);
         }
     };
+    $scope.deleteAttachment=function(inx){
+        $http.get(Server + 'remove/attachmentPool/' + $scope.attachmentPoolData[inx]._id)
+            .success(function(){
+                $scope.attachmentPoolData.splice(inx,1);
+            })
+    }
 });
 
 app.controller('imageListCtrl',function($scope,$http,$routeParams,$upload){
