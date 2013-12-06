@@ -63,8 +63,8 @@ app.controller('newslistCtrl',function($scope,$http,$routeParams){
     Component.http=$http;Component.scope=$scope;
     $scope.name=$routeParams.listName;
     //$scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
-    $scope.mainlist= Component.newList(30,$routeParams.listId);
-    $scope.xwdt= Component.newList(5,'529addfb0e66761d078fe35b');
+    $scope.mainlist= Component.newTitleList('docPool',30,$routeParams.listId);
+    $scope.xwdt= Component.newTitleList('docPool',5,'529addfb0e66761d078fe35b');
     $scope.qyfb= Component.newTitleList('qiyefabuPool',5,'all');
     $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',5,'all');
 });
