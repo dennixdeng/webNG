@@ -1,6 +1,5 @@
 'use strict';
 
-console.log('Controllers init');
 //Controllers section
 
 app.controller('homeCtrl',['$scope','$http',function($scope,$http){
@@ -37,7 +36,6 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
         });
 
     var docId= $routeParams.docId;
-    console.log($routeParams.docId);
     if (undefined == docId) {
         $scope.doc={
             title:''
@@ -56,7 +54,6 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
     };
 
     $scope.saveDoc=function(){
-        console.log($scope.doc);
         $http.post( Server + 'save/docPool', {doc:$scope.doc}).
             success(function(data, status, headers, config) {
                 $scope.serverMessage='保存成功';
@@ -109,7 +106,6 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
     };
     $scope.addHtml=function(){
         var p={html:{raw: $("#docEditinput").val(),show:$sce.trustAsHtml($("#docEditinput").val())}};
-        console.log(p);
         $scope.writePara(p);
     };
     $scope.addImage=function(imgInx){
@@ -137,7 +133,6 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
                     file: $file
                 }).progress(function(evt) {
                     $scope.uploadPercet =   parseInt(100.0 * evt.loaded / evt.total);
-                    console.log(evt.loaded);
                 }).success(function(data, status, headers, config) {
                     // file is uploaded successfully
                     $scope.messageFile = '上传成功';
@@ -158,7 +153,6 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
                 file: $file
             }).progress(function(evt) {
                     $scope.attUploadPercet =   parseInt(100.0 * evt.loaded / evt.total);
-                    console.log(evt.loaded);
                 }).success(function(data, status, headers, config) {
                     // file is uploaded successfully
                     $scope.messageFile = '上传成功';
@@ -194,7 +188,6 @@ app.controller('imageListCtrl',function($scope,$http,$routeParams,$upload){
     };
     $http({method: 'GET', url: Server + 'get_list/imagePool'}).
         success(function(data, status, headers, config) {
-            console.log(data);
             $scope.imagePoolData = data;
         }).error(function(data, status, headers, config) {
             console.log(status);
@@ -213,7 +206,6 @@ app.controller('imageListCtrl',function($scope,$http,$routeParams,$upload){
                     file: $file
                 }).progress(function(evt) {
                         $scope.uploadPercet =   parseInt(100.0 * evt.loaded / evt.total);
-                        console.log(evt.loaded);
                     }).success(function(data, status, headers, config) {
                         // file is uploaded successfully
                         $scope.messageFile = '上传成功';
