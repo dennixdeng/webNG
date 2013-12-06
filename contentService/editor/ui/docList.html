@@ -9,11 +9,14 @@
         <li style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px" ng-class="( -1 ==listActive )?'trueList':'falseList'" ng-click="activateList(-1)">草稿箱</li>
         <li ng-repeat="item in allLists" style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px" ng-class="( listActive == $index )?'trueList':'falseList'" ng-click="activateList($index)">{{item.name}}</li>
     </ul>
-    <ul style="display: inline-block; vertical-align: top">
+    <ul style="display: inline-block; vertical-align: top; ">
         <li><a  class="pure-button pure-button-primary"
                 ng-hide="null == listActive"
                 href="#/newdoc/{{allLists[listActive]._id}}" target="_blank">创建新文档 - {{allLists[listActive].name}}</a></li>
-        <li ng-repeat="doc in docList"><a href="#/doc/{{doc._id}}" target="_blank">{{doc.title}}</a></li>
+        <li ng-repeat="doc in docList" style="line-height: 28px;vertical-align: bottom;list-style-type: none;">
+            <img ng-click="removeDoc($index)" style="width: 20px;margin:auto 10px -3px 5px;cursor: pointer" src="images/delete.png">
+            <a href="#/doc/{{doc._id}}" target="_blank">{{doc.title}}</a>
+        </li>
     </ul>
 </div>
 <div>

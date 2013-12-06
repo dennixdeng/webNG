@@ -218,7 +218,7 @@ app.controller('imageListCtrl',function($scope,$http,$routeParams,$upload){
     };
 });
 
-app.controller('docListCtrl',function($scope,$http,$routeParams){
+app.controller('docListCtrl',function($scope,$http,$routeParams,$window){
     $scope.serverMessage='HTML5技术全新支持，建议使用Chrome, Safari, FireFox, QQ, 搜狗，百度，猎豹, 360等现代浏览器';
     $http.get(Server + 'get_list/listPool').success(function(d){
         $scope.allLists=d ;
@@ -234,6 +234,13 @@ app.controller('docListCtrl',function($scope,$http,$routeParams){
                 $scope.docList=d ;
             });
         }
+    }
+    $scope.removeDoc=function(inx){
+        if ($window.confirm('确定要删除文档《' +  $scope.docList[inx].title + '》？')){
+            $http.get(Server + 'remove/docPool/' + $scope.docList[inx]._id).success(function(d){
+                $scope.docList.splice(inx,1);
+            });
+        };
     }
 });
 //Filters section
