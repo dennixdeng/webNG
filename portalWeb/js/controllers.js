@@ -1,5 +1,5 @@
 'use strict';
-var Server="http://115.29.179.40:8881/";
+var Server="http://t.easytag.cn/";
 //var Server="http://localhost:8881/";
 
 //component section
