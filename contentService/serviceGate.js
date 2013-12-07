@@ -84,7 +84,7 @@ app.get('/list_title/:pool/:top/:listId',function(req,res){
     });
 });
 app.get('/get_list/:pool',function(req,res){
-    mdb[req.params.pool].find().toArray(function(e,d){
+    mdb[req.params.pool].find({},{},{sort:[['_id']]}).toArray(function(e,d){
         res.send(d);
     });
 });
