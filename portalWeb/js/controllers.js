@@ -183,8 +183,18 @@ angular.module('etFilters', [])
                 return new Date(parseInt(id.toString().slice(0,8), 16)*1000).toLocaleString().split(' ')[0];
             }
     }).filter('cnDate',function(){
-            return function(date){
+        return function(date){
 
+        }
+    }).filter('docEditable',function(){
+        return function(inLists,allLists){
+            var r=false;
+            for (var j in allLists){
+                 if ( (inLists.indexOf(allLists[j]._id) > -1) && allLists[j].noEdit) {
+                           r= true;
+                 }
             }
-        });
+            return r;
+        }
+    });
 

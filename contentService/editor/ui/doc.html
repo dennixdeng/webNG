@@ -6,7 +6,7 @@
         </h3>
     </div>
 
-    <div  ng-hide="doc.inLists[0].noEdit">本文档属于{{doc.inLists.length}}个列表
+    <div  ng-hide="doc.inLists|docEditable:allLists">本文档属于{{doc.inLists.length}}个列表
         <div ng-repeat="item in allLists" class="listBtn" ng-class="( -1 == doc.inLists.indexOf(item._id) )?'falseList':'trueList'" ng-click="toggleList(item._id)">{{item.name}}</div>
     </div>
 

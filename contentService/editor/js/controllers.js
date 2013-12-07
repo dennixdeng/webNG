@@ -290,4 +290,14 @@ angular.module('etFilters', [])
             return  'background:url(images/fileTypes.jpg) -' + ((inx % 10) * 96) +'px -' + (Math.floor(inx / 10)*92) + 'px';
         }
     };
+}).filter('docEditable',function(){
+    return function(inLists,allLists){
+        var r=false;
+        for (var j in allLists){
+            if ( (inLists.indexOf(allLists[j]._id) > -1) && allLists[j].noEdit) {
+                r= true;
+            }
+        }
+        return r;
+    };
 })
