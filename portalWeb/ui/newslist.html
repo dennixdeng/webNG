@@ -1,68 +1,4 @@
 <style>
-    .contm { width:980px; height:100%; margin:0 auto}
-    #cont_left { width:340px; height:1050px;; float:left; background:#f1f1f1;}
-    b.rtop, b.rbottom{display:block;background: #FFF}
-    b.rtop b, b.rbottom b{display:block;height: 1px;
-        overflow: hidden; background: #f1f1f1}
-    b.r1{margin: 0 5px}
-    b.r2{margin: 0 3px}
-    b.r3{margin: 0 2px}
-    b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px}
-    .live_new { width:312px; height:187px; background:url(images/bg.png) no-repeat;margin-left:14px; margin-top:5px}
-    .topname { padding-top:12px;padding-left:14px;font-size:15px; font-weight:bold; color:#FFFFFF}
-    .new { width:300px; height:115px;}
-    .newlist {padding-left: 15px;margin-top: 11px;overflow: hidden; }
-    .newlist li {overflow: hidden; padding-left:10px; font-size:12px; color:#999999; line-height:14px; height:14px; padding-top:6px;}
-    .newlist li a {color:#114a84;}
-    .newlist li a:hover{color:#FF3300;}
-    .newlist li span { padding-right:5px; padding-left:5px;}
-    .newsmore {float:right; padding-right:27px;}
-
-
-    .video { width:315px; height:292px; background:url(images/vidobg.png) no-repeat;  margin-left:14px; margin-top:15px}
-    .video_p { width:305px; height:208px; padding-top:3px; padding-left:5px;}
-    .video_s { padding-left:10px; padding-top:5px;}
-    #cont_right { width:625px; height:100%; float:right;}
-    .conttit { width:615px; height:24px; padding-top:20px; padding-left:10px; font-size:15PX; color:#000000; font-weight:bold}
-    .fgx { width:625px; height:4px; background:url(images/xian.jpg) no-repeat; margin-left:0px;}
-    .contlb { width:615px; height:408px; padding-left:10px; padding-top:15px;}
-    .contlbx { width:615px; height:100%; padding-left:10px; color:#999999; font-size:12px;}
-    .contlbx p {line-height:20px; padding-top:20px;}
-    .contcom { padding-left:10px;padding-top:20px;color:#999999; font-size:13px;}
-    .page {background:url(images/jiantoubeijing.png) no-repeat; width:611px; height:14px; margin-left:10px; margin-top:50px;}
-    .pglf { float:left; width:250px; padding-left:20px;}
-    .pgrt { float:right; width:300px; text-align:right; padding-right:20px}
-
-
-    .qiehuan1 {width:328px; height:169px; background:url(images/qiehuan.jpg) no-repeat;  margin-left:8px; margin-top:15px;}
-    .qiehuan2 {width:328px; height:169px; background:url(images/qiehuan.jpg) no-repeat;  margin-left:8px; margin-top:15px;}
-    .qhlist {padding-left: 15px;margin-top: 4px;overflow: hidden;}
-    .qhlist li {overflow: hidden;  padding-left:10px; font-size:12px; color:#999999; line-height:14px; height:14px; padding-top:6px;}
-    .qhsmore {float:right; padding-right:15px; padding-top:3px}
-        /*�л�*/
-    .tab{margin-top:0px; margin-left:10PX; padding-top:6PX;}
-    #TabTab03Con1{width:305px;height:100px;line-height:100px;}
-    #TabTab03Con2{width:305px;height:100px;line-height:100px;}
-
-    .tao2t1{width:305px;height:31px;line-height:31px;background-image:url(images//qiez.png);cursor:pointer; font-weight:900;}
-    .tao2t2{width:305px;height:31px;line-height:31px;background-image:url(images/qiey.png);cursor:pointer;font-weight:900;}
-
-    .tab1{width:81px;height:31px;line-height:31px;float:left;text-align:center;cursor:pointer;}
-    .tab2{width:81px;height:31px;line-height:31px;float:left;text-align:center;cursor:pointer;}
-
-        /*��ͼ���ݻõ�*/
-    .bannerbox { width: 615px; height: 408px; overflow: hidden; margin: 0px auto; }
-    #focus { width: 615px; height: 408px; clear: both; overflow: hidden; position: relative;  }
-    #focus ul { width: 615px; height: 408px; float: left; position: absolute; clear: both; padding: 0px; margin: 0px; }
-    #focus ul li { float: left; width: 615px; height: 408px; overflow: hidden;  padding: 0px; margin: 0px; }
-    #focus .preNext { width: 550px; height: 408px; position: absolute; top: 0px; cursor: pointer; }
-    #focus .pre { left: 0; background: url(images/sprite.png) no-repeat left center; }
-    #focus .next { right: 0; background: url(images/sprite1.png) no-repeat right center; }
-
-
-
-
-        /*����CSS*/
     .newslisto { width:626PX; height:auto; min-height:402px; background:url(images/dbg.jpg) repeat-y}
     .newslisto li {overflow: hidden; font-size:11px; line-height:12px; height:12px;padding-top:8px; }
     .dx { width:490px; padding-left:20px; float:left; padding-top:4px;}
@@ -76,75 +12,24 @@
 
 </style>
 <!--body开始-->
-<div class="content">
-    <!--body左侧开始-->
-    <div class="contm">
-        <div id="cont_left" class="row">
-            <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
-            <div class="live_new">
-                <div class="topname">
-                    新闻动态
-                </div>
-                <div class="new">
-                    <ul class="newlist">
-                        <li ng-repeat="doc in xwdt.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/news/{{doc._id}}">{{doc.title}}</a></li>
-                    </ul>
-                </div>
-                <div class="newsmore"><a href="">更多</a></div>
-            </div>
-            <div class="video">
-                <div class="topname">
-                    视频
-                </div>
-                <div class="video_p">
-                    <embed src="http://player.youku.com/player.php/sid/XNjI1MDkxMTEy/v.swf" allowFullScreen="true" quality="high" width="305" height="208" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
-                </div>
-                <div class="video_s">
-                    Aenean  sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at,  odio.
-                </div>
-            </div>
-            <div class="qiehuan1">
-                <div class="tab">
-                    <div id="bg" class="tao2t1">
-                        <div id="font1" class="tab1" >企业发布</div>
-                    </div>
-                    <div id=TabTab03Con1>
-                        <ul class="qhlist">
-                            <li ng-repeat="doc in qyfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
-                        </ul></div>
-                </div>
-                <div class="qhsmore"><a href="">更多企业需求发布</a></div>
-            </div>
-            <div class="qiehuan2">
-                <div class="tab">
-                    <div id="bg2" class="tao2t1">
-                        <div id="font12" class="tab1" >高校发布</div>
-                    </div>
-                    <div id=TabTab03Con1><ul class="qhlist">
-                        <li ng-repeat="doc in gxfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
-                    </ul></div>
-                </div>
-                <div class="qhsmore"><a href="">更多高校成果发布</a></div>
-            </div>
 
-        </div>
-<!--body右侧开始-->
 <div id="cont_right">
-<div class="conttit">
-{{name}}
+    <div class="conttit">
+    {{mainlist.name}}
+    </div>
+    <div class="fgx"></div>
+    <ul style=" width:600px; padding-left:20px; padding-top:4px;">
+        <li ng-repeat="doc in mainlist.list" style="font-size:14px">
+            <div style="width:500px;display: inline-block"><a href="#/news/{{doc._id}}">{{doc.title}}</a></div>
+            <span style="font-size: 12px;color: #aaaaaa">{{doc._id|Id2Date}}</span>
+        </li>
+    </ul>
+<div class="newspg">
+    <img src="images/sanjiaoz.jpg" alt="向前" border="0" align="absmiddle"/>
+    <a href="">1</a> |
+    <a href="">2</a> |
+    <a href="">3</a> |
+    <a href="">4</a> |
+    <a href="">5</a>
+    <img src="images/sanjiaoy.jpg" alt="向后" border="0"  align="absmiddle"/></div>
 </div>
-<div class="fgx"></div>
-<div class="newslisto">
-<ul class="dx">
-<li ng-repeat="doc in mainlist.list" class="ddl"> <span><a href="#/news/{{doc._id}}">{{doc.title}}</a></span></li>
-</ul>
-<ul class="dy">
-<li  ng-repeat="doc in mainlist.list" class="dd2"><span>{{doc._id|Id2Date}}</span></li>
-</ul>
-</div>
-<div class="claer"></div>
-<div class="newspg"><img src="images/sanjiaoz.jpg" alt="向前" border="0" align="absmiddle"/> <a href="">1</a> | <a href="">2</a> | <a href="">3</a> | <a href="">4</a> | <a href="">5</a> <img src="images/sanjiaoy.jpg" alt="向后" border="0"  align="absmiddle"/></div>
-
-</div>
-        <!--body结束-->
-</div></div>

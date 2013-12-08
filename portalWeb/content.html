@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app" class="ng-app:app" id="ng-app" lang="cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>上海高校技术市场官方网站</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/content.css" rel="stylesheet" type="text/css" />
+<script src="lib/html5shiv.js"></script>
+<script src="lib/json2.js"></script>
+<script src="lib/angular.min.js"></script>
+<script src="lib/angular-route.min.js"></script>
+<script src="js/sharedComponents.js"></script>
+<script src="js/content.js"></script>
+</head>
+<body>
+<!--topstar-->
+<div ng-controller="menuContoller">
+  <div class="top">
+    <div id="logo"><a href=""></a></div>
+    <div id="topdh"><a href="">联系我们</a><span><img src="images/huaxian.jpg" /></span> <a href="">友情链接</a> <span><img src="images/huaxian.jpg" /></span><a href="">网站地图</a><span><img src="images/huaxian.jpg" /></span></div>
+    <div id="searchtop">
+        <div id="search_box">
+            <form id="search_form" method="post" action="#">
+                <input type="text" id="s" value="输入搜索内容" class="swap_value" />
+                <input type="image" src="images/sousu.jpg" width="34" height="18" id="go" alt="Search" title="Search" />
+            </form>
+        </div>
+    </div>
+
+  </div>
+  <!--topend-->
+
+  <!--导航开始-->
+
+  <div id="menu">
+    <ul>
+        <li ng-repeat-start="item in menuItems" class="m_line" ><img src="images/line1.gif" /></li>
+        <li ng-repeat-end id="m_1" ng-class="($index == activeMenu)?'m_li_a':'m_li'" ng-mouseover="menuShow($index)">
+            <a href="{{item.linkTo}}">{{item.caption}}</a>
+        </li>
+    </ul>
+  </div>
+  <div style="height:32px; background-color:#F1F1F1;">
+    <ul class="smenu">
+        <li ng-repeat="item in menuItems" ng-style="{'padding-left':item.left+'px'}" ng-hide="($index != activeMenu)" class='s_li_a'>
+            <a ng-repeat="sub in item.subMenu" href="{{sub.linkTo}}">
+                {{$first?'':'&nbsp;&nbsp;'}}{{sub.caption}}{{$last?'':'&nbsp;&nbsp;'}}
+                <img ng-hide="$last" src="images/fg.jpg" />
+            </a>
+
+        </li>
+   </ul>
+  </div>
+</div>
+<!--导航结束-->
+<!--body开始-->
+<div class="content">
+    <!--body左侧开始-->
+    <div class="contm">
+        <div id="cont_left" class="row"  ng-controller="leftContoller">
+            <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
+            <div class="live_new">
+                <div class="topname">
+                    新闻动态
+                </div>
+                <div class="new">
+                    <ul class="newlist">
+                        <li ng-repeat="doc in xwdt.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/news/{{doc._id}}">{{doc.title}}</a></li>
+                    </ul>
+                </div>
+                <div class="newsmore"><a href="">更多</a></div>
+            </div>
+            <div class="video">
+                <div class="topname">
+                    视频
+                </div>
+                <div class="video_p">
+                    <embed src="http://player.youku.com/player.php/sid/XNjI1MDkxMTEy/v.swf" allowFullScreen="true" quality="high" width="305" height="208" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+                </div>
+                <div class="video_s">
+                    Aenean  sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at,  odio.
+                </div>
+            </div>
+            <div class="qiehuan1">
+                <div class="tab">
+                    <div id="bg" class="tao2t1">
+                        <div id="font1" class="tab1" >企业发布</div>
+                    </div>
+                    <div id=TabTab03Con1>
+                        <ul class="qhlist">
+                            <li ng-repeat="doc in qyfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
+                        </ul></div>
+                </div>
+                <div class="qhsmore"><a href="">更多企业需求发布</a></div>
+            </div>
+            <div class="qiehuan2">
+                <div class="tab">
+                    <div id="bg2" class="tao2t1">
+                        <div id="font12" class="tab1" >高校发布</div>
+                    </div>
+                    <div id=TabTab03Con1><ul class="qhlist">
+                        <li ng-repeat="doc in gxfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
+                    </ul></div>
+                </div>
+                <div class="qhsmore"><a href="">更多高校成果发布</a></div>
+            </div>
+
+        </div>
+        <!--body右侧开始-->
+        <div ng-view></div>
+        <!--body结束-->
+    </div></div>
+
+<!--foot开始-->
+<div class="fw">网站访问量：234888    电话：021-11111111</div>
+<div class="foot">
+    <div class="foottxt">
+        <p>copyright2013 上海高校技术市场 版权所有</p>
+    </div>
+</div>
+<!--foot结束-->
+</div>
+</body>
+
+</html>

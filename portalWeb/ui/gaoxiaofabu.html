@@ -1,326 +1,109 @@
-<style>
-    .contm { width:980px; height:100%; margin:0 auto}
-    #cont_left { width:340px; height:1570px;; float:left; background:#f1f1f1;}
-    b.rtop, b.rbottom{display:block;background: #FFF}
-    b.rtop b, b.rbottom b{display:block;height: 1px;
-        overflow: hidden; background: #f1f1f1}
-    b.r1{margin: 0 5px}
-    b.r2{margin: 0 3px}
-    b.r3{margin: 0 2px}
-    b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px}
-    .live_new { width:312px; height:187px; background:url(images/bg.png) no-repeat;margin-left:14px; margin-top:5px}
-    .topname { padding-top:12px;padding-left:14px;font-size:15px; font-weight:bold; color:#FFFFFF}
-    .new { width:300px; height:115px;}
-    .newlist {padding-left: 15px;margin-top: 11px;overflow: hidden; }
-    .newlist li {overflow: hidden; FLOAT: left; padding-left:10px; font-size:12px; color:#999999; line-height:14px; height:14px; padding-top:6px;}
-    .newlist li a {color:#114a84;}
-    .newlist li a:hover{color:#FF3300;}
-    .newlist li span { padding-right:5px; padding-left:5px;}
-    .newsmore {float:right; padding-right:27px;}
-
-
-    .video { width:315px; height:292px; background:url(images/vidobg.png) no-repeat;  margin-left:14px; margin-top:15px}
-    .video_p { width:305px; height:208px; padding-top:3px; padding-left:5px;}
-    .video_s { padding-left:10px; padding-top:5px;}
-    #cont_right { width:625px; height:100%; float:right;}
-    .conttit { width:615px; height:24px; padding-top:20px; padding-left:10px; font-size:15PX; color:#000000; font-weight:bold}
-    .fgx { width:625px; height:4px; background:url(images/xian.jpg) no-repeat; margin-left:0px;}
-    .contlb { width:615px; height:408px; padding-left:10px; padding-top:15px;}
-    .contlbx { width:615px; height:100%; padding-left:10px; color:#999999; font-size:12px;}
-    .contlbx p {line-height:20px; padding-top:20px;}
-    .contcom { padding-left:10px;padding-top:20px;color:#999999; font-size:13px;}
-    .page {background:url(images/jiantoubeijing.png) no-repeat; width:611px; height:14px; margin-left:10px; margin-top:50px;}
-    .pglf { float:left; width:250px; padding-left:20px;}
-    .pgrt { float:right; width:300px; text-align:right; padding-right:20px}
-    .qiehuan1 {width:328px; height:169px; background:url(images/qiehuan.jpg) no-repeat;  margin-left:8px; margin-top:15px;}
-    .qiehuan2 {width:328px; height:169px; background:url(images/qiehuan.jpg) no-repeat;  margin-left:8px; margin-top:15px;}
-    .qhlist {padding-left: 15px;margin-top: 4px;overflow: hidden;}
-    .qhlist li {overflow: hidden; padding-left:10px; font-size:12px; color:#999999; line-height:14px; height:14px; padding-top:6px;}
-    .qhsmore {float:right; padding-right:15px; padding-top:3px}
-        /*�л�*/
-    .tab{margin-top:0px; margin-left:10PX; padding-top:6PX;}
-    #TabTab03Con1{width:305px;height:100px;line-height:100px;}
-    #TabTab03Con2{width:305px;height:100px;line-height:100px;}
-
-    .tao2t1{width:305px;height:31px;line-height:31px;background-image:url(images/qiez.png);cursor:pointer; font-weight:900;}
-    .tao2t2{width:305px;height:31px;line-height:31px;background-image:url(images/qiey.png);cursor:pointer;font-weight:900;}
-
-    .tab1{width:81px;height:31px;line-height:31px;float:left;text-align:center;cursor:pointer;}
-    .tab2{width:81px;height:31px;line-height:31px;float:left;text-align:center;cursor:pointer;}
-
-
-        /*��ͼ���ݻõ�*/
-    .bannerbox { width: 615px; height: 408px; overflow: hidden; margin: 0px auto; }
-    #focus { width: 615px; height: 408px; clear: both; overflow: hidden; position: relative;  }
-    #focus ul { width: 615px; height: 408px; float: left; position: absolute; clear: both; padding: 0px; margin: 0px; }
-    #focus ul li { float: left; width: 615px; height: 408px; overflow: hidden;  padding: 0px; margin: 0px; }
-    #focus .preNext { width: 550px; height: 408px; position: absolute; top: 0px; cursor: pointer; }
-    #focus .pre { left: 0; background: url(images/sprite.png) no-repeat left center; }
-    #focus .next { right: 0; background: url(images/sprite1.png) no-repeat right center; }
-
-
-    .fbtit { text-align:center; font-size:15px; font-weight:bold; color:#000000;}
-    .biaod { padding-top:20px;}
-    .jssm { width:524px; height:475px; background:url(images/bg-1.jpg) no-repeat; margin:0 auto}
-    .syjz { width:524px; height:315px; background:url(images/bg-2.jpg) no-repeat; margin:0 auto}
-    .qt { width:524px; height:143px; background:url(images/bg-3-2.jpg) no-repeat; margin:0 auto}
-    .hzfs { width:524px; height:147px; background:url(images/bg-3-1.jpg) no-repeat; margin:0 auto}
-    .bdxx { width:524px; height:4px; background:url(images/xuxian.jpg) no-repeat; margin-left:46px; margin-bottom:5px; margin-top:5px;}
-    .bdxx2 { width:524px; height:4px; background:url(images/xuxian.jpg) no-repeat; margin-left:46px; margin-bottom:1px; margin-top:5px; clear:both}
-    .bdxx3 { width:524px; height:4px; background:url(images/xuxian.jpg) no-repeat; margin-left:46px; margin-bottom:0px; margin-top:0px; clear:both}
-    .biaodname { width:70px; padding-left:60px; float:left; line-height:25px; font-size:13px;}
-    .biaodname2 { width:70px; height:80px; padding-left:60px; float:left; line-height:20px}
-    .biaodname3 { width:60px; height:475px; padding-left:15px; float:left; line-height:20px; padding-top:5px; float:left;}
-    .biaodname4 {width:60px; height:315px; padding-left:15px; float:left; line-height:20px; padding-top:5px; float:left}
-    .biaodname5 {width:60px; height:147px; padding-left:15px; float:left; line-height:20px; padding-top:5px; float:left}
-    .biaodname6 {width:140px; padding-left:15px; float:left; line-height:15px; padding-top:5px; float:left}
-    .jssmy { float:right; width:440px;}
-    .jssm_n { width:440px; height:100px; padding-top:10px;}
-    .jssm_t { height:20px; line-height:20px; overflow:hidden; padding-top:12px; color:#999999}
-    .jssm_ttt { height:20px; line-height:20px; overflow:hidden; padding-top:2px; color:#999999}
-    .syjzy { float:right; width:440px;}
-    .syjz_n { width:440px; height:110px; padding-top:10px;}
-    .syjz_t { height:20px; line-height:20px; overflow:hidden; padding-top:3px; color:#999999}
-    .syjz_tt { height:20px; line-height:20px; overflow:hidden; padding-top:18px; color:#999999}
-    .syjzy { float:right; width:440px;}
-    .qty { float:right; width:440px;}
-    .qt_n { width:440px; height:110px; padding-top:10px;}
-    .hzfsy { float:right; width:440px;}
-    .hzfs_n { width:440px; height:110px; padding-top:10px;}
-    .fb { text-align:center; padding-top:20px; padding-bottom:30px; clear:both}
-    .zih {color:#999999; padding-left:15px;}
-    input.image-sprites_x {
-        padding: 2px 1px 4px 18px;
-        line-height:20px;
-        height: 24px;
-        width: 365px;
-        outline: none;
-        background: url('images/sr.png') top center no-repeat;
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-        border-radius: 0;
-        border: 0;
-        -webkit-box-shadow: 0 0 0;
-        -moz-box-shadow: 0 0 0;
-        box-shadow: 0 0 0;
-    }
-    input.image-sprites_w {
-        padding: 2px 1px 0px 18px;
-        height: 24px;
-        width: 176px;
-        line-height:20px;
-        outline: none;
-        background: url('images/il.png') top center no-repeat;
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-        border-radius: 0;
-        border: 0;
-        -webkit-box-shadow: 0 0 0;
-        -moz-box-shadow: 0 0 0;
-        box-shadow: 0 0 0;
-    }
-    input.image-sprites_wd {
-        padding: 0px 5px 0px 15px;
-        height: 19px;
-        width: 320px;
-        line-height:20px;
-        outline: none;
-        background: url('images/qt.jpg') top center no-repeat;
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-        border-radius: 0;
-        border: 0;
-        -webkit-box-shadow: 0 0 0;
-        -moz-box-shadow: 0 0 0;
-        box-shadow: 0 0 0;
-    }
-    textarea.image-sprites_nd{
-        padding: 5px 1px 4px 5px;
-        height:110px;
-        width:400px;
-        outline: none;
-        background: url('images/nd.png') top center no-repeat;
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-        border-radius: 0;
-        border: 0;
-        -webkit-box-shadow: 0 0 0;
-        -moz-box-shadow: 0 0 0;
-        box-shadow: 0 0 0;
-        overflow-x:hidden;
-        overflow-y:hidden
-    }
-
-    textarea.image-sprites_nd1 {padding: 5px 1px 4px 5px;
-        height:110px;
-        width:400px;
-        outline: none;
-        background: url('images/nd.png') top center no-repeat;
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-        border-radius: 0;
-        border: 0;
-        -webkit-box-shadow: 0 0 0;
-        -moz-box-shadow: 0 0 0;
-        box-shadow: 0 0 0;
-        overflow-x:hidden;
-        overflow-y:hidden
-    }
-    #text_content{resize:none;}
-</style>
-<!--body开始-->
-<div class="content">
-<!--body左侧开始-->
-<div class="contm">
-<div id="cont_left" class="row">
-<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
-<div class="live_new">
-<div class="topname">
-新闻动态
-</div>
-<div class="new">
-<ul class="newlist">
-    <li ng-repeat="doc in xwdt.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/news/{{doc._id}}">{{doc.title}}</a></li>
-</ul>
-</div>
-<div class="newsmore"><a href="">更多</a></div>
-</div>
-<div class="video">
-<div class="topname">
-视频
-</div>
-<div class="video_p">
-<embed src="http://player.youku.com/player.php/sid/XNjI1MDkxMTEy/v.swf" allowFullScreen="true" quality="high" width="305" height="208" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
-</div>
-<div class="video_s">
-Aenean  sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at,  odio.
-</div>
-</div>
-<div class="qiehuan1">
-<div class="tab">
-	<div id="bg" class="tao2t1">
-		<div id="font1" class="tab1" >企业发布</div>
-	</div>
-    <div id=TabTab03Con1>
-<ul class="qhlist">
-        <li ng-repeat="doc in qyfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
-</ul></div>
-</div>
-<div class="qhsmore"><a href="">更多企业需求发布</a></div>
-</div>
-<div class="qiehuan2">
-<div class="tab">
-	<div id="bg2" class="tao2t1">
-		<div id="font12" class="tab1" >高校发布</div>
-	</div>
-    <div id=TabTab03Con1><ul class="qhlist">
-        <li ng-repeat="doc in gxfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
-</ul></div>
-</div>
-<div class="qhsmore"><a href="">更多高校成果发布</a></div>
-</div>
-
-</div>
-<!--body右侧开始-->
 <div id="cont_right">
-<div class="conttit">
-高校成果发布
-</div>
-<div class="fgx"></div>
-<div class="contlb">
-<div class="fbtit">
-高校科技成果推介
-</div>
-<div class="biaod">
-<form action="" method="get">
-<div class="biaodname">学校</div><input name="n1" ng-model="doc.name" type="text" placeholder="输入学校名称" class="image-sprites_x" />
-<div class="bdxx"></div>
-<div class="biaodname">项目名称</div><input  ng-model="doc.title" name="n2" type="text" class="image-sprites_x"  />
-<div class="bdxx"></div>
-<div class="biaodname">项目联系人</div><input  ng-model="doc.contacts" name="n3" type="text" class="image-sprites_w" />联系方式<input  ng-model="doc.contactinfo" name="n4" type="text" class="image-sprites_w"/>
-<div class="bdxx"></div>
-<div class="biaodname2">技术领域<br /><span class="zih">(可多选)</span></div>
+    <div class="conttit">高校成果发布</div>
+    <div class="fgx"></div>
+    <div class="contlb">
+        <div style="text-align:center; font-size:15px; font-weight:bold;">高校科技成果推介</div>
+        <div style="padding-top:20px;"><form action="" method="get">
+            <div class="biaodname">学校</div>
+            <input name="n1" ng-model="doc.name" type="text" placeholder="输入学校名称" class="clearInput" style="width:400px" />
+            <div class="bdxx"></div>
+            <div class="biaodname">项目名称</div>
+            <input  ng-model="doc.title" name="n2" type="text" class="clearInput"  style="width:400px"  />
+            <div class="bdxx"></div>
+            <div class="biaodname">项目联系人</div>
+            <input  ng-model="doc.contacts" name="n3" type="text" class=" clearInput"  style="width:180px" />
+            联系方式
+            <input  ng-model="doc.contactinfo" name="n4" type="text" class="clearInput"  style="width:150px" />
+            <div class="bdxx"></div>
+            <div class="biaodname">技术领域<br />(可多选)</div>
 
-<table width="420" border="0" class="zih">
-  <tr>
-    <td><input  type="checkbox" value="" name="cc" id="aa" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
-    <td>新能源</span></td>
-    <td>
-<input  type="checkbox" value="" name="cc" id="bb" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
-    <td>生物医药</td>
-    <td>
-<input  type="checkbox" value="" name="cc" id="cc" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
-    <td>新能源汽车</td>
-  </tr>
-  <tr>
-    <td>
-<input  type="checkbox" value="" name="cc" id="dd" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
-    <td>民用航空制造业</td>
-    <td>
-<input  type="checkbox" value="" name="cc" id="ee" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);"></div></td>
-    <td>电子信息制造业</td>
-    <td>
-<input  type="checkbox" value="" name="cc" id="ff" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
-    <td>海洋工程设备</td>
-  </tr>
-  <tr>
-    <td>
-<input  type="checkbox" value="" name="cc" id="gg" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
-    <td>先进重大设备</td>
-    <td>
-<input  type="checkbox" value="" name="cc" id="hh" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
-    <td>软件和信息服务业</td>
-    <td>
-<input  type="checkbox" value="" name="cc" id="ii" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
-    <td>新材料</td>
-  </tr>
-  <tr>
-    <td>
-<input  type="checkbox" value="" name="cc" id="jj" style="display:none;" />
-<div style="width:15px; height:15px;background-image:url(images/dr.png);"></div></td>
-    <td colspan="5">其他
-      <input name="n22" type="text" class="image-sprites_wd"  /></td>
-    </tr>
-</table>
+            <table width="420" border="0" style="color:#999999; padding-left:15px;display: inline-block">
+                <tr>
+                    <td>
+                        <input  type="checkbox" value="" name="cc" id="aa" style="display:none;" />
+                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
+                    </td>
+                    <td>新能源</td>
+                    <td>
+                        <input  type="checkbox" value="" name="cc" id="bb" style="display:none;" />
+                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
+                    </td>
+                    <td>生物医药</td>
+                    <td>
+                        <input  type="checkbox" value="" name="cc" id="cc" style="display:none;" />
+                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
+                    </td>
+                    <td>新能源汽车</td>
+                </tr>
+                 <tr>
+                    <td>
+                        <input  type="checkbox" value="" name="cc" id="dd" style="display:none;" />
+                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
+                    <td>民用航空制造业</td>
+                    <td>
+                        <input  type="checkbox" value="" name="cc" id="ee" style="display:none;" />
+                        <div style="width:15px; height:15px;background-image:url(images/dr.png);"></div>
+                    </td>
+                    <td>电子信息制造业</td>
+                    <td>
+                        <input  type="checkbox" value="" name="cc" id="ff" style="display:none;" />
+                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
+                    </td>
+                    <td>海洋工程设备</td>
+                 </tr>
+                 <tr>
+                    <td>
+                        <input  type="checkbox" value="" name="cc" id="gg" style="display:none;" />
+                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
+                    </td>
+                    <td>先进重大设备</td>
+                    <td>
+                        <input  type="checkbox" value="" name="cc" id="hh" style="display:none;" />
+                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
+                    </td>
+                    <td>软件和信息服务业</td>
+                    <td>
+                        <input  type="checkbox" value="" name="cc" id="ii" style="display:none;" />
+                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
+                    </td>
+                    <td>新材料</td>
+                 </tr>
+                 <tr>
+                    <td>
+                        <input  type="checkbox" value="" name="cc" id="jj" style="display:none;" />
+                        <div style="width:15px; height:15px;background-image:url(images/dr.png);"></div>
+                    </td>
+                    <td colspan="5">其他
+                        <input name="n22" type="text" class="image-sprites_wd"  />
+                    </td>
+                 </tr>
+            </table>
 
-<div class="bdxx2"></div>
-<div class="jssm">
-<div class="biaodname3">技术说明</div> <div class="jssmy"><div class="jssm_ttt">1、技术性说明</div>
-  <div class="jssm_n">
-    <textarea  ng-model="doc.techbrief" name="textarea" cols="" rows="" id="text_content" class="image-sprites_nd1"></textarea>
-  </div>
-  <br />
-<div class="jssm_t">2、技术创新点</div><div class="jssm_n"><textarea  ng-model="doc.techhighlight" name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div><br /><div class="jssm_t">3、知识产权情况</div><div class="jssm_n"><textarea  ng-model="doc.techIP" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div><br /></div>
-</div>
-<div class="bdxx3"></div>
-<div class="syjz">
-<div class="biaodname4">实用价值</div> <div class="syjzy"><div class="syjz_t">1、技术的成熟度</div><div class="syjz_n"><textarea  ng-model="doc.techlevel" name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div><div class="syjz_tt">2、技术的实用性和适用领域</div><div class="syjz_n"><textarea  ng-model="doc.techapllication" name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div></div>
-</div>
-<div class="bdxx3"></div>
-<div class="hzfs">
-<div class="biaodname5">合作方式</div><div class="hzfsy"><div class="hzfs_n"><textarea  ng-model="doc.terms" name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div></div></div>
-<div class="bdxx"></div>
-<div class="qt">
-<div class="biaodname5">其他</div><div class="qty"><div class="qt_n"><textarea  ng-model="doc.other" name="" cols="" rows=""  id="text_content" class="image-sprites_nd"></textarea></div></div>
-</div>
-</form>
-
-</div>
-</div>
-<div class="contlbx">
-<div class="fb"><input ng-click="submitDoc()" name="img" type="image" src="images/fabu.png" /></div>
-
-</div>
-</div>
-</div>
-<!--body结束-->
+            <div class="bdxx"></div>
+            <div class="biaodname">技术说明</div>
+            <div style="display: inline-block">
+                <span style="color:#999999"> 1、技术性说明</span>
+                <br><textarea  ng-model="doc.techbrief" class="clearInput" style="width: 400px;height: 100px"></textarea>
+                <br><span style="color:#999999">2、技术创新点</span>
+                <br><textarea  ng-model="doc.techhighlight" class="clearInput" style="width: 400px;height: 100px"></textarea>
+                <br><span style="color:#999999">3、知识产权情况</span>
+                <br><textarea  ng-model="doc.techIP"     class="clearInput" style="width: 400px;height: 100px"></textarea>
+            </div>
+            <div class="bdxx"></div>
+            <div class="biaodname">实用价值</div>
+            <div style="display: inline-block">
+                <span style="color:#999999"> 1、技术的成熟度</span>
+                <br><textarea  ng-model="doc.techlevel"  class="clearInput" style="width: 400px;height: 100px"></textarea>
+                <br> <span style="color:#999999"> 2、技术的实用性和适用领域 </span>
+                <br> <textarea  ng-model="doc.techapllication" class="clearInput" style="width: 400px;height: 100px" ></textarea>
+            </div>
+            <div class="bdxx"></div>
+            <div class="biaodname">合作方式</div>
+            <textarea  ng-model="doc.terms" class="clearInput" style="width: 400px;height: 100px"></textarea>
+            <div class="bdxx"></div>
+            <div class="biaodname">其他</div>
+            <textarea  ng-model="doc.other" class="clearInput" style="width: 400px;height: 100px"></textarea>
+        </form></div>
+    </div>
+    <input ng-click="submitDoc()" name="img" type="image" style="margin:20px auto auto 250px" src="images/fabu.png" />
 </div>

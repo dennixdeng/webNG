@@ -75,77 +75,19 @@
 
 
 </style>
-<!--body开始-->
-<div class="content">
-    <!--body左侧开始-->
-    <div class="contm">
-        <div id="cont_left" class="row">
-            <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
-            <div class="live_new">
-                <div class="topname">
-                    新闻动态
-                </div>
-                <div class="new">
-                    <ul class="newlist">
-                        <li ng-repeat="doc in xwdt.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/news/{{doc._id}}">{{doc.title}}</a></li>
-                    </ul>
-                </div>
-                <div class="newsmore"><a href="">更多</a></div>
-            </div>
-            <div class="video">
-                <div class="topname">
-                    视频
-                </div>
-                <div class="video_p">
-                    <embed src="http://player.youku.com/player.php/sid/XNjI1MDkxMTEy/v.swf" allowFullScreen="true" quality="high" width="305" height="208" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
-                </div>
-                <div class="video_s">
-                    Aenean  sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at,  odio.
-                </div>
-            </div>
-            <div class="qiehuan1">
-                <div class="tab">
-                    <div id="bg" class="tao2t1">
-                        <div id="font1" class="tab1" >企业发布</div>
-                    </div>
-                    <div id=TabTab03Con1>
-                        <ul class="qhlist">
-                            <li ng-repeat="doc in qyfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
-                        </ul></div>
-                </div>
-                <div class="qhsmore"><a href="">更多企业需求发布</a></div>
-            </div>
-            <div class="qiehuan2">
-                <div class="tab">
-                    <div id="bg2" class="tao2t1">
-                        <div id="font12" class="tab1" >高校发布</div>
-                    </div>
-                    <div id=TabTab03Con1><ul class="qhlist">
-                        <li ng-repeat="doc in gxfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
-                    </ul></div>
-                </div>
-                <div class="qhsmore"><a href="">更多高校成果发布</a></div>
-            </div>
 
-        </div>
-<!--body右侧开始-->
 <div id="cont_right">
-<div class="conttit">
-{{doc.title}}
-</div>
-<div class="fgx"></div>
+    <div class="conttit">
+        {{doc.title}}
+    </div>
+    <div class="fgx"></div>
 
-<div ng-repeat="para in doc.paraList">
-    <div ng-show="para.html" ng-bind-html="para.html.show"></div>
-    <img ng-show="para.image" style="display:block;max-width: 600px;margin: 5px auto 5px auto" ng-src="{{para.image.url}}"/>
-    <div ng-show="para.attachment" style="padding: 20px">
-        <img src="images/fileDownload2.png" style="height: 20px;margin-bottom: -5px">附件 -
-        <a href="{{para.attachment.url}}">{{para.attachment.name}}</a>
+    <div ng-repeat="para in doc.paraList">
+        <div ng-show="para.html" ng-bind-html="para.html.show"></div>
+        <img ng-show="para.image" style="display:block;max-width: 600px;margin: 5px auto 5px auto" ng-src="{{para.image.url}}"/>
+        <div ng-show="para.attachment" style="padding: 20px">
+            <img src="images/fileDownload2.png" style="height: 20px;margin-bottom: -5px">附件 -
+            <a href="{{para.attachment.url}}">{{para.attachment.name}}</a>
+        </div>
     </div>
 </div>
-
-<div class="claer"></div>
-
-</div>
-        <!--body结束-->
-</div></div>
