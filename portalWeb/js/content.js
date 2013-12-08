@@ -31,7 +31,6 @@ app.controller('leftContoller',['$scope','$http',function($scope,$http){
 }]);
 app.controller('newslistCtrl',function($scope,$http,$routeParams){
     Component.http=$http;Component.scope=$scope;
-    $scope.name=$routeParams.listName;
     //$scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
     $scope.mainlist= Component.newTitleList('docPool',30,$routeParams.listId);
 });
@@ -61,7 +60,7 @@ app.controller('qiyefabuCtrl',function($scope,$http){
 });
 app.controller('gaoxiaofabuCtrl',function($scope,$http){
     Component.http=$http;Component.scope=$scope;
-    $scope.doc={areas:[]};
+    $scope.doc={area:[]};
     $scope.submitDoc=function(){
         $http.post(Server + 'save/gaoxiaofabuPool',{doc:$scope.doc})
             .success(function(){
@@ -69,4 +68,13 @@ app.controller('gaoxiaofabuCtrl',function($scope,$http){
                 $scope.doc={};
             });
     };
+    $scope.areas=["新能源","生物医药","新能源汽车","民用航空制造业","电子信息制造业","海洋工程设备","先进重大设备","软件和信息服务业","新材料","其他"]
+    $scope.toggleArea=function(inx){
+        var pos =  $scope.doc.area.indexOf($scope.areas[inx]);
+        if ( pos > -1 ){
+            $scope.doc.area.splice(pos,1);
+        }else{
+            $scope.doc.area.push($scope.areas[inx]);
+        }
+    }
 });

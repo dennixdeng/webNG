@@ -21,7 +21,7 @@ var Component={
         var obj={_id:Id};
         Component.http.get(Server +'list/docPool/'+top + '/' + Id).success(function(d){
             obj.list= d.list;
-            obj.name = d.name;
+            obj.listName = d.listName;
         });
         return obj;
     },
@@ -29,7 +29,7 @@ var Component={
         var obj={_id:list};
         Component.http.get(Server +'list_title/'+pool+'/'+top+'/'+list).success(function(d){
             obj.list= d.list;
-            obj.name= d.name;
+            obj.listName= d.listName;
         });
         return obj;
     }
@@ -38,7 +38,7 @@ var Component={
 angular.module('etFilters', [])
     .filter('checkmark', function() {
         return function(input) {
-            return input ? '\u2713' : '\u2718';
+            return input ? '\u2713' : ''; //'\u2718';
         };
     }).filter('docBrief', function() {
         return function(doc,len) {

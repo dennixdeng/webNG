@@ -8,77 +8,23 @@
             <input name="n1" ng-model="doc.name" type="text" placeholder="输入学校名称" class="clearInput" style="width:400px" />
             <div class="bdxx"></div>
             <div class="biaodname">项目名称</div>
-            <input  ng-model="doc.title" name="n2" type="text" class="clearInput"  style="width:400px"  />
+            <input  ng-model="doc.title" type="text" class="clearInput"  style="width:400px"  />
             <div class="bdxx"></div>
             <div class="biaodname">项目联系人</div>
-            <input  ng-model="doc.contacts" name="n3" type="text" class=" clearInput"  style="width:180px" />
+            <input  ng-model="doc.contacts" type="text" class=" clearInput"  style="width:180px" />
             联系方式
-            <input  ng-model="doc.contactinfo" name="n4" type="text" class="clearInput"  style="width:150px" />
+            <input  ng-model="doc.contactinfo" type="text" class="clearInput"  style="width:150px" />
             <div class="bdxx"></div>
             <div class="biaodname">技术领域<br />(可多选)</div>
-
-            <table width="420" border="0" style="color:#999999; padding-left:15px;display: inline-block">
-                <tr>
-                    <td>
-                        <input  type="checkbox" value="" name="cc" id="aa" style="display:none;" />
-                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
-                    </td>
-                    <td>新能源</td>
-                    <td>
-                        <input  type="checkbox" value="" name="cc" id="bb" style="display:none;" />
-                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
-                    </td>
-                    <td>生物医药</td>
-                    <td>
-                        <input  type="checkbox" value="" name="cc" id="cc" style="display:none;" />
-                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
-                    </td>
-                    <td>新能源汽车</td>
-                </tr>
-                 <tr>
-                    <td>
-                        <input  type="checkbox" value="" name="cc" id="dd" style="display:none;" />
-                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div></td>
-                    <td>民用航空制造业</td>
-                    <td>
-                        <input  type="checkbox" value="" name="cc" id="ee" style="display:none;" />
-                        <div style="width:15px; height:15px;background-image:url(images/dr.png);"></div>
-                    </td>
-                    <td>电子信息制造业</td>
-                    <td>
-                        <input  type="checkbox" value="" name="cc" id="ff" style="display:none;" />
-                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
-                    </td>
-                    <td>海洋工程设备</td>
-                 </tr>
-                 <tr>
-                    <td>
-                        <input  type="checkbox" value="" name="cc" id="gg" style="display:none;" />
-                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
-                    </td>
-                    <td>先进重大设备</td>
-                    <td>
-                        <input  type="checkbox" value="" name="cc" id="hh" style="display:none;" />
-                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
-                    </td>
-                    <td>软件和信息服务业</td>
-                    <td>
-                        <input  type="checkbox" value="" name="cc" id="ii" style="display:none;" />
-                        <div style="width:15px; height:15px;background-image:url(images/dr.png);" ></div>
-                    </td>
-                    <td>新材料</td>
-                 </tr>
-                 <tr>
-                    <td>
-                        <input  type="checkbox" value="" name="cc" id="jj" style="display:none;" />
-                        <div style="width:15px; height:15px;background-image:url(images/dr.png);"></div>
-                    </td>
-                    <td colspan="5">其他
-                        <input name="n22" type="text" class="image-sprites_wd"  />
-                    </td>
-                 </tr>
-            </table>
-
+            <div style="width:400px;display: inline-block;color:#999999; padding-left:15px;">
+                <div ng-repeat="area in areas" style="display: inline-block;width: 130px;cursor: pointer" ng-click="toggleArea($index)">
+                    <div style="display:inline-block; font-size:18px;width:15px; height:15px;background:url(images/dr.png);" >
+                        {{(doc.area.indexOf(area)>-1)|checkmark}}
+                    </div>
+                    {{area}}
+                </div>
+                <input  ng-model="doc.otherArea" type="text" class="clearInput"  style="width:200px;margin-left: -80px" >
+            </div>
             <div class="bdxx"></div>
             <div class="biaodname">技术说明</div>
             <div style="display: inline-block">

@@ -4,7 +4,7 @@
         ]},
     {"caption":"市场概况", "left":80,  "linkTo":"",
         "subMenu":[
-            {"caption":"简介","linkTo":"content.html#/intro/529b24cc570e4dd11f913f52"},
+            {"caption":"简介","linkTo":"content.html#/intro/529fecabe7d42639bd9ab4f6"},
             {"caption":"机构设置","linkTo":"content.html#/intro/529feaace7d42639bd9ab4f4"},
             {"caption":"工作人员","linkTo":"content.html#/intro/529feacee7d42639bd9ab4f5"}
         ]},
