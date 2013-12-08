@@ -62,7 +62,7 @@ app.get('/list/:pool/:top/:listId',function(req,res){
         sortObj.limit =  req.params.top;
     }
     mdb[req.params.pool].find(qObj,{},sortObj).toArray(function(e,d){
-        mdb['listPool'].find({_id:req.params.listId}).nextObject(function(e,dlist){
+        mdb['listPool'].find({_id:ObjectID(req.params.listId)}).nextObject(function(e,dlist){
             if (dlist) d.listName = dlist.name;
             res.send(d);
         })
@@ -83,7 +83,7 @@ app.get('/list_title/:pool/:top/:listId',function(req,res){
         sortObj.limit =  req.params.top;
     }
     mdb[req.params.pool].find(qObj,{title:1},sortObj).toArray(function(e,d){
-        mdb['listPool'].find({_id:req.params.listId}).nextObject(function(e,dlist){
+        mdb['listPool'].find({_id:ObjectID(req.params.listId)}).nextObject(function(e,dlist){
             if (dlist) d.listName = dlist.name;
             res.send(d);
         })
