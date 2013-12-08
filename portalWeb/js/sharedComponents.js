@@ -20,14 +20,16 @@ var Component={
     newList:function(top,Id){
         var obj={_id:Id};
         Component.http.get(Server +'list/docPool/'+top + '/' + Id).success(function(d){
-            obj.list= d;
+            obj.list= d.list;
+            obj.name = d.name;
         });
         return obj;
     },
     newTitleList:function(pool,top,list){
         var obj={_id:list};
         Component.http.get(Server +'list_title/'+pool+'/'+top+'/'+list).success(function(d){
-            obj.list= d;
+            obj.list= d.list;
+            obj.name= d.name;
         });
         return obj;
     }
