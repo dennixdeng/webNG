@@ -50,43 +50,55 @@ console.log('Content Service listening on ' + PORT_Content_Service);
 app.get('/list/:pool/:top/:listId',function(req,res){
     var qObj={};
     var sortObj= {sort:[['_id','desc']]};
+    var getName=false;
     switch (req.params.listId){
         case 'all':qObj = {};
             break;
         case 'none':qObj = {inLists:{$size: 0}};
             break;
         default : qObj = {inLists:{$in:[req.params.listId]}};
+            getName=true;
             break;
     }
     if ('all' != req.params.top){
         sortObj.limit =  req.params.top;
     }
     mdb[req.params.pool].find(qObj,{},sortObj).toArray(function(e,d){
-        mdb['listPool'].find({_id:ObjectID(req.params.listId)}).nextObject(function(e,dlist){
-            if (dlist) d.listName = dlist.name;
+        if (getName){
+            mdb['listPool'].find({_id:ObjectID(req.params.listId)}).nextObject(function(e,dlist){
+                if (dlist) d.listName = dlist.name;
+                res.send(d);
+            })
+        }else{
             res.send(d);
-        })
+        }
     });
 });
 app.get('/list_title/:pool/:top/:listId',function(req,res){
     var qObj={};
     var sortObj= {sort:[['_id','desc']]};
+    var getName=false;
     switch (req.params.listId){
         case 'all':qObj = {};
             break;
         case 'none':qObj = {inLists:{$size: 0}};
             break;
         default : qObj = {inLists:{$in:[req.params.listId]}};
+            getName=true;
             break;
     }
     if ('all' != req.params.top){
         sortObj.limit =  req.params.top;
     }
     mdb[req.params.pool].find(qObj,{title:1},sortObj).toArray(function(e,d){
-        mdb['listPool'].find({_id:ObjectID(req.params.listId)}).nextObject(function(e,dlist){
-            if (dlist) d.listName = dlist.name;
+        if (getName){
+            mdb['listPool'].find({_id:ObjectID(req.params.listId)}).nextObject(function(e,dlist){
+                if (dlist) d.listName = dlist.name;
+                res.send(d);
+            })
+        }else{
             res.send(d);
-        })
+        }
     });
 });
 app.get('/get_list/:pool',function(req,res){
