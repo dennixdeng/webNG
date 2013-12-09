@@ -239,11 +239,11 @@ app.controller('docListCtrl',function($scope,$http,$routeParams,$window){
         $scope.listActive=inx;
         if(-1 == inx){
             $http.get(Server + 'list_title/docPool/all/none').success(function(d){
-                $scope.docList=d ;
+                $scope.docList= d.list ;
             });
         }else{
             $http.get(Server + 'list_title/docPool/all/' +  $scope.allLists[inx]._id).success(function(d){
-                $scope.docList=d ;
+                $scope.docList= d.list ;
             });
         }
     }
