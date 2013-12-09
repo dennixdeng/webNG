@@ -29,7 +29,7 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     $scope.gbh = Component.newList(5,'529b28feec282bac9148ac14');
     $scope.qtzh= Component.newList(5,'529b2c6bec282bac9148ac15');
     $scope.pttx= Component.newList(8,'529b2e3bec282bac9148ac16');
-    $scope.zcfg= Component.newList(9,'529b3487ec282bac9148ac17');
-    $scope.xzzq= Component.newList(9,'529b37deec282bac9148ac18');
+    $scope.zcfg= Component.newTitleList('docPool',9,'529b3487ec282bac9148ac17');
+    $scope.xzzq= Component.newTitleList('docPool',9,'529b37deec282bac9148ac18');
     $scope.alzs= Component.newList(5,'529b3c53ec282bac9148ac19');
 }]);

@@ -3,6 +3,7 @@
 var app=angular.module('app',['ngRoute','etFilters']).config(['$routeProvider',function($routeProvider){
         $routeProvider.
             when('/newslist/:listId/:listName',{templateUrl:'ui/newslist.html',controller:'newslistCtrl'}).
+            when('/newslist/:listId',{templateUrl:'ui/newslist.html',controller:'newslistCtrl'}).
             when('/news/:docId',{templateUrl:'ui/news_detail.html',controller:'newsCtrl'}).
             when('/intro/:docId',{templateUrl:'ui/news_detail.html',controller:'newsCtrl'}).
             when('/qiyefabu/',{templateUrl:'ui/qiyefabu.html',controller:'qiyefabuCtrl'}).
