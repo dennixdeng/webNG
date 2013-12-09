@@ -135,7 +135,8 @@ app.post('/image/upload',express.bodyParser(),function(req,res){
 app.post('/attachment/upload',express.bodyParser(),function(req,res){
     if (req.files){
         var uid =   uuid.v4();
-        var displayName =  req.body.data.displayName || req.files.file.originalFilename;
+        console.log(req);
+        var displayName =  req.data.displayName || req.files.file.originalFilename;
         console.log(displayName);
         oss.putObject({bucket: 'webngattachment',
                  object: uid,
