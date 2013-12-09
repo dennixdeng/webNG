@@ -40,6 +40,9 @@ var CROS_OK=function(req,res,next){
     res.header("Access-Control-Allow-Headers","Content-Type,X-Requested-With");
     res.header('Access-Control-Max-Age','1000');
     res.header('Access-Control-Allow-Headers','Content-Type');
+    res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+    res.header("Pragma", "no-cache");
+    res.header("Expires",0);
     next();
 }
 app.configure(function(){app.use(CROS_OK);});
