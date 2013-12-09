@@ -39,3 +39,7 @@ font-family: "Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,ST
     background-color: #aaa;
     opacity: 0.95;
 }
+
+.managementBlock{
+    padding-left: 30px;
+}

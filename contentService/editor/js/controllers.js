@@ -235,6 +235,10 @@ app.controller('docListCtrl',function($scope,$http,$routeParams,$window){
     $http.get(Server + 'get_list/listPool').success(function(d){
         $scope.allLists=d ;
     });
+    $http.get(Server + 'get_list/fabustatusPool').success(function(d){
+        $scope.statuses=d ;
+    });
+
     $scope.activateList=function(inx){
         $scope.listActive=inx;
         if(-1 == inx){
@@ -247,6 +251,21 @@ app.controller('docListCtrl',function($scope,$http,$routeParams,$window){
             });
         }
     }
+    $scope.activateFabuStatus=function(inx){
+        $scope.fabuStatusActive = inx;
+        $scope.listActive = null;
+        if (-1==inx){
+            $http.get(Server + 'list_title/qiyefabuPool/all/none').success(function(d){
+                $scope.docList= d.list ;
+            });
+        }else{
+            $http.get(Server + 'list_title/qiyefabuPool/all/' +  $scope.statuses[inx]._id).success(function(d){
+                $scope.docList= d.list ;
+            });
+        }
+        console.log($scope.docList);
+    }
+
     $scope.removeDoc=function(inx){
         if ($window.confirm('确定要删除文档《' +  $scope.docList[inx].title + '》？')){
             $http.get(Server + 'remove/docPool/' + $scope.docList[inx]._id).success(function(d){

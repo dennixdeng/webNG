@@ -49,7 +49,7 @@ app.controller('newsCtrl',function($scope,$http,$routeParams,$sce){
 
 app.controller('qiyefabuCtrl',function($scope,$http){
     Component.http=$http;Component.scope=$scope;
-    $scope.doc={};
+    $scope.doc={inLists:[]};
     $scope.submitDoc=function(){
         $http.post(Server + 'save/qiyefabuPool',{doc:$scope.doc})
             .success(function(){
@@ -60,7 +60,7 @@ app.controller('qiyefabuCtrl',function($scope,$http){
 });
 app.controller('gaoxiaofabuCtrl',function($scope,$http){
     Component.http=$http;Component.scope=$scope;
-    $scope.doc={area:[]};
+    $scope.doc={area:[],inLists:[]};
     $scope.submitDoc=function(){
         $http.post(Server + 'save/gaoxiaofabuPool',{doc:$scope.doc})
             .success(function(){

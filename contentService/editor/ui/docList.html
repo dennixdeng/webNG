@@ -4,29 +4,48 @@
     </h3>
 </div>
 
-<div >
-    <ul style="display: inline-block">
-        <li style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px" ng-class="( -1 ==listActive )?'trueList':'falseList'" ng-click="activateList(-1)">草稿箱</li>
-        <li ng-repeat="item in allLists" style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px" ng-class="( listActive == $index )?'trueList':'falseList'" ng-click="activateList($index)">{{item.name}}</li>
-    </ul>
-    <ul style="display: inline-block; vertical-align: top; ">
-        <li><a  class="pure-button pure-button-primary"
-                ng-hide="(null == listActive)||allLists[listActive].noEdit"
-                href="#/newdoc/{{allLists[listActive]._id}}" target="_blank">创建新文档 - {{allLists[listActive].name}}</a></li>
-        <li ng-repeat="doc in docList" style="line-height: 28px;vertical-align: bottom;list-style-type: none;">
-            <img ng-click="removeDoc($index)" ng-hide="allLists[listActive].noEdit"
-                 style="width: 20px;margin:auto 10px -3px 5px;cursor: pointer" src="images/delete.png">
-            <a href="#/doc/{{doc._id}}" target="_blank">{{doc.title}}</a>
-        </li>
-    </ul>
+<div style="display: inline-block">
+    <div class="managementBlock">
+        页面内容管理<br>
+        <ul style="display: inline-block">
+            <li style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px" ng-class="( -1 ==listActive )?'trueList':'falseList'" ng-click="activateList(-1)">草稿箱</li>
+            <li ng-repeat="item in allLists" style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px" ng-class="( listActive == $index )?'trueList':'falseList'"
+                ng-click="activateList($index)">
+                {{item.name}}
+            </li>
+        </ul>
+    </div>
+    <div class="managementBlock">
+        图片幻灯管理<br>
+        <ul style="display: inline-block">
+            <li class="trueList" style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px">
+                <a style="font:inherit;text-decoration: inherit;color: inherit" href="#/imageList/529ac22d04e9114269849f57" target="_blank"> 首页焦点图片</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="managementBlock">
+        成果转化审核<br>
+        <ul style="display: inline-block">
+            <li style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px"
+                ng-class="( -1 ==fabuStatusActive )?'trueList':'falseList'" ng-click="activateFabuStatus(-1)">新入库发布</li>
+            <li ng-repeat="status in statuses" style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px"
+                 ng-class="( fabuStatusActive == $index )?'trueList':'falseList'" ng-click="activateFabuStatus($index)">
+                {{status.name}}
+            </li>
+        </ul>
+    </div>
 </div>
-<div>
-    <ul style="display: inline-block">
-        <li class="trueList" style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px">
-            <a style="font:inherit;text-decoration: inherit;color: inherit" href="#/imageList/529ac22d04e9114269849f57" target="_blank"> 首页焦点图片</a>
-        </li>
-    </ul>
-</div>
+<ul style="display: inline-block; vertical-align: top; ">
+    <li><a  class="pure-button pure-button-primary"
+            ng-hide="(null == listActive)||allLists[listActive].noEdit"
+            href="#/newdoc/{{allLists[listActive]._id}}" target="_blank">创建新文档 - {{allLists[listActive].name}}</a></li>
+    <li ng-repeat="doc in docList" style="line-height: 28px;vertical-align: bottom;list-style-type: none;">
+        <img ng-click="removeDoc($index)" ng-hide="allLists[listActive].noEdit"
+             style="width: 20px;margin:auto 10px -3px 5px;cursor: pointer" src="images/delete.png">
+        <a href="#/doc/{{doc._id}}" target="_blank">{{doc.title}}</a>
+    </li>
+</ul>
 
 <div ng-hide="hidelogin" style="background-color:#ddd;position: absolute;width: 300px;left:50%;margin-left: -150px;top:30%;box-shadow: 10px 10px 6px #aaa">
     <div style="width:100%;height:30px;"><h3 style="margin-left: 30px">用户登录</h3></div>
