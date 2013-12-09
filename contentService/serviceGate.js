@@ -136,7 +136,6 @@ app.post('/attachment/upload',express.bodyParser(),function(req,res){
     if (req.files){
         var uid =   uuid.v4();
         var displayName =  req.body.displayName || req.files.file.originalFilename;
-        console.log(displayName);
         oss.putObject({bucket: 'webngattachment',
                  object: uid,
                 srcFile: req.files.file.path,
@@ -149,6 +148,7 @@ app.post('/attachment/upload',express.bodyParser(),function(req,res){
                         fileId : uid,
                         url: 'http://webngattachment.oss-cn-hangzhou.aliyuncs.com/'+uid,
                         name:req.files.file.originalFilename,
+                        showName: displayName,
                         type:req.files.file.type,
                         size: req.files.file.size
                     };
