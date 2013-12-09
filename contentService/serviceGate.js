@@ -135,10 +135,12 @@ app.post('/image/upload',express.bodyParser(),function(req,res){
 app.post('/attachment/upload',express.bodyParser(),function(req,res){
     if (req.files){
         var uid =   uuid.v4();
+        var displayName =  reg.body.data.displayName || req.files.file.originalFilename;
+        console.log(displayName);
         oss.putObject({bucket: 'webngattachment',
                  object: uid,
                 srcFile: req.files.file.path,
-                "Content-Disposition":'attachment;filename="' + encodeURIComponent(req.files.file.originalFilename) + '"'},
+                "Content-Disposition":'attachment;filename="' + encodeURIComponent(displayName) + '"'},
             function (error, result) {
                 if (error){
                     res.status(400).send(error);

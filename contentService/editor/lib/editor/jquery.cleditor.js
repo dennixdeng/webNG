@@ -20,10 +20,17 @@
       width:        'auto', // width not including margins, borders or padding
       height:       250, // height not including margins, borders or padding
       controls:     // controls to add to the toolbar
+                    /*
+                    "加粗 斜体 下划线 删除线 下标 上标 | 字体 字号 " +
+                    "样式 | 颜色 高亮 取消格式 | 列表 序号 | 前出 " +
+                    "缩进 | 左对齐 居中 右对齐 均匀 | 回退 重做 | " +
+                    "分割线 图片 链接 取消链接 | 剪切 复制 黏贴 只黏贴文字 | 打印 HTML",
+                    */
                     "bold italic underline strikethrough subscript superscript | font size " +
                     "style | color highlight removeformat | bullets numbering | outdent " +
-                    "indent | alignleft center alignright justify | undo redo | " +
-                    "rule image link unlink | cut copy paste pastetext | print source",
+                     "indent | alignleft center alignright justify | undo redo | " +
+                     "rule image link unlink | cut copy paste pastetext | print source",
+
       colors:       // colors in the color popup
                     "FFF FCC FC9 FF9 FFC 9F9 9FF CFF CCF FCF " +
                     "CCC F66 F96 FF6 FF3 6F9 3FF 6FF 99F F9F " +
@@ -33,8 +40,7 @@
                     "333 600 930 963 660 060 366 009 339 636 " +
                     "000 300 630 633 330 030 033 006 309 303",    
       fonts:        // font names in the font popup
-                    "Arial,Arial Black,Comic Sans MS,Courier New,Narrow,Garamond," +
-                    "Georgia,Impact,Sans Serif,Serif,Tahoma,Trebuchet MS,Verdana",
+                    "Arial,宋体,黑体,微软雅黑,楷体,隶书",
       sizes:        // sizes in the font size popup
                     "1,2,3,4,5,6,7",
       styles:       // styles in the style popup
@@ -57,38 +63,38 @@
     buttons: {
       // name,title,command,popupName (""=use name)
       init:
-      "bold,,|" +
-      "italic,,|" +
-      "underline,,|" +
-      "strikethrough,,|" +
-      "subscript,,|" +
-      "superscript,,|" +
-      "font,,fontname,|" +
-      "size,Font Size,fontsize,|" +
-      "style,,formatblock,|" +
-      "color,Font Color,forecolor,|" +
-      "highlight,Text Highlight Color,hilitecolor,color|" +
-      "removeformat,Remove Formatting,|" +
-      "bullets,,insertunorderedlist|" +
-      "numbering,,insertorderedlist|" +
-      "outdent,,|" +
-      "indent,,|" +
-      "alignleft,Align Text Left,justifyleft|" +
-      "center,,justifycenter|" +
-      "alignright,Align Text Right,justifyright|" +
-      "justify,,justifyfull|" +
-      "undo,,|" +
-      "redo,,|" +
-      "rule,Insert Horizontal Rule,inserthorizontalrule|" +
-      "image,Insert Image,insertimage,url|" +
-      "link,Insert Hyperlink,createlink,url|" +
-      "unlink,Remove Hyperlink,|" +
-      "cut,,|" +
-      "copy,,|" +
-      "paste,,|" +
-      "pastetext,Paste as Text,inserthtml,|" +
-      "print,,|" +
-      "source,Show Source"
+      "bold,加粗,|" +
+      "italic,斜体,|" +
+      "underline,下划线,|" +
+      "strikethrough,删除线,|" +
+      "subscript,下标,|" +
+      "superscript,上标,|" +
+      "font,字体,fontname,|" +
+      "size,字号,fontsize,|" +
+      "style,样式,formatblock,|" +
+      "color,颜色,forecolor,|" +
+      "highlight,记号笔hilitecolor,color|" +
+      "removeformat,取消格式,|" +
+      "bullets,列表,insertunorderedlist|" +
+      "numbering,序号,insertorderedlist|" +
+      "outdent,前出,|" +
+      "indent,缩进,|" +
+      "alignleft,左对齐,justifyleft|" +
+      "center,居中,justifycenter|" +
+      "alignright,右对齐,justifyright|" +
+      "justify,填满,justifyfull|" +
+      "undo,取消,|" +
+      "redo,重做,|" +
+      "rule,分割线,inserthorizontalrule|" +
+      "image,插入图片,insertimage,url|" +
+      "link,链接,createlink,url|" +
+      "unlink,取消链接,|" +
+      "cut,剪切,|" +
+      "copy,复制,|" +
+      "paste,黏贴,|" +
+      "pastetext,黏贴文字,inserthtml,|" +
+      "print,打印,|" +
+      "source,HTML源码"
     },
 
     // imagesPath - returns the path to the images folder

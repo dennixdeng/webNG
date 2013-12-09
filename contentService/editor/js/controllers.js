@@ -54,6 +54,8 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
     };
 
     $scope.saveDoc=function(){
+        console.log($scope.doc);
+        if ($scope.doc.title == '') {$scope.title_error = '请输入标题文字'; return};
         $http.post( Server + 'save/docPool', {doc:$scope.doc}).
             success(function(data, status, headers, config) {
                 $scope.serverMessage='保存成功';
@@ -152,10 +154,11 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
     $scope.onAttachmentSelect = function($files) {
         for (var i = 0; i < $files.length; i++) {
             var $file = $files[i];
+            var newFileName = window.prompt("需要为附件提供下载名称吗？",$file.name) || $file.name;
             $scope.upload = $upload.upload({
                 url: Server + 'attachment/upload',
                 // headers: {'headerKey': 'headerValue'}, withCredential: true,
-                data: {myObj: $scope.myModelObj},
+                data: {displayName: newFileName},
                 file: $file
             }).progress(function(evt) {
                     $scope.attUploadPercet =   parseInt(100.0 * evt.loaded / evt.total);

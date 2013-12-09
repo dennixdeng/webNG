@@ -10,7 +10,12 @@
         <div ng-repeat="item in allLists" class="listBtn" ng-class="( -1 == doc.inLists.indexOf(item._id) )?'falseList':'trueList'" ng-click="toggleList(item._id)">{{item.name}}</div>
     </div>
 
-    <div style="padding:10px;font-size:20px"><label>标题 </label><input type="text" ng-model="doc.title"  style="width: 500px;padding:2px;border: none; border-bottom: solid 1px blue"/></div>
+    <div style="padding:10px;font-size:20px">
+        <label>标题 </label>
+        <input type="text" ng-model="doc.title" ng-change="title_error=''"
+               style="width: 500px;padding:2px;border: none; border-bottom: solid 1px blue"/>
+        <span style="color:red">{{title_error}}</span>
+    </div>
     <div id="docPreview" style="margin:10px;width:80%;padding:5px;">
         <div ng-repeat="para in doc.paraList" style="margin: 5px;position: relative"
              ng-mouseover="delBtnShow=$index" ng-mouseout="delBtnShow=-1"
@@ -75,13 +80,12 @@
         <div  style="overflow: auto;width:100%;height: 100%"
               ng-file-drop="onAttachmentSelect($files)" ng-file-drag-over-class="optional-css-class">
           <div  style="padding-top: 100px">
-            <div ng-repeat="item in attachmentPoolData"  "
-                style="max-width:180px;  width:180px;height:180px; margin: 8px; box-shadow: 0px 0px 15px #aaa; cursor: pointer;
-                display: inline-table;word-wrap:break-word;word-break:break-all;font-size:12px">
-                <img src="images/delete.png" style="width:20px" ng-click="deleteAttachment($index)">
-                <div style="width:96px;height:92px;{{item.name|fileExtIcon}};margin:10px  auto" ng-click="addAttachment($index)">
-                </div>
-                {{item.name}}
+            <div ng-repeat="item in attachmentPoolData"
+                style="height:18px; margin: 3px; cursor: pointer;display: block;border-bottom: solid 1px #eeeeee;vertical-align: top">
+                <img src="images/delete.png" style="width:12px" ng-click="deleteAttachment($index)">
+                <span ng-click="addAttachment($index)" style="word-wrap:break-word;word-break:break-all;font-size:12px">
+                    {{item.name}}
+                </span>
             </div>
           </div>
         </div>
