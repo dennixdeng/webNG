@@ -23,7 +23,7 @@ function getDBCollection(db_alias,cList){
     });
 };
 
-getDBCollection('webNG_SUEU',['imagePool','attachmentPool','listPool','imageListPool','docPool','qiyefabuPool','gaoxiaofabuPool']);
+getDBCollection('webNG_SUEU',['imagePool','attachmentPool','listPool','imageListPool','docPool','qiyefabuPool','gaoxiaofabuPool','fabustatusPool']);
 
 var ossAPI = require('oss-client');
 //var ossHost='oss.aliyuncs.com';
