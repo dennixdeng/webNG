@@ -33,6 +33,7 @@ app.controller('newslistCtrl',function($scope,$http,$routeParams){
     Component.http=$http;Component.scope=$scope;
     //$scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
     $scope.mainlist= Component.newTitleList('docPool',30,$routeParams.listId);
+    $scope.pages = [1,2,3,4,5];
 });
 
 app.controller('newsCtrl',function($scope,$http,$routeParams,$sce){
