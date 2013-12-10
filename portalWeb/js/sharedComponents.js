@@ -35,7 +35,7 @@ var Component={
         var obj={_id:Id};
         Component.http.get(Server +'list/docPool/'+top + '/' + Id).success(function(d){
             obj.list= d.list;
-            obj.listName = d.listName;
+            obj.fromList = d.fromList;
         });
         return obj;
     },
@@ -43,7 +43,8 @@ var Component={
         var obj={_id:list};
         Component.http.get(Server +'list_title/'+pool+'/'+top+'/'+list).success(function(d){
             obj.list= d.list;
-            obj.listName= d.listName;
+            obj.fromList= d.fromList;
+            console.log(d.fromList);
         });
         return obj;
     }
@@ -128,6 +129,16 @@ angular.module('etFilters', [])
                     r= true;
                 }
             }
+            return r;
+        }
+    }).filter('list2Name',function(){
+        return function(listId){
+            return listMap[listId].name;
+        }
+    }).filter('removeDocClass',function(){
+        return function(inLists){
+            var r = [];
+            for (var i in inLists) if (listMap[inLists[i]].parent != '类别' ) r.push(inLists[i]);
             return r;
         }
     });

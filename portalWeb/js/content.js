@@ -30,7 +30,14 @@ app.controller('leftContoller',['$scope','$http',function($scope,$http){
     $scope.qyfb= Component.newTitleList('qiyefabuPool',5,'all');
     $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',5,'all');
 }]);
+var listMap={};
 app.controller('newslistCtrl',function($scope,$http,$routeParams){
+    $http.get(Server + 'get_list/listPool').success(function(d){
+        $scope.allLists=d ;
+        for (var i in d){
+            listMap[d[i]._id] =d[i];
+        }
+    });
     Component.http=$http;Component.scope=$scope;
     //$scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
     $scope.mainlist= Component.newTitleList('docPool',30,$routeParams.listId);

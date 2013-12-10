@@ -1,12 +1,17 @@
 
 <div id="cont_right">
     <div class="conttit">
-    {{mainlist.listName}}
+    {{mainlist.fromList.name}}
     </div>
     <div class="fgx"></div>
     <ul style=" width:600px; padding-left:20px; padding-top:4px;">
         <li ng-repeat="doc in mainlist.list" style="font-size:14px">
-            <div style="width:500px;display: inline-block"><a href="#/news/{{doc._id}}">{{doc.title}}</a></div>
+            <div style="width:500px;display: inline-block">
+                <span ng-show="mainlist.fromList.parent == '类别'">
+                    <span ng-repeat="cat in doc.inLists|removeDocClass">【{{cat|list2Name}}】</span>
+                </span>
+                <a href="#/news/{{doc._id}}">{{doc.title}}</a>
+            </div>
             <span style="font-size: 12px;color: #aaaaaa">{{doc._id|Id2Date}}</span>
         </li>
     </ul>
