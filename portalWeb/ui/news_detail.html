@@ -1,8 +1,13 @@
-<div id="cont_right">
-    <div class="conttit">
+<div id="cont_right" style="position:relative">
+    <div style="position:relative;width:615px; height:24px; padding-top:20px; padding-left:10px; font-size:18PX; color:#000000; font-weight:bold">
         {{doc.title}}
+
     </div>
-    <div>点击数：{{doc.readCount}}</div>
+    <div style=" font-size:12px;font-weight: normal ;right:20px" >
+        <div style="padding-left: 400px;color: #aaaaaa">
+            点击数&nbsp;{{doc.readCount}}&nbsp;&nbsp;&nbsp;来源&nbsp;{{doc.source}}&nbsp;&nbsp;&nbsp; 发布日期&nbsp;{{doc.displayDate}}
+        </div>
+    </div>
     <div class="fgx"></div>
 
     <div ng-repeat="para in doc.paraList">
