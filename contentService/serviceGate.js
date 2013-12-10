@@ -70,7 +70,7 @@ app.get('/list/:pool/:top/:listId',function(req,res){
         var r={list:d}
         if (getName){
             mdb['listPool'].find({_id:ObjectID(req.params.listId)}).nextObject(function(e,dlist){
-                if (dlist) r.listName = dlist.name;
+                if (dlist) r.list = dlist;
                 res.send(r);
             })
         }else{
@@ -98,7 +98,7 @@ app.get('/list_title/:pool/:top/:listId',function(req,res){
         var r={list:d};
         if (getName){
             mdb['listPool'].find({_id:ObjectID(req.params.listId)}).nextObject(function(e,dlist){
-                if (dlist) r.listName = dlist.name;
+                if (dlist) r.list = dlist;
                 res.send(r);
             })
         }else{
