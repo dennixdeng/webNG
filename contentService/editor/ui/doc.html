@@ -16,6 +16,26 @@
                style="width: 500px;padding:2px;border: none; border-bottom: solid 1px blue"/>
         <span style="color:red">{{title_error}}</span>
     </div>
+    <div style="padding:10px;font-size:14px">
+        <label>首页列表可见</label>
+        <input type="checkbox" ng-model="doc.showHomepage" />
+
+        <label style="margin-left: 10px">固定置顶</label>
+        <input type="checkbox" ng-model="doc.showTopSticky" />
+
+        <label style="margin-left: 10px">来源</label>
+        <input type="text" ng-model="doc.source" style="width: 100px;padding:2px;border: none; border-bottom: solid 1px blue"/>
+
+        <label style="margin-left: 10px">发布日期</label>
+        <input type="text" ng-model="doc.displayDate" style="width: 100px;padding:2px;border: none; border-bottom: solid 1px blue"/>
+    </div>
+    <div style="padding:10px;font-size:14px">
+        <label>使用直接跳转</label>
+        <input type="checkbox" ng-model="doc.redirect" />
+
+        <label style="margin-left: 10px" ng-show="doc.redirect">链接</label>
+        <input type="text" ng-show="doc.redirect" ng-model="doc.redirectTo" style="width: 400px;padding:2px;border: none; border-bottom: solid 1px blue"/>
+    </div>
     <div id="docPreview" style="margin:10px;width:80%;padding:5px;">
         <div ng-repeat="para in doc.paraList" style="margin: 5px;position: relative"
              ng-mouseover="delBtnShow=$index" ng-mouseout="delBtnShow=-1"

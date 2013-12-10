@@ -38,7 +38,8 @@ app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
     var docId= $routeParams.docId;
     if (undefined == docId) {
         $scope.doc={
-            title:''
+             title:''
+            ,displayDate: (new Date()).toLocaleDateString()
             ,paraList:[]
             ,inLists:($routeParams.listId)?[$routeParams.listId]:[]
         };

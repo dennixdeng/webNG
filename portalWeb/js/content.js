@@ -37,11 +37,12 @@ app.controller('newslistCtrl',function($scope,$http,$routeParams){
     $scope.pages = [1,2,3,4,5];
 });
 
-app.controller('newsCtrl',function($scope,$http,$routeParams,$sce){
+app.controller('newsCtrl',function($scope,$http,$routeParams,$sce,$window){
     Component.http=$http;Component.scope=$scope;
     $http.get(Server + 'open/docPool/' + $routeParams.docId)
         .success(function(data){
             $scope.doc=data;
+            if (data.redirect) {$window.location.href = data.redirectTo;}
             for (var i in $scope.doc.paraList) {
                 var p = $scope.doc.paraList[i];
                 if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}

@@ -17,6 +17,20 @@ var Component={
         });
         return obj;
     },
+    newTextSlider :function(pool,top,list){
+        var obj ={_id:list};
+        Component.http.get(Server +'list_title/'+pool+'/'+top+'/'+list).success(function(d){
+            obj.list= d.list;
+            obj.current = 0;
+            obj.next=function(){
+                obj.current++;
+                if (obj.current >= obj.list.length) obj.current= 0;
+                Component.scope.$apply();
+            }
+            var i=setInterval(obj.next,2000);
+        });
+        return obj;
+    },
     newList:function(top,Id){
         var obj={_id:Id};
         Component.http.get(Server +'list/docPool/'+top + '/' + Id).success(function(d){
