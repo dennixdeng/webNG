@@ -161,6 +161,7 @@ app.get('/open/:pool/:_id',function(req,res){
     var docid =  ObjectID(req.params._id);
     mdb[req.params.pool].find({_id:docid}).nextObject(function(e,d){
         if (d){
+            mdb[req.params.pool].update({_id:docid},{$inc:{readCount:1}});
             res.send(d);
         }else{
             res.status(404).send({detail:'ID not found'});
