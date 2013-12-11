@@ -33,4 +33,6 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     $scope.zcfg= Component.newTitleList('docPool',9,'529b3487ec282bac9148ac17');
     $scope.xzzq= Component.newTitleList('docPool',9,'529b37deec282bac9148ac18');
     $scope.alzs= Component.newList(5,'529b3c53ec282bac9148ac19');
+    $scope.qyfb= Component.newTitleList('qiyefabuPool',7,'all');
+    $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',7,'all');
 }]);

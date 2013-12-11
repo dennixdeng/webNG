@@ -34,7 +34,7 @@ function getDBCollection(db_alias,cList){
 
 getDBCollection('webNG_SUEU',['WebNG_users','imagePool','attachmentPool','listPool',
                                 'imageListPool','docPool','qiyefabuPool','gaoxiaofabuPool',
-                                'fabustatusPool']);
+                                'fabustatusPool','publicUserPool']);
 
 var ossAPI = require('oss-client');
 //var ossHost='oss.aliyuncs.com';
@@ -236,6 +236,24 @@ app.post('/user/pwdChange/',express.bodyParser(),function(req,res){
 
 app.post('/user/aclChange/',express.bodyParser(),function(req,res){
     mdb['WebNG_users'].update({_id:ObjectID(req.body._id)},{$set:{acl:req.body.acl}},function(e,d){
+        if (e) console.log(e);
+        res.end();
+    });
+});
+
+
+app.get('/userPublic/login/:uid/:pwd',function(req,res){
+    mdb['publicUserPool'].find({uid:req.params.uid,pwd:req.params.pwd}).nextObject(function(e,d){
+        if (d) {
+            res.send(d);
+        }else{
+            res.status(404).send({});
+        }
+    });
+});
+
+app.post('/userPublic/new/',express.bodyParser(),function(req,res){
+    mdb['publicUserPool'].insert(req.body,function(e,d){
         if (e) console.log(e);
         res.end();
     });

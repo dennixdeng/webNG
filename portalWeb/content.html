@@ -5,6 +5,7 @@
 <title>上海高校技术市场官方网站</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/content.css" rel="stylesheet" type="text/css" />
+<link href="css/pure-min.css" rel="stylesheet" type="text/css" />
 <script src="lib/html5shiv.js"></script>
 <script src="lib/json2.js"></script>
 <script src="lib/angular.min.js"></script>
@@ -65,7 +66,7 @@
                 </div>
                 <div class="new">
                     <ul class="newlist">
-                        <li ng-repeat="doc in xwdt.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/news/{{doc._id}}">{{doc.title}}</a></li>
+                        <li ng-repeat="doc in xwdt.list"><div style="display: inline-block;width: 60px"> {{doc._id|Id2Date}}</div><span>|</span> <a href="#/news/{{doc._id}}">{{doc.title}}</a></li>
                     </ul>
                 </div>
                 <div class="newsmore"><a href="">更多</a></div>
@@ -88,10 +89,10 @@
                     </div>
                     <div id=TabTab03Con1>
                         <ul class="qhlist">
-                            <li ng-repeat="doc in qyfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
+                            <li ng-repeat="doc in qyfb.list"><div style="display: inline-block;width: 65px"> {{doc._id|Id2Date}}</div><span>|</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
                         </ul></div>
                 </div>
-                <div class="qhsmore"><a href="">更多企业需求发布</a></div>
+                <div class="qhsmore"><a href="#/qiyefabuList">更多企业需求发布</a></div>
             </div>
             <div class="qiehuan2">
                 <div class="tab">
@@ -99,10 +100,10 @@
                         <div id="font12" class="tab1" >高校发布</div>
                     </div>
                     <div id=TabTab03Con1><ul class="qhlist">
-                        <li ng-repeat="doc in gxfb.list">{{doc._id|Id2Date}}<span>|</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
+                        <li ng-repeat="doc in gxfb.list"><div style="display: inline-block;width: 65px"> {{doc._id|Id2Date}}</div><span>|</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
                     </ul></div>
                 </div>
-                <div class="qhsmore"><a href="">更多高校成果发布</a></div>
+                <div class="qhsmore"><a href="#/gaoxiaofabuList">更多高校成果发布</a></div>
             </div>
 
         </div>
@@ -119,6 +120,42 @@
     </div>
 </div>
 <!--foot结束-->
+</div>
+
+<div ng-hide="hidelogin" ng-controller="loginScreenCtrl"
+     style="height: 400px;width: 600px;position: fixed;top:90px;left:250px;border:solid 1px #dddddd;background-color:#ffffff;box-shadow: 5px 5px 5px #aaaaaa">
+    <div style="display:inline-block;padding-left:150px;margin:60px auto auto auto">
+        <form class="pure-form pure-form-stacked">
+            <fieldset>
+                <legend>用户登录</legend>
+
+                <label for="email">Email</label><input type="text" ng-model="uid" placeholder="用户email">
+                <label for="password">密码</label><input type="password" ng-model="pwd" placeholder="密码">
+                <br>
+
+                <button ng-click="login()" class="pure-button pure-button-primary">登录</button>
+            </fieldset>
+        </form><br>
+        <a href="" style="font-size: 12px;">{{message}}</a><br>
+        <button class="pure-button pure-button-primary" ng-click="hidelogin=true" style="margin: 20px auto">开发版免登录</button>
+    </div>
+    <div style="display:inline-block;width: 200px;margin:60px auto auto 50px;vertical-align: top;overflow: hidden"
+            ng-style="(showReg)?{}:{height:'30px'}">
+        <form class="pure-form pure-form-stacked">
+            <fieldset>
+                <legend>还没有账号？<a href="" ng-click="showRegForm()">立刻登记</a></legend>
+
+                <label for="email">Email</label><input type="text" ng-model="newUser.uid" placeholder="用户email">
+                <label for="email">密码</label><input type="password" ng-model="newUser.pwd" placeholder="密码">
+                <label for="email">重复密码</label><input type="password" ng-model="newUser.pwd2" placeholder="密码">
+                我是： <input type="checkbox" ng-model="newUser.qiye">企业
+                        <input type="checkbox" ng-model="newUser.gaoxiao">高校
+                            <input type="checkbox" ng-model="newUser.jingjiren">经纪人
+                <br><br>
+                <button ng-click="register()" class="pure-button pure-button-primary">登记账号</button>
+            </fieldset>
+        </form>
+    </div>
 </div>
 </body>
 

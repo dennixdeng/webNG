@@ -1,401 +1,66 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>高校成果浏览</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/jingji.css" rel="stylesheet" type="text/css" />
-<script>;
-//初始化
-var def="1";
-function mover(object){
-  //主菜单
-  var mm=document.getElementById("m_"+object);
-  mm.className="m_li_a";
-  //初始主菜单先隐藏效果
-  if(def!=0){
-    var mdef=document.getElementById("m_"+def);
-    mdef.className="m_li";
-  }
-  //子菜单
-  var ss=document.getElementById("s_"+object);
-  ss.style.display="block";
-  //初始子菜单先隐藏效果
-  if(def!=0){
-    var sdef=document.getElementById("s_"+def);
-    sdef.style.display="none";
-  }
-}
-
-function mout(object){
-  //主菜单
-  var mm=document.getElementById("m_"+object);
-  mm.className="m_li";
-  //初始主菜单还原效果
-  if(def!=0){
-    var mdef=document.getElementById("m_"+def);
-    mdef.className="m_li_a";
-  }
-  //子菜单
-  var ss=document.getElementById("s_"+object);
-  ss.style.display="none";
-  //初始子菜单还原效果
-  if(def!=0){
-    var sdef=document.getElementById("s_"+def);
-    sdef.style.display="block";
-  }
-}
-</script>
-<script type=text/javascript>
-	function setTab03Syn ( i )
-	{
-		selectTab03Syn(i);
-	} //切换JS
-	
-	function selectTab03Syn ( i )
-	{
-		switch(i){
-			case 1:
-			document.getElementById("TabTab03Con1").style.display="block";
-			document.getElementById("TabTab03Con2").style.display="none";
-			document.getElementById("font1").style.color="#000000";
-			document.getElementById("font2").style.color="#000000";
-			break;
-			case 2:
-			document.getElementById("TabTab03Con1").style.display="none";
-			document.getElementById("TabTab03Con2").style.display="block";
-			document.getElementById("font1").style.color="#000000";
-			document.getElementById("font2").style.color="#000000";
-			break;
-		}
-	}
-
-</script>
-<script type=text/javascript>
-	function setTab03Syn ( i )
-	{
-		selectTab03Syn(i);
-	} //切换JS
-	
-	function selectTab03Syn ( i )
-	{
-		switch(i){
-			case 1:
-			document.getElementById("TabTab03Con12").style.display="block";
-			document.getElementById("TabTab03Con22").style.display="none";
-			document.getElementById("font12").style.color="#000000";
-			document.getElementById("font22").style.color="#000000";
-			break;
-			case 2:
-			document.getElementById("TabTab03Con12").style.display="none";
-			document.getElementById("TabTab03Con22").style.display="block";
-			document.getElementById("font12").style.color="#000000";
-			document.getElementById("font22").style.color="#000000";
-			break;
-		}
-	}
-
-</script>
-</head>
-
-<body>
-<!--topstar-->
-<div class="top">
-<div id="logo"><a href=""></a></div>
-<div id="topdh"><a href="">联系我们</a><span><img src="images/huaxian.jpg" /></span> <a href="">友情链接</a> <span><img src="images/huaxian.jpg" /></span><a href="">网站地图</a><span><img src="images/huaxian.jpg" /></span></div>
-<div id="searchtop">
-<div id="search_box"> 
-<form id="search_form" method="post" action="#"> 
-<input type="text" id="s" value="输入搜索内容" class="swap_value" /> 
-<input type="image" src="images/sousu.jpg" width="34" height="18" id="go" alt="Search" title="Search" /> 
-</form> 
-</div>
-</div>
-
-</div>
-<!--topend-->
-
-<!--导航开始-->
-
-<div id="menu">
-  <ul>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_1" class='m_li_a'><a href="#">网站首页</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_2" class='m_li' onmouseover='mover(2);' onmouseout='mout(2);'><a href="#">市场概况</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_3" class='m_li' onmouseover='mover(3);' onmouseout='mout(3);'><a href="#">新闻动态</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_4" class='m_li' onmouseover='mover(4);' onmouseout='mout(4);'><a href="#">高校会展</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_5" class='m_li' onmouseover='mover(5);' onmouseout='mout(5);'><a href="#">成果转换</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_6" class='m_li' onmouseover='mover(6);' onmouseout='mout(6);'><a href="#">合同登记</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-    <li id="m_7" class='m_li' onmouseover='mover(7);' onmouseout='mout(7);'><a href="#">技术转移</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-	<li id="m_8" class='m_li' onmouseover='mover(8);' onmouseout='mout(8);'><a href="#">政策法规</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-	<li id="m_9" class='m_li' onmouseover='mover(9);' onmouseout='mout(9);'><a href="#">相关下载</a></li>
-    <li class="m_line"><img src="images/line1.gif" /></li>
-  </ul>
-</div>
-<div style="height:32px; background-color:#F1F1F1;">
-  <ul class="smenu">
-    <li style="padding-left:29px;" id="s_1" class='s_li_a'><a href="#">简介</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">机构设置</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">工作人员</a></li>
-    <li style="padding-left:80px;" id="s_2" class='s_li' onmouseover='mover(2);' onmouseout='mout(2);'><a href="#">财税简介</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">机构设置</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">办事指南</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">税种简介</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">财税动态</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">公车动态</a></li>
-    <li style="padding-left:152px;" id="s_3" class='s_li' onmouseover='mover(3);' onmouseout='mout(3);'><a href="#">下载专区</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">上传专区</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="j#">申请报名</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">查询系统</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">咨询投诉</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">满意调查</a></li>
-    <li style="padding-left:322px;" id="s_4" class='s_li' onmouseover='mover(4);' onmouseout='mout(4);'><a href="#">最新公告</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">会计通知</a></li>
-    <li style="padding-left:404px;" id="s_5" class='s_li' onmouseover='mover(5);' onmouseout='mout(5);'><a href="#">最新政策</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">政策法规查询</a></li>
-    <li style="padding-left:407px;" id="s_6" class='s_li' onmouseover='mover(6);' onmouseout='mout(6);'><a href="#">税收宣传</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">队伍建设</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">文明创建</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#" target="_blank">青年论坛</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">廉政课堂</a></li>
-    <li style="padding-left:666px;" id="s_7" class='s_li' onmouseover='mover(7);' onmouseout='mout(7);'><a href="#">专题宣传区</a></li>
-	<li style="padding-left:577px;" id="s_8" class='s_li' onmouseover='mover(8);' onmouseout='mout(8);'><a href="#">税收宣传</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">队伍建设</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">文明创建</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#" target="_blank">青年论坛</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">廉政课堂</a></li>
-	<li style="padding-left:577px;" id="s_9" class='s_li' onmouseover='mover(9);' onmouseout='mout(9);'><a href="#">税收宣传</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">队伍建设</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">文明创建</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#" target="_blank">青年论坛</a>&nbsp;&nbsp;<img src="images/fg.jpg" />&nbsp;&nbsp;<a href="#">廉政课堂</a></li>
-  </ul>
-</div>
-
-
-
-<!--导航结束-->
-
-<!--body开始-->
-<div class="content">
-<!--body左侧开始-->
-<div class="contm">
-<div id="cont_left">
-<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
-<div class="live_new">
-<div class="topname">
-新闻动态
-</div>
-<div class="new">
-<ul class="newlist">
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
-</ul>
-</div>
-<div class="newsmore"><a href="">更多</a></div>
-</div>
-<div class="video">
-<div class="topname">
-视频
-</div>
-<div class="video_p">
-<embed src="http://player.youku.com/player.php/sid/XNjI1MDkxMTEy/v.swf" allowFullScreen="true" quality="high" width="305" height="208" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
-</div>
-<div class="video_s">
-Aenean  sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at,  odio.
-</div>
-</div>
-<div class="qiehuan1">
-<div class="tab">
-	<div id="bg" class="tao2t1">
-		<div id="font1" class="tab1" onMouseOver="setTab03Syn(1);document.getElementById('bg').className='tao2t1'">企业发布</div>
-		<div id="font2" class="tab2" onMouseOver="setTab03Syn(2);document.getElementById('bg').className='tao2t2'">经纪人评估</div>
-	</div>
-    <div id=TabTab03Con1><ul class="qhlist">
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
-</ul></div>
-	<div id=TabTab03Con2 style="display:none"><ul class="qhlist">
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
-</ul></div>
-</div>
-<div class="qhsmore"><a href="">更多企业需求发布</a></div>
-</div>
-<div class="qiehuan2">
-<div class="tab">
-	<div id="bg2" class="tao2t1">
-		<div id="font12" class="tab1" onMouseOver="setTab03Syn(1);document.getElementById('bg2').className='tao2t1'">高校发布</div>
-		<div id="font22" class="tab2" onMouseOver="setTab03Syn(2);document.getElementById('bg2').className='tao2t2'">经纪人评估</div>
-	</div>
-    <div id=TabTab03Con12><ul class="qhlist">
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
-</ul></div>
-	<div id=TabTab03Con22 style="display:none"><ul class="qhlist">
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缆...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合电缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/合电缆绝缘材料</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复...</a></li>
-<li>13年7月18号 <span>|</span> <a href="">废弃生物质/PVC复合缘材料</a></li>
-</ul></div>
-</div>
-<div class="qhsmore"><a href="">更多高校成果发布</a></div>
-</div>
-
-</div>
-<!--body右侧开始-->
 <div id="cont_right">
-<div class="conttit">
-高校成果浏览</div>
-<div class="fgx"></div>
-<div class="contlb2">
-<div class="fbtit">
-高校科技成果推介
+    <div class="conttit">楂樻牎鎴愭灉娴忚</div>
+    <div style="width: 625px;height: 4px;background: url(images/xian.jpg) no-repeat;margin-left: 0px;"></div>
+    <div class="contlb2">
+        <div style="text-align: center;font-size: 15px;font-weight: bold;"></div>
+        <div style="padding-top: 20px;">
+            <div style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">瀛︽牎</div>
+            <span style="color: #999999;padding: 0;margin: 0">{{doc.name}}</span>
+            <div class="bdxx"></div>
+            <div  style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">椤圭洰鍚嶇О</div>
+            <span style="color: #999999;padding: 0;margin: 0">{{doc.title}}</span>
+            <div class="bdxx"></div>
+            <div style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">椤圭洰鑱旂郴浜�</div>
+            <span style="color: #999999;padding: 0;margin: 0">{{doc.contact}}</span>
+            <span style="font-weight: 900;color: #114a84;padding-left: 150px;padding-right: 10px;">鑱旂郴鏂瑰紡</span>
+            <span style="color: #999999;padding: 0;margin: 0">{{doc.contactinfo}}</span>
+            <div class="bdxx"></div>
+            <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">鎶�鏈鍩�</div>
+            <div style="width:400px;display: inline-block;color:#999999; padding-left:60px;">
+                <div ng-repeat="area in areas" style="display: inline-block;width: 130px;">
+                    <div style="display:inline-block; font-size:18px;width:15px; height:15px;background:url(images/dr.png);" >
+                        {{(doc.area.indexOf(area)>-1)|checkmark}}
+                    </div>
+                    {{area}}
+                </div>
+                <span  style="width:200px;margin-left: -80px" >{{doc.otherArea}}</span>
+            </div>
+            <div class="bdxx"></div>
+            <div class="jssm1">
+                <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">鎶�鏈鏄�</div>
+                <div style="padding-left: 80px">
+                    <div style="padding-top: 3px;   color: #333333;font-weight: 800;">1銆佹妧鏈�ц鏄�</div>
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.techbrief}}</p>
+                    <div style="padding-top: 3px;   color: #333333;font-weight: 800;">2銆佹妧鏈垱鏂扮偣</div>
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.techhighlight}}</p>
+                    <div style="padding-top: 3px;   color: #333333;font-weight: 800;">3銆佺煡璇嗕骇鏉冩儏鍐�</div>
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.techIP}}</p>
+                </div>
+            </div>
+            <div class="bdxx"></div>
+            <div class="syjz1">
+                <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">瀹炵敤浠峰��</div>
+                <div style="padding-left: 80px">
+                    <div style="padding-top: 3px;   color: #333333;font-weight: 800;">1銆佹妧鏈殑鎴愮啛搴�</div>
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.techlevel}}</p>
+                    <div style="padding-top: 3px;   color: #333333;font-weight: 800;">2銆佹妧鏈殑瀹炵敤鎬у拰閫傜敤棰嗗煙</div>
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.techapllication}}</p>
+                </div>
+            </div>
+            <div class="bdxx"></div>
+            <div class="hzfs1">
+                <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">鍚堜綔鏂瑰紡</div>
+                <div style="padding-left:80px;">
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.terms}}</p>
+                </div>
+            </div>
+            <div class="bdxx"></div>
+            <div class="qt1">
+                <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">鍏朵粬</div>
+                <div style="padding-left:80px;">
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.other}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="biaod">
-<div class="biaodname1">学校</div><span class="bdxxql">上海工业大学</span>
-<div class="bdxx"></div>
-<div class="biaodname1">项目名称</div><span class="bdxxql">新型细菌纤维生物医用材料研发</span>
-<div class="bdxx"></div>
-<div class="biaodname1">项目联系人</div><span class="bdxxql">刘晓光</span><span class="lxfs">联系方式</span><span class="bdxxql">021-54089853</span>
-<div class="bdxx"></div>
-<div class="biaodname21">技术领域</div>
-<span class="jsxz">
-<span class="bdxxqlb"><img src="images/xuanz.png" align="absmiddle" /> 新能源</span>
-<span class="bdxxqlb"><img src="images/xuanz.png" align="absmiddle" /> 生物医药</span>
-</span>
-
-
-
-
-
-
-<div class="bdxx2"></div>
-<div class="jssm1">
-<div class="biaodname31">技术说明</div> <div class="jssmy"><div class="jssm_t1">1、技术性说明</div><p class="nrsm">细菌纤维BC抗菌膜作为高档医用敷料和人工皮肤等，可应用于烧烫伤、刀伤、褥疮等慢、急性创伤治疗。管状BC材料可用于人工血管、神经导管等管状假体材料，也可用作神经纤维护套等。
-</p>
-<div class="jssm_t1">2、技术创新点</div><p class="nrsm">项目研究了BC材料的高效低成本生产技术及其在新型生物医学材料领域的应用。在国际上首次研制了在位动态发酵挂膜新型生物反应器，通过静态和动态培养技术制备出管状BC材料；建立了利用秸秆和废弃棉织物等低值原料生产BC的低成本技术，研发了基于BC特性的抗菌膜和退热贴。该研究成果填补了国内空白，发表论文15篇，申请专利19项。
-</p>
-<div class="jssm_t1">3、知识产权情况</div>
-<p class="nrsm">细菌纤维BC抗菌膜作为高档医用敷料和人工皮肤等，可应用于烧烫伤、刀伤、褥疮等慢、急性创伤治疗。管状BC材料可用于人工血管、神经导管等管状假体材料，也可用作神经纤维护套等。
-</p>
-</div>
-</div>
-<div class="bdxx3"></div>
-<div class="syjz1">
-<div class="biaodname41">实用价值</div> <div class="syjzy"><div class="jssm_t1">1、技术的成熟度</div>
-<p class="nrsm">微机控制全数字静态试验系统常规配置可以实现金属、分金属材料的拉伸、压缩、弯曲、试验，配备相应的附件后完成金属和非金属的剪切、剥离、撕裂、握持、顶破、刺破、杯突、蠕变、持久、应力松弛、低调循环及在高温、低温、潮湿、水浴、盐雾等各种环境下的材料力学性能实验。</p>
-
-<div class="jssm_t1">2、技术的实用性和适用领域</div>
-<p class="nrsm">本系统广泛运用于冶金、建筑、机械、航天航空、石化、橡胶、塑料、纺织、医学等行业的科研、教学、质量检测等领域。本产品是现有产品的更新换代产品，已经小批量生产，本项目准备把该系统批量化。</p>
-</div>
-</div>
-<div class="bdxx"></div>
-<div class="hzfs1">
-<div class="biaodname51">合作方式</div><div class="hzfsy">
-<p class="nrsm1">技术项目拥有者在进行技术交易或吸引投资合作时，通常需要对技术项目进行评价，确定其公允价值，上海技术交易所提供技术评估服务，并协助技术合作谈判以及法律合同起草和签署等实际过程实施。</p>
-</div></div>
-<div class="bdxx"></div>
-<div class="qt1">
-<div class="biaodname51">其他</div><div class="qty">
-<p class="nrsm1">本系统广泛运用于冶金、建筑、机械、航天航空、石化、橡胶、塑料、纺织、医学等行业的科研、教学、质量检测等领域。本产品是现有产品的更新换代产品，已经小批量生产，本项目准备把该系统批量化。</p>
-</div>
-</div>
-
-
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!--body结束-->
-<!--foot开始-->
-<div class="foot">
-<div class="foottxt">
-<p>copyright2013 上海高校技术市场 版权所有</p>
-</div>
-</div>
-<!--foot结束-->
-</div>
-<script language="JavaScript" type="text/javascript">
-			function addListener(element,e,fn){    
-    	 		if(element.addEventListener){    
-          			element.addEventListener(e,fn,false);    
-     			 } else {    
-         	 		element.attachEvent("on" + e,fn);    
-     	 		 }    
-			}
-			var myinput = document.getElementById("s");
-			addListener(myinput,"click",function(){
-				myinput.value = "";
-			})
-			addListener(myinput,"blur",function(){
-				myinput.value = "输入搜索内容";
-			})
-
-</script>
-
-<script type="text/javascript">
-				var d = document;
-				var safari = (navigator.userAgent.toLowerCase().indexOf('safari') != -1) ? true : false;
-				
-				var gebtn = function(parEl,child) { return parEl.getElementsByTagName(child); };
-				onload = function() {
-					var body = gebtn(d,'body')[0];
-					body.className = body.className && body.className != '' ? body.className + ' has-js' : 'has-js';
-					if (!d.getElementById || !d.createTextNode) {
-						return;
-					}
-					var ls = gebtn(d,'label');
-					for (var i = 0; i < ls.length; i++) {
-						var l = ls[i];
-						if (l.className.indexOf('label_') == -1) {
-							continue;
-						}
-						var inp = gebtn(l,'input')[0];
-						if (l.className == 'label_check') {
-							//l.className = (safari && inp.checked == true || inp.checked) ? 'label_check c_on' : 'label_check c_off';
-							l.className = (safari && inp.checked == true || inp.checked) ? 'label_check c_off' : 'label_check c_on';
-							l.onclick = check_it;
-						};
-						if (l.className == 'label_radio') {
-							l.className = (safari && inp.checked == true || inp.checked) ? 'label_radio r_on' : 'label_radio r_off';
-							l.onclick = turn_radio;
-						};
-					};
-				};
-				var check_it = function() {
-					var inp = gebtn(this,'input')[0];
-					if (this.className == 'label_check c_off' || (!safari && inp.checked)) {
-						this.className = 'label_check c_on';
-						if (safari) {
-							inp.click();
-						};
-					} else {
-						this.className = 'label_check c_off';
-						if (safari){ 
-							inp.click();
-						};
-					};
-				};
-				var turn_radio = function() {
-					var inp = gebtn(this,'input')[0];
-					if (this.className == 'label_radio r_off' || inp.checked) {
-						var ls = gebtn(this.parentNode,'label');
-						for (var i = 0; i < ls.length; i++) {
-							var l = ls[i];
-							if (l.className.indexOf('label_radio') == -1) {
-								continue;
-							};
-							l.className = 'label_radio r_off';
-						};
-						this.className = 'label_radio r_on';
-						if (safari){ 
-							inp.click();
-						};
-					} else {
-						this.className = 'label_radio r_off';
-						if (safari) {
-							inp.click();
-						};
-					};
-				}; 
-			</script>
-</body>
-</html>
