@@ -9,6 +9,10 @@ app.config(['$routeProvider',function($routeProvider){
             when('/newdoc/:listId',{templateUrl:'ui/doc.html',controller:'docCtrl'}).
             when('/newdoc/',{templateUrl:'ui/doc.html',controller:'docCtrl'}).
             when('/imageList/:listId',{templateUrl:'ui/imageList.html',controller:'imageListCtrl'}).
-            when('/docList',{templateUrl:'ui/docList.html',controller:'docListCtrl'}).
-            otherwise({redirectTo:'/docList'});
+            when('/home',{templateUrl:'ui/home.html'}).
+            when('/docList/:docListId',{templateUrl:'ui/docList.html',controller:'docListCtrl'}).
+            when('/accounts',{templateUrl:'ui/accountMgm.html',controller:'accountMgmCtrl'}).
+            when('/docCategory',{templateUrl:'ui/categoryMgm.html',controller:'docCategoryMgmCtrl'}).
+            when('/docClass',{templateUrl:'ui/classMgm.html',controller:'docClassMgmCtrl'}).
+            otherwise({redirectTo:'/home'});
     }]);

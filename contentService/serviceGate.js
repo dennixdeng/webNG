@@ -6,8 +6,17 @@ var Db = require('mongodb').Db
     , Server = require('mongodb').Server
     ,BSON = require('mongodb').BSONPure
     , format = require('util').format
-    ,ObjectID = require('mongodb').ObjectID;
+    ,OriginalObjectID = require('mongodb').ObjectID;
 
+var ObjectID =function(str){
+    try{
+        var oid = OriginalObjectID(str);
+        return oid;
+     }catch (e){
+        console.log(e);
+        return null;
+    }
+}
 var host = process.env['MONGO_NODE_DRIVER_HOST'] != null ? process.env['MONGO_NODE_DRIVER_HOST'] : 'localhost';
 var port = process.env['MONGO_NODE_DRIVER_PORT'] != null ? process.env['MONGO_NODE_DRIVER_PORT'] : Connection.DEFAULT_PORT;
 
@@ -23,7 +32,9 @@ function getDBCollection(db_alias,cList){
     });
 };
 
-getDBCollection('webNG_SUEU',['imagePool','attachmentPool','listPool','imageListPool','docPool','qiyefabuPool','gaoxiaofabuPool','fabustatusPool']);
+getDBCollection('webNG_SUEU',['WebNG_users','imagePool','attachmentPool','listPool',
+                                'imageListPool','docPool','qiyefabuPool','gaoxiaofabuPool',
+                                'fabustatusPool']);
 
 var ossAPI = require('oss-client');
 //var ossHost='oss.aliyuncs.com';
@@ -184,4 +195,48 @@ app.post('/save/:pool',express.bodyParser(),function(req,res){
         res.send({_id: d._id});
     });
 
+});
+
+app.get('/user/login/:uid/:pwd',function(req,res){
+    mdb['WebNG_users'].find({uid:req.params.uid,pwd:req.params.pwd}).nextObject(function(e,d){
+        if (d) {
+            res.send(d);
+        }else{
+            res.status(404).send({});
+        }
+    });
+});
+
+var make_passwd = function(n) {
+    var a='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890';
+    var index = (Math.random() * (a.length - 1)).toFixed(0);
+    return n > 0 ? a[index] + make_passwd(n - 1, a) : '';
+};
+
+app.post('/user/new/',express.bodyParser(),function(req,res){
+    req.body.pwd='123456';
+    mdb['WebNG_users'].insert(req.body,function(e,d){
+        if (e) console.log(e);
+        res.end();
+    });
+});
+
+app.get('/getUserList/',function(req,res){
+    mdb['WebNG_users'].find({},{pwd:0}).sort({name: 1}).toArray(function(e,d){
+        res.send(d);
+    });
+});
+
+app.post('/user/pwdChange/',express.bodyParser(),function(req,res){
+    mdb['WebNG_users'].update({uid:req.body.uid,pwd:req.body.pwd},{$set:{pwd:req.body.newpwd}},function(e,d){
+        console.log(e);
+        console.log(d);
+    });
+});
+
+app.post('/user/aclChange/',express.bodyParser(),function(req,res){
+    mdb['WebNG_users'].update({_id:ObjectID(req.body._id)},{$set:{acl:req.body.acl}},function(e,d){
+        if (e) console.log(e);
+        res.end();
+    });
 });

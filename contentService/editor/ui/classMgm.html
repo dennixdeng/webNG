@@ -1,0 +1,19 @@
+<div>
+<div>类别管理中心</div>
+
+<div style="width: 400px;padding-top: 20px">同样， 由于类别动态增加后， 首页的布局设计需要相应被改变，会破坏已确认的页面外观。
+    还需要深入讨论下这个功能的实现， 本周五暂时不发布此功能。 <br>
+
+    以下为功能界面预览， 修改不会写入云端的数据库 。 </div>
+    <hr>
+    <div >类别：
+        <div ng-repeat="item in allLists" style="padding: 3px">
+            <div class="pure-button pure-button-primary" ng-show="item.parent=='类别'" >{{item.name}}</div>
+        </div>
+         <div ng-repeat="c in newClasses" style="padding: 3px">
+            <input type="text" ng-model="c.name" placeholder="输入类别名称" >
+            <button class="pure-button pure-button-primary" ng-click="addClass($index)" style="font-size: 12px">添加</button>
+         </div>
+         <br><div class="pure-button" ng-click="creatClass()">+ 新增</div>
+    </div>
+</div>

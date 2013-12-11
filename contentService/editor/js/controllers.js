@@ -1,13 +1,14 @@
 'use strict';
 
+var autoRefresh; //The global auto refresh timer. make sure clear it before new one created.
 //Controllers section
 
 app.controller('homeCtrl',['$scope','$http',function($scope,$http){
 
 }]);
 
-var Server="http://t.easytag.cn/";
-//var Server="http://localhost:8881/";
+//var Server="http://t.easytag.cn/";
+var Server="http://localhost:8881/";
 
 app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
 
@@ -235,49 +236,169 @@ app.controller('imageListCtrl',function($scope,$http,$routeParams,$upload){
 });
 
 app.controller('docListCtrl',function($scope,$http,$routeParams,$window){
-    $scope.serverMessage='HTML5技术全新支持，建议使用Chrome, Safari, FireFox, QQ, 搜狗，百度，猎豹, 360等现代浏览器';
+    $scope.docList={fromList:{name:'ttt'}};
+    var loadList=function(listId){
+        if ('noListDocs' == listId){
+            $http.get(Server + 'list_title/docPool/all/none').success(function(d){
+                $scope.docList.list= d.list ;
+                $scope.docList.fromList= {name:'草稿箱'} ;
+            });
+        }else{
+            $http.get(Server + 'list_title/docPool/all/' + listId).success(function(d){
+                $scope.docList.list= d.list ;
+                $scope.docList.fromList= d.fromList ;
+            });
+        }
+    }
+    loadList($routeParams.docListId);
+    clearInterval(autoRefresh);
+    autoRefresh = setInterval(loadList,5000,$routeParams.docListId);
+
+    $scope.removeDoc=function(inx){
+        if ($window.confirm('确定要删除文档《' +  $scope.docList.list[inx].title + '》？')){
+            $http.get(Server + 'remove/docPool/' + $scope.docList.list[inx]._id).success(function(d){
+                $scope.docList.list.splice(inx,1);
+            });
+        };
+    }
+});
+
+
+app.controller('fabuListCtrl',function($scope,$http,$routeParams,$window){
+    $scope.docList={fromList:{name:'ttt'}};
+    var loadList=function(listId){
+        if ('noListDocs' == listId){
+            $http.get(Server + 'list_title/qiyefabuPool/all/none').success(function(d){
+                $scope.docList.list= d.list ;
+                $scope.docList.fromList= {name:'草稿箱'} ;
+            });
+        }else{
+            $http.get(Server + 'list_title/qiyefabuPool/all/' + listId).success(function(d){
+                $scope.docList.list= d.list ;
+                $scope.docList.fromList= d.fromList ;
+            });
+        }
+    }
+    loadList($routeParams.docListId);
+    clearInterval($scope.autoRefresh);
+    $scope.autoRefresh = setInterval(loadList,5000,$routeParams.docListId);
+
+    $scope.removeDoc=function(inx){
+        if ($window.confirm('确定要删除文档《' +  $scope.docList.list[inx].title + '》？')){
+            $http.get(Server + 'remove/docPool/' + $scope.docList.list[inx]._id).success(function(d){
+                $scope.docList.list.splice(inx,1);
+            });
+        };
+    }
+});
+
+var currentUser;
+var updateTopBar;
+var showLoginScreen;
+app.controller('loginScreenCtrl',function($scope,$http,$routeParams,$window){
+     $scope.login=function(){
+         $http.get(Server + 'user/login/' + $scope.uid + '/' + $scope.pwd).success(function(d){
+              currentUser = d;
+             updateTopBar(currentUser);
+             $scope.hidelogin=true;
+             $scope.pwd = '';
+         }).error(function(d){
+              $scope.message='账号或密码有误， 请重试';
+         });
+     }
+    showLoginScreen=function(){
+        $scope.hidelogin=false;
+        $scope.$apply();
+    }
+});
+
+app.controller('topBarCtrl',function($scope,$http,$routeParams,$window){
+    $scope.serverMessage='HTML5技术全新支持，建议使用较新版浏览器';
+    updateTopBar=function(usr){
+          $scope.user = usr;
+          $scope.$apply();
+    }
+    $scope.user={name:'测试用户'};
+    $scope.logOut=function(){
+        $scope.user = currentUser = {};
+        showLoginScreen();
+    }
+});
+
+app.controller('naviPanelCtrl',function($scope,$http,$routeParams,$location){
     $http.get(Server + 'get_list/listPool').success(function(d){
         $scope.allLists=d ;
     });
     $http.get(Server + 'get_list/fabustatusPool').success(function(d){
         $scope.statuses=d ;
     });
-
-    $scope.activateList=function(inx){
-        $scope.listActive=inx;
-        if(-1 == inx){
-            $http.get(Server + 'list_title/docPool/all/none').success(function(d){
-                $scope.docList= d.list ;
-            });
-        }else{
-            $http.get(Server + 'list_title/docPool/all/' +  $scope.allLists[inx]._id).success(function(d){
-                $scope.docList= d.list ;
-            });
-        }
+    $scope.btn=function(name){ $scope.aBtn = name;};
+    $scope.docList=function(listId){
+            $location.path('/docList/' +  listId);
     }
-    $scope.activateFabuStatus=function(inx){
-        $scope.fabuStatusActive = inx;
-        $scope.listActive = null;
-        if (-1==inx){
-            $http.get(Server + 'list_title/qiyefabuPool/all/none').success(function(d){
-                $scope.docList= d.list ;
-            });
-        }else{
-            $http.get(Server + 'list_title/qiyefabuPool/all/' +  $scope.statuses[inx]._id).success(function(d){
-                $scope.docList= d.list ;
-            });
-        }
-        console.log($scope.docList);
+    $scope.fabu=function(statusId){
+        $location.path('/docList/' +  statusId);
     }
-
-    $scope.removeDoc=function(inx){
-        if ($window.confirm('确定要删除文档《' +  $scope.docList[inx].title + '》？')){
-            $http.get(Server + 'remove/docPool/' + $scope.docList[inx]._id).success(function(d){
-                $scope.docList.splice(inx,1);
-            });
-        };
+    $scope.Go=function(path){
+        $location.path(path);
     }
 });
+
+app.controller('accountMgmCtrl',function($scope,$http,$routeParams,$window){
+    var loadUsers=function(){
+        $http.get(Server + 'getUserList/').success(function(d){
+            $scope.userList = d;
+        });
+    }
+    loadUsers();
+    $http.get(Server + 'get_list/listPool').success(function(d){
+        $scope.allLists =  d;
+    });
+    $scope.show='';
+    $scope.newUserForm=function(){
+        $scope.newUser={acl:{}};
+        $scope.show='newUserForm';
+    }
+    $scope.createUser=function(){
+        console.log($scope.newUser);
+        $http.post(Server + 'user/new/',$scope.newUser).success(function(d){
+            $scope.show='';
+            loadUsers();
+        });
+    };
+    $scope.userIndex=function(inx){
+        $scope.userInx=inx;
+    }
+});
+app.controller('docCategoryMgmCtrl',function($scope,$http,$routeParams,$location){
+    $http.get(Server + 'get_list/listPool').success(function(d){
+        $scope.allLists=d ;
+    });
+    $scope.newClasses=[];
+    $scope.creatClass=function(){
+        $scope.newClasses.push({name:''});
+    }
+    $scope.addClass=function(inx){
+        $scope.allLists.push($scope.newClasses[inx]);
+        $scope.newClasses.splice(inx,1);
+    }
+});
+
+app.controller('docClassMgmCtrl',function($scope,$http,$routeParams,$location){
+    $http.get(Server + 'get_list/listPool').success(function(d){
+        $scope.allLists=d ;
+    });
+    $scope.newClasses=[];
+    $scope.creatClass=function(){
+        $scope.newClasses.push({name:''});
+    }
+    $scope.addClass=function(inx){
+        $scope.newClasses[inx].parent='类别';
+        $scope.allLists.push($scope.newClasses[inx]);
+        $scope.newClasses.splice(inx,1);
+    }
+});
+
 //Filters section
 var extList=[
     'ai','aiff','ani','asf','au','avi','bat','bin','bmp','bup',

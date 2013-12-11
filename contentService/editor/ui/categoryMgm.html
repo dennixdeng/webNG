@@ -1,0 +1,23 @@
+<div>
+    <div>栏目管理中心</div>
+
+    <div style="width: 400px;padding-top: 20px">本功能允许新增加内容的栏目， 但是在前台首页上已经精心布置了各个栏目的布局。
+        为避免破坏页面已确认的设计，本周五暂时不激活此功能。 <br>
+        以下为功能界面预览， 修改不会写入云端的数据库 。 </div>
+        <hr>
+        <div >栏目：
+            <div ng-repeat="item in allLists" style="padding: 3px">
+                <div class="pure-button pure-button-primary" ng-show="item.parent!='类别'" >{{item.parent}} - {{item.name}}</div>
+            </div>
+            <div ng-repeat="c in newClasses" style="padding: 3px">
+                <select ng-model='c.parent' placeholder="选择所在分区">
+                    <option>知识服务平台</option>
+                    <option>高校会展</option>
+                    <option>成果转化</option>
+                </select>
+                <input type="text" ng-model="c.name" placeholder="输入栏目名称" >
+                <button class="pure-button pure-button-primary" ng-click="addClass($index)" style="font-size: 12px">添加</button>
+            </div>
+            <br><div class="pure-button" ng-click="creatClass()">+ 新增</div>
+        </div>
+    </div>
