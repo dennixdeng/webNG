@@ -66,10 +66,10 @@
                 </div>
                 <div class="new">
                     <ul class="newlist">
-                        <li ng-repeat="doc in xwdt.list"><div style="display: inline-block;width: 60px"> {{doc._id|Id2Date}}</div><span>|</span> <a href="#/news/{{doc._id}}">{{doc.title}}</a></li>
+                        <li ng-repeat="doc in xwdt.list"><div style="display: inline-block;width: 60px"> {{doc._id|Id2Date}}</div><span>|</span> <a target="{{doc.redirect?'_blank':''}}"  href="#/news/{{doc._id}}">{{doc.title}}</a></li>
                     </ul>
                 </div>
-                <div class="newsmore"><a href="">更多</a></div>
+                <div class="newsmore"><a href="#/newslist/{{xwdt._id}}">更多</a></div>
             </div>
             <div class="video">
                 <div class="topname">
