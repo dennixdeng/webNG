@@ -1,0 +1,66 @@
+<div id="cont_right">
+    <div class="conttit">高校成果浏览</div>
+    <div style="width: 625px;height: 4px;background: url(images/xian.jpg) no-repeat;margin-left: 0px;"></div>
+    <div class="contlb2">
+        <div style="text-align: center;font-size: 15px;font-weight: bold;">高校科技成果推介</div>
+        <div style="padding-top: 20px;">
+            <div style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">学校</div>
+            <span style="color: #999999;padding: 0;margin: 0">{{doc.name}}</span>
+            <div class="bdxx"></div>
+            <div  style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">项目名称</div>
+            <span style="color: #999999;padding: 0;margin: 0">{{doc.title}}</span>
+            <div class="bdxx"></div>
+            <div style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">项目联系人</div>
+            <span style="color: #999999;padding: 0;margin: 0">{{doc.contact}}</span>
+            <span style="font-weight: 900;color: #114a84;padding-left: 150px;padding-right: 10px;">联系方式</span>
+            <span style="color: #999999;padding: 0;margin: 0">{{doc.contactinfo}}</span>
+            <div class="bdxx"></div>
+            <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">技术领域</div>
+            <div style="width:400px;display: inline-block;color:#999999; padding-left:60px;">
+                <div ng-repeat="area in areas" style="display: inline-block;width: 130px;">
+                    <div style="display:inline-block; font-size:18px;width:15px; height:15px;background:url(images/dr.png);" >
+                        {{(doc.area.indexOf(area)>-1)|checkmark}}
+                    </div>
+                    {{area}}
+                </div>
+                <span  style="width:200px;margin-left: -80px" >{{doc.otherArea}}</span>
+            </div>
+            <div class="bdxx"></div>
+            <div class="jssm1">
+                <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">技术说明</div>
+                <div style="padding-left: 80px">
+                    <div style="padding-top: 3px;   color: #333333;font-weight: 800;">1、技术性说明</div>
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.techbrief}}</p>
+                    <div style="padding-top: 3px;   color: #333333;font-weight: 800;">2、技术创新点</div>
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.techhighlight}}</p>
+                    <div style="padding-top: 3px;   color: #333333;font-weight: 800;">3、知识产权情况</div>
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.techIP}}</p>
+                </div>
+            </div>
+            <div class="bdxx"></div>
+            <div class="syjz1">
+                <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">实用价值</div>
+                <div style="padding-left: 80px">
+                    <div style="padding-top: 3px;   color: #333333;font-weight: 800;">1、技术的成熟度</div>
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.techlevel}}</p>
+                    <div style="padding-top: 3px;   color: #333333;font-weight: 800;">2、技术的实用性和适用领域</div>
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.techapllication}}</p>
+                </div>
+            </div>
+            <div class="bdxx"></div>
+            <div class="hzfs1">
+                <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">合作方式</div>
+                <div style="padding-left:80px;">
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.terms}}</p>
+                </div>
+            </div>
+            <div class="bdxx"></div>
+            <div class="qt1">
+                <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">其他</div>
+                <div style="padding-left:80px;">
+                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.other}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
