@@ -66,7 +66,7 @@
                 </div>
                 <div class="new">
                     <ul class="newlist">
-                        <li ng-repeat="doc in xwdt.list"><span style="display: inline-block;width: 60px"> {{doc._id|Id2Date}}</span><span>|</span> <a target="{{doc.redirect?'_blank':''}}"  href="#/news/{{doc._id}}">{{doc.title}}</a></li>
+                        <li ng-repeat="doc in xwdt.list"><span style="width: 60px"> {{doc._id|Id2Date}}</span><span>|</span> <a target="{{doc.redirect?'_blank':''}}"  href="#/news/{{doc._id}}">{{doc.title}}</a></li>
                     </ul>
                 </div>
                 <div class="newsmore"><a href="#/newslist/{{xwdt._id}}">更多</a></div>
@@ -79,7 +79,7 @@
                     </div>
                     <div id=TabTab03Con1>
                         <ul class="qhlist">
-                            <li ng-repeat="doc in qyfb.list"><span style="display: inline-block;width: 65px"> {{doc._id|Id2Date}}</span><span>|</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
+                            <li ng-repeat="doc in qyfb.list"><span style="width: 65px"> {{doc._id|Id2Date}}</span><span>|</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
                         </ul></div>
                 </div>
                 <div class="qhsmore"><a href="#/qiyefabuList">更多企业需求发布</a></div>
@@ -90,7 +90,7 @@
                         <div id="font12" class="tab1" >高校发布</div>
                     </div>
                     <div id=TabTab03Con1><ul class="qhlist">
-                        <li ng-repeat="doc in gxfb.list"><span style="display: inline-block;width: 65px"> {{doc._id|Id2Date}}</span><span>|</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
+                        <li ng-repeat="doc in gxfb.list"><span style="width: 65px"> {{doc._id|Id2Date}}</span><span>|</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
                     </ul></div>
                 </div>
                 <div class="qhsmore"><a href="#/gaoxiaofabuList">更多高校成果发布</a></div>
