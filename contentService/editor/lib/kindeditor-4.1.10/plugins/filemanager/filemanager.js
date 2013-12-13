@@ -138,11 +138,11 @@ KindEditor.plugin('filemanager', function(K) {
 					K(this).removeClass('ke-on');
 				});
 				var iconUrl = imgPath + (data.is_dir ? 'folder-16.gif' : 'file-16.gif'),
-					img = K('<img src="' + iconUrl + '" width="16" height="16" alt="' + data.filename + '" align="absmiddle" />'),
+					img = K('<img src="' + iconUrl + '" width="16" height="16" alt="' + data.name + '" align="absmiddle" />'),
 					cell0 = K(row[0].insertCell(0)).addClass('ke-cell ke-name').append(img).append(document.createTextNode(' ' + data.filename));
 				if (!data.is_dir || data.has_file) {
 					row.css('cursor', 'pointer');
-					cell0.attr('title', data.filename);
+					cell0.attr('title', data.name);
 					bindEvent(cell0, result, data, createList);
 				} else {
 					cell0.attr('title', lang.emptyFolder);
@@ -168,7 +168,7 @@ KindEditor.plugin('filemanager', function(K) {
 				div.append(photoDiv);
 				var fileUrl = result.current_url + data.filename,
 					iconUrl = data.is_dir ? imgPath + 'folder-64.gif' : (data.is_photo ? fileUrl : imgPath + 'file-64.gif');
-				var img = K('<img src="' + iconUrl + '" width="80" height="80" alt="' + data.filename + '" />');
+				var img = K('<img src="' + iconUrl + '" width="80" height="80" alt="' + data.name + '" />');
 				if (!data.is_dir || data.has_file) {
 					photoDiv.css('cursor', 'pointer');
 					bindTitle(photoDiv, data);
@@ -177,7 +177,7 @@ KindEditor.plugin('filemanager', function(K) {
 					photoDiv.attr('title', lang.emptyFolder);
 				}
 				photoDiv.append(img);
-				div.append('<div class="ke-name" title="' + data.filename + '">' + data.filename + '</div>');
+				div.append('<div class="ke-name" title="' + data.name + '">' + data.name + '</div>');
 			}
 		}
 		viewTypeBox.val(viewType);

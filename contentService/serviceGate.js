@@ -130,7 +130,7 @@ app.get('/image_list',function(req,res){
              d[i].filesize = d[i].size;
              d[i].is_photo = true;
              d[i].filetype=d[i].type;
-             d[i].filename=d[i].name;
+             d[i].filename=d[i].fileId;
              d[i].datetime=new Date(parseInt(d[i]._id.toString().slice(0,8), 16)*1000);
          }
         var r={
