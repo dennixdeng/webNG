@@ -124,6 +124,23 @@ app.get('/get_list/:pool',function(req,res){
 });
 
 app.get('/image_list',function(req,res){
+    mdb['imagePool'].find().toArray(function(e,d){
+         for (var i in d){
+             d[i].is_dir=false;d[i].had_file=false;
+             d[i].filesize = d[i].size;
+             d[i].is_photo = true;
+             d[i].filetype=d[i].type;
+             d[i].filename=d[i].name;
+             d[i].datetime=new Date(parseInt(d[i]._id.toString().slice(0,8), 16)*1000);
+         }
+        var r={
+            "moveup_dir_path":"",
+            "current_dir_path":"",
+            "current_url":"http://webngimage.oss-cn-hangzhou.aliyuncs.com/",
+            "total_count":5,
+            "file_list":d
+        };
+    });
      var r={
          "moveup_dir_path":"",
          "current_dir_path":"",
@@ -183,15 +200,6 @@ app.post('/image/simpleUpload',express.bodyParser(),function(req,res){
                     mdb['imagePool'].insert(fileInfo, function(){ res.send(fileInfo); });
                 };
             });
-        var fileInfo= {
-            error: 0,
-            fileId : uid,
-            url: 'http://webngimage.oss-cn-hangzhou.aliyuncs.com/'+uid,
-            name:f.originalFilename,
-            type:f.type,
-            size: f.size
-        };
-        mdb['imagePool'].insert(fileInfo, function(){ res.send(fileInfo); });
     }
 });
 
