@@ -40,9 +40,6 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     function slide_top_newsupdate_slider (){
         if (d.scrollLeft <= d.scrollWidth - 1000){
             d.scrollLeft+=1;
-            console.log(d.scrollLeft);
-            console.log(d.scrollWidth);
-
         }else{
 
             d.scrollLeft = 0;

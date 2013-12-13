@@ -57,6 +57,10 @@ app.controller('newsCtrl',function($scope,$http,$routeParams,$sce,$window){
             for (var i in $scope.doc.paraList) {
                 var p = $scope.doc.paraList[i];
                 if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
+                if (p.attachment && p.attachment.name.toLowerCase().indexOf('pdf')){
+                    var pdf = new PDFObject({ url: p.attachment.url })
+                        .embed('PDFView');
+                }
             }
         })
 });

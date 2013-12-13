@@ -7,6 +7,6 @@
     <li ng-repeat="doc in docList.list" style="line-height: 28px;vertical-align: bottom;list-style-type: none;">
         <img ng-click="removeDoc($index)" ng-hide="docList.fromList.noEdit"
              style="width: 20px;margin:auto 10px -3px 5px;cursor: pointer" src="images/delete.png">
-        <a href="docEditor.html#/doc/{{doc._id}}" target="_blank">{{doc.title}}</a>
+        <a href="docEditor.html?docId={{doc._id}}" target="_blank">{{doc.title}}</a>
     </li>
 </ul>
