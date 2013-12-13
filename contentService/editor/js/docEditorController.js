@@ -5,8 +5,8 @@ var app=angular.module('app',['ngRoute','ngSanitize','etFilters','angularFileUpl
         $locationProvider.html5Mode(true);
     }]);
 
-//var Server="http://t.easytag.cn/";
-var Server="http://localhost:8881/";
+var Server="http://t.easytag.cn/";
+//var Server="http://localhost:8881/";
 
 app.controller('docCtrl',function($scope,$http,$location,$sce,$upload){
 
