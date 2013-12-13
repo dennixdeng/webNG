@@ -2,11 +2,23 @@
 <!--通知-->
 
 <div class="tz" style="cursor: pointer;position:relative">
-    <div class="tznr" style="position:relative;height:19px; overflow-y: hidden">
-        <div  style="position:absolute;top:30px; "
-              ng-repeat="doc in tzgg.list" ng-style="($index==tzgg.current)?{transition:'top 0.7s',top:'4px'}:(($index==(tzgg.current-1)||($index==(tzgg.list.length-1) && tzgg.current==0))?{transition:'top 0.7s',top:'-30px'}:{top:'30px'})">
-            <a href="content.html#/news/{{doc._id}}" target="{{doc.redirect?'_blank':''}}" >{{doc.title}}</a>
-        </div>
+    <div id="top_newsupdate_slider" class="tznr" style="position:relative;height:19px; overflow: hidden;white-space: nowrap">
+        <a  style="margin-right:10px" href="content.html#/news/{{doc._id}}"  target="{{doc.redirect?'_blank':''}}"
+            ng-repeat="doc in tzgg.list" >
+            {{doc.title}}
+        </a>
+        <a  style="margin-right:10px" href="content.html#/news/{{doc._id}}"  target="{{doc.redirect?'_blank':''}}"
+            ng-repeat="doc in tzgg.list" >
+            {{doc.title}}
+        </a>
+        <a  style="margin-right:10px" href="content.html#/news/{{doc._id}}"  target="{{doc.redirect?'_blank':''}}"
+            ng-repeat="doc in tzgg.list" >
+            {{doc.title}}
+        </a>
+        <a  style="margin-right:10px" href="content.html#/news/{{doc._id}}"  target="{{doc.redirect?'_blank':''}}"
+            ng-repeat="doc in tzgg.list" >
+            {{doc.title}}
+        </a>
     </div>
     <a href="content.html#/newslist/{{tzgg._id}}" style="position: absolute; top:0px"><img src="images/tz.jpg" ></a>
 </div>

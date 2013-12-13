@@ -35,4 +35,18 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     $scope.alzs= Component.newList(5,'529b3c53ec282bac9148ac19');
     $scope.qyfb= Component.newTitleList('qiyefabuPool',7,'all');
     $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',7,'all');
+
+    var d = document.getElementById('top_newsupdate_slider');
+    function slide_top_newsupdate_slider (){
+        if (d.scrollLeft <= d.scrollWidth - 1000){
+            d.scrollLeft+=1;
+            console.log(d.scrollLeft);
+            console.log(d.scrollWidth);
+
+        }else{
+
+            d.scrollLeft = 0;
+        }
+    }
+    setInterval(slide_top_newsupdate_slider,20);
 }]);
