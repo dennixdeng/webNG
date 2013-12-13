@@ -140,21 +140,8 @@ app.get('/image_list',function(req,res){
             "total_count":5,
             "file_list":d
         };
+        res.send(r);
     });
-     var r={
-         "moveup_dir_path":"",
-         "current_dir_path":"",
-         "current_url":"lib/kindeditor-4.1.10/attached/",
-         "total_count":5,
-         "file_list":[
-             {"is_dir":false,"has_file":false,"filesize":208736,"dir_path":"","is_photo":true,"filetype":"jpg","filename":"1241601537255682809.jpg","datetime":"2011-08-02 15:32:43"},
-             {"is_dir":false,"has_file":false,"filesize":14966,"dir_path":"","is_photo":true,"filetype":"jpg","filename":"1_192040_1.jpg","datetime":"2011-08-02 15:32:45"},
-             {"is_dir":false,"has_file":false,"filesize":245132,"dir_path":"","is_photo":true,"filetype":"jpg","filename":"2009321101428.jpg","datetime":"2011-08-02 15:32:45"},
-             {"is_dir":false,"has_file":false,"filesize":229316,"dir_path":"","is_photo":true,"filetype":"jpg","filename":"24000750690483.jpg","datetime":"2011-08-02 15:32:50"},
-             {"is_dir":false,"has_file":false,"filesize":26094,"dir_path":"","is_photo":true,"filetype":"jpg","filename":"W020091124524510014093.jpg","datetime":"2011-08-02 15:32:47"}
-         ]
-     };
-    res.send(r);
 });
 
 app.post('/image/upload',express.bodyParser(),function(req,res){
