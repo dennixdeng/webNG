@@ -6,8 +6,8 @@ var app=angular.module('app',['ngRoute','etFilters']).config(['$routeProvider',f
             otherwise({redirectTo:'/home'});
     }]);
 
-var Server="http://t.easytag.cn/";
-//var Server="http://localhost:8881/";
+//var Server="http://t.easytag.cn/";
+var Server="http://localhost:8881/";
 
 //Controllers section
 app.controller('menuContoller',['$scope','$http',function($scope,$http){
@@ -22,7 +22,7 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     Component.http=$http;Component.scope=$scope;
     $scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
     $scope.tzgg= Component.newTextSlider('docPool',9,'52a6bb92d142e9c2ee6c90e3');
-    $scope.xwdt= Component.newList(3,'529addfb0e66761d078fe35b');
+    $scope.xwdt= Component.newList(3,'529addfb0e66761d078fe35b',false,true);
     $scope.xxdt= Component.newList(4,'529b14ceec282bac9148ac10');
     $scope.ptjz= Component.newList(5,'529b1da2ec282bac9148ac11');
     $scope.ptjj= Component.newList(1,'529b22dcec282bac9148ac12');

@@ -22,3 +22,17 @@ var i=setInterval(obj.next,2000);
 });
 return obj;
 },
+
+
+
+
+全列表
+<ul style="display: inline-block">
+    <li style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px"
+        ng-class="( 'docList-1' == aBtn )?'trueList':'falseList'" ng-click="btn('docList-1');Go('/docList/noListDocs')">草稿箱</li>
+    <li ng-repeat="item in allLists" style="width:100px;cursor: pointer;padding: 3px;margin-bottom: 2px"
+        ng-class="( aBtn == 'docList' + $index )?'trueList':'falseList'"
+        ng-click="btn('docList' + $index);Go('/docList/'+item._id)">
+        {{item.name}}
+    </li>
+</ul>

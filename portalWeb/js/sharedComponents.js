@@ -17,9 +17,10 @@ var Component={
         });
         return obj;
     },
-    newTextSlider :function(pool,top,list){
+    newTextSlider :function(pool,top,list,homePage,stickyTop){
         var obj ={_id:list};
-        Component.http.get(Server +'list_title/'+pool+'/'+top+'/'+list).success(function(d){
+        var opStr='?' +( homePage?'&homePage=1':'' )+(stickyTop?'&stickyTop=1':'');
+        Component.http.get(Server +'list_title/'+pool+'/'+top+'/'+list + opStr).success(function(d){
             obj.list= d.list;
             obj.current = 0;
             obj.next=function(){
@@ -31,17 +32,19 @@ var Component={
         });
         return obj;
     },
-    newList:function(top,Id){
+    newList:function(top,Id,homePage,stickyTop){
         var obj={_id:Id};
-        Component.http.get(Server +'list/docPool/'+top + '/' + Id).success(function(d){
+        var opStr='?' + (homePage?'&homePage=1':'') +(stickyTop?'&stickyTop=1':'');
+        Component.http.get(Server +'list/docPool/'+top + '/' + Id + opStr).success(function(d){
             obj.list= d.list;
             obj.fromList = d.fromList;
         });
         return obj;
     },
-    newTitleList:function(pool,top,list){
+    newTitleList:function(pool,top,list,homePage,stickyTop){
         var obj={_id:list};
-        Component.http.get(Server +'list_title/'+pool+'/'+top+'/'+list).success(function(d){
+        var opStr='?' +( homePage?'&homePage=1':'') +(stickyTop?'&stickyTop=1':'');
+        Component.http.get(Server +'list_title/'+pool+'/'+top+'/'+list +opStr ).success(function(d){
             obj.list= d.list;
             obj.fromList= d.fromList;
             console.log(d.fromList);

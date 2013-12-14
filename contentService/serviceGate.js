@@ -62,6 +62,7 @@ app.listen(PORT_Content_Service);
 console.log('Content Service listening on ' + PORT_Content_Service);
 
 app.get('/list/:pool/:top/:listId',function(req,res){
+    if (req.params.listId == '529addfb0e66761d078fe35b') console.log(req.query);
     var qObj={};
     var sortObj= {sort:[['_id','desc']]};
     var getName=false;
@@ -74,6 +75,9 @@ app.get('/list/:pool/:top/:listId',function(req,res){
             getName=true;
             break;
     }
+    if (req.query.stickyTop) qObj.showTopSticky=true;
+    if (req.query.homePage) qObj.showHomepage=true;
+
     if ('all' != req.params.top){
         sortObj.limit =  req.params.top;
     }
@@ -90,6 +94,7 @@ app.get('/list/:pool/:top/:listId',function(req,res){
     });
 });
 app.get('/list_title/:pool/:top/:listId',function(req,res){
+
     var qObj={};
     var sortObj= {sort:[['_id','desc']]};
     var getName=false;
@@ -245,7 +250,8 @@ app.post('/save/:pool',express.bodyParser(),function(req,res){
         req.body.doc._id = docid;
     }
     mdb[req.params.pool].update({_id:docid},req.body.doc,{upsert:true},function(e,d){
-        res.send({_id: d._id});
+        console.log(d);
+        res.send({_id: docid});
     });
 
 });
@@ -258,6 +264,24 @@ app.get('/user/login/:uid/:pwd',function(req,res){
             res.status(404).send({});
         }
     });
+});
+
+app.post('/setACL',express.bodyParser(),function(req,res){
+    var uid=ObjectID(req.body._id);
+    mdb['WebNG_users'].find({_id:uid}).nextObject(function(e,d){
+        if (e){ console.log(e);res.status(400).send({error:'mongoDB'});return};
+        if (d){
+            d.acl[req.body.item] = req.body.value;
+            mdb['WebNG_users'].update({_id:uid},{$set:{acl:d.acl}},function(e,d){});
+            res.send({acl: d.acl});
+        }else{
+            res.status(404).send({error:'no ID found'})
+        }
+    })
+});
+
+app.get('/filterUser',function(req,res){
+
 });
 
 var make_passwd = function(n) {

@@ -41,5 +41,6 @@ font-family: "Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,ST
 }
 
 .managementBlock{
-    padding-left: 30px;
+    padding:5px 0px 5px 30px;
+    border-bottom: dashed 1px #999999;
 }
