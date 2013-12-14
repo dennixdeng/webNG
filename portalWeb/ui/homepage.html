@@ -185,9 +185,9 @@
             <div class="pptx_pic"><a href="content.html#/news/{{pttx.list[0]._id}}"><img ng-src="{{pttx.list[0]|docImage}}" style="width:102px;height:135px" alt="" border="0" /></a></div>
             <div class="pptx_down"><a href="{{pttx.list[0]|docAttachment}}">下载</a> | <a href="content.html#/news/{{pttx.list[0]._id}}">浏览</a></div>
             <div class="pptx_wq"><div class="xlwz">
-                <select name="select" onchange="javascript:window.location.href=(this.options[this.selectedIndex].value)">
-                    <option selected="selected" value="content.htmlcontent.html#/home">往期内容</option>
-                    <option ng-repeat="doc in pttx.list" value="content.htmlcontent.html#/news/{{doc._id}}">{{doc.title}}</option>
+                <select name="select" onchange="javascript:if( this.options[this.selectedIndex].value !='placeholder'){ window.location.href=(this.options[this.selectedIndex].value)}">
+                    <option selected="selected" value="placeholder">往期内容</option>
+                    <option ng-repeat="doc in pttx.list" value="content.html#/news/{{doc._id}}">{{doc.title}}</option>
                 </select>
             </div>
             </div>
@@ -198,7 +198,7 @@
         <div class="zcfgb">
             <div class="zcfg_h">政策法规</div>
             <div class="zcfg_tw">
-                <div class="zcfg_tw_t"><a href="content.html#/newslist/529b3487ec282bac9148ac17"><img src="images/t-5.jpg" alt="" border="0" style="width:80px;height:101px"/></a></div>
+                <div class="zcfg_tw_t"><img src="images/t-5.jpg" alt="" border="0" style="width:80px;height:101px"/></div>
                 <div class="zcfg_tw_w">
                     <div class="zcfg_tw_w_h"><a href="content.html#/news/{{zcfg.list[0]._id}}">最新政策</a></div>
                     <div class="zcfg_tw_w_h_c"><a href="content.html#/news/{{zcfg.list[0]._id}}">{{zcfg.list[0].title}}</a></div>
@@ -215,7 +215,7 @@
         <div class="xzzqb">
             <div class="xzzq_h">下载专区</div>
             <div class="xzzq_tw">
-                <div class="xzzq_tw_t"><a href="content.html#/newslist/529b37deec282bac9148ac18"><img src="images/fileDownload2.png" alt="" border="0" style="width:80px;height:101px"/></a></div>
+                <div class="xzzq_tw_t"><img src="images/fileDownload2.png" alt="" border="0" style="width:80px;height:101px"/></div>
                 <div class="xzzq_tw_w">
                     <div class="xzzq_tw_w_h"><a href="content.html#/news/{{xzzq.list[0]._id}}">{{xzzq.list[0].title|stringLeft:8}}</a></div>
                     <div class="xzzq_tw_w_h_c"><a href="content.html#/news/{{xzzq.list[0]._id}}">{{xzzq.list[0]|docBrief:40}}</a></div>

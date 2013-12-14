@@ -34,43 +34,48 @@
             <span style="margin-left: 50px;font-size: 12px;">{{serverMessage}}</span>
         </h3>
     </div>
-
-    <div  ng-hide="doc.inLists|docEditable:allLists" style="border-bottom: solid 1px #aaaaaa">栏目：
-        <div ng-repeat="item in allLists|orderBy:'parent'" class="listBtn" ng-hide="item.parent=='类别'" ng-class="( -1 == doc.inLists.indexOf(item._id) )?'falseList':'trueList'" ng-click="toggleList(item._id)">{{item.name}}</div>
+    <div ng-show="doc.isListIntro">
+        正在编辑《{{doc._id|list2Name}}》的栏目简介
     </div>
+    <div ng-hide="doc.isListIntro">
+        <div  ng-hide="doc.inLists|docEditable:allLists" style="border-bottom: solid 1px #aaaaaa">栏目：
+            <div ng-repeat="item in allLists|orderBy:'parent'" class="listBtn" ng-hide="item.parent=='类别'" ng-class="( -1 == doc.inLists.indexOf(item._id) )?'falseList':'trueList'" ng-click="toggleList(item._id)">{{item.name}}</div>
+        </div>
 
-    <div  ng-hide="doc.inLists|docEditable:allLists">类别：
-        <div ng-repeat="item in allLists" class="listBtn" ng-show="item.parent=='类别'" ng-class="( -1 == doc.inLists.indexOf(item._id) )?'falseList':'trueList'" ng-click="toggleList(item._id)">{{item.name}}</div>
+        <div  ng-hide="doc.inLists|docEditable:allLists">类别：
+            <div ng-repeat="item in allLists" class="listBtn" ng-show="item.parent=='类别'" ng-class="( -1 == doc.inLists.indexOf(item._id) )?'falseList':'trueList'" ng-click="toggleList(item._id)">{{item.name}}</div>
+        </div>
     </div>
-
     <div style="padding:10px;font-size:20px">
         <label>标题 </label>
         <input type="text" ng-model="doc.title" ng-change="title_error=''"
                style="width: 700px;padding:2px;border: none; border-bottom: solid 1px blue"/>
         <span style="color:red">{{title_error}}</span>
     </div>
-    <div style="padding:10px;font-size:14px">
-        <label>在首页显示图片</label>
-        <input type="checkbox" ng-model="doc.showHomepage" />
+    <div ng-hide="doc.isListIntro">
+        <div style="padding:10px;font-size:14px">
+            <label>在首页显示图片</label>
+            <input type="checkbox" ng-model="doc.showHomepage" />
 
-        <label style="margin-left: 20px">固定置顶</label>
-        <input type="checkbox" ng-model="doc.showTopSticky" />
+            <label style="margin-left: 20px">固定置顶</label>
+            <input type="checkbox" ng-model="doc.showTopSticky" />
 
-        <label style="margin-left: 20px">来源</label>
-        <input type="text" ng-model="doc.source" style="width: 200px;padding:2px;border: none; border-bottom: solid 1px blue"/>
+            <label style="margin-left: 20px">来源</label>
+            <input type="text" ng-model="doc.source" style="width: 200px;padding:2px;border: none; border-bottom: solid 1px blue"/>
 
-        <label style="margin-left: 20px">发布日期</label>
-        <input type="text" ng-model="doc.displayDate" style="width: 200px;padding:2px;border: none; border-bottom: solid 1px blue"/>
-    </div>
-    <div style="padding:10px;font-size:14px">
-        <label>需登录后阅读</label>
-        <input type="checkbox" ng-model="doc.loginToRead" />
+            <label style="margin-left: 20px">发布日期</label>
+            <input type="text" ng-model="doc.displayDate" style="width: 200px;padding:2px;border: none; border-bottom: solid 1px blue"/>
+        </div>
+        <div style="padding:10px;font-size:14px">
+            <label>需登录后阅读</label>
+            <input type="checkbox" ng-model="doc.loginToRead" />
 
-        <label style="margin-left: 20px">使用直接跳转</label>
-        <input type="checkbox" ng-model="doc.redirect" />
+            <label style="margin-left: 20px">使用直接跳转</label>
+            <input type="checkbox" ng-model="doc.redirect" />
 
-        <label style="margin-left: 10px" ng-show="doc.redirect">跳转目标</label>
-        <input type="text" ng-show="doc.redirect" ng-model="doc.redirectTo" style="width: 400px;padding:2px;border: none; border-bottom: solid 1px blue"/>
+            <label style="margin-left: 10px" ng-show="doc.redirect">跳转目标</label>
+            <input type="text" ng-show="doc.redirect" ng-model="doc.redirectTo" style="width: 400px;padding:2px;border: none; border-bottom: solid 1px blue"/>
+        </div>
     </div>
     <div id="docPreview" style="margin:10px;width:80%;padding:5px;">
         <div ng-repeat="para in doc.paraList" style="margin: 5px;position: relative"
@@ -101,7 +106,7 @@
     </div>
     <div ng-show="editing==1" class="contentPool" >
         <textarea id="docEditinput" name="docEditinput" style="width:100%;height:600px;visibility:hidden;"></textarea>
-        <button class="pure-button" ng-click="editing=0;addHtml()" style="position: absolute;right:95px;bottom:5px">保存HTML</button>
+        <button class="pure-button" ng-click="editing=0;addHtml()" style="position: absolute;right:95px;bottom:5px">完成编辑</button>
         <button class="pure-button" ng-click="editing=0" style="position: absolute;right:5px;bottom:5px">取消</button>
     </div>
     <div ng-show="editing==2" class="contentPool">

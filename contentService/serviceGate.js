@@ -238,7 +238,12 @@ app.get('/remove/:pool/:_id',function(req,res){
 
 app.post('/save/:pool',express.bodyParser(),function(req,res){
     var docid =  ObjectID(req.body.doc._id);
-    delete req.body.doc._id ;
+    console.log(docid);
+    if (docid == null ) {
+        delete req.body.doc._id ;
+    }else{
+        req.body.doc._id = docid;
+    }
     mdb[req.params.pool].update({_id:docid},req.body.doc,{upsert:true},function(e,d){
         res.send({_id: d._id});
     });

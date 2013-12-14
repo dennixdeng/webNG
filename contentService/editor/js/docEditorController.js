@@ -5,13 +5,15 @@ var app=angular.module('app',['ngRoute','ngSanitize','etFilters','angularFileUpl
         $locationProvider.html5Mode(true);
     }]);
 
-var Server="http://t.easytag.cn/";
-//var Server="http://localhost:8881/";
+//var Server="http://t.easytag.cn/";
+var Server="http://localhost:8881/";
 
 app.controller('docCtrl',function($scope,$http,$location,$sce,$upload){
-
     $http.get(Server + 'get_list/listPool').success(function(d){
         $scope.allLists=d ; //[{id:'l1',name:'列表1'},{id:'l2',name:'列表2'},{id:'l3',name:'列表3'},{id:'l4',name:'列表4'},{id:'l5',name:'列表5'},{id:'l6',name:'列表6'},{id:'l7',name:'列表7'}];
+        for (var i in d){
+            listMap[d[i]._id] =d[i];
+        }
     });
     $scope.toggleList=function(l){
         var inx = $scope.doc.inLists.indexOf(l);
@@ -34,25 +36,23 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload){
             console.log(status);
         });
 
-    console.log($location.search());
     var docId= ($location.search()).docId;
-    if (undefined == docId) {
-        $scope.doc={
-             title:''
-            ,displayDate: (new Date()).toLocaleDateString()
-            ,paraList:[]
-            ,inLists:(($location.search()).listId)?[($location.search()).listId]:[]
-        };
-    }else{
-        $http.get(Server + 'open/docPool/' + docId)
-        .success(function(data){
-            $scope.doc=data;
-            for (var i in $scope.doc.paraList) {
-                var p = $scope.doc.paraList[i];
-                if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
-            }
-        })
+    $scope.doc={
+        _id:docId
+        ,title:''
+        ,displayDate: (new Date()).toLocaleDateString()
+        ,paraList:[]
+        ,inLists:(($location.search()).listId?[($location.search()).listId]:[])
+        ,isListIntro:($location.search()).isListIntro
     };
+    if (docId !='newdoc') $http.get(Server + 'open/docPool/' + docId)
+    .success(function(data){
+        $scope.doc=data;
+        for (var i in $scope.doc.paraList) {
+            var p = $scope.doc.paraList[i];
+            if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
+        };
+    });
 
     $scope.saveDoc=function(){
         console.log($scope.doc);
@@ -278,8 +278,12 @@ angular.module('etFilters', [])
         }
         return r;
     };
-})
-
+}).filter('list2Name',function(){
+        return function(listId){
+            return listMap[listId].name;
+        }
+    });
+var listMap={};
 var editor;
 KindEditor.ready(function(K) {
     editor = K.create('textarea[name="docEditinput"]', {

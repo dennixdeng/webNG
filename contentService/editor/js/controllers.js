@@ -7,8 +7,8 @@ app.controller('homeCtrl',['$scope','$http',function($scope,$http){
 
 }]);
 
-var Server="http://t.easytag.cn/";
-//var Server="http://localhost:8881/";
+//var Server="http://t.easytag.cn/";
+var Server="http://localhost:8881/";
 
 app.controller('docCtrl',function($scope,$http,$routeParams,$sce,$upload){
 
@@ -446,16 +446,3 @@ angular.module('etFilters', [])
         return r;
     };
 })
-
-var editor;
-KindEditor.ready(function(K) {
-    editor = K.create('textarea[name="docEditinput"]', {
-        resizeType : 1,
-        allowPreviewEmoticons : false,
-        allowImageUpload : false,
-        items : [
-            'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-            'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-            'insertunorderedlist', '|', 'emoticons', 'image', 'link']
-    });
-});

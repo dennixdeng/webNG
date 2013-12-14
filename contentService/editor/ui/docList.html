@@ -3,7 +3,10 @@
         <button class="pure-button pure-button-primary">刷新</button>
         <a  class="pure-button pure-button-primary"
             ng-hide="docList.fromList.noEdit"
-            href="docEditor.html#/newdoc/{{docList.fromList._id}}" target="_blank">创建新文档 - {{docList.fromList.name}}</a></li>
+            href="docEditor.html?docId=newdoc&listId={{docList.fromList._id}}" target="_blank">在《{{docList.fromList.name}}》中创建新文档</a>
+        <a class="pure-button pure-button-primary"
+           href="docEditor.html?docId={{docList.fromList._id}}&isListIntro=true" target="_blank">编辑栏目简介-{{docList.fromList.name}}</a>
+    </li>
     <li ng-repeat="doc in docList.list" style="line-height: 28px;vertical-align: bottom;list-style-type: none;">
         <img ng-click="removeDoc($index)" ng-hide="docList.fromList.noEdit"
              style="width: 20px;margin:auto 10px -3px 5px;cursor: pointer" src="images/delete.png">
