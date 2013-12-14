@@ -372,6 +372,10 @@ app.controller('accountMgmCtrl',function($scope,$http,$routeParams,$window){
     }
 });
 app.controller('docCategoryMgmCtrl',function($scope,$http,$routeParams,$location){
+    //$scope.parents=[{name:'知识服务主平台'},{name:'知识服务体系'},{name:'高校会展'},{name:'成果转化'}];
+    $http.get(Server + 'get_list/parentPool').success(function(d){
+        $scope.parents=d ;
+    });
     $http.get(Server + 'get_list/listPool').success(function(d){
         $scope.allLists=d ;
     });

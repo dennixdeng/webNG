@@ -6,12 +6,15 @@
         以下为功能界面预览， 修改不会写入云端的数据库 。 </div>
         <hr>
         <div >栏目：
-            <div ng-repeat="item in allLists" style="padding: 3px">
-                <div class="pure-button pure-button-primary" ng-show="item.parent!='类别'" >{{item.parent}} - {{item.name}}</div>
+            <div ng-repeat="parent in parents">
+                <div style="width: 400px; border-bottom: solid 1px gray;border-top: solid 1px gray;">{{parent.name}}</div>
+                <div ng-show="item.parent == parent.name" ng-repeat="item in allLists" style="padding: 3px">
+                    <div class="pure-button pure-button-primary" ng-show="item.parent!='类别'" >{{item.parent}} - {{item.name}}</div>
+                </div>
             </div>
             <div ng-repeat="c in newClasses" style="padding: 3px">
                 <select ng-model='c.parent' placeholder="选择所在分区">
-                    <option>知识服务平台</option>
+                    <option ng-repeat="parent in parents">{{parent.name}}</option>
                     <option>高校会展</option>
                     <option>成果转化</option>
                 </select>

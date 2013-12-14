@@ -32,9 +32,9 @@ function getDBCollection(db_alias,cList){
     });
 };
 
-getDBCollection('webNG_SUEU',['WebNG_users','imagePool','attachmentPool','listPool',
+getDBCollection('webNG_SUEU',['WebNG_users','publicUserPool','imagePool','attachmentPool','listPool',
                                 'imageListPool','docPool','qiyefabuPool','gaoxiaofabuPool',
-                                'fabustatusPool','publicUserPool']);
+                                'fabustatusPool','parentPool']);
 
 var ossAPI = require('oss-client');
 //var ossHost='oss.aliyuncs.com';
