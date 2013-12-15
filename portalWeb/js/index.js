@@ -78,13 +78,14 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
 app.controller('mainIntroCtrl',function($scope,$http,$sce){
     $http.get(Server + 'get_list/listPool?parent=52abb502b5f067da3406fb34').success(function(d){
         $scope.mainlist={list: d};
+        $scope.mainlist.list.splice(0,1);
         for (var i in d){
             listMap[d[i]._id] =d[i];
             d[i].title =  d[i].name;
         }
     });
     $scope.subTitle='平台体系列表'; $scope.viewer="subintro";
-    $http.get(Server + 'open/docPool/' + '52ac0439150f3487ab2f8b1c').success(function(d){
+    $http.get(Server + 'open/docPool/' + '52adc54c4fe150534d849cb4').success(function(d){
         $scope.mainDoc= d;
         for (var i in $scope.mainDoc.paraList) {
             var p = $scope.mainDoc.paraList[i];

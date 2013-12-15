@@ -64,14 +64,22 @@
                 </a></span>
                 <p>{{xxdt_image.list[0]|docBrief:40}}</p></div>
             <ul style="line-height:16px">
-                <li ng-repeat="doc in xxdt.list" style="line-height:16px"><A style="color:#555555" href="#/news/{{doc._id}}">{{doc.title|stringLeft:18}}</A></li>
+                <li ng-repeat="doc in xxdt.list" style="line-height:16px">
+                    <a style="color:#555555" href="#/news/{{doc._id}}">
+                        {{doc.title|stringLeft:17}}
+                    </a>
+                </li>
             </ul>
             <div  class="zsfwmorez"><a href="#/newslist/529b14ceec282bac9148ac10/信息动态/">...更多>></a></div>
         </div>
         <div id="zsfwmid">
             <h5>平台进展</h5>
             <Ul class="gbhlist">
-                <li ng-repeat="doc in ptjz.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:24}}</A></li>
+                <li ng-repeat="doc in ptjz.list">
+                    <a style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">
+                        {{doc.title|stringLeft:24}}
+                    </a>
+                </li>
             </Ul>
             <div  class="zsfwmore"><a href="#/newslist/529b1da2ec282bac9148ac11/平台进展/">...更多>></a></div>
         </div>
@@ -85,7 +93,11 @@
     <!--展会-->
     <div class="gxzh">
         <div class="gxzh_h">
-            <div class="gxzh_h_txt"><a href="#/newslist/529b2665ec282bac9148ac13/热点信息/">热点信息</a> <a>|</a> <a href="#/newslist/529b28feec282bac9148ac14/工博会/">工博会</a> <a>|</a> <a href="#/newslist/529b2c6bec282bac9148ac15/其他展览/">其他展览</a>
+            <div class="gxzh_h_txt">
+                <a href="#/newslist/529b2665ec282bac9148ac13/热点信息/">
+                    热点信息
+                </a> <a>|</a> <a href="#/newslist/529b28feec282bac9148ac14/工博会/">工博会</a>
+                <a>|</a> <a href="#/newslist/529b2c6bec282bac9148ac15/其他展览/">其他展览</a>
             </div>
         </div>
         <div class="zsfw">
@@ -93,7 +105,7 @@
                 <h5>热点信息</h5>
                 <div class="zsfwleft_h">
                     <h6><A style="color:#555555" target="{{rdxx_image.list[0].redirect?'_blank':''}}" href="#/news/{{rdxx_image.list[0]._id}}">
-                        {{rdxx_image.list[0].title}}
+                        {{rdxx_image.list[0].title|stringLeft:22}}
                     </A></h6>
                 </div>
                 <div class="zsfwleft_t">
@@ -104,7 +116,10 @@
                 </div>
                 <div class="zsfwleft_l">
                     <Ul>
-                        <li ng-repeat="doc in rdxx.list"><A style="color:#555555"  target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:18}}</A></li>
+                        <li ng-repeat="doc in rdxx.list">
+                            <A style="color:#555555"  target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">
+                                {{doc.title|stringLeft:17}}
+                            </A></li>
                     </Ul>
                     <div  class="zsfwmorez"><a style="color:#555555"  href="#/newslist/529b2665ec282bac9148ac13/热点信息/">...更多>></a></div>
                 </div>
@@ -118,7 +133,7 @@
             </div>
             <div id="zsfwright"><h5>其他展会</h5>
                 <Ul   class="gbhlist">
-                    <li ng-repeat="doc in qtzh.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|24}}</A></li>
+                    <li ng-repeat="doc in qtzh.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:24}}</A></li>
                 </Ul>
 
                 <div  class="zsfwmore"><a style="color:#555555" href="#/newslist/529b2c6bec282bac9148ac15/其他展览/">...更多>></a></div>
