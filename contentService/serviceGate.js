@@ -281,7 +281,12 @@ app.post('/save/:pool',express.bodyParser(),function(req,res){
     });
 
 });
-
+app.post('/setStatus/:pool',express.bodyParser(),function(req,res){
+    mdb[req.params.pool].update({_id:ObjectID(req.body._id)},{status:req.body.status},function(e,d){
+        if (e) console.log(e);
+        res.end();
+    });
+});
 app.get('/user/login/:uid/:pwd',function(req,res){
     mdb['WebNG_users'].find({uid:req.params.uid,pwd:req.params.pwd}).nextObject(function(e,d){
         if (d) {

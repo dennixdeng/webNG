@@ -51,7 +51,11 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
             if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
         };
     });
+    $scope.setDocStatus=function(status){
+        $http.post(Server + 'setStatus/docPool',{_id:$scope.doc._id,status:status}).success(function(){
 
+        });
+    };
     $scope.saveDoc=function(){
         console.log($scope.doc);
         if ($scope.doc.title == '') {$scope.title_error = '请输入标题文字'; return};

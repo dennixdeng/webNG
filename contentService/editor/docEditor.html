@@ -30,7 +30,18 @@
 <div style="margin: auto;max-width:1000px;position: relative" ng-controller="docCtrl">
     <div style="background-color: gray;color:white;padding:5px">
         <h3>文档编辑器
-            <button class="pure-button pure-button-primary" ng-click="saveDoc()" ng-blur="serverMessage=''" style="margin-left:50px ">保存</button>
+            <button class="pure-button pure-button-primary"
+                    ng-click="saveDoc()" ng-blur="serverMessage=''" style="margin-left:50px ">
+                保存
+            </button>
+            <button class="pure-button pure-button-primary"  ng-show="doc.status=='waiting' || doc.status=='disable'"
+                    ng-click="setDocStatus('active')" ng-blur="serverMessage=''" style="margin-left:50px ">
+                审核通过
+            </button>
+            <button class="pure-button pure-button-primary" ng-show="doc.status=='active'"
+                    ng-click="setDocStatus(’disable')" ng-blur="serverMessage=''" style="margin-left:50px ">
+                撤回
+            </button>
             <span style="margin-left: 50px;font-size: 12px;">{{serverMessage}}</span>
             <div style="display: inline-block; padding-left: 300px">{{userName}}</div>
         </h3>
