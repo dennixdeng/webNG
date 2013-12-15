@@ -1,50 +1,61 @@
-<div id="cont_right">
-    <div class="conttit">企业需求浏览</div>
-    <div style="width: 625px;height: 4px;background: url(images/xian.jpg) no-repeat;margin-left: 0px;"></div>
-    <div class="contlb2">
-        <div style="text-align: center;font-size: 15px;font-weight: bold;"></div>
-        <div style="padding-top: 20px;">
-            <div style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">单位名称</div>
-            <span style="color: #999999;padding: 0;margin: 0;line-height: 25px;">{{doc.companyName}}</span>
-            <div class="bdxx"></div>
-            <div  style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">单位地址</div>
-            <span style="color: #999999;padding: 0;margin: 0;line-height: 25px;">{{doc.address}}</span>
-            <div class="bdxx"></div>
-            <div style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">项目联系人</div>
-            <span style="color: #999999;padding: 0;margin: 0;line-height: 25px;">{{doc.contacts}}</span>
-            <span style="font-weight: 900;color: #114a84;padding-left: 150px;padding-right: 10px;">电 话</span>
-            <span style="color: #999999;padding: 0;margin: 0;line-height: 25px;">{{doc.phone}}</span>
-            <div class="bdxx"></div>
-            <div style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">Email</div>
-            <span style="color: #999999;padding: 0;margin: 0;line-height: 25px;width: 150px">{{doc.email}}</span>
-            <span style="font-weight: 900;color: #114a84;padding-left: 80px;padding-right: 10px;">邮政编码</span>
-            <span style="color: #999999;padding: 0;margin: 0;line-height: 25px;">{{doc.zip}}</span>
-            <div class="bdxx"></div>
-            <div class="jssm1">
-                <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">难题（项目）需求名称</div>
-                <div style="padding-left:80px;">
-                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.title}}</p>
+<div class="content" style="white-space: nowrap">
+    <!--body左侧开始-->
+    <div class="contm" style="display: inline-block;width:400px">
+        <div id="cont_left" style="width: 300px;padding:15px">
+            <div ng-include="leftBlock_1" style="width: 100%;margin-bottom: 10px"></div>
+            <div ng-include="leftBlock_2" style="width: 100%;margin-bottom: 10px"></div>
+            <div ng-include="leftBlock_3" style="width: 100%"></div>
+        </div>
+    </div>
+
+    <div id="cont_right">
+        <div class="conttit">企业需求浏览</div>
+        <div style="width: 625px;height: 4px;background: url(images/xian.jpg) no-repeat;margin-left: 0px;"></div>
+        <div class="contlb2">
+            <div style="text-align: center;font-size: 15px;font-weight: bold;"></div>
+            <div style="padding-top: 20px;">
+                <div style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">单位名称</div>
+                <span style="color: #999999;padding: 0;margin: 0;line-height: 25px;">{{doc.companyName}}</span>
+                <div class="bdxx"></div>
+                <div  style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">单位地址</div>
+                <span style="color: #999999;padding: 0;margin: 0;line-height: 25px;">{{doc.address}}</span>
+                <div class="bdxx"></div>
+                <div style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">项目联系人</div>
+                <span style="color: #999999;padding: 0;margin: 0;line-height: 25px;">{{doc.contacts}}</span>
+                <span style="font-weight: 900;color: #114a84;padding-left: 150px;padding-right: 10px;">电 话</span>
+                <span style="color: #999999;padding: 0;margin: 0;line-height: 25px;">{{doc.phone}}</span>
+                <div class="bdxx"></div>
+                <div style="width: 70px;padding-left: 60px;float: left;line-height: 25px;font-size: 13px;font-weight: 900;color: #114a84;">Email</div>
+                <span style="color: #999999;padding: 0;margin: 0;line-height: 25px;width: 150px">{{doc.email}}</span>
+                <span style="font-weight: 900;color: #114a84;padding-left: 80px;padding-right: 10px;">邮政编码</span>
+                <span style="color: #999999;padding: 0;margin: 0;line-height: 25px;">{{doc.zip}}</span>
+                <div class="bdxx"></div>
+                <div class="jssm1">
+                    <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">难题（项目）需求名称</div>
+                    <div style="padding-left:80px;">
+                        <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.title}}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="bdxx"></div>
-            <div class="jssm1">
-                <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">合作方式</div>
-                <div style="padding-left:80px;">
-                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.terms}}</p>
+                <div class="bdxx"></div>
+                <div class="jssm1">
+                    <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">合作方式</div>
+                    <div style="padding-left:80px;">
+                        <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.terms}}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="bdxx"></div>
-            <div class="jssm1">
-                <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">主要技术<br> 参数要求</div>
-                <div style="padding-left:80px;">
-                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.specs}}</p>
+                <div class="bdxx"></div>
+                <div class="jssm1">
+                    <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">主要技术<br> 参数要求</div>
+                    <div style="padding-left:80px;">
+                        <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.specs}}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="bdxx"></div>
-            <div class="jssm1">
-                <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">企业简介</div>
-                <div style="padding-left:80px;">
-                    <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.credit}}</p>
+                <div class="bdxx"></div>
+                <div class="jssm1">
+                    <div style="font-weight: 900;color: #114a84;padding-left:60px;padding-right: 10px;">企业简介</div>
+                    <div style="padding-left:80px;">
+                        <p style="padding-top: 5px;padding-bottom: 20px;color: #999999;line-height: 25px;">{{doc.credit}}</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,41 +1,52 @@
-<div id="cont_right">
-    <div class="conttit">企业需求发布</div>
-    <div class="fgx"></div>
-    <div class="contlb">
-        <div style="text-align:center; font-size:15px; font-weight:bold;">企业技术难题（项目）需求信息表</div>
-        <div style="padding-top:20px;">
-            <form action="" method="get">
-                <div class="biaodname">单位名称</div>
-                <input ng-model="doc.companyName"  type="text" placeholder="输入单位名称" class="clearInput" style="width:400px"/>
-                <div class="bdxx"></div>
-                <div class="biaodname">单位地址</div>
-                <input ng-model="doc.address"type="text" class="clearInput" style="width:400px" />
-                <div class="bdxx"></div>
-                <div class="biaodname">联系人</div>
-                <input ng-model="doc.contacts" type="text" class="clearInput" style="width:180px" />
-                电 话
-                <input ng-model="doc.phone" type="text" class="clearInput" style="width:175px"/>
-                <div class="bdxx"></div>
-                <div class="biaodname">E-mail</div>
-                <input ng-model="doc.email" type="text" class="clearInput"  style="width:180px"/>
-                邮政编码
-                <input ng-model="doc.zip" type="text" class="clearInput"  style="width:155px"/>
-                <div class="bdxx"></div>
-                <div class="biaodname">难题（项目）需求名称</div>
-                <input ng-model="doc.title" type="text" class="clearInput" style="width:330px" />
-                <div class="bdxx"></div>
-                <div class="biaodname">合作方式</div>
-                <textarea ng-model="doc.terms"  class="clearInput" style="width:400px;height:200px"></textarea>
-                <div style="float:right;font-size:12px">（300字内）</div>
-                <div class="bdxx"></div>
-                <div class="biaodname">主要技术<br> 参数要求</div>
-                <textarea ng-model="doc.specs" class="clearInput" style="width:400px;height:200px"></textarea>
-                <div class="bdxx"></div>
-                <div class="biaodname">企业简介</div>
-                <textarea ng-model="doc.credit" class="clearInput"  style="width:400px;height:200px"></textarea>
-                <div style="float:right;font-size:12px">（注明企业现有厂房、设备、产品等）</div>
-            </form>
+<div class="content" style="white-space: nowrap">
+    <!--body左侧开始-->
+    <div class="contm" style="display: inline-block;width:400px">
+        <div id="cont_left" style="width: 300px;padding:15px">
+            <div ng-include="leftBlock_1" style="width: 100%;margin-bottom: 10px"></div>
+            <div ng-include="leftBlock_2" style="width: 100%;margin-bottom: 10px"></div>
+            <div ng-include="leftBlock_3" style="width: 100%"></div>
         </div>
     </div>
-    <input ng-click="submitDoc()" style="margin:20px auto auto 250px"  type="image" src="images/fabu.png" />
+
+    <div id="cont_right">
+        <div class="conttit">企业需求发布</div>
+        <div class="fgx"></div>
+        <div class="contlb">
+            <div style="text-align:center; font-size:15px; font-weight:bold;">企业技术难题（项目）需求信息表</div>
+            <div style="padding-top:20px;">
+                <form action="" method="get">
+                    <div class="biaodname">单位名称</div>
+                    <input ng-model="doc.companyName"  type="text" placeholder="输入单位名称" class="clearInput" style="width:400px"/>
+                    <div class="bdxx"></div>
+                    <div class="biaodname">单位地址</div>
+                    <input ng-model="doc.address"type="text" class="clearInput" style="width:400px" />
+                    <div class="bdxx"></div>
+                    <div class="biaodname">联系人</div>
+                    <input ng-model="doc.contacts" type="text" class="clearInput" style="width:180px" />
+                    电 话
+                    <input ng-model="doc.phone" type="text" class="clearInput" style="width:175px"/>
+                    <div class="bdxx"></div>
+                    <div class="biaodname">E-mail</div>
+                    <input ng-model="doc.email" type="text" class="clearInput"  style="width:180px"/>
+                    邮政编码
+                    <input ng-model="doc.zip" type="text" class="clearInput"  style="width:155px"/>
+                    <div class="bdxx"></div>
+                    <div class="biaodname">难题（项目）需求名称</div>
+                    <input ng-model="doc.title" type="text" class="clearInput" style="width:330px" />
+                    <div class="bdxx"></div>
+                    <div class="biaodname">合作方式</div>
+                    <textarea ng-model="doc.terms"  class="clearInput" style="width:400px;height:200px"></textarea>
+                    <div style="float:right;font-size:12px">（300字内）</div>
+                    <div class="bdxx"></div>
+                    <div class="biaodname">主要技术<br> 参数要求</div>
+                    <textarea ng-model="doc.specs" class="clearInput" style="width:400px;height:200px"></textarea>
+                    <div class="bdxx"></div>
+                    <div class="biaodname">企业简介</div>
+                    <textarea ng-model="doc.credit" class="clearInput"  style="width:400px;height:200px"></textarea>
+                    <div style="float:right;font-size:12px">（注明企业现有厂房、设备、产品等）</div>
+                </form>
+            </div>
+        </div>
+        <input ng-click="submitDoc()" style="margin:20px auto auto 250px"  type="image" src="images/fabu.png" />
+    </div>
 </div>

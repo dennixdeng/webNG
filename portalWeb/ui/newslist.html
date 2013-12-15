@@ -1,23 +1,33 @@
-
-<div id="cont_right">
-    <div class="conttit">
-    {{mainlist.fromList.name}}
+<div class="content" style="white-space: nowrap">
+    <!--body左侧开始-->
+    <div class="contm" style="display: inline-block;width:400px">
+        <div id="cont_left" style="width: 300px;padding:15px">
+            <div ng-include="leftBlock_1" style="width: 100%;margin-bottom: 10px"></div>
+            <div ng-include="leftBlock_2" style="width: 100%;margin-bottom: 10px"></div>
+            <div ng-include="leftBlock_3" style="width: 100%"></div>
+        </div>
     </div>
-    <div class="fgx"></div>
-    <ul style=" width:600px; padding-left:20px; padding-top:4px;">
-        <li ng-repeat="doc in mainlist.list" style="font-size:14px">
-            <div style="width:500px;display: inline-block">
-                <span ng-show="mainlist.fromList.parent == '类别'">
-                    <span ng-repeat="cat in doc.inLists|removeDocClass">【{{cat|list2Name}}】</span>
-                </span>
-                <a href="#/news/{{doc._id}}">{{doc.title}}</a>
+
+            <div id="cont_right">
+            <div class="conttit">
+            {{mainlist.fromList.name}}
             </div>
-            <span style="font-size: 12px;color: #aaaaaa">{{doc._id|Id2Date}}</span>
-        </li>
-    </ul>
-<div style="text-align:center; padding-top:10px; color:#4074b8; padding-bottom:30px;">
-    <img src="images/sanjiaoz.jpg" alt="向前" border="0" align="absmiddle"/>
-    <span ng-repeat="page in pages"><a href="" style="font:10px/1.6 Arial,\5b8b\4f53,Tahoma,sans-serif; padding-left:4px; padding-right:2px; line-height:10px;"
-            >{{page}}</a>{{($last)?'':'|'}}</span>
-    <img src="images/sanjiaoy.jpg" alt="向后" border="0"  align="absmiddle"/></div>
-</div>
+            <div class="fgx"></div>
+            <ul style=" width:600px; padding-left:20px; padding-top:4px;">
+                <li ng-repeat="doc in mainlist.list" style="font-size:14px">
+                    <div style="width:500px;display: inline-block">
+                        <span ng-show="mainlist.fromList.parent == '类别'">
+                            <span ng-repeat="cat in doc.inLists|removeDocClass">【{{cat|list2Name}}】</span>
+                        </span>
+                        <a href="#/news/{{doc._id}}">{{doc.title}}</a>
+                    </div>
+                    <span style="font-size: 12px;color: #aaaaaa">{{doc._id|Id2Date}}</span>
+                </li>
+            </ul>
+        <div style="text-align:center; padding-top:10px; color:#4074b8; padding-bottom:30px;">
+            <img src="images/sanjiaoz.jpg" alt="向前" border="0" align="absmiddle"/>
+            <span ng-repeat="page in pages"><a href="" style="font:10px/1.6 Arial,\5b8b\4f53,Tahoma,sans-serif; padding-left:4px; padding-right:2px; line-height:10px;"
+                    >{{page}}</a>{{($last)?'':'|'}}</span>
+            <img src="images/sanjiaoy.jpg" alt="向后" border="0"  align="absmiddle"/></div>
+        </div>
+    </div>

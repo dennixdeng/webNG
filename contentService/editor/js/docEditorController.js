@@ -55,6 +55,7 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
     $scope.saveDoc=function(){
         console.log($scope.doc);
         if ($scope.doc.title == '') {$scope.title_error = '请输入标题文字'; return};
+        $scope.doc.editHistory = $scope.doc.editHistory||[];
         $scope.doc.editHistory.push({timeStamp:new Date(),user:currentUser});
         $http.post( Server + 'save/docPool', {doc:$scope.doc}).
             success(function(data, status, headers, config) {
