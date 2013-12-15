@@ -27,8 +27,8 @@ app.controller('homeCtrl',['$scope','$http',function($scope,$http){
 
 }]);
 
-//var Server="http://t.easytag.cn/";
-var Server="http://localhost:8881/";
+var Server="http://t.easytag.cn/";
+//var Server="http://localhost:8881/";
 
 app.controller('docListCtrl',function($scope,$http,$routeParams,$window){
     $scope.docList={fromList:{name:'ttt'}};

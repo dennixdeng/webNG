@@ -17,8 +17,8 @@ var app=angular.module('app',['ngRoute','etFilters']).config(['$routeProvider',f
             otherwise({redirectTo:'/home'});
     }]);
 
-//var Server="http://t.easytag.cn/";
-var Server="http://localhost:8881/";
+var Server="http://t.easytag.cn/";
+//var Server="http://localhost:8881/";
 
 //Controllers section
 app.controller('menuContoller',['$scope','$http',function($scope,$http){
