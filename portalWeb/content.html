@@ -58,44 +58,10 @@
 <div class="content">
     <!--body左侧开始-->
     <div class="contm">
-        <div id="cont_left" class="row"  ng-controller="leftContoller">
-            <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
-            <div class="live_new">
-                <div class="topname">
-                    新闻动态
-                </div>
-                <div class="new">
-                    <ul class="newlist">
-                        <li ng-repeat="doc in xwdt.list"><span style="width: 60px"> {{doc._id|Id2Date}}</span><span>|</span> <a target="{{doc.redirect?'_blank':''}}"  href="#/news/{{doc._id}}">{{doc.title}}</a></li>
-                    </ul>
-                </div>
-                <div class="newsmore"><a href="#/newslist/{{xwdt._id}}">更多</a></div>
-            </div>
-
-            <div class="qiehuan1">
-                <div class="tab">
-                    <div id="bg" class="tao2t1">
-                        <div id="font1" class="tab1" >企业发布</div>
-                    </div>
-                    <div id=TabTab03Con1>
-                        <ul class="qhlist">
-                            <li ng-repeat="doc in qyfb.list"><span style="width: 65px"> {{doc._id|Id2Date}}</span><span> |</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
-                        </ul></div>
-                </div>
-                <div class="qhsmore"><a href="#/qiyefabuList">更多企业需求发布</a></div>
-            </div>
-            <div class="qiehuan2">
-                <div class="tab">
-                    <div id="bg2" class="tao2t1">
-                        <div id="font12" class="tab1" >高校发布</div>
-                    </div>
-                    <div id=TabTab03Con1><ul class="qhlist">
-                        <li ng-repeat="doc in gxfb.list"><span style="width: 65px"> {{doc._id|Id2Date}}</span><span> |</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
-                    </ul></div>
-                </div>
-                <div class="qhsmore"><a href="#/gaoxiaofabuList">更多高校成果发布</a></div>
-            </div>
-
+        <div id="cont_left" style="width: 300px;padding:5px  14px;"  ng-controller="leftContoller">
+            <div ng-include="leftBlock_1" style="width: 100%"></div>
+            <div ng-include="leftBlock_2" style="width: 100%"></div>
+            <div ng-include="leftBlock_3" style="width: 100%"></div>
         </div>
         <!--body右侧开始-->
         <div ng-view></div>

@@ -1,5 +1,25 @@
 'use strict';
 
+var app=angular.module('app',['ngRoute','ngSanitize','etFilters','angularFileUpload']);
+
+app.config(['$routeProvider',function($routeProvider){
+    $routeProvider.
+        when('/home',{templateUrl:'ui/home.html',controller:'homeCtrl'}).
+        when('/doc/:docId',{templateUrl:'ui/doc.html',controller:'docCtrl'}).
+        when('/newdoc/:listId',{templateUrl:'ui/doc.html',controller:'docCtrl'}).
+        when('/newdoc/',{templateUrl:'ui/doc.html',controller:'docCtrl'}).
+        when('/imageList/:listId',{templateUrl:'ui/imageList.html',controller:'imageListCtrl'}).
+        when('/home',{templateUrl:'ui/home.html'}).
+        when('/docList/:docListId',{templateUrl:'ui/docList.html',controller:'docListCtrl'}).
+        when('/accounts',{templateUrl:'ui/accountMgm.html',controller:'accountMgmCtrl'}).
+        when('/docCategory',{templateUrl:'ui/categoryMgm.html',controller:'docCategoryMgmCtrl'}).
+        when('/docClass',{templateUrl:'ui/classMgm.html',controller:'docClassMgmCtrl'}).
+        when('/publicAccout',{templateUrl:'ui/publicAccount.html',controller:'publicAccoutCtrl'}).
+        when('/fabu',{templateUrl:'ui/fabu.html',controller:'fabuCtrl'}).
+        otherwise({redirectTo:'/home'});
+}]);
+
+
 var autoRefresh; //The global auto refresh timer. make sure clear it before new one created.
 //Controllers section
 
@@ -39,41 +59,19 @@ app.controller('docListCtrl',function($scope,$http,$routeParams,$window){
 });
 
 
-app.controller('fabuListCtrl',function($scope,$http,$routeParams,$window){
-    $scope.docList={fromList:{name:'ttt'}};
-    var loadList=function(listId){
-        if ('noListDocs' == listId){
-            $http.get(Server + 'list_title/qiyefabuPool/all/none').success(function(d){
-                $scope.docList.list= d.list ;
-                $scope.docList.fromList= {name:'草稿箱'} ;
-            });
-        }else{
-            $http.get(Server + 'list_title/qiyefabuPool/all/' + listId).success(function(d){
-                $scope.docList.list= d.list ;
-                $scope.docList.fromList= d.fromList ;
-            });
-        }
-    }
-    loadList($routeParams.docListId);
-    clearInterval($scope.autoRefresh);
-    $scope.autoRefresh = setInterval(loadList,5000,$routeParams.docListId);
-
-    $scope.removeDoc=function(inx){
-        if ($window.confirm('确定要删除文档《' +  $scope.docList.list[inx].title + '》？')){
-            $http.get(Server + 'remove/docPool/' + $scope.docList.list[inx]._id).success(function(d){
-                $scope.docList.list.splice(inx,1);
-            });
-        };
-    }
-});
-
 var currentUser;
 var updateTopBar;
 var showLoginScreen;
 app.controller('loginScreenCtrl',function($scope,$http,$routeParams,$window){
+     if (localStorage.getItem('userInfo')){
+         $scope.hidelogin=true;
+         currentUser = JSON.parse(localStorage.getItem('userInfo'));
+         updateTopBar(currentUser);
+     }
      $scope.login=function(){
          $http.get(Server + 'user/login/' + $scope.uid + '/' + $scope.pwd).success(function(d){
               currentUser = d;
+             localStorage.setItem('userInfo',JSON.stringify(d));
              updateTopBar(currentUser);
              $scope.hidelogin=true;
              $scope.pwd = '';
@@ -92,21 +90,21 @@ app.controller('topBarCtrl',function($scope,$http,$routeParams,$window){
     updateTopBar=function(usr){
           $scope.user = usr;
           $scope.$apply();
-    }
-    $scope.user={name:'测试用户'};
+    };
     $scope.logOut=function(){
         $scope.user = currentUser = {};
+        sessionStorage.setItem('userInfo',null);
         showLoginScreen();
     }
 });
 
-app.controller('naviPanelCtrl',function($scope,$http,$routeParams,$location){
+app.controller('naviPanelCtrl',function($scope,$http,$routeParams,$location,$filter){
     $scope.loadCategory=function(){
         $scope.slowShow = false;
         $http.get(Server + 'get_list/parentPool').success(function(dp){
-            $scope.parents=dp ;
+            $scope.parents=dp;
             $http.get(Server + 'get_list/listPool').success(function(d){
-                $scope.allLists=d ;
+                $scope.allLists=d;
                 for (var j in $scope.parents){
                     $scope.parents[j].childCount=0;
                     $scope.parents[j].children=[];
@@ -151,6 +149,11 @@ app.controller('accountMgmCtrl',function($scope,$http,$routeParams,$window){
         });
     }
     loadUsers();
+    $scope.filterUser=function(){
+        $http.post(Server + 'filterUser',{filter:$scope.filter}).success(function(d){
+            $scope.userList = d.list;
+        });
+    };
     $scope.loadCategory=function(){
         $scope.slowShow = false;
         $http.get(Server + 'get_list/parentPool').success(function(dp){
@@ -189,7 +192,8 @@ app.controller('accountMgmCtrl',function($scope,$http,$routeParams,$window){
     }
 
     $scope.createUser=function(){
-        console.log($scope.newUser);
+        if (!$scope.newUser.name || $scope.newUser.name==''){alert('请输入用户姓名');return ;}
+        if (!$scope.newUser.uid||$scope.newUser.uid=='') {alert('请输入用户email   ');return ;}
         $http.post(Server + 'user/new/',$scope.newUser).success(function(d){
             $scope.show='';
             loadUsers();
@@ -286,6 +290,45 @@ app.controller('docClassMgmCtrl',function($scope,$http,$routeParams,$location){
     }
 });
 
+app.controller('publicAccoutCtrl',function($scope,$http,$routeParams,$location){
+
+    $scope.filter={};
+    $scope.filterUser=function(){
+        $http.post(Server + 'userPublic/filter',{filter:$scope.filter}).success(function(d){
+            $scope.userList = d;
+        });
+    };
+    $scope.setStatus=function(inx,status){
+        $http.post(Server + 'userPublic/setStaus',{_id:$scope.userList[inx]._id,status:status}).success(function(d){
+            $scope.userList.splice(inx,1);
+        });
+    }
+});
+
+app.controller('fabuCtrl',function($scope,$http,$routeParams,$window){
+    $scope.gaoxiaoList={name:'高校发布信息'};
+    $scope.qiyeList={name:'企业发布信息'};
+    $scope.filter={};
+    $scope.gaoxiaofabusetStatus=function(inx,status){
+        $http.post(Server + 'gaoxiaofabu/setStaus',{_id:$scope.gaoxiaoList.list[inx]._id,status:status}).success(function(d){
+            $scope.gaoxiaoList.list.splice(inx,1);
+        });
+    };
+    $scope.qiyefabusetStatus=function(inx,status){
+        $http.post(Server + 'qiyefabu/setStaus',{_id:$scope.qiyeList.list[inx]._id,status:status}).success(function(d){
+            $scope.qiyeList.list.splice(inx,1);
+        });
+    }
+    $scope.filterDocs=function(){
+        if($scope.filter.keyword == '') delete $scope.filter.keyword;
+        $http.post(Server + 'keyword/gaoxiaofabuPool/all',{filter:$scope.filter}).success(function(d){
+            $scope.gaoxiaoList.list= d.list;
+        });
+        $http.post(Server + 'keyword/qiyefabuPool/all',{filter:$scope.filter}).success(function(d){
+            $scope.qiyeList.list= d.list;
+        });
+    }
+});
 //Filters section
 var extList=[
     'ai','aiff','ani','asf','au','avi','bat','bin','bmp','bup',

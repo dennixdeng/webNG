@@ -5,7 +5,8 @@ var app=angular.module('app',['ngRoute','etFilters']).config(['$routeProvider',f
             when('/newslist/:listId/:listName',{templateUrl:'ui/newslist.html',controller:'newslistCtrl'}).
             when('/newslist/:listId',{templateUrl:'ui/newslist.html',controller:'newslistCtrl'}).
             when('/news/:docId',{templateUrl:'ui/news_detail.html',controller:'newsCtrl'}).
-            when('/intro/:docId',{templateUrl:'ui/news_detail.html',controller:'newsCtrl'}).
+            when('/intro',{templateUrl:'ui/pingtai_intro.html',controller:'mainIntroCtrl'}).
+            when('/subintro/:listId',{templateUrl:'ui/pingtai_intro.html',controller:'subIntroCtrl'}).
             when('/qiyefabu/',{templateUrl:'ui/qiyefabu.html',controller:'qiyefabuCtrl'}).
             when('/gaoxiaofabu/',{templateUrl:'ui/gaoxiaofabu.html',controller:'gaoxiaofabuCtrl'}).
             when('/gaoxiaofabuDetail/:docId',{templateUrl:'ui/gaoxiaoliulan.html',controller:'gaoxiaoliulanCtrl'}).
@@ -16,8 +17,8 @@ var app=angular.module('app',['ngRoute','etFilters']).config(['$routeProvider',f
     }]);
 
 'use strict';
-var Server="http://t.easytag.cn/";
-//var Server="http://localhost:8881/";
+//var Server="http://t.easytag.cn/";
+var Server="http://localhost:8881/";
 
 //Controllers section
 app.controller('menuContoller',['$scope','$http',function($scope,$http){
@@ -28,13 +29,28 @@ app.controller('menuContoller',['$scope','$http',function($scope,$http){
         $scope.activeMenu=inx;
     }
 }]);
+var t;
 app.controller('leftContoller',['$scope','$http',function($scope,$http){
     Component.http=$http;Component.scope=$scope;
     $scope.xwdt= Component.newTitleList('docPool',5,'529addfb0e66761d078fe35b');
+    $scope.rdxx= Component.newTitleList('docPool',5,'529addfb0e66761d078fe35b');
     $scope.qyfb= Component.newTitleList('qiyefabuPool',5,'all');
     $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',5,'all');
+
+    $scope.leftBlock_1 = "ui/left_blocks/block1.html";
+    $scope.block1={category:$scope.xwdt,name:'新闻动态',viewer:'news' };
+
+    $scope.leftBlock_2 = "ui/left_blocks/block2.html";
+    $scope.block2={category:$scope.rdxx,name:'热点信息',viewer:'news' };
+
+    $scope.leftBlock_3 = "ui/left_blocks/block3.html";
+    $scope.block3={category:$scope.rdxx,name:'热点信息',viewer:'news' };
+
+    $scope.leftBlock_4 = "ui/left_blocks/block4.html";
+    $scope.block4={category:$scope.rdxx,name:'热点信息',viewer:'news' };
+
 }]);
-var listMap={};
+
 app.controller('newslistCtrl',function($scope,$http,$routeParams){
     $http.get(Server + 'get_list/listPool').success(function(d){
         $scope.allLists=d ;
@@ -58,12 +74,14 @@ app.controller('newsCtrl',function($scope,$http,$routeParams,$sce,$window){
                 var p = $scope.doc.paraList[i];
                 if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
                 if (p.attachment && p.attachment.name.toLowerCase().indexOf('pdf')){
+                    $scope.showPdf=true;
                     var pdf = new PDFObject({ url: p.attachment.url })
                         .embed('PDFView');
                 }
             }
         })
 });
+
 
 app.controller('qiyefabuCtrl',function($scope,$http){
     if (currentUser == undefined ) showLoginScreen();

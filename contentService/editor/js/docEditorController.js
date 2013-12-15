@@ -7,8 +7,10 @@ var app=angular.module('app',['ngRoute','ngSanitize','etFilters','angularFileUpl
 
 //var Server="http://t.easytag.cn/";
 var Server="http://localhost:8881/";
-
-app.controller('docCtrl',function($scope,$http,$location,$sce,$upload){
+var currentUser;
+app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
+    currentUser = JSON.parse(localStorage.getItem('userInfo'));
+    $scope.userName=currentUser.name;
     $http.get(Server + 'get_list/listPool').success(function(d){
         $scope.allLists=d ; //[{id:'l1',name:'列表1'},{id:'l2',name:'列表2'},{id:'l3',name:'列表3'},{id:'l4',name:'列表4'},{id:'l5',name:'列表5'},{id:'l6',name:'列表6'},{id:'l7',name:'列表7'}];
         for (var i in d){
@@ -25,7 +27,7 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload){
     };
     $http.get( Server + 'get_list/imagePool').
         success(function(data, status, headers, config) {
-            $scope.imagePoolData = data;
+            $scope.imagePoolData = $filter('orderBy')(data,'_id',true);
         }).error(function(data, status, headers, config) {
             console.log(status);
         });
@@ -38,6 +40,8 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload){
         ,paraList:[]
         ,inLists:(($location.search()).listId?[($location.search()).listId]:[])
         ,isListIntro:($location.search()).isListIntro
+        ,createBy: currentUser
+        ,editHistory:[]
     };
     if (docId !='newdoc') $http.get(Server + 'open/docPool/' + docId)
     .success(function(data){
@@ -51,6 +55,7 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload){
     $scope.saveDoc=function(){
         console.log($scope.doc);
         if ($scope.doc.title == '') {$scope.title_error = '请输入标题文字'; return};
+        $scope.doc.editHistory.push({timeStamp:new Date(),user:currentUser});
         $http.post( Server + 'save/docPool', {doc:$scope.doc}).
             success(function(data, status, headers, config) {
                 $scope.serverMessage='保存成功';
@@ -87,7 +92,7 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload){
         if (!$scope.attachmentPoolData){
             $http.get( Server + 'get_list/attachmentPool').
             success(function(data, status, headers, config) {
-                $scope.attachmentPoolData = data;
+                $scope.attachmentPoolData = $filter('orderBy')(data,'_id',true);;
             }).error(function(data, status, headers, config) {
                 console.log(status);
             });
@@ -182,7 +187,7 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload){
     $scope.filterAttachment=function(name){
         $http.post( Server + 'filter_pool/attachmentPool/all',{filter:{name:name}}).
             success(function(data, status, headers, config) {
-                $scope.attachmentPoolData = data.list;
+                $scope.attachmentPoolData = $filter('orderBy')(data.list,'_id',true);
             }).error(function(data, status, headers, config) {
                 console.log(status);
             });

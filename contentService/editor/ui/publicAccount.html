@@ -1,0 +1,35 @@
+<div style="display: block; vertical-align: top">
+    <div style="padding: 50px;overflow: hidden;transition:height 0.5s"
+         ng-show="true||(show == 'filterUserForm')">
+        <span style="font-size: 12px">按用户信息过滤</span>
+        <form class="pure-form">
+            <fieldset>
+                用户状态
+                <select ng-change="filterUser()" ng-model="filter.status" >
+                    <option value="active">已激活</option>
+                    <option value="disable">已禁用</option>
+                    <option value="waiting">未审核</option>
+                </select>
+                <input type="email" ng-change="filterUser()" ng-model="filter.uid" placeholder="用户email">
+            </fieldset>
+        </form>
+    </div>
+</div>
+<ul style="display:block; vertical-align: top">
+    <li ng-repeat="user in userList" style="padding:5px 0px 20px 10px; border-bottom: solid 1px #aaaaaa"
+        ng-style="($first)?{'border-top':'solid 1px #aaaaaa'}:{}">
+        <div style="font-size: 14px;">
+            <div style="display: inline-block;">
+                <img src="images/icon_user.png" style="width:30px;vertical-align:bottom">
+
+            </div>
+            <div style="display: inline-block;padding-left:10px;width: 300px;font-size: 18px;cursor: pointer">
+                登录email: {{user.uid}}
+            </div>
+            <div style="display: inline-block;width: 200px ;color: #aaaaaa;">
+                <button class="pure-button" ng-click="setStatus($index,'active')">审批</button>
+                <button class="pure-button" ng-click="setStatus($index,'disable')">禁用</button>
+            </div>
+        </div>
+    </li>
+</ul>

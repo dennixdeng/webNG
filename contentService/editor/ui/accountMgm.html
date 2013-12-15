@@ -1,8 +1,10 @@
 <div style="display: block; vertical-align: top">
     <button class="pure-button pure-button-primary" style="margin: 30px;" ng-click="newUserForm()">创建新用户</button>
-    <button class="pure-button pure-button-primary" style="margin: 30px;" ng-click="filterUserForm()">过滤用户列表</button>
+    <button ng-show="false" class="pure-button pure-button-primary" style="margin: 30px;" ng-click="filterUserForm()">过滤用户列表</button>
 
-    <div style="padding-left: 50px;overflow: hidden;transition:height 1s"
+    <div style="padding: 50px 100px;overflow: hidden;transition:height 0.5s;
+                position: absolute;top:-10px;left:0px;background-color: #ffffff;
+                box-shadow: 5px 5px 5px #aaaaaa;border: solid 1px #555555"
          ng-show="(show == 'newUserForm')">
         <form class="pure-form">
             <fieldset>
@@ -12,8 +14,8 @@
                 <input type="email" ng-model="newUser.uid" placeholder="用户email">
                 <button ng-click="createUser()" class="pure-button pure-button-primary">创建</button>
             </fieldset>
-            <span style="font-size: 12px">创建成功后，用户用初始密码123456登录，并立即修改密码</span>
-            <div style="padding-top:6px;"
+            <span style="font-size: 12px;color: #bbbbbb">创建成功后，用户用初始密码123456登录，并立即修改密码</span>
+            <div style="sidth:100%;border-top:dashed 1px #aaaaaa;padding: 3px;font-size: 12px;color: #555555">创建前分配权限</div>
             <div ng-repeat="parent in parents" style="display: block;">
                 <div style="font-size:12px;color:#aaaaaa;display: inline-block;vertical-align: top;cursor: pointer"
                      ng-click="toggleParent(user._id+parent._id+$index)">
@@ -22,7 +24,7 @@
                     {{parent.name}}
                 </div>
 
-                <div style="overflow: hidden;transition:height 1s;color: #aaaaaa;padding:3px 30px"
+                <div style="overflow: hidden;transition:height 0.5s;color: #aaaaaa;padding:3px 30px"
                      ng-style="(expanded[user._id+parent._id + $index])?{height:'80px'}:{height:'0px'}">
                     <div ng-repeat="list in parent.children"
                          style="display: inline-block;padding:0px 5px 0px 5px;" ng-style="(!$first)?{'border-left':'dotted 2px #eeeeee'}:{}" >
@@ -41,14 +43,14 @@
             </div>
         </form>
     </div>
-    <div style="padding-left: 50px;overflow: hidden;transition:height 1s"
-         ng-show="(show == 'filterUserForm')">
+    <div style="padding-left: 50px;overflow: hidden;transition:height 0.5s"
+         ng-show="true||(show == 'filterUserForm')">
         <span style="font-size: 12px">按用户信息过滤</span>
         <form class="pure-form">
             <fieldset>
-                <input type="text" ng-model="filter.staffId" placeholder="员工编号" size="5">
-                <input type="text" ng-model="filter.name" placeholder="真实姓名" size="6">
-                <input type="email" ng-model="filter.uid" placeholder="用户email">
+                <input type="text" ng-change="filterUser()" ng-model="filter.staffId" placeholder="员工编号" size="5">
+                <input type="text" ng-change="filterUser()" ng-model="filter.name" placeholder="真实姓名" size="6">
+                <input type="email" ng-change="filterUser()" ng-model="filter.uid" placeholder="用户email">
             </fieldset>
             <span style="font-size: 12px">按用户权限过滤</span>
             <div style="padding-top:6px;"
@@ -60,19 +62,19 @@
                     {{parent.name}}
                 </div>
 
-                <div style="overflow: hidden;transition:height 1s;color: #aaaaaa;padding:3px 30px"
+                <div style="overflow: hidden;transition:height 0.5s;color: #aaaaaa;padding:3px 30px"
                      ng-style="(expanded['filter'+parent._id + $index])?{height:'80px'}:{height:'0px'}">
                     <div ng-repeat="list in parent.children"
                          style="display: inline-block;padding:0px 5px 0px 5px;" ng-style="(!$first)?{'border-left':'dotted 2px #eeeeee'}:{}" >
                         <div style="font-size: 14px;padding-bottom: 5px;font-size: 12px;">{{list.name}}</div>
                             <span style="margin-left:10px;font-size: 12px;">
-                                <input ng-model="filter.acl[list._id + '_edit']" type="checkbox" >编辑
+                                <input ng-model="filter.acl[list._id + '_edit']" ng-change="filterUser()" type="checkbox" >编辑
                             </span><br>
                             <span style="margin-left:10px;font-size: 12px;">
-                                <input ng-model="filter.acl[list._id + '_publish']" type="checkbox" >审核
+                                <input ng-model="filter.acl[list._id + '_publish']" ng-change="filterUser()" type="checkbox" >审核
                             </span><br>
                             <span style="margin-left:10px;font-size: 12px;">
-                                <input ng-model="filter.acl[list._id + '_remove']" type="checkbox" >删除
+                                <input ng-model="filter.acl[list._id + '_remove']" ng-change="filterUser()"  type="checkbox" >删除
                             </span>
                     </div>
                 </div>
@@ -104,7 +106,7 @@
                     {{parent.name}}
                 </div>
 
-                <div style="overflow: hidden;transition:height 1s;color: #aaaaaa;padding:3px 30px"
+                <div style="overflow: hidden;transition:height 0.5s;color: #aaaaaa;padding:3px 30px"
                         ng-style="(expanded[user._id+parent._id + $index])?{height:'80px'}:{height:'0px'}">
                     <div ng-repeat="list in parent.children"
                          style="display: inline-block;padding:0px 5px 0px 5px;" ng-style="(!$first)?{'border-left':'dotted 2px #eeeeee'}:{}" >

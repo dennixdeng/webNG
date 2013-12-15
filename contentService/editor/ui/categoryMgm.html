@@ -12,13 +12,14 @@
         </div>
 
         <div ng-repeat="parent in parents">
-            <div style="width: 480px;border-top: solid 1px #aaaaaa;margin: 5px;padding: 5px" ng-click="toggleParent($index)">
+            <div style="width: 480px;border-top: solid 1px #aaaaaa;margin: 5px;padding: 5px; cursor: pointer"
+                 ng-click="toggleParent($index)">
                 <span style="font-size: 12px">{{parent.childCount}} </span>
                 <img ng-src="{{(expanded[$index])?('images/dropdown.png'):('images/pullup.png')}}" style="width:16px;vertical-align: bottom">
                 {{parent.name}}
             </div>
             <div ng-style="expanded[$index]?{height:parent.childCount * 35 + 'px'}:{height:'0px'}"
-                 style="width:500px;overflow:hidden;">
+                 style="width:500px;overflow:hidden; cursor: pointer">
                 <div ng-repeat="item in parent.children" style=" width: 480px;padding: 3px">
 
                     <div style="display:inline-block;font-size:14px;padding:3px 0px 3px 30px; width: 270px">{{item.name}}</div>

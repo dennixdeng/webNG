@@ -52,6 +52,7 @@ var Component={
     }
 }
 //Filters section
+var listMap={};
 angular.module('etFilters', [])
     .filter('checkmark', function() {
         return function(input) {

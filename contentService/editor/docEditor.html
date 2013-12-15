@@ -32,6 +32,7 @@
         <h3>文档编辑器
             <button class="pure-button pure-button-primary" ng-click="saveDoc()" ng-blur="serverMessage=''" style="margin-left:50px ">保存</button>
             <span style="margin-left: 50px;font-size: 12px;">{{serverMessage}}</span>
+            <div style="display: inline-block; padding-left: 300px">{{userName}}</div>
         </h3>
     </div>
     <div ng-show="doc.isListIntro">

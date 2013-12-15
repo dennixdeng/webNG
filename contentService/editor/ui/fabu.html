@@ -1,0 +1,57 @@
+<div style="display: block; vertical-align: top">
+    <div style="padding: 50px;overflow: hidden;transition:height 0.5s"
+         ng-show="true||(show == 'filterUserForm')">
+        <span style="font-size: 18px;color: #aaaaaa">信息过滤</span>
+        <form class="pure-form">
+            <fieldset>
+                信息状态
+                <select ng-change="filterDocs()" ng-model="filter.status" >
+                    <option value="active">已通过</option>
+                    <option value="disable">已禁用</option>
+                    <option value="waiting">未审核</option>
+                </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                全文搜索&nbsp;&nbsp;&nbsp;<input type="text" ng-change="filterDocs()" ng-model="filter.keyword" placeholder="关键字">
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div>高校发布的信息</div>
+<ul style="display:block; vertical-align: top;height: 200px; overflow-y: scroll">
+    <li ng-repeat="doc in gaoxiaoList.list" style="padding:5px 0px 20px 10px; border-bottom: solid 1px #aaaaaa"
+        ng-style="($first)?{'border-top':'solid 1px #aaaaaa'}:{}">
+        <div style="font-size: 14px;">
+            <div style="display: inline-block;">
+                <img src="images/icon_user.png" style="width:30px;vertical-align:bottom">
+
+            </div>
+            <div style="display: inline-block;padding-left:10px;width: 300px;font-size: 14px;cursor: pointer">
+                学校 {{doc.name}}<br> 标题：{{doc.title}}
+            </div>
+            <div style="display: inline-block;width: 200px ;color: #aaaaaa;">
+                <button class="pure-button" ng-click="gaoxiaofabusetStatus($index,'active')">审批</button>
+                <button class="pure-button" ng-click="gaoxiaofabusetStatus($index,'disable')">禁用</button>
+            </div>
+        </div>
+    </li>
+</ul>
+<div>企业发布的信息</div>
+<ul style="display:block; vertical-align: top;height: 200px; overflow-y: scroll">
+    <li ng-repeat="doc in qiyeList.list" style="padding:5px 0px 20px 10px; border-bottom: solid 1px #aaaaaa"
+        ng-style="($first)?{'border-top':'solid 1px #aaaaaa'}:{}">
+        <div style="font-size: 14px;">
+            <div style="display: inline-block;">
+                <img src="images/icon_user.png" style="width:30px;vertical-align:bottom">
+
+            </div>
+            <div style="display: inline-block;padding-left:10px;width: 300px;font-size: 14px;cursor: pointer">
+                 企业：{{doc.name}} <br>  标题{{doc.title}}
+                <a target="_blank" href="../../portalWeb/content.html#/">预览</a>
+            </div>
+            <div style="display: inline-block;width: 200px ;color: #aaaaaa;">
+                <button class="pure-button" ng-click="qiyefabusetStatus($index,'active')">审批</button>
+                <button class="pure-button" ng-click="qiyefabusetStatus($index,'disable')">禁用</button>
+            </div>
+        </div>
+    </li>
+</ul>
+

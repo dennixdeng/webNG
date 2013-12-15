@@ -3,6 +3,9 @@
 var app=angular.module('app',['ngRoute','etFilters']).config(['$routeProvider',function($routeProvider){
         $routeProvider.
             when('/home',{templateUrl:'ui/homepage.html',controller:'homepageCtrl'}).
+            when('/intro',{templateUrl:'ui/pingtai_intro.html',controller:'mainIntroCtrl'}).
+            when('/subintro/:listId',{templateUrl:'ui/pingtai_intro.html',controller:'subIntroCtrl'}).
+            when('/news/:docId',{templateUrl:'ui/news_detail.html',controller:'newsCtrl'}).
             otherwise({redirectTo:'/home'});
     }]);
 
@@ -60,3 +63,46 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     }
     setInterval(slide_top_newsupdate_slider,20);
 }]);
+
+app.controller('mainIntroCtrl',function($scope,$http,$sce){
+    $http.get(Server + 'get_list/listPool?parent=52abb502b5f067da3406fb34').success(function(d){
+        $scope.mainlist={list: d};
+        for (var i in d){
+            listMap[d[i]._id] =d[i];
+            d[i].title =  d[i].name;
+        }
+    });
+    $scope.subTitle='平台体系列表'; $scope.viewer="subintro";
+    $http.get(Server + 'open/docPool/' + '52ac0439150f3487ab2f8b1c').success(function(d){
+        $scope.mainDoc= d;
+        for (var i in $scope.mainDoc.paraList) {
+            var p = $scope.mainDoc.paraList[i];
+            if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
+            if (p.attachment && p.attachment.name.toLowerCase().indexOf('pdf')){
+                $scope.showPdf=true;
+                var pdf = new PDFObject({ url: p.attachment.url })
+                    .embed('PDFView');
+            }
+        }
+    });
+
+});
+
+app.controller('subIntroCtrl',function($scope,$http,$routeParams,$sce){
+    Component.http=$http;Component.scope=$scope;
+    //$scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
+    $scope.mainlist= Component.newTitleList('docPool',30,$routeParams.listId);
+    $scope.subTitle='平台动态'; $scope.viewer="news";
+    $http.get(Server + 'open/docPool/' + $routeParams.listId).success(function(d){
+        $scope.mainDoc= d;
+        for (var i in $scope.mainDoc.paraList) {
+            var p = $scope.mainDoc.paraList[i];
+            if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
+            if (p.attachment && p.attachment.name.toLowerCase().indexOf('pdf')){
+                $scope.showPdf=true;
+                var pdf = new PDFObject({ url: p.attachment.url })
+                    .embed('PDFView');
+            }
+        }
+    });
+});

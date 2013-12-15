@@ -107,13 +107,14 @@ app.get('/list_title/:pool/:top/:listId',function(req,res){
             break;
     }
     if (req.query.excludeDoc) qObj._id = {$ne:ObjectID(req.query.excludeDoc)};
-    console.log(qObj);
+    if (req.params.pool == 'docPool') qObj.isListIntro={$ne:'true'};
+
     if ('all' != req.params.top){
         sortObj.limit =  req.params.top;
     }
     sortObj.sort={showTopSticky:-1,_id:-1};
 
-    mdb[req.params.pool].find(qObj,{title:1,redirect:1,displayDate:1,inLists:1,showTopSticky:1,showHomepage:1},sortObj).toArray(function(e,d){
+    mdb[req.params.pool].find(qObj,{araList:0,pwd:0},sortObj).toArray(function(e,d){
         var r={list:d};
         if (getName){
             mdb['listPool'].find({_id:ObjectID(req.params.listId)}).nextObject(function(e,dlist){
@@ -140,12 +141,14 @@ app.post('/filter_pool/:pool/:top',express.bodyParser(),function(req,res){
     }
     sortObj.sort={showTopSticky:-1,_id:-1};
 
-    mdb[req.params.pool].find(qObj,{paraList:0},sortObj).toArray(function(e,d){
+    mdb[req.params.pool].find(qObj,{paraList:0,pwd:0},sortObj).toArray(function(e,d){
         res.send({list:d});
     });
 });
 app.get('/get_list/:pool',function(req,res){
-    mdb[req.params.pool].find().sort({_id:-1}).toArray(function(e,d){
+    var qObj={};
+    if (req.query.parent) qObj.parent = req.query.parent;
+    mdb[req.params.pool].find(qObj).sort({_id:1}).toArray(function(e,d){
         res.send(d);
     });
 });
@@ -271,6 +274,7 @@ app.post('/save/:pool',express.bodyParser(),function(req,res){
     }else{
         req.body.doc._id = docid;
     }
+    req.body.doc.status='waiting';
     mdb[req.params.pool].update({_id:docid},req.body.doc,{upsert:true},function(e,d){
         console.log(d);
         res.send({_id: docid});
@@ -281,6 +285,7 @@ app.post('/save/:pool',express.bodyParser(),function(req,res){
 app.get('/user/login/:uid/:pwd',function(req,res){
     mdb['WebNG_users'].find({uid:req.params.uid,pwd:req.params.pwd}).nextObject(function(e,d){
         if (d) {
+            d.token = make_passwd(128);
             res.send(d);
         }else{
             res.status(404).send({});
@@ -293,8 +298,10 @@ app.post('/setACL',express.bodyParser(),function(req,res){
     mdb['WebNG_users'].find({_id:uid}).nextObject(function(e,d){
         if (e){ console.log(e);res.status(400).send({error:'mongoDB'});return};
         if (d){
+            console.log(d);
             d.acl[req.body.item] = req.body.value;
-            mdb['WebNG_users'].update({_id:uid},{$set:{acl:d.acl}},function(e,d){});
+            console.log(d.acl);
+            mdb['WebNG_users'].update({_id:uid},{$set:{acl:d.acl}},function(e,d2){});
             res.send({acl: d.acl});
         }else{
             res.status(404).send({error:'no ID found'})
@@ -302,8 +309,25 @@ app.post('/setACL',express.bodyParser(),function(req,res){
     })
 });
 
-app.get('/filterUser',function(req,res){
+app.post('/filterUser',express.bodyParser(),function(req,res){
+    var qObj={};
+    var sortObj= {};
 
+    for (var filed in req.body.filter){
+        if (filed=='acl'){
+             for (var a in req.body.filter[filed]){
+                 if(req.body.filter[filed][a]) qObj['acl.'+a] = true;
+             }
+        }else{
+            qObj[filed] = new RegExp(req.body.filter[filed]);
+        }
+    }
+    console.log(qObj);
+    sortObj.sort={id:-1};
+
+    mdb['WebNG_users'].find(qObj,{},sortObj).toArray(function(e,d){
+        res.send({list:d});
+    });
 });
 
 var make_passwd = function(n) {
@@ -352,8 +376,76 @@ app.get('/userPublic/login/:uid/:pwd',function(req,res){
 });
 
 app.post('/userPublic/new/',express.bodyParser(),function(req,res){
+    req.body.status='waiting';
     mdb['publicUserPool'].insert(req.body,function(e,d){
         if (e) console.log(e);
         res.end();
+    });
+});
+app.post('/userPublic/setStaus',express.bodyParser(),function(req,res){
+    mdb['publicUserPool'].update({_id:ObjectID(req.body._id)},{status:req.body.status},function(e,d){
+        if (e) console.log(e);
+        res.end();
+    });
+});
+app.post('/userPublic/filter',express.bodyParser(),function(req,res){
+    var qObj={};
+    var sortObj= {};
+
+    for (var filed in req.body.filter){
+        qObj[filed] = new RegExp(req.body.filter[filed]);
+    };
+    sortObj.sort={id:-1};
+    mdb['publicUserPool'].find(qObj,{pwd:0}).toArray(function(e,d){
+        if (d) {
+            res.send(d);
+        }
+    });
+});
+app.post('/gaoxiaofabu/setStaus',express.bodyParser(),function(req,res){
+    mdb['gaoxiaofabuPool'].update({_id:ObjectID(req.body._id)},{$set:{status:req.body.status}},function(e,d){
+        if (e) console.log(e);
+        res.end();
+    });
+});
+app.post('/qiyefabu/setStaus',express.bodyParser(),function(req,res){
+    mdb['qiyefabuPool'].update({_id:ObjectID(req.body._id)},{$set:{status:req.body.status}},function(e,d){
+        if (e) console.log(e);
+        res.end();
+    });
+});
+
+var listFiels={
+    gaoxiaofabuPool:['name','title','contacts','contactinfo','area','otherArea','techbrief','techhighlight','techIP','techlevel','techapllication','terms','other'],
+    qiyefabuPool:['companyName','address','contacts','phone','email','zip','title','terms','specs','credit']
+}
+app.post('/keyword/:pool/:top',express.bodyParser(),function(req,res){
+    var qObj={};
+    var orList=[];
+    var sortObj= {};
+    var getName=false;
+
+
+    for (var filed in req.body.filter){
+        if (filed == 'keyword'){
+            var fList=listFiels[req.params.pool];
+            for (var i in fList){
+                var fr = {};
+                fr[fList[i]] = new RegExp(req.body.filter[filed]);
+                orList.push ( fr );
+            }
+            qObj.$or=orList;
+        }else{
+            qObj[filed] = new RegExp(req.body.filter[filed]);
+        }
+    }
+    console.log(qObj);
+    if ('all' != req.params.top){
+        sortObj.limit =  req.params.top;
+    }
+    sortObj.sort={showTopSticky:-1,_id:-1};
+
+    mdb[req.params.pool].find(qObj,{paraList:0,pwd:0},sortObj).toArray(function(e,d){
+        res.send({list:d});
     });
 });

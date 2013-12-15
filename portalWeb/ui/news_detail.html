@@ -4,7 +4,7 @@
 
     </div>
     <div style=" font-size:12px;font-weight: normal ;right:20px" >
-        <div style="padding-left: 400px;color: #aaaaaa">
+        <div style="padding-left:300px;color: #aaaaaa">
             点击数&nbsp;{{doc.readCount}}&nbsp;&nbsp;&nbsp;来源&nbsp;{{doc.source}}&nbsp;&nbsp;&nbsp; 发布日期&nbsp;{{doc.displayDate}}
         </div>
     </div>
@@ -18,8 +18,6 @@
             <a href="{{para.attachment.url}}">{{para.attachment.showName||para.attachment.name}}</a>
         </div>
     </div>
-    <div id="PDFView" style="width: 100%;height: 800px">
-
-    </div>
+    <div ng-show="showPdf" id="PDFView" style="width: 100%;height: 800px"></div>
 
     </div>
