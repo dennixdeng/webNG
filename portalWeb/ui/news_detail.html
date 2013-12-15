@@ -21,7 +21,7 @@
         </div>
         <div class="fgx"></div>
 
-        <div ng-repeat="para in doc.paraList">
+        <div ng-repeat="para in doc.paraList" style="white-space: normal">
             <div ng-show="para.html" ng-bind-html="para.html.show"></div>
             <img ng-show="para.image" style="display:block;max-width: 600px;margin: 5px auto 5px auto" ng-src="{{para.image.url}}"/>
             <div ng-show="para.attachment" style="padding: 20px">
