@@ -64,19 +64,19 @@
                 </a></span>
                 <p>{{xxdt_image.list[0]|docBrief:40}}</p></div>
             <ul style="line-height:16px">
-                <li ng-repeat="doc in xxdt.list" style="line-height:16px"><A style="color:#555555" href="#/news/{{doc._id}}">{{doc.title}}</A></li>
+                <li ng-repeat="doc in xxdt.list" style="line-height:16px"><A style="color:#555555" href="#/news/{{doc._id}}">{{doc.title|stringLeft:18}}</A></li>
             </ul>
             <div  class="zsfwmorez"><a href="#/newslist/529b14ceec282bac9148ac10/信息动态/">...更多>></a></div>
         </div>
         <div id="zsfwmid">
             <h5>平台进展</h5>
             <Ul class="gbhlist">
-                <li ng-repeat="doc in ptjz.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title}}</A></li>
+                <li ng-repeat="doc in ptjz.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:24}}</A></li>
             </Ul>
             <div  class="zsfwmore"><a href="#/newslist/529b1da2ec282bac9148ac11/平台进展/">...更多>></a></div>
         </div>
         <div id="zsfwright"><h5>平台简介</h5>
-            <div class="zsfwright_cont">{{ptjj.list[0]|docBrief:140}}
+            <div class="zsfwright_cont">{{ptjj|docBrief:140}}
             </div>
             <div  class="zsfwmorey"><a href="#/intro">...更多>></a></div>
         </div>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="zsfwleft_l">
                     <Ul>
-                        <li ng-repeat="doc in rdxx.list"><A style="color:#555555"  target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title}}</A></li>
+                        <li ng-repeat="doc in rdxx.list"><A style="color:#555555"  target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:18}}</A></li>
                     </Ul>
                     <div  class="zsfwmorez"><a style="color:#555555"  href="#/newslist/529b2665ec282bac9148ac13/热点信息/">...更多>></a></div>
                 </div>
@@ -112,13 +112,13 @@
             <div id="zsfwmid">
                 <h5>工博会</h5>
                 <Ul class="gbhlist">
-                    <li ng-repeat="doc in gbh.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title}}</A></li>
+                    <li ng-repeat="doc in gbh.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:24}}</A></li>
                 </Ul>
                 <div  class="zsfwmore"><a style="color:#555555" href="#/newslist/529b28feec282bac9148ac14/工博会/">...更多>></a></div>
             </div>
             <div id="zsfwright"><h5>其他展会</h5>
                 <Ul   class="gbhlist">
-                    <li ng-repeat="doc in qtzh.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title}}</A></li>
+                    <li ng-repeat="doc in qtzh.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|24}}</A></li>
                 </Ul>
 
                 <div  class="zsfwmore"><a style="color:#555555" href="#/newslist/529b2c6bec282bac9148ac15/其他展览/">...更多>></a></div>

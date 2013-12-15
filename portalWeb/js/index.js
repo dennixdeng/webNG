@@ -40,7 +40,10 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
     });
 
     $scope.ptjz= Component.newList(5,'529b1da2ec282bac9148ac11');
-    $scope.ptjj= Component.newList(1,'529b22dcec282bac9148ac12');
+
+    $http.get(Server + 'open/docPool/' + '52adc54c4fe150534d849cb4').success(function(d){
+        $scope.ptjj= d;
+    });
     $scope.rdxx_image= Component.newList(1,'529b2665ec282bac9148ac13',true,function(){
         var docId = $scope.rdxx_image.list[0]?$scope.rdxx_image.list[0]._id:null;
         $scope.rdxx= Component.newTitleList('docPool',4,'529b2665ec282bac9148ac13',docId);
