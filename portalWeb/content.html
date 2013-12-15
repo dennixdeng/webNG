@@ -113,11 +113,16 @@
 </div>
 
 <div ng-hide="hidelogin" ng-controller="loginScreenCtrl"
-     style="height: 400px;width: 600px;position: fixed;top:90px;left:250px;border:solid 1px #dddddd;background-color:#ffffff;box-shadow: 5px 5px 5px #aaaaaa">
-    <div style="display:inline-block;padding-left:150px;margin:60px auto auto auto">
+     style="height: 300px;width:460px;position: fixed;top:120px;left:350px;border:solid 1px #dddddd;background-color:#ffffff;box-shadow: 5px 5px 5px #aaaaaa">
+    <div style="background-color:#129FEA; width: 100%; border-bottom: solid 1px #aaaaaa;margin-top:20px">
+        <div style="display:inline-block;padding: 10px 40px 10px 40px;font-size: 20px; color: #ffffff;">需要审核过的用户才能进行此操作</div>
+        <div style="background-color:#0078e7;padding:5px 10px;cursor:pointer;display: inline-block;font-size: 16px; color: #ffffff;"
+                ng-click="hidelogin=true">取消</div>
+    </div>
+    <div style="display:inline-block;padding-left:140px; transition: pading-left 1s" ng-style="showReg?{'padding-left':'70px'}:{}">
         <form class="pure-form pure-form-stacked">
             <fieldset>
-                <legend>用户登录</legend>
+                <legend>用户登录<div style="display:inline-block;font-size: 12px;padding-left: 10px"><a href="" ng-click="showRegForm()">登记新用户</a></div></legend>
 
                 <label for="email">Email</label><input type="text" ng-model="uid" placeholder="用户email">
                 <label for="password">密码</label><input type="password" ng-model="pwd" placeholder="密码">
@@ -127,14 +132,14 @@
             </fieldset>
         </form><br>
         <a href="" style="font-size: 12px;">{{message}}</a><br>
-        <button class="pure-button pure-button-primary" ng-click="hidelogin=true" style="margin: 20px auto">开发版免登录</button>
+        <button ng-show="false" class="pure-button pure-button-primary" ng-click="hidelogin=true" style="margin: 20px auto">开发版免登录</button>
     </div>
-    <div style="display:inline-block;width: 200px;margin:60px auto auto 50px;vertical-align: top;overflow: hidden"
-            ng-style="(showReg)?{}:{height:'30px'}">
+    <img ng-show="showReg" style="margin-left:20px;display:inline-block;height: 75%; width: 5px" src="images/vline.png">
+    <div style="display:inline-block;margin:0px auto auto 30px;vertical-align: top;overflow: hidden"
+            ng-show="showReg">
+
         <form class="pure-form pure-form-stacked">
             <fieldset>
-                <legend>还没有账号？<a href="" ng-click="showRegForm()">立刻登记</a></legend>
-
                 <label for="email">Email</label><input type="text" ng-model="newUser.uid" placeholder="用户email">
                 <label for="email">密码</label><input type="password" ng-model="newUser.pwd" placeholder="密码">
                 <label for="email">重复密码</label><input type="password" ng-model="newUser.pwd2" placeholder="密码">
