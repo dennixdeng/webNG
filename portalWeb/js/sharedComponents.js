@@ -17,10 +17,9 @@ var Component={
         });
         return obj;
     },
-    newTextSlider :function(pool,top,list,homePage,stickyTop){
+    newTextSlider :function(pool,top,list){
         var obj ={_id:list};
-        var opStr='?' +( homePage?'&homePage=1':'' )+(stickyTop?'&stickyTop=1':'');
-        Component.http.get(Server +'list_title/'+pool+'/'+top+'/'+list + opStr).success(function(d){
+        Component.http.get(Server +'list_title/'+pool+'/'+top+'/'+list).success(function(d){
             obj.list= d.list;
             obj.current = 0;
             obj.next=function(){
@@ -32,22 +31,22 @@ var Component={
         });
         return obj;
     },
-    newList:function(top,Id,homePage,stickyTop){
+    newList:function(top,Id,homePage,callback){
         var obj={_id:Id};
-        var opStr='?' + (homePage?'&homePage=1':'') +(stickyTop?'&stickyTop=1':'');
+        var opStr='?' + (homePage?'&homePage=1':'');
         Component.http.get(Server +'list/docPool/'+top + '/' + Id + opStr).success(function(d){
             obj.list= d.list;
             obj.fromList = d.fromList;
+            if (callback) callback();
         });
         return obj;
     },
-    newTitleList:function(pool,top,list,homePage,stickyTop){
+    newTitleList:function(pool,top,list,excludeDoc){
         var obj={_id:list};
-        var opStr='?' +( homePage?'&homePage=1':'') +(stickyTop?'&stickyTop=1':'');
+        var opStr='?' +( excludeDoc?('&excludeDoc='+excludeDoc):'') ;
         Component.http.get(Server +'list_title/'+pool+'/'+top+'/'+list +opStr ).success(function(d){
             obj.list= d.list;
             obj.fromList= d.fromList;
-            console.log(d.fromList);
         });
         return obj;
     }

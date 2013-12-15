@@ -37,8 +37,8 @@ getDBCollection('webNG_SUEU',['WebNG_users','publicUserPool','imagePool','attach
                                 'fabustatusPool','parentPool']);
 
 var ossAPI = require('oss-client');
-//var ossHost='oss.aliyuncs.com';
-var ossHost='oss-internal.aliyuncs.com';
+var ossHost='oss.aliyuncs.com';
+//  var ossHost='oss-internal.aliyuncs.com';
 
 var oss = new ossAPI.OssClient({host:ossHost,accessKeyId: 'Ybx6lzed1szPRAuI',accessKeySecret: 'yoih8NiSadOlPJ9Syi65w7LdRsc6zA'});
 
@@ -75,7 +75,7 @@ app.get('/list/:pool/:top/:listId',function(req,res){
             getName=true;
             break;
     }
-    if (req.query.stickyTop) qObj.showTopSticky=true;
+
     if (req.query.homePage) qObj.showHomepage=true;
 
     if ('all' != req.params.top){
@@ -94,7 +94,6 @@ app.get('/list/:pool/:top/:listId',function(req,res){
     });
 });
 app.get('/list_title/:pool/:top/:listId',function(req,res){
-
     var qObj={};
     var sortObj= {sort:[['_id','desc']]};
     var getName=false;
@@ -107,10 +106,14 @@ app.get('/list_title/:pool/:top/:listId',function(req,res){
             getName=true;
             break;
     }
+    if (req.query.excludeDoc) qObj._id = {$ne:ObjectID(req.query.excludeDoc)};
+    console.log(qObj);
     if ('all' != req.params.top){
         sortObj.limit =  req.params.top;
     }
-    mdb[req.params.pool].find(qObj,{title:1,redirect:1,displayDate:1,inLists:1},sortObj).toArray(function(e,d){
+    sortObj.sort={showTopSticky:-1,_id:-1};
+
+    mdb[req.params.pool].find(qObj,{title:1,redirect:1,displayDate:1,inLists:1,showTopSticky:1,showHomepage:1},sortObj).toArray(function(e,d){
         var r={list:d};
         if (getName){
             mdb['listPool'].find({_id:ObjectID(req.params.listId)}).nextObject(function(e,dlist){
@@ -122,8 +125,27 @@ app.get('/list_title/:pool/:top/:listId',function(req,res){
         }
     });
 });
+app.post('/filter_pool/:pool/:top',express.bodyParser(),function(req,res){
+    var qObj={};
+    var sortObj= {};
+    var getName=false;
+
+    if (req.query.excludeDoc) qObj._id = {$ne:ObjectID(req.query.excludeDoc)};
+    for (var filed in req.body.filter){
+        qObj[filed] = new RegExp(req.body.filter[filed]);
+    }
+    console.log(qObj);
+    if ('all' != req.params.top){
+        sortObj.limit =  req.params.top;
+    }
+    sortObj.sort={showTopSticky:-1,_id:-1};
+
+    mdb[req.params.pool].find(qObj,{paraList:0},sortObj).toArray(function(e,d){
+        res.send({list:d});
+    });
+});
 app.get('/get_list/:pool',function(req,res){
-    mdb[req.params.pool].find().sort({_id:1}).toArray(function(e,d){
+    mdb[req.params.pool].find().sort({_id:-1}).toArray(function(e,d){
         res.send(d);
     });
 });

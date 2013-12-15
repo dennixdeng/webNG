@@ -3,22 +3,12 @@
 
 <div class="tz" style="cursor: pointer;position:relative">
     <div id="top_newsupdate_slider" class="tznr" style="position:relative;height:19px; overflow: hidden;white-space: nowrap">
-        <a  style="margin-right:10px" href="content.html#/news/{{doc._id}}"  target="{{doc.redirect?'_blank':''}}"
+        <span ng-repeat="i in [1,2,3,4,5,6,7]">
+            <a  style="margin-right:10px" href="content.html#/news/{{doc._id}}"  target="{{doc.redirect?'_blank':''}}"
             ng-repeat="doc in tzgg.list" >
-            {{doc.title}}
-        </a>
-        <a  style="margin-right:10px" href="content.html#/news/{{doc._id}}"  target="{{doc.redirect?'_blank':''}}"
-            ng-repeat="doc in tzgg.list" >
-            {{doc.title}}
-        </a>
-        <a  style="margin-right:10px" href="content.html#/news/{{doc._id}}"  target="{{doc.redirect?'_blank':''}}"
-            ng-repeat="doc in tzgg.list" >
-            {{doc.title}}
-        </a>
-        <a  style="margin-right:10px" href="content.html#/news/{{doc._id}}"  target="{{doc.redirect?'_blank':''}}"
-            ng-repeat="doc in tzgg.list" >
-            {{doc.title}}
-        </a>
+                {{doc.title}}
+            </a>
+        </span>
     </div>
     <a href="content.html#/newslist/{{tzgg._id}}" style="position: absolute; top:0px"><img src="images/tz.jpg" ></a>
 </div>
@@ -30,7 +20,7 @@
         <div class="changeBox_a1" id="change_32">
             <div class="changeDiv" ng-repeat="image in home_slide_0.list">
                 <a href="{{home_slide_0.list[home_slide_0.current].linkTo}}" title="{{image.caption}}">
-                    <img width="480" height="294" alt="{{image.caption}}" border="0" ng-src="{{image.imgUrl}}"
+                    <img width="410" height="320" alt="{{image.caption}}" border="0" ng-src="{{image.imgUrl}}"
                          style="transition: opacity 1s"
                          ng-style="($index==home_slide_0.current)?{opacity:1}:{opacity:0}"/>
                 </a>
@@ -67,17 +57,21 @@
     <div class="zsfw">
         <div id="zsfwleft">
             <h5>信息动态</h5>
-            <div class="zsfwleft_h"><A href="content.html#/news/{{xxdt.list[0]._id}}">{{xxdt.list[0].title}}</A></div>
-            <div class="zsfwleft_t"><span><a href="content.html#/news/{{xxdt.list[0]._id}}"><img ng-src="{{xxdt.list[0]|docImage:0}}" border="0" alt="" style="width:118px;height:84px"/></a></span><p>{{xxdt.list[0]|docBrief:40}}</p></div>
-            <Ul class="zsfwleft_l">
-                <li ng-repeat="doc in xxdt.list|listSeg:1:3"><A href="content.html#/news/{{doc._id}}">{{doc.title}}</A></li>
-            </Ul>
+            <div style="padding-top: 5px;"><A style="color:#555555" href="content.html#/news/{{xxdt.list[0]._id}}">{{xxdt_image.list[0].title}}</A></div>
+            <div class="zsfwleft_t">
+                <span><a href="content.html#/news/{{xxdt_image.list[0]._id}}">
+                    <img ng-src="{{xxdt_image.list[0]|docImage:0}}" border="0" alt="" style="width:118px;height:84px"/>
+                </a></span>
+                <p>{{xxdt_image.list[0]|docBrief:40}}</p></div>
+            <ul style="line-height:16px">
+                <li ng-repeat="doc in xxdt.list" style="line-height:16px"><A style="color:#555555" href="content.html#/news/{{doc._id}}">{{doc.title}}</A></li>
+            </ul>
             <div  class="zsfwmorez"><a href="content.html#/newslist/529b14ceec282bac9148ac10/信息动态/">...更多>></a></div>
         </div>
         <div id="zsfwmid">
             <h5>平台进展</h5>
             <Ul class="gbhlist">
-                <li ng-repeat="doc in ptjz.list"><A target="{{doc.redirect?'_blank':''}}" href="content.html#/news/{{doc._id}}">{{doc.title}}</A></li>
+                <li ng-repeat="doc in ptjz.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="content.html#/news/{{doc._id}}">{{doc.title}}</A></li>
             </Ul>
             <div  class="zsfwmore"><a href="content.html#/newslist/529b1da2ec282bac9148ac11/平台进展/">...更多>></a></div>
         </div>
@@ -97,28 +91,37 @@
         <div class="zsfw">
             <div id="zsfwleft">
                 <h5>热点信息</h5>
-                <div class="zsfwleft_h"><h6><A target="{{rdxx.list[0].redirect?'_blank':''}}" href="content.html#/news/{{rdxx.list[0]._id}}">{{rdxx.list[0].title}}</A></h6></div>
-                <div class="zsfwleft_t"><span><a href=""><img ng-src="{{rdxx.list[0]|docImage}}" border="0" alt=""  style="width:118px;height:84px"/></a></span><p>{{rdxx.list[0]|docBrief:40}}..</p></div>
+                <div class="zsfwleft_h">
+                    <h6><A style="color:#555555" target="{{rdxx_image.list[0].redirect?'_blank':''}}" href="content.html#/news/{{rdxx_image.list[0]._id}}">
+                        {{rdxx_image.list[0].title}}
+                    </A></h6>
+                </div>
+                <div class="zsfwleft_t">
+                    <span><a href="">
+                        <img ng-src="{{rdxx_image.list[0]|docImage}}" border="0" alt=""  style="width:118px;height:84px"/>
+                    </a></span>
+                    <p>{{rdxx_image.list[0]|docBrief:40}}..</p>
+                </div>
                 <div class="zsfwleft_l">
                     <Ul>
-                        <li ng-repeat="doc in rdxx.list|listSeg:1:3"><A target="{{doc.redirect?'_blank':''}}" href="content.html#/news/{{doc._id}}">{{doc.title}}</A></li>
+                        <li ng-repeat="doc in rdxx.list"><A style="color:#555555"  target="{{doc.redirect?'_blank':''}}" href="content.html#/news/{{doc._id}}">{{doc.title}}</A></li>
                     </Ul>
-                    <div  class="zsfwmorez"><a href="content.html#/newslist/529b2665ec282bac9148ac13/热点信息/">...更多>></a></div>
+                    <div  class="zsfwmorez"><a style="color:#555555"  href="content.html#/newslist/529b2665ec282bac9148ac13/热点信息/">...更多>></a></div>
                 </div>
             </div>
             <div id="zsfwmid">
                 <h5>工博会</h5>
                 <Ul class="gbhlist">
-                    <li ng-repeat="doc in gbh.list"><A target="{{doc.redirect?'_blank':''}}" href="content.html#/news/{{doc._id}}">{{doc.title}}</A></li>
+                    <li ng-repeat="doc in gbh.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="content.html#/news/{{doc._id}}">{{doc.title}}</A></li>
                 </Ul>
-                <div  class="zsfwmore"><a href="content.html#/newslist/529b28feec282bac9148ac14/工博会/">...更多>></a></div>
+                <div  class="zsfwmore"><a style="color:#555555" href="content.html#/newslist/529b28feec282bac9148ac14/工博会/">...更多>></a></div>
             </div>
             <div id="zsfwright"><h5>其他展会</h5>
                 <Ul   class="gbhlist">
-                    <li ng-repeat="doc in qtzh.list"><A target="{{doc.redirect?'_blank':''}}" href="content.html#/news/{{doc._id}}">{{doc.title}}</A></li>
+                    <li ng-repeat="doc in qtzh.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="content.html#/news/{{doc._id}}">{{doc.title}}</A></li>
                 </Ul>
 
-                <div  class="zsfwmore"><a href="content.html#/newslist/529b2c6bec282bac9148ac15/其他展览/">...更多>></a></div>
+                <div  class="zsfwmore"><a style="color:#555555" href="content.html#/newslist/529b2c6bec282bac9148ac15/其他展览/">...更多>></a></div>
             </div>
         </div>
         <div class="claerl"></div>
@@ -200,13 +203,14 @@
             <div class="zcfg_tw">
                 <div class="zcfg_tw_t"><img src="images/t-5.jpg" alt="" border="0" style="width:80px;height:101px"/></div>
                 <div class="zcfg_tw_w">
-                    <div class="zcfg_tw_w_h"><a href="content.html#/news/{{zcfg.list[0]._id}}">最新政策</a></div>
-                    <div class="zcfg_tw_w_h_c"><a href="content.html#/news/{{zcfg.list[0]._id}}">{{zcfg.list[0].title}}</a></div>
+                    <div class="zcfg_tw_w_h"><a target="{{zcfg_image.list[0].redirect?'_blank':''}}" href="content.html#/news/{{zcfg_image.list[0]._id}}">最新政策</a></div>
+                    <div style="padding-top: 5px"><a style="color:#555555" target="{{zcfg_image.list[0].redirect?'_blank':''}}" href="content.html#/news/{{zcfg_image.list[0]._id}}">{{zcfg_image.list[0].title}}</a></div>
+                    <div ><a style="color:#aaaaaa" target="{{zcfg_image.list[0].redirect?'_blank':''}}" href="content.html#/news/{{zcfg_image.list[0]._id}}">{{zcfg_image.list[0]|docBrief:40}}</a></div>
                 </div>
             </div>
             <div class="claer"><img src="images/fg2.jpg" /></div>
             <Ul class="zcfglist">
-                <li ng-repeat="doc in zcfg.list|listSeg:1:8"><A target="{{doc.redirect?'_blank':''}}" href="content.html#/news/{{doc._id}}">{{doc.title|stringLeft:12}}</A></li>
+                <li ng-repeat="doc in zcfg.list"><A target="{{doc.redirect?'_blank':''}}" href="content.html#/news/{{doc._id}}">{{doc.title|stringLeft:12}}</A></li>
             </Ul>
         </div>
     </div>
@@ -217,13 +221,13 @@
             <div class="xzzq_tw">
                 <div class="xzzq_tw_t"><img src="images/fileDownload2.png" alt="" border="0" style="width:80px;height:101px"/></div>
                 <div class="xzzq_tw_w">
-                    <div class="xzzq_tw_w_h"><a href="content.html#/news/{{xzzq.list[0]._id}}">{{xzzq.list[0].title|stringLeft:8}}</a></div>
-                    <div class="xzzq_tw_w_h_c"><a href="content.html#/news/{{xzzq.list[0]._id}}">{{xzzq.list[0]|docBrief:40}}</a></div>
+                    <div class="xzzq_tw_w_h"><a href="content.html#/news/{{xzzq_image.list[0]._id}}">{{xzzq_image.list[0].title|stringLeft:8}}</a></div>
+                    <div class="xzzq_tw_w_h_c"><a href="content.html#/news/{{xzzq_image.list[0]._id}}">{{xzzq_image.list[0]|docBrief:40}}</a></div>
                 </div>
             </div>
             <div class="claer"><img src="images/fg2.jpg" /></div>
             <Ul class="xzlist">
-                <li ng-repeat="doc in xzzq.list|listSeg:1:8"><A target="{{(doc.redirect)?'_blank':''}}" href="content.html#/news/{{doc._id}}">{{doc.title|stringLeft:12}}</A></li>
+                <li ng-repeat="doc in xzzq.list"><A style="color:#555555"  target="{{(doc.redirect)?'_blank':''}}" href="content.html#/news/{{doc._id}}">{{doc.title|stringLeft:12}}</A></li>
             </Ul>
         </div>
     </div>
@@ -236,7 +240,7 @@
     <div class="anlihead"><h4>案例展示</h4></div>
     <div class="anliph">
         <Ol class="pic-list">
-            <li ng-repeat="doc in alzs.list"><a target="{{doc.redirect?'_blank':''}}" href="content.html#/news/{{doc._id}}"><img ng-src="{{doc|docImage}}" style="height: 130px;width:175px;border:none"/></a><p><a href="content.html#/news/{{doc._id}}">{{doc.title}}</a></p></li>
+            <li ng-repeat="doc in alzs.list"><a style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="content.html#/news/{{doc._id}}"><img ng-src="{{doc|docImage}}" style="height: 130px;width:175px;border:none"/></a><p><a href="content.html#/news/{{doc._id}}">{{doc.title}}</a></p></li>
         </Ol>
     </div>
 

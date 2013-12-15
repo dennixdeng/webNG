@@ -29,12 +29,6 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload){
         }).error(function(data, status, headers, config) {
             console.log(status);
         });
-    $http.get( Server + 'get_list/attachmentPool').
-        success(function(data, status, headers, config) {
-            $scope.attachmentPoolData = data;
-        }).error(function(data, status, headers, config) {
-            console.log(status);
-        });
 
     var docId= ($location.search()).docId;
     $scope.doc={
@@ -90,6 +84,14 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload){
         $scope.replace=false;
     };
     $scope.newAttachment=function(inx){
+        if (!$scope.attachmentPoolData){
+            $http.get( Server + 'get_list/attachmentPool').
+            success(function(data, status, headers, config) {
+                $scope.attachmentPoolData = data;
+            }).error(function(data, status, headers, config) {
+                console.log(status);
+            });
+        };
         $scope.editing=3;
         $scope.paraInx=inx;
         $scope.replace=false;
@@ -176,6 +178,14 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload){
             .success(function(){
                 $scope.attachmentPoolData.splice(inx,1);
             })
+    }
+    $scope.filterAttachment=function(name){
+        $http.post( Server + 'filter_pool/attachmentPool/all',{filter:{name:name}}).
+            success(function(data, status, headers, config) {
+                $scope.attachmentPoolData = data.list;
+            }).error(function(data, status, headers, config) {
+                console.log(status);
+            });
     }
 });
 

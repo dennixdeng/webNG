@@ -186,18 +186,18 @@ margin: 3px 4px 0 0;
 
 /*�õ�*/
 .hd { width:980px; margin: 0 auto}
-#hdz {width:482px; height:320px; float:left; background:url(../images/d1.png) no-repeat; padding-top:10px;}
+#hdz {width:410px; height:320px; float:left; background:url(../images/d1.png) no-repeat; padding-top:10px;}
 #hdyy { float:right; padding-top:10px; width:140px; text-align:right}
-#hdy { width:340px; float:left;padding-top:10px; padding-left:10px;}
+#hdy { width:410px; float:left;padding-top:10px; padding-left:10px;}
 #hdy p { font-size:14pxpx; color:#999999; line-height:15px; padding-top:0px;}
 #xuxian {border-top:1px dashed #cccccc;height: 1px;overflow:hidden; margin-top:10px; margin-bottom:10px;}
 .hdymore { float:right; padding-right:10px; padding-top:10px;}
 .hdymore a { color:#666666}
 /* changeBox_a1 */
-.changeBox_a1{float:left;width:480px;height:320px;padding:2px;position:relative;}
+.changeBox_a1{float:left;width:410px;height:320px;padding:2px;position:relative;}
 .changeBox_a1 .a_bigImg img{position:absolute;top:2px;left:2px;display:none;}
 .changeDiv{position:absolute;top:2px;left:2px;}
-.changeDiv h3{position:absolute;left:0px;top:0;width:480px;height:25px;line-height:25px;background:#000;filter:alpha(opacity=60);opacity:0.6;}
+.changeDiv h3{position:absolute;left:0px;top:0;width:410px;height:25px;line-height:25px;background:#000;filter:alpha(opacity=60);opacity:0.6;}
 .changeDiv h3 a{display:block;padding-left:15px;color:#ffffff;}
 /* ul_change_a1 */
 .ul_change_a1{position:absolute;right:1px;bottom:6px;padding-left:19px;overflow:hidden;}
@@ -206,7 +206,7 @@ margin: 3px 4px 0 0;
 .ul_change_a1 img.now{border:1px solid #FF6600;}
 
 /* ul_change_a2 */
-.ul_change_a2{position:absolute;right:200px;bottom:6px;padding-left:0px;overflow:hidden;}
+.ul_change_a2{position:absolute;right:170px;bottom:6px;padding-left:0px;overflow:hidden;}
 .ul_change_a2 li{display:-moz-inline-stack;display:inline-block;*display:inline;*zoom:1;}
 .ul_change_a2 span{cursor:pointer;display:-moz-inline-stack;display:inline-block;*display:inline;*zoom:1;font-size:0.8em;width:18px; height:18px;background:url(../images/kuang.png) no-repeat; text-align:center; line-height:18px; overflow:hidden}
 .ul_change_a2 span.on{width:18px; height:18px;background:url(../images/kuang1.png) no-repeat; text-align:center;}
