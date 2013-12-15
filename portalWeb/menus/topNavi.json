@@ -4,9 +4,9 @@
         ]},
     {"caption":"市场概况", "left":80,  "linkTo":"",
         "subMenu":[
-            {"caption":"简介","linkTo":"#/intro/529fecabe7d42639bd9ab4f6"},
-            {"caption":"机构设置","linkTo":"#/intro/529feaace7d42639bd9ab4f4"},
-            {"caption":"工作人员","linkTo":"#/intro/529feacee7d42639bd9ab4f5"}
+            {"caption":"简介","linkTo":"#/news/529fecabe7d42639bd9ab4f6"},
+            {"caption":"机构设置","linkTo":"#/news/529feacee7d42639bd9ab4f5"},
+            {"caption":"工作人员","linkTo":"#/news/529feaace7d42639bd9ab4f4"}
         ]},
     {"caption":"新闻动态", "left":152,  "linkTo":"#/newslist/529addfb0e66761d078fe35b/新闻动态/",
         "subMenu":[
