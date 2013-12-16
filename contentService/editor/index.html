@@ -51,7 +51,7 @@
                     <img ng-src="{{(expanded[$index])?('images/dropdown.png'):('images/pullup.png')}}" style="width:16px;vertical-align: bottom">
                     {{parent.name}}
                 </div>
-                <div ng-style="expanded[$index]?{height:parent.childCount * 35 + 'px'}:{height:'0px'}"
+                <div ng-style="expanded[$index]?{max-height:'2000px'}:{max-height:'0px'}"
                      style="width:180px;overflow:hidden;transition:height 0.5s">
                     <div ng-repeat="item in parent.children" style=" padding: 3px;margin-left: 20px">
                         <div style="cursor:pointer;display:inline-block;font-size:14px;padding:3px 0px 3px 15px; width: 170px"
