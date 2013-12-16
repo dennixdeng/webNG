@@ -460,7 +460,7 @@ app.get('/getDocsImageList/:docLisId',function(req,res){
     mdb['docPool'].find({inLists:{$in:[req.params.docLisId]},showHomepage:true,paraList:{$elemMatch:{image:{$ne:null}}}}).sort({displayDate:-1}).limit(6).toArray(function(e,d){
         var r={list:[]};
         for (var i in d){
-            var url;
+            var url=null;;
             for (var j in d[i].paraList){if ((!url) && (d[i].paraList[j].image)) url=d[i].paraList[j].image.url;}
             r.list.push({"imgUrl" : url, "caption" : d[i].title, 	"linkTo" : "#/news/" + d[i]._id});
         }
