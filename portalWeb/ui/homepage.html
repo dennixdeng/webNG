@@ -148,9 +148,9 @@
         <div class="qyxq_h">
             <div class="qyxq_h_txt"><a href="#/qiyefabu/">企业发布</a> <a>|</a>  <a href="">经纪人评估</a><span style="float:right">
   <div id="search_boxz">
-      <form id="search_form1" method="post" action="#">
-          <input type="text" id="sz" value="输入搜索内容" onclick="this.value=''" onblur="this.value='输入搜索内容'" class="swap_value" />
-          <input type="image" src="images/sousu.jpg" width="34" height="18" id="go" alt="Search" title="Search" />
+      <form>
+          <input type="text" ng-model="qiyeKeyword" id="sz" placeholder="输入搜索内容" />
+          <input type="image" ng-click="qiyeSearch(qiyeKeyword)" src="images/sousu.jpg" style="width:34px;height:18px;padding:3px 7px"  />
       </form>
   </div>
 </span>
@@ -172,9 +172,10 @@
         <div class="gxcg_h">
             <div class="gxcg_h_txt"><a href="#/gaoxiaofabu/">高校发布</a> <a>|</a>  <a href="">经纪人评估</a><span style="float:right">
   <div id="search_boxx">
-      <form id="search_form2" method="post" action="#">
-          <input type="text" id="sx" value="输入搜索内容" onclick="this.value=''" onblur="this.value='输入搜索内容'" class="swap_value" />
-          <input type="image" src="images/sousu.jpg" width="34" height="18" id="go" alt="Search" title="Search" />
+      <form>
+          <input type="text" ng-model="gaoxiaoKeyword" id="sx" placeholder="输入搜索内容" class="swap_value" />
+          <input type="image"  src="images/sousu.jpg" style="width:34px; height:18px;padding:3px 7px"
+                  ng-click="gaoxiaoSearch(gaoxiaoKeyword)"/>
       </form>
   </div>
 </span>

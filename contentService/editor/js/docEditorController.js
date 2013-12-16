@@ -61,6 +61,14 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
         if ($scope.doc.title == '') {$scope.title_error = '请输入标题文字'; return};
         $scope.doc.editHistory = $scope.doc.editHistory||[];
         $scope.doc.editHistory.push({timeStamp:new Date(),user:currentUser});
+        $scope.doc.searchText='';
+        for (var i in $scope.doc.paraList){
+            if ($scope.doc.paraList[i].html) $scope.doc.searchText += $scope.doc.paraList[i].html.raw.replace(/<[^>]*>/g, "");
+            if ($scope.doc.paraList[i].attachment) {
+                $scope.doc.searchText += $scope.doc.paraList[i].attachment.name;
+                $scope.doc.searchText += $scope.doc.paraList[i].attachment.displayName;
+            }
+        }
         $http.post( Server + 'save/docPool', {doc:$scope.doc}).
             success(function(data, status, headers, config) {
                 $scope.serverMessage='保存成功';

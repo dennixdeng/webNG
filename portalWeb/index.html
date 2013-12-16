@@ -21,9 +21,9 @@
     <div id="topdh"><a href="">联系我们</a><span><img src="images/huaxian.jpg" /></span> <a href="">友情链接</a> <span><img src="images/huaxian.jpg" /></span><a href="">网站地图</a><span><img src="images/huaxian.jpg" /></span></div>
     <div id="searchtop">
         <div id="search_box">
-            <form id="search_form" method="post" action="#">
-                <input type="text" id="s" value="输入搜索内容" class="swap_value" />
-                <input type="image" src="images/sousu.jpg" width="34" height="18" id="go" alt="Search" title="Search" />
+            <form>
+                <input type="text" ng-model="newsKeyword" id="s" placeholder="输入搜索内容" />
+                <input type="image" ng-click='newsSearch(newsKeyword)' src="images/sousu.jpg" style="width:34px;height:18px;padding: 3px 7px;" />
             </form>
         </div>
     </div>

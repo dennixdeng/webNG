@@ -422,14 +422,14 @@ app.post('/qiyefabu/setStaus',express.bodyParser(),function(req,res){
 
 var listFiels={
     gaoxiaofabuPool:['name','title','contacts','contactinfo','area','otherArea','techbrief','techhighlight','techIP','techlevel','techapllication','terms','other'],
-    qiyefabuPool:['companyName','address','contacts','phone','email','zip','title','terms','specs','credit']
+    qiyefabuPool:['companyName','address','contacts','phone','email','zip','title','terms','specs','credit'],
+    docPool:['title','source','searchText']
 }
 app.post('/keyword/:pool/:top',express.bodyParser(),function(req,res){
     var qObj={};
     var orList=[];
     var sortObj= {};
     var getName=false;
-
 
     for (var filed in req.body.filter){
         if (filed == 'keyword'){
@@ -439,6 +439,7 @@ app.post('/keyword/:pool/:top',express.bodyParser(),function(req,res){
                 fr[fList[i]] = new RegExp(req.body.filter[filed]);
                 orList.push ( fr );
             }
+            console.log(orList);
             qObj.$or=orList;
         }else{
             qObj[filed] = new RegExp(req.body.filter[filed]);

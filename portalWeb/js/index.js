@@ -14,6 +14,9 @@ var app=angular.module('app',['ngRoute','etFilters']).config(['$routeProvider',f
             when('/qiyefabuDetail/:docId',{templateUrl:'ui/qiyeliulan.html',controller:'qiyeliulanCtrl'}).
             when('/gaoxiaofabuList',{templateUrl:'ui/fabulist.html',controller:'gaoxiaolistCtrl'}).
             when('/qiyefabuList',{templateUrl:'ui/fabulist.html',controller:'qiyelistCtrl'}).
+            when('/gaoxiaofabuSearch/:keyword',{templateUrl:'ui/fabulist.html',controller:'gaoxiaofabuSearchCtrl'}).
+            when('/qiyefabuSearch/:keyword',{templateUrl:'ui/fabulist.html',controller:'qiyefabuSearchCtrl'}).
+            when('/newsSearch/:keyword',{templateUrl:'ui/newslist.html',controller:'newsSearchCtrl'}).
             otherwise({redirectTo:'/home'});
     }]);
 
@@ -21,15 +24,18 @@ var Server="http://t.easytag.cn/";
 //var Server="http://localhost:8881/";
 
 //Controllers section
-app.controller('menuContoller',['$scope','$http',function($scope,$http){
+app.controller('menuContoller',function($scope,$http,$location){
     $http.get('menus/topNavi.json').success(function(data){
         $scope.menuItems=data;
     });
     $scope.menuShow=function(inx){
         $scope.activeMenu=inx;
     }
-}]);
-app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
+    $scope.newsSearch=function(keyword){
+        $location.path('/newsSearch/' + keyword );
+    };
+});
+app.controller('homepageCtrl',function($scope,$http,$location){
     Component.http=$http;Component.scope=$scope;
     $scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
     $scope.tzgg= Component.newTextSlider('docPool',9,'52a6bb92d142e9c2ee6c90e3');
@@ -73,7 +79,15 @@ app.controller('homepageCtrl',['$scope','$http',function($scope,$http){
         }
     }
     setInterval(slide_top_newsupdate_slider,20);
-}]);
+
+
+    $scope.qiyeSearch=function(keyword){
+        $location.path('/qiyefabuSearch/' +  keyword);
+    };
+    $scope.gaoxiaoSearch=function(keyword){
+        $location.path('/gaoxiaofabuSearch/' +  keyword);
+    };
+});
 
 app.controller('mainIntroCtrl',function($scope,$http,$sce){
     $http.get(Server + 'get_list/listPool?parent=52abb502b5f067da3406fb34').success(function(d){
@@ -132,6 +146,35 @@ app.controller('newslistCtrl',function($scope,$http,$routeParams){
     $scope.mainlist= Component.newTitleList('docPool',30,$routeParams.listId);
     $scope.pages = [1,2,3,4,5];
 
+    $scope.xwdt= Component.newTitleList('docPool',5,'529addfb0e66761d078fe35b');
+    $scope.rdxx= Component.newTitleList('docPool',5,'529addfb0e66761d078fe35b');
+    $scope.qyfb= Component.newTitleList('qiyefabuPool',5,'all');
+    $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',5,'all');
+
+    $scope.leftBlock_1 = "ui/left_blocks/block1.html";
+    $scope.block1={category:$scope.xwdt,name:'新闻动态',viewer:'news' };
+
+    $scope.leftBlock_2 = "ui/left_blocks/block2.html";
+    $scope.block2={category:$scope.rdxx,name:'热点信息',viewer:'news' };
+
+    $scope.leftBlock_3 = "ui/left_blocks/block3.html";
+    $scope.block3={category:$scope.rdxx,name:'热点信息',viewer:'news' };
+});
+
+app.controller('newsSearchCtrl',function($scope,$http,$routeParams){
+    $http.get(Server + 'get_list/listPool').success(function(d){
+        $scope.allLists=d ;
+        for (var i in d){
+            listMap[d[i]._id] =d[i];
+        }
+    });
+    $scope.mainlist={};
+    $http.post('/keyword/docPool',{filter:{keyword:$routeParams.keyword}}).success(function(d){
+        $scope.mainlist.list = d;
+    })
+    $scope.pages = [1,2,3,4,5];
+
+    Component.http=$http;Component.scope=$scope;
     $scope.xwdt= Component.newTitleList('docPool',5,'529addfb0e66761d078fe35b');
     $scope.rdxx= Component.newTitleList('docPool',5,'529addfb0e66761d078fe35b');
     $scope.qyfb= Component.newTitleList('qiyefabuPool',5,'all');
@@ -308,6 +351,56 @@ app.controller('gaoxiaolistCtrl',function($scope,$http,$routeParams){
     Component.http=$http;Component.scope=$scope;
     $scope.mainlist= Component.newTitleList('gaoxiaofabuPool','all','all');
     $scope.listname='高校成果一览';
+    $scope.detailPath='gaoxiaofabuDetail';
+    $scope.fabuUrl='#/gaoxiaofabu/';
+
+    $scope.xwdt= Component.newTitleList('docPool',5,'529addfb0e66761d078fe35b');
+    $scope.rdxx= Component.newTitleList('docPool',5,'529addfb0e66761d078fe35b');
+    $scope.qyfb= Component.newTitleList('qiyefabuPool',5,'all');
+    $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',5,'all');
+
+    $scope.leftBlock_1 = "ui/left_blocks/block1.html";
+    $scope.block1={category:$scope.xwdt,name:'新闻动态',viewer:'news' };
+
+    $scope.leftBlock_2 = "ui/left_blocks/block2.html";
+    $scope.block2={category:$scope.rdxx,name:'热点信息',viewer:'news' };
+
+    $scope.leftBlock_3 = "ui/left_blocks/block3.html";
+    $scope.block3={category:$scope.rdxx,name:'热点信息',viewer:'news' };
+});
+
+app.controller('qiyefabuSearchCtrl',function($scope,$http,$routeParams){
+    Component.http=$http;Component.scope=$scope;
+    $http.post(Server + 'keyword/qiyefabuPool/all',{filter:{keyword:$routeParams.keyword}}).success(function(d){
+        $scope.mainlist = d;
+    });
+
+    $scope.listname='企业需求搜索';
+    $scope.detailPath='qiyefabuDetail';
+    $scope.fabuUrl='#/qiyefabu/';
+
+    $scope.xwdt= Component.newTitleList('docPool',5,'529addfb0e66761d078fe35b');
+    $scope.rdxx= Component.newTitleList('docPool',5,'529addfb0e66761d078fe35b');
+    $scope.qyfb= Component.newTitleList('qiyefabuPool',5,'all');
+    $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',5,'all');
+
+    $scope.leftBlock_1 = "ui/left_blocks/block1.html";
+    $scope.block1={category:$scope.xwdt,name:'新闻动态',viewer:'news' };
+
+    $scope.leftBlock_2 = "ui/left_blocks/block2.html";
+    $scope.block2={category:$scope.rdxx,name:'热点信息',viewer:'news' };
+
+    $scope.leftBlock_3 = "ui/left_blocks/block3.html";
+    $scope.block3={category:$scope.rdxx,name:'热点信息',viewer:'news' };
+});
+
+app.controller('gaoxiaofabuSearchCtrl',function($scope,$http,$routeParams){
+    Component.http=$http;Component.scope=$scope;
+    $http.post(Server + 'keyword/gaoxiaofabuPool/all',{filter:{keyword:$routeParams.keyword}}).success(function(d){
+        $scope.mainlist = d;
+    });
+
+    $scope.listname='高校成果搜索';
     $scope.detailPath='gaoxiaofabuDetail';
     $scope.fabuUrl='#/gaoxiaofabu/';
 
