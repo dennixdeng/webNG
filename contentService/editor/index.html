@@ -20,7 +20,8 @@
     <script src="lib/uploader/angular-file-upload.min.js"></script>
 
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <script src="js/mainControllers.js"></script>
+
+    <script src="js/MainControllers.js"></script>
 </head>
 <body>
 <div ng-controller="topBarCtrl" style="background-color: gray;color:white;padding:5px">
@@ -51,13 +52,13 @@
                     <img ng-src="{{(expanded[$index])?('images/dropdown.png'):('images/pullup.png')}}" style="width:16px;vertical-align: bottom">
                     {{parent.name}}
                 </div>
-                <div ng-style="expanded[$index]?{max-height:'2000px'}:{max-height:'0px'}"
-                     style="width:180px;overflow:hidden;transition:height 0.5s">
+                <div ng-style="(expanded[$index])?({height:parent.childCount * 31 +'px'}):({height:'0px'})"
+                     style="width:180px;overflow:hidden;transition:all 0.5s">
                     <div ng-repeat="item in parent.children" style=" padding: 3px;margin-left: 20px">
                         <div style="cursor:pointer;display:inline-block;font-size:14px;padding:3px 0px 3px 15px; width: 170px"
                              ng-class="( aBtn == parent._id + $index )?'trueList':'falseList'"
-                             ng-click="btn(parent._id + $index);Go('/docList/'+item._id)">
-                            {{item.name}}
+                             ng-click="btn(parent._id + $index);Go('/docList/'+item._id)" title="{{item.name}}">
+                            {{item.name|stringLeft:9}}
                         </div>
                     </div>
 
@@ -120,7 +121,7 @@
             </fieldset>
         </form>
         <a href="" style="font-size: 12px;">{{message}}</a>
-        <button tng-show="false" class="pure-button pure-button-primary" ng-click="hidelogin=true" style="margin: 20px auto">开发版免登录</button>
+        <button ng-show="false" class="pure-button pure-button-primary" ng-click="hidelogin=true" style="margin: 20px auto">开发版免登录</button>
     </div>
 </div>
 </body>

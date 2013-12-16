@@ -120,7 +120,6 @@ app.controller('naviPanelCtrl',function($scope,$http,$routeParams,$location,$fil
     $scope.loadCategory();
     $scope.expanded=[];
     $scope.toggleParent=function(inx){
-        $scope.slowShow = true;
         if ($scope.expanded[inx]){
             $scope.expanded[inx] = false;
         }else{
