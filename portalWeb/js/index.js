@@ -174,6 +174,7 @@ app.controller('subIntroCtrl',function($scope,$http,$routeParams,$sce){
 });
 
 function createLeftBlock($scope,$http,page){
+    Component.http=$http;Component.scope=$scope;
     var list=[
         {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news',inx:0},
         {_id:'52a6bb92d142e9c2ee6c90e3',name:'通知公告',viewer:'news',inx:1},
@@ -199,7 +200,9 @@ function createLeftBlock($scope,$http,page){
         '529b2e3bec282bac9148ac16':[6,5,4],
         '529b2665ec282bac9148ac13':[7,8,9],
         '529b28feec282bac9148ac14':[8,7,9],
-        '529b2c6bec282bac9148ac15':[9,8,7]
+        '529b2c6bec282bac9148ac15':[9,8,7],
+        "529b3487ec282bac9148ac17":[7,8,9],
+        "529b22dcec282bac9148ac12":[0,1,2]
     }
     $scope.leftBlock=[];
     $scope.block=[];
@@ -212,17 +215,20 @@ function createLeftBlock($scope,$http,page){
         $scope.block[0] = {
             category:Component.newTitleList('docPool',5,  list[i ]._id ),
             name:  list[i ].name,
-            viewer:  list[i].viewer
+            viewer:  list[i].viewer ,
+            morelink: '#/newslist/'+list[i ]._id
         };
         $scope.block[1] = {
             category:Component.newTitleList('gaoxiaofabuPool',5,'all'),
             name:  '高校最新发布',
-            viewer:  'gaoxiaofabuDetail'
+            viewer:  'gaoxiaofabuDetail',
+            morelink:'#/gaoxiaofabuList'
         };
         $scope.block[2] = {
             category:Component.newTitleList('qiyefabuPool',5,'all'),
             name:  '企业最新发布',
-            viewer:  'qiyefabuDetail'
+            viewer:  'qiyefabuDetail' ,
+            morelink:'#/qiyefabuList'
         };
 
         $scope.mainlist= Component.newTitleList('gaoxiaofabuPool','all','all');
@@ -236,7 +242,8 @@ function createLeftBlock($scope,$http,page){
             $scope.block[i]={
                 category:Component.newTitleList('docPool',5,  list[map[page][i] ]._id ),
                 name:  list[map[page][i] ].name,
-                viewer:  list[map[page][i] ].viewer
+                viewer:  list[map[page][i] ].viewer,
+                morelink:'#/newslist/' +   list[map[page][i] ]._id
             };
         }
         console.log($scope.block);
@@ -268,8 +275,10 @@ app.controller('newsSearchCtrl',function($scope,$http,$routeParams){
     $scope.mainlist={};
     $http.post(Server + 'keyword/docPool/all',{filter:{keyword:$routeParams.keyword}}).success(function(d){
         $scope.mainlist = d ;
-        if (d){
+        if (d.list.length > 0){
+            console.log(d);
             createLeftBlock($scope,$http,$scope.mainlist.list[0].inLists[0]);
+
         }else{
             createLeftBlock($scope,$http,'529addfb0e66761d078fe35b');
         }
