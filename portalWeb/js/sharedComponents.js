@@ -66,6 +66,7 @@ angular.module('etFilters', [])
             for (var i in doc.paraList){
                 if( doc.paraList[i].html ) {
                     brief += doc.paraList[i].html.raw.replace(/<[^>]*>/g, "");
+                    brief = brief.replace(/&nbsp/,' ');
                 }
             }
             return brief.substr(0,len)+'...';
