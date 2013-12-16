@@ -202,7 +202,8 @@ function createLeftBlock($scope,$http,page){
         '529b28feec282bac9148ac14':[8,7,9],
         '529b2c6bec282bac9148ac15':[9,8,7],
         "529b3487ec282bac9148ac17":[7,8,9],
-        "529b22dcec282bac9148ac12":[0,1,2]
+        "529b22dcec282bac9148ac12":[0,1,2],
+        '52af1a00041c769a5c0b68ef':[0,7,10]
     }
     $scope.leftBlock=[];
     $scope.block=[];
