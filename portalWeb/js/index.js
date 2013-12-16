@@ -106,7 +106,7 @@ app.controller('homepageCtrl',function($scope,$http,$location){
     });
     $scope.alzs= Component.newList(5,'529b3c53ec282bac9148ac19');
     $scope.qyfb= Component.newTitleList('qiyefabuPool',7,'all');
-    $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',7,'all');
+    $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',6,'all');
 
     var d = document.getElementById('top_newsupdate_slider');
     function slide_top_newsupdate_slider (){
