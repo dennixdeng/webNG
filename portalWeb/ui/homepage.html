@@ -38,7 +38,11 @@
 
     </div>
     <div id="hdy">
-        <h2 ng-repeat-start="doc in xwdt.list"><a  target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:22}}</a></h2>
+        <h2 ng-repeat-start="doc in xwdt.list">
+            <a  target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}" style="">
+                {{doc.title|stringLeft:28}}
+            </a>
+        </h2>
         <p>{{doc|docBrief:100}}</p>
         <div ng-repeat-end id="xuxian"></div>
         <div class="hdymore"><a href="#/newslist/{{xwdt._id}}/新闻动态/">...更多>></a></div>
