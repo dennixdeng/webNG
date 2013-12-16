@@ -25,7 +25,7 @@
                 <input  ng-model="doc.contactinfo" type="text" class="clearInput"  style="width:150px" />
                 <div class="bdxx"></div>
                 <div class="biaodname">技术领域<br />(可多选)</div>
-                <div style="width:400px;display: inline-block;color:#999999; padding-left:15px;">
+                <div style="width:400px;display: inline-block;color:#999999; padding-left:15px;white-space: normal">
                     <div ng-repeat="area in areas" style="display: inline-block;width: 130px;cursor: pointer" ng-click="toggleArea($index)">
                         <div style="display:inline-block; font-size:18px;width:15px; height:15px;background:url(images/dr.png);" >
                             {{(doc.area.indexOf(area)>-1)|checkmark}}

@@ -1,6 +1,6 @@
 <div class="content" style="white-space: nowrap">
     <!--body左侧开始-->
-    <div class="contm" style="display: inline-block;width:400px">
+    <div class="contm" style="display: inline-block;width: 400px">
         <div id="cont_left" style="width: 300px;padding:15px">
             <div ng-include="leftBlock_1" style="width: 100%;margin-bottom: 10px"></div>
             <div ng-include="leftBlock_2" style="width: 100%;margin-bottom: 10px"></div>
@@ -8,12 +8,12 @@
         </div>
     </div>
 
-            <div id="cont_right">
+            <div id="cont_right" style="float: none;display: inline-block;vertical-align: top">
             <div class="conttit">
             {{mainlist.fromList.name}}
             </div>
             <div class="fgx"></div>
-            <ul style=" width:600px; padding-left:20px; padding-top:4px;">
+            <ul style=" width:600px; padding-left:0px; padding-top:4px;">
                 <li ng-repeat="doc in mainlist.list" style="font-size:14px">
                     <div style="width:500px;display: inline-block">
                         <span ng-show="mainlist.fromList.parent == '类别'">
