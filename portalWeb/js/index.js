@@ -144,6 +144,7 @@ app.controller('mainIntroCtrl',function($scope,$http,$sce){
             var p = $scope.mainDoc.paraList[i];
             if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
             if ((p.attachment )&& (p.attachment.name.toLowerCase().indexOf('pdf')>0) ){
+                console.log(p.attachment.name.toLowerCase().indexOf('pdf')>0);
                 $scope.showPdf=true;
                 var pdf = new PDFObject({ url: p.attachment.url })
                     .embed('PDFView');
@@ -163,7 +164,7 @@ app.controller('subIntroCtrl',function($scope,$http,$routeParams,$sce){
         for (var i in $scope.mainDoc.paraList) {
             var p = $scope.mainDoc.paraList[i];
             if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
-            if (p.attachment && p.attachment.name.toLowerCase().indexOf('pdf')){
+            if ((p.attachment) && (p.attachment.name.toLowerCase().indexOf('pdf')>0) ){
                 $scope.showPdf=true;
                 var pdf = new PDFObject({ url: p.attachment.url })
                     .embed('PDFView');
@@ -234,7 +235,7 @@ app.controller('newsCtrl',function($scope,$http,$routeParams,$sce,$window){
             for (var i in $scope.doc.paraList) {
                 var p = $scope.doc.paraList[i];
                 if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
-                if (p.attachment && p.attachment.name.toLowerCase().indexOf('pdf')){
+                if ((p.attachment) &&(p.attachment.name.toLowerCase().indexOf('pdf')>0)){
                     $scope.showPdf=true;
                     var pdf = new PDFObject({ url: p.attachment.url })
                         .embed('PDFView');
