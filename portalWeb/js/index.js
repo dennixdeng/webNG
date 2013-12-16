@@ -137,7 +137,7 @@ app.controller('mainIntroCtrl',function($scope,$http,$sce){
             d[i].title =  d[i].name;
         }
     });
-    $scope.subTitle='平台体系列表'; $scope.viewer="subintro";
+    $scope.subTitle='平台体系'; $scope.viewer="subintro";
     $http.get(Server + 'open/docPool/' + '52adc54c4fe150534d849cb4').success(function(d){
         $scope.mainDoc= d;
         for (var i in $scope.mainDoc.paraList) {
