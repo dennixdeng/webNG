@@ -40,7 +40,7 @@
     <div id="hdy">
         <h2 ng-repeat-start="doc in xwdt.list">
             <a  target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}" style="">
-                {{doc.title|stringLeft:28}}
+                {{doc.title|stringLeft:26}}
             </a>
         </h2>
         <p>{{doc|docBrief:100}}</p>
