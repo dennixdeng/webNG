@@ -9,14 +9,29 @@ var Server="http://t.easytag.cn/";
 //var Server="http://localhost:8881/";
 var currentUser;
 app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
-    currentUser = JSON.parse(localStorage.getItem('userInfo'));
-    $scope.userName=currentUser.name;
-    $http.get(Server + 'get_list/listPool').success(function(d){
-        $scope.allLists=d ; //[{id:'l1',name:'列表1'},{id:'l2',name:'列表2'},{id:'l3',name:'列表3'},{id:'l4',name:'列表4'},{id:'l5',name:'列表5'},{id:'l6',name:'列表6'},{id:'l7',name:'列表7'}];
-        for (var i in d){
-            listMap[d[i]._id] =d[i];
-        }
-    });
+    if (localStorage.getItem('userInfo')){
+        currentUser = JSON.parse(localStorage.getItem('userInfo'));
+        $scope.userName=currentUser.name;
+    };
+    $scope.loadCategory=function(){
+        $scope.slowShow = false;
+        $http.get(Server + 'get_list/parentPool').success(function(dp){
+            $scope.parents=dp ;
+            $http.get(Server + 'get_list/listPool').success(function(d){
+                $scope.allLists=d ;
+                for (var j in $scope.parents){
+                    $scope.parents[j].childCount=0;
+                    $scope.parents[j].children=[];
+                    for (var i in d) if ($scope.parents[j]._id == $scope.allLists[i].parent) {
+                        $scope.parents[j].childCount++;
+                        $scope.parents[j].children.push( $scope.allLists[i]);
+                    }
+                }
+            });
+        });
+    };
+    $scope.loadCategory();
+    $scope.catShow=[];
     $scope.toggleList=function(l){
         var inx = $scope.doc.inLists.indexOf(l);
        if ( -1 == inx ){

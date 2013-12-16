@@ -94,7 +94,7 @@ app.controller('topBarCtrl',function($scope,$http,$routeParams,$window){
     };
     $scope.logOut=function(){
         $scope.user = currentUser = {};
-        sessionStorage.setItem('userInfo',null);
+        localStorage.removeItem('userInfo');
         showLoginScreen();
     }
 });

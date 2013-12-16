@@ -281,7 +281,7 @@ app.post('/save/:pool',express.bodyParser(),function(req,res){
 
 });
 app.post('/setStatus/:pool',express.bodyParser(),function(req,res){
-    mdb[req.params.pool].update({_id:ObjectID(req.body._id)},{status:req.body.status},function(e,d){
+    mdb[req.params.pool].update({_id:ObjectID(req.body._id)},{$set:{status:req.body.status}},function(e,d){
         if (e) console.log(e);
         res.end();
     });

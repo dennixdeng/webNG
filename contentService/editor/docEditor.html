@@ -50,12 +50,24 @@
         正在编辑《{{doc.isListIntro?(doc._id|list2Name):''}}》的栏目简介
     </div>
     <div ng-hide="doc.isListIntro">
-        <div  ng-hide="doc.inLists|docEditable:allLists" style="border-bottom: solid 1px #aaaaaa">栏目：
-            <div ng-repeat="item in allLists|orderBy:'parent'" class="listBtn" ng-hide="item.parent=='类别'" ng-class="( -1 == doc.inLists.indexOf(item._id) )?'falseList':'trueList'" ng-click="toggleList(item._id)">{{item.name}}</div>
-        </div>
 
+        <div  ng-hide="doc.inLists|docEditable:allLists" style="border-bottom: solid 1px #aaaaaa">栏目：
+            <div ng-repeat="parent in parents" style="">
+                <div style="display: inline-block;font-size: 14px;width:100px" class="listBtn" ng-click="catShow[$index]=!catShow[$index];">
+                    {{parent.name}}<img src="images/pushright.png" style="width: 14px" alt="">
+                </div>
+                <div style="display: inline-block" >
+                    <div ng-repeat="item in parent.children" class="listBtn"
+                         ng-hide="item.parent=='类别'" ng-class="( -1 == doc.inLists.indexOf(item._id) )?'falseList':'trueList'"
+                        ng-click="toggleList(item._id)" style="font-size: 14px">{{item.name}}</div>
+                    </div>
+            </div>
+        </div>
         <div  ng-hide="doc.inLists|docEditable:allLists">类别：
-            <div ng-repeat="item in allLists" class="listBtn" ng-show="item.parent=='类别'" ng-class="( -1 == doc.inLists.indexOf(item._id) )?'falseList':'trueList'" ng-click="toggleList(item._id)">{{item.name}}</div>
+            <div ng-repeat="item in allLists" class="listBtn" ng-show="item.parent=='类别'"    style="font-size: 14px"
+                 ng-class="( -1 == doc.inLists.indexOf(item._id) )?'falseList':'trueList'" ng-click="toggleList(item._id)">
+                {{item.name}}
+            </div>
         </div>
     </div>
     <div style="padding:10px;font-size:20px">
