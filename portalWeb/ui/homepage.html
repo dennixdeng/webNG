@@ -53,7 +53,9 @@
 <!--body左侧开始-->
 <div class="cont">
 <div class="cont_h">
-    <div class="cont_h_txt"><a href="#/newslist/529b14ceec282bac9148ac10/信息动态/">信息动态</a> <a>|</a> <a href="#/newslist/529b1da2ec282bac9148ac11/平台进展/">平台进展</a> <a>|</a> <a href="#/newslist/529b22dcec282bac9148ac12/平台简介/">平台简介</a></div></div>
+    <div class="cont_h_txt"><a href="#/newslist/529b14ceec282bac9148ac10/信息动态/">信息动态</a> <a>|</a>
+        <a href="#/newslist/529b1da2ec282bac9148ac11/平台进展/">平台进展</a>
+        <a>|</a> <a href="#/newslist/529b22dcec282bac9148ac12/平台简介/">平台简介</a></div></div>
 <div class="xu"></div>
 
 
@@ -81,14 +83,14 @@
             <Ul class="gbhlist">
                 <li ng-repeat="doc in ptjz.list">
                     <a style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">
-                        {{doc.title|stringLeft:24}}
+                        {{doc.title|stringLeft:22}}
                     </a>
                 </li>
             </Ul>
             <div  class="zsfwmore"><a href="#/newslist/529b1da2ec282bac9148ac11/平台进展/">...更多>></a></div>
         </div>
         <div id="zsfwright"><h5>平台简介</h5>
-            <div class="zsfwright_cont">{{ptjj|docBrief:140}}
+            <div class="zsfwright_cont">{{ptjj|docBrief:170}}
             </div>
             <div  class="zsfwmorey"><a href="#/intro">...更多>></a></div>
         </div>
@@ -131,9 +133,15 @@
             <div id="zsfwmid">
                 <h5>工博会</h5>
                 <Ul class="gbhlist">
-                    <li ng-repeat="doc in gbh.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:24}}</A></li>
+                    <li ng-repeat="doc in gbh.list">
+                        <A style="color:#555555" target="{{doc.redirect?'_blank':''}}"
+                           href="#/news/{{doc._id}}">{{doc.title|stringLeft:22}}
+                        </A>
+                    </li>
                 </Ul>
-                <div  class="zsfwmore"><a style="color:#555555" href="#/newslist/529b28feec282bac9148ac14/工博会/">...更多>></a></div>
+                <div  class="zsfwmore"><a style="color:#555555" href="#/newslist/529b28feec282bac9148ac14/工博会/">
+                    ...更多>>
+                </a></div>
             </div>
             <div id="zsfwright"><h5>其他展会</h5>
                 <Ul   class="gbhlist">
