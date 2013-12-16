@@ -8,7 +8,7 @@
             <li ng-repeat="doc in block3.category.list">
                 <span style="width: 60px"> {{doc._id|Id2Date}}</span>
                 <span>|</span>
-                <a target="{{doc.redirect?'_blank':''}}"  href="#/{{block3.viewer}}/{{doc._id}}">{{doc.title}}</a></li>
+                <a target="{{doc.redirect?'_blank':''}}"  href="#/{{block3.viewer}}/{{doc._id}}">{{doc.title|stringLeft:14}}</a></li>
         </ul>
     </div>
     <div class="newsmore" style="position: relative"><a href="#/newslist/{{block2._id}}">更多</a></div>

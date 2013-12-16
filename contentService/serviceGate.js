@@ -276,7 +276,6 @@ app.post('/save/:pool',express.bodyParser(),function(req,res){
     }
     req.body.doc.status='waiting';
     mdb[req.params.pool].update({_id:docid},req.body.doc,{upsert:true},function(e,d){
-        console.log(d);
         res.send({_id: docid});
     });
 

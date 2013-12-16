@@ -16,6 +16,7 @@ app.config(['$routeProvider',function($routeProvider){
         when('/docClass',{templateUrl:'ui/classMgm.html',controller:'docClassMgmCtrl'}).
         when('/publicAccout',{templateUrl:'ui/publicAccount.html',controller:'publicAccoutCtrl'}).
         when('/fabu',{templateUrl:'ui/fabu.html',controller:'fabuCtrl'}).
+
         otherwise({redirectTo:'/home'});
 }]);
 

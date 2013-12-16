@@ -17,6 +17,8 @@ var app=angular.module('app',['ngRoute','etFilters']).config(['$routeProvider',f
             when('/gaoxiaofabuSearch/:keyword',{templateUrl:'ui/fabulist.html',controller:'gaoxiaofabuSearchCtrl'}).
             when('/qiyefabuSearch/:keyword',{templateUrl:'ui/fabulist.html',controller:'qiyefabuSearchCtrl'}).
             when('/newsSearch/:keyword',{templateUrl:'ui/newslist.html',controller:'newsSearchCtrl'}).
+            when('/jingjiren',{templateUrl:'ui/jingjiren.html',controller:'jingjirenCtrl'}).
+
             otherwise({redirectTo:'/home'});
     }]);
 
@@ -170,7 +172,18 @@ app.controller('subIntroCtrl',function($scope,$http,$routeParams,$sce){
     });
 });
 
-function createLeftBlock($scope,$http,list){
+function createLeftBlock($scope,$http,page){
+    var list=[
+        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
+        {_id:'529b2665ec282bac9148ac13',name:'热点信息',viewer:'news'},
+        {_id:'529b3c53ec282bac9148ac19',name:'案例展示',viewer:'news'}
+    ];
+    var map={
+        'a':[0,1,2],
+        'b':[]
+    }
+
+
     $scope.leftBlock_1 = "ui/left_blocks/block1.html";
     $scope.block1={category:Component.newTitleList('docPool',5,list[0]._id ),name:list[0].name,viewer:list[0].viewer };
 
@@ -180,6 +193,7 @@ function createLeftBlock($scope,$http,list){
     $scope.leftBlock_3 = "ui/left_blocks/block3.html";
     $scope.block3={category:Component.newTitleList('docPool',5,list[2]._id ),name:list[2].name,viewer:list[2].viewer };
 }
+
 app.controller('newslistCtrl',function($scope,$http,$routeParams){
     $http.get(Server + 'get_list/listPool').success(function(d){
         $scope.allLists=d ;
@@ -192,11 +206,7 @@ app.controller('newslistCtrl',function($scope,$http,$routeParams){
     $scope.mainlist= Component.newTitleList('docPool',30,$routeParams.listId);
     $scope.pages = [1,2,3,4,5];
 
-    createLeftBlock($scope,$http,[
-        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'}
-    ]);
+    createLeftBlock($scope,$http,'newslistCtrl');
 });
 
 app.controller('newsSearchCtrl',function($scope,$http,$routeParams){
@@ -212,11 +222,7 @@ app.controller('newsSearchCtrl',function($scope,$http,$routeParams){
     })
     $scope.pages = [1,2,3,4,5];
 
-    createLeftBlock($scope,$http,[
-        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'}
-    ]);
+    createLeftBlock($scope,$http,'newsSearchCtrl');
 });
 
 app.controller('newsCtrl',function($scope,$http,$routeParams,$sce,$window){
@@ -235,11 +241,7 @@ app.controller('newsCtrl',function($scope,$http,$routeParams,$sce,$window){
                 }
             }
         }) ;
-    createLeftBlock($scope,$http,[
-        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'}
-    ]);
+    createLeftBlock($scope,$http,'newsCtrl');
 });
 
 
@@ -255,11 +257,7 @@ app.controller('qiyefabuCtrl',function($scope,$http){
             });
     };
     console.log('e');
-    createLeftBlock($scope,$http,[
-        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'}
-    ]);
+    createLeftBlock($scope,$http,'qiyefabuCtrl');
 });
 app.controller('gaoxiaofabuCtrl',function($scope,$http){
     if (currentUser == undefined ) showLoginScreen();
@@ -281,11 +279,7 @@ app.controller('gaoxiaofabuCtrl',function($scope,$http){
             $scope.doc.area.push($scope.areas[inx]);
         }
     }
-    createLeftBlock($scope,$http,[
-        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'}
-    ]);
+    createLeftBlock($scope,$http,'gaoxiaofabuCtrl');
 });
 
 app.controller('gaoxiaoliulanCtrl',function($scope,$http,$routeParams){
@@ -296,11 +290,7 @@ app.controller('gaoxiaoliulanCtrl',function($scope,$http,$routeParams){
         })
     $scope.areas=["新能源","生物医药","新能源汽车","民用航空制造业","电子信息制造业","海洋工程设备","先进重大设备","软件和信息服务业","新材料","其他"]
 
-    createLeftBlock($scope,$http,[
-        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'}
-    ]);
+    createLeftBlock($scope,$http,'gaoxiaoliulanCtrl');
 });
 
 app.controller('qiyeliulanCtrl',function($scope,$http,$routeParams){
@@ -309,11 +299,7 @@ app.controller('qiyeliulanCtrl',function($scope,$http,$routeParams){
         .success(function(data){
             $scope.doc=data;
         })
-    createLeftBlock($scope,$http,[
-        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'}
-    ]);
+    createLeftBlock($scope,$http,'qiyeliulanCtrl');
 });
 app.controller('qiyelistCtrl',function($scope,$http,$routeParams){
     Component.http=$http;Component.scope=$scope;
@@ -322,11 +308,7 @@ app.controller('qiyelistCtrl',function($scope,$http,$routeParams){
     $scope.detailPath='qiyefabuDetail';
     $scope.fabuUrl='#/qiyefabu/';
 
-    createLeftBlock($scope,$http,[
-        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'}
-    ]);
+    createLeftBlock($scope,$http,'qiyelistCtrl');
 });
 app.controller('gaoxiaolistCtrl',function($scope,$http,$routeParams){
     Component.http=$http;Component.scope=$scope;
@@ -335,11 +317,7 @@ app.controller('gaoxiaolistCtrl',function($scope,$http,$routeParams){
     $scope.detailPath='gaoxiaofabuDetail';
     $scope.fabuUrl='#/gaoxiaofabu/';
 
-    createLeftBlock($scope,$http,[
-        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'}
-    ]);
+    createLeftBlock($scope,$http,'gaoxiaolistCtrl');
 });
 
 app.controller('qiyefabuSearchCtrl',function($scope,$http,$routeParams){
@@ -352,11 +330,7 @@ app.controller('qiyefabuSearchCtrl',function($scope,$http,$routeParams){
     $scope.detailPath='qiyefabuDetail';
     $scope.fabuUrl='#/qiyefabu/';
 
-    createLeftBlock($scope,$http,[
-        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'}
-    ]);
+    createLeftBlock($scope,$http,'qiyefabuSearchCtrl')
 });
 
 app.controller('gaoxiaofabuSearchCtrl',function($scope,$http,$routeParams){
@@ -369,10 +343,18 @@ app.controller('gaoxiaofabuSearchCtrl',function($scope,$http,$routeParams){
     $scope.detailPath='gaoxiaofabuDetail';
     $scope.fabuUrl='#/gaoxiaofabu/';
 
-    createLeftBlock($scope,$http,[
-        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'},
-        {_id:'529addfb0e66761d078fe35b',name:'热点信息',viewer:'news'}
-    ]);
+    createLeftBlock($scope,$http,'gaoxiaofabuSearchCtrl');
+});
+app.controller('jingjirenCtrl',function($scope,$http,$routeParams){
+    Component.http=$http;Component.scope=$scope;
+    $http.post(Server + 'keyword/gaoxiaofabuPool/all',{filter:{keyword:$routeParams.keyword}}).success(function(d){
+        $scope.mainlist = d;
+    });
+
+    $scope.listname='高校成果搜索';
+    $scope.detailPath='gaoxiaofabuDetail';
+    $scope.fabuUrl='#/gaoxiaofabu/';
+
+    createLeftBlock($scope,$http,'jingjirenCtrl');
 });
 

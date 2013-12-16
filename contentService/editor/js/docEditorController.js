@@ -75,6 +75,7 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
             }).error(function(data, status, headers, config) {
                 console.log(status);
             });
+
     }
     $scope.editPara=function(inx){
         if ($scope.doc.paraList[inx].html){

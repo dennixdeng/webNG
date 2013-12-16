@@ -5,7 +5,6 @@
 <title>上海高校技术市场官方网站</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/content.css" rel="stylesheet" type="text/css" />
-    <link href="css/pure-min.css" rel="stylesheet" type="text/css" />
 
 <script src="lib/html5shiv.js"></script>
 <script src="lib/json2.js"></script>
@@ -68,11 +67,11 @@
 </div>
 
 <div ng-hide="hidelogin" ng-controller="loginScreenCtrl"
-     style="height: 300px;width:460px;position: fixed;top:120px;left:350px;border:solid 1px #dddddd;background-color:#ffffff;box-shadow: 5px 5px 5px #aaaaaa">
+     style="height: 300px;width:460px;position: fixed;clear:both;top:120px;left:350px;border:solid 1px #dddddd;background-color:#ffffff;box-shadow: 5px 5px 5px #aaaaaa">
     <div style="background-color:#129FEA; width: 100%; border-bottom: solid 1px #aaaaaa;margin-top:20px">
         <div style="display:inline-block;padding: 10px 40px 10px 40px;font-size: 20px; color: #ffffff;">需要审核过的用户才能进行此操作</div>
         <div style="background-color:#0078e7;padding:5px 10px;cursor:pointer;display: inline-block;font-size: 16px; color: #ffffff;"
-             ng-click="hidelogin=true;Go('/home')">取消</div>
+             ng-click="hidelogin=true">取消</div>
     </div>
     <div style="display:inline-block;padding-left:140px; transition: pading-left 1s" ng-style="showReg?{'padding-left':'70px'}:{}">
         <form class="pure-form pure-form-stacked">
@@ -107,7 +106,6 @@
         </form>
     </div>
 </div>
-
 </body>
 
 </html>
