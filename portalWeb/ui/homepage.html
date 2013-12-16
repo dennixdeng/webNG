@@ -241,13 +241,13 @@
             <div class="xzzq_tw">
                 <div class="xzzq_tw_t"><img src="images/fileDownload2.png" alt="" border="0" style="width:80px;height:101px"/></div>
                 <div class="xzzq_tw_w">
-                    <div class="xzzq_tw_w_h"><a href="#/news/{{xzzq_image.list[0]._id}}">{{xzzq_image.list[0].title|stringLeft:8}}</a></div>
-                    <div class="xzzq_tw_w_h_c"><a href="#/news/{{xzzq_image.list[0]._id}}">{{xzzq_image.list[0]|docBrief:40}}</a></div>
+                    <div class="xzzq_tw_w_h"><a href="#/news/{{xzzq_image.list[0]._id}}">{{xzzq_image.list[0].title|stringLeft:20}}</a></div>
+                    <div class="xzzq_tw_w_h_c"><a href="#/news/{{xzzq_image.list[0]._id}}">{{xzzq_image.list[0]|docBrief:20}}</a></div>
                 </div>
             </div>
             <div class="claer"><img src="images/fg2.jpg" /></div>
             <Ul class="xzlist">
-                <li ng-repeat="doc in xzzq.list"><A style="color:#555555"  target="{{(doc.redirect)?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:12}}</A></li>
+                <li ng-repeat="doc in xzzq.list"><A style="color:#555555"  target="{{(doc.redirect)?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:16}}</A></li>
             </Ul>
         </div>
     </div>
