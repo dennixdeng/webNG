@@ -174,7 +174,7 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
                 }).success(function(data, status, headers, config) {
                     // file is uploaded successfully
                     $scope.messageFile = '上传成功';
-                    $scope.imagePoolData.push(data);
+                    $scope.imagePoolData.unshift(data);
                 });
             }
             //.error(...)
@@ -201,7 +201,7 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
                 }).success(function(data, status, headers, config) {
                     // file is uploaded successfully
                     $scope.messageFile = '上传成功';
-                    $scope.attachmentPoolData.push(data);
+                    $scope.attachmentPoolData.unshift(data);
                 });
             //.error(...)
             //.then(success, error, progress);
@@ -268,7 +268,7 @@ app.controller('imageListCtrl',function($scope,$http,$routeParams,$upload){
                     }).success(function(data, status, headers, config) {
                         // file is uploaded successfully
                         $scope.messageFile = '上传成功';
-                        $scope.imagePoolData.push(data);
+                        $scope.imagePoolData.unshift(data);
                     });
             }
             //.error(...)
