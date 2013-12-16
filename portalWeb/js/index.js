@@ -76,7 +76,7 @@ app.controller('menuContoller',function($scope,$http,$location){
 });
 app.controller('homepageCtrl',function($scope,$http,$location){
     Component.http=$http;Component.scope=$scope;
-    $scope.home_slide_0 = Component.newimageList('529ac22d04e9114269849f57');
+    $scope.home_slide_0 = Component.newimageList('529addfb0e66761d078fe35b');
     $scope.tzgg= Component.newTextSlider('docPool',9,'52a6bb92d142e9c2ee6c90e3');
     $scope.xwdt= Component.newList(3,'529addfb0e66761d078fe35b');
     $scope.xxdt_image=Component.newList(1,'529b14ceec282bac9148ac10',true,function(){

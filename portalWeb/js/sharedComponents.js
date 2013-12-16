@@ -5,7 +5,7 @@ var Component={
     scope:null,
     newimageList :function(Id){
         var obj ={_id:Id};
-        Component.http.get(Server +'open/imageListPool/' + Id).success(function(d){
+        Component.http.get(Server +'getDocsImageList/' + Id).success(function(d){
             obj.list= d.list;
             obj.current = 0;
             obj.next=function(){
