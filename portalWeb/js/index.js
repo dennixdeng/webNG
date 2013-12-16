@@ -143,7 +143,7 @@ app.controller('mainIntroCtrl',function($scope,$http,$sce){
         for (var i in $scope.mainDoc.paraList) {
             var p = $scope.mainDoc.paraList[i];
             if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
-            if (p.attachment && p.attachment.name.toLowerCase().indexOf('pdf')){
+            if ((p.attachment )&& (p.attachment.name.toLowerCase().indexOf('pdf')>0) ){
                 $scope.showPdf=true;
                 var pdf = new PDFObject({ url: p.attachment.url })
                     .embed('PDFView');
