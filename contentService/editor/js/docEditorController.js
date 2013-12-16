@@ -31,7 +31,7 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
         });
     };
     $scope.loadCategory();
-    $scope.catShow=[];
+    $scope.catShow=[true,true,false,true,true,true];
     $scope.toggleList=function(l){
         var inx = $scope.doc.inLists.indexOf(l);
        if ( -1 == inx ){
