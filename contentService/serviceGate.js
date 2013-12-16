@@ -454,3 +454,14 @@ app.post('/keyword/:pool/:top',express.bodyParser(),function(req,res){
         res.send({list:d});
     });
 });
+
+
+app.get('/getDocsImageList/:docLisId',function(req,res){
+    mdb['publicUserPool'].find({uid:req.params.uid,pwd:req.params.pwd}).nextObject(function(e,d){
+        if (d) {
+            res.send(d);
+        }else{
+            res.status(404).send({});
+        }
+    });
+});
