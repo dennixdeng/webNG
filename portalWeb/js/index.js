@@ -105,8 +105,8 @@ app.controller('homepageCtrl',function($scope,$http,$location){
         $scope.xzzq= Component.newTitleList('docPool',8,'529b37deec282bac9148ac18',doc._id);
     });
     $scope.alzs= Component.newList(5,'529b3c53ec282bac9148ac19');
-    $scope.qyfb= Component.newTitleList('qiyefabuPool',7,'all');
-    $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',6,'all');
+    $scope.qyfb= Component.newTitleList('qiyefabuPool',8,'all');
+    $scope.gxfb= Component.newTitleList('gaoxiaofabuPool',8,'all');
 
     var d = document.getElementById('top_newsupdate_slider');
     function slide_top_newsupdate_slider (){
