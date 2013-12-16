@@ -6,7 +6,7 @@
     <div class="new" style="position: relative">
         <ul class="newlist">
             <li ng-repeat="doc in block[1].category.list">
-                <span style="width: 50px"> {{doc._id|Id2Date}}</span>
+                <div style="width: 50px;display: inline-block"> {{doc._id|Id2Date}}</div>
                 <span>|</span>
                 <a target="{{doc.redirect?'_blank':''}}"  href="#/{{block[1].viewer}}/{{doc._id}}">
                     {{doc.title|stringLeft:16}}
