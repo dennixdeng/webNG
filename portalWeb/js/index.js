@@ -169,7 +169,7 @@ app.controller('newsSearchCtrl',function($scope,$http,$routeParams){
         }
     });
     $scope.mainlist={};
-    $http.post(Server + '/keyword/docPool',{filter:{keyword:$routeParams.keyword}}).success(function(d){
+    $http.post(Server + 'keyword/docPool',{filter:{keyword:$routeParams.keyword}}).success(function(d){
         $scope.mainlist.list = d;
     })
     $scope.pages = [1,2,3,4,5];
