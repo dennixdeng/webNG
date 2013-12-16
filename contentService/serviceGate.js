@@ -457,11 +457,13 @@ app.post('/keyword/:pool/:top',express.bodyParser(),function(req,res){
 
 
 app.get('/getDocsImageList/:docLisId',function(req,res){
-    mdb['publicUserPool'].find({uid:req.params.uid,pwd:req.params.pwd}).nextObject(function(e,d){
-        if (d) {
-            res.send(d);
-        }else{
-            res.status(404).send({});
+    mdb['docPool'].find({inLists:{$in:[req.params.docLisId]},showHomepage:true,paraList:{$elemMatch:{image:{$ne:null}}}}).sort({displayDate:-1}).limit(6).toArray(function(e,d){
+        var r={list:[]};
+        for (var i in d){
+            var url;
+            for (var j in d[i].paraList){if ((!url) && (d[i].paraList[j].image)) url=d[i].paraList[j].image.url;}
+            r.list.push({"imgUrl" : url, "caption" : d[i].title, 	"linkTo" : "#/news/" + d[i]._id});
         }
+        res.send(r);
     });
 });
