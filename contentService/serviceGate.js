@@ -37,8 +37,8 @@ getDBCollection('webNG_SUEU',['WebNG_users','publicUserPool','imagePool','attach
                                 'fabustatusPool','parentPool']);
 
 var ossAPI = require('oss-client');
-var ossHost='oss.aliyuncs.com';
-//  var ossHost='oss-internal.aliyuncs.com';
+//var ossHost='oss.aliyuncs.com';
+var ossHost='oss-internal.aliyuncs.com';
 
 var oss = new ossAPI.OssClient({host:ossHost,accessKeyId: 'Ybx6lzed1szPRAuI',accessKeySecret: 'yoih8NiSadOlPJ9Syi65w7LdRsc6zA'});
 
