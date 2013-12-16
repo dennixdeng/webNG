@@ -217,12 +217,12 @@ function createLeftBlock($scope,$http,page){
         $scope.block[1] = {
             category:Component.newTitleList('gaoxiaofabuPool',5,'all'),
             name:  '高校最新发布',
-            viewer:  'gaoxiaoliulan'
+            viewer:  'gaoxiaofabuDetail'
         };
         $scope.block[2] = {
             category:Component.newTitleList('qiyefabuPool',5,'all'),
             name:  '企业最新发布',
-            viewer:  'qiyeliulan'
+            viewer:  'qiyefabuDetail'
         };
 
         $scope.mainlist= Component.newTitleList('gaoxiaofabuPool','all','all');
