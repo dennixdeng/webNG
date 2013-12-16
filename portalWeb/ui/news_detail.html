@@ -19,7 +19,7 @@
                 点击数&nbsp;{{doc.readCount}}&nbsp;&nbsp;&nbsp;来源&nbsp;{{doc.source}}&nbsp;&nbsp;&nbsp; 发布日期&nbsp;{{doc.displayDate}}
             </div>
         </div>
-        <div class="fgx"></div>
+        <div class="fgx" style="margin-bottom: 10px"></div>
 
         <div ng-repeat="para in doc.paraList" style="white-space: normal">
             <div ng-show="para.html" ng-bind-html="para.html.show"></div>

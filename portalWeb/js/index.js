@@ -321,7 +321,7 @@ app.controller('gaoxiaofabuCtrl',function($scope,$http){
         $http.post(Server + 'save/gaoxiaofabuPool',{doc:$scope.doc})
             .success(function(){
                 alert('发布成功！')
-                $scope.doc={};
+                $scope.doc={area:[],inLists:[]};
             });
     };
     $scope.areas=["新能源","生物医药","新能源汽车","民用航空制造业","电子信息制造业","海洋工程设备","先进重大设备","软件和信息服务业","新材料","其他"]
