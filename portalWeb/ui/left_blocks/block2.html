@@ -6,9 +6,12 @@
     <div class="new" style="position: relative">
         <ul class="newlist">
             <li ng-repeat="doc in block[2].category.list">
-                <span style="width: 60px"> {{doc._id|Id2Date}}</span>
+                <span style="width: 50px"> {{doc._id|Id2Date}}</span>
                 <span>|</span>
-                <a target="{{doc.redirect?'_blank':''}}"  href="#/{{block[2].viewer}}/{{doc._id}}">{{doc.title|stringLeft:14}}</a></li>
+                <a target="{{doc.redirect?'_blank':''}}"  href="#/{{block[2].viewer}}/{{doc._id}}">
+                    {{doc.title|stringLeft:16}}
+                </a>
+            </li>
         </ul>
     </div>
     <div class="newsmore" style="position: relative"><a href="#/newslist/{{block[2]._id}}">更多</a></div>
