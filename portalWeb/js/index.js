@@ -175,24 +175,72 @@ app.controller('subIntroCtrl',function($scope,$http,$routeParams,$sce){
 
 function createLeftBlock($scope,$http,page){
     var list=[
-        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news'},
-        {_id:'529b2665ec282bac9148ac13',name:'热点信息',viewer:'news'},
-        {_id:'529b3c53ec282bac9148ac19',name:'案例展示',viewer:'news'}
+        {_id:'529addfb0e66761d078fe35b',name:'新闻动态',viewer:'news',inx:0},
+        {_id:'52a6bb92d142e9c2ee6c90e3',name:'通知公告',viewer:'news',inx:1},
+        {_id:'529b37deec282bac9148ac18',name:'下载专区',viewer:'news',inx:2},
+        {_id:'529b3487ec282bac9148ac17',name:'政策法规',viewer:'news',inx:3},
+
+        {_id:'529b14ceec282bac9148ac10',name:'信息动态',viewer:'news',inx:4},
+        {_id:'529b1da2ec282bac9148ac11',name:'平台进展',viewer:'news',inx:5},
+        {_id:'529b2e3bec282bac9148ac16',name:'平台通讯',viewer:'news',inx:6},
+
+        {_id:'529b2665ec282bac9148ac13',name:'热点信息',viewer:'news',inx:7},
+        {_id:'529b28feec282bac9148ac14',name:'工博会',viewer:'news',inx:8},
+        {_id:'529b2c6bec282bac9148ac15',name:'其他展会',viewer:'news',inx:9},
+
+        {_id:'529b3c53ec282bac9148ac19',name:'案例展示',viewer:'news',inx:10}
     ];
     var map={
-        'a':[0,1,2],
-        'b':[]
+        '529addfb0e66761d078fe35b':[0,1,2],
+        '52a6bb92d142e9c2ee6c90e3':[1,0,2],
+        '529b37deec282bac9148ac18':[2,3,11],
+        '529b14ceec282bac9148ac10':[4,5,6],
+        '529b1da2ec282bac9148ac11':[5,6,4],
+        '529b2e3bec282bac9148ac16':[6,5,4],
+        '529b2665ec282bac9148ac13':[7,8,9],
+        '529b28feec282bac9148ac14':[8,7,9],
+        '529b2c6bec282bac9148ac15':[9,8,7]
     }
+    $scope.leftBlock=[];
+    $scope.block=[];
 
+    if ( (page == 'gaoxiaofabu')||(page=='qiyefabu')){
+        $scope.leftBlock_1 = "ui/left_blocks/block0.html";
+        $scope.leftBlock_2 = "ui/left_blocks/block1.html";
+        $scope.leftBlock_3 = "ui/left_blocks/block2.html";
+        var i = 3;
+        $scope.block[0] = {
+            category:Component.newTitleList('docPool',5,  list[i ]._id ),
+            name:  list[i ].name,
+            viewer:  list[i].viewer
+        };
+        $scope.block[1] = {
+            category:Component.newTitleList('gaoxiaofabuPool',5,'all'),
+            name:  '高校最新发布',
+            viewer:  'gaoxiaoliulan'
+        };
+        $scope.block[2] = {
+            category:Component.newTitleList('qiyefabuPool',5,'all'),
+            name:  '企业最新发布',
+            viewer:  'qiyeliulan'
+        };
 
-    $scope.leftBlock_1 = "ui/left_blocks/block1.html";
-    $scope.block1={category:Component.newTitleList('docPool',5,list[0]._id ),name:list[0].name,viewer:list[0].viewer };
+        $scope.mainlist= Component.newTitleList('gaoxiaofabuPool','all','all');
 
-    $scope.leftBlock_2 = "ui/left_blocks/block2.html";
-    $scope.block2={category:Component.newTitleList('docPool',5,list[1]._id ),name:list[1].name,viewer:list[1].viewer };
-
-    $scope.leftBlock_3 = "ui/left_blocks/block3.html";
-    $scope.block3={category:Component.newTitleList('docPool',5,list[2]._id ),name:list[2].name,viewer:list[2].viewer };
+    }else{
+        console.log(map[page]);
+        $scope.leftBlock_1 = "ui/left_blocks/block0.html";
+        $scope.leftBlock_2 = "ui/left_blocks/block1.html";
+        $scope.leftBlock_3 = "ui/left_blocks/block2.html";
+        for (var i in map[page]){
+            $scope.block[i]={
+                category:Component.newTitleList('docPool',5,  list[map[page][i] ]._id ),
+                name:  list[map[page][i] ].name,
+                viewer:  list[map[page][i] ].viewer
+            };
+        }
+        console.log($scope.block);
+    };
 }
 
 app.controller('newslistCtrl',function($scope,$http,$routeParams){
@@ -207,7 +255,7 @@ app.controller('newslistCtrl',function($scope,$http,$routeParams){
     $scope.mainlist= Component.newTitleList('docPool',30,$routeParams.listId);
     $scope.pages = [1,2,3,4,5];
 
-    createLeftBlock($scope,$http,'newslistCtrl');
+    createLeftBlock($scope,$http,$routeParams.listId);
 });
 
 app.controller('newsSearchCtrl',function($scope,$http,$routeParams){
@@ -220,10 +268,15 @@ app.controller('newsSearchCtrl',function($scope,$http,$routeParams){
     $scope.mainlist={};
     $http.post(Server + 'keyword/docPool/all',{filter:{keyword:$routeParams.keyword}}).success(function(d){
         $scope.mainlist = d ;
+        if (d){
+            createLeftBlock($scope,$http,$scope.mainlist.list[0].inLists[0]);
+        }else{
+            createLeftBlock($scope,$http,'529addfb0e66761d078fe35b');
+        }
     })
     $scope.pages = [1,2,3,4,5];
 
-    createLeftBlock($scope,$http,'newsSearchCtrl');
+
 });
 
 app.controller('newsCtrl',function($scope,$http,$routeParams,$sce,$window){
@@ -241,8 +294,8 @@ app.controller('newsCtrl',function($scope,$http,$routeParams,$sce,$window){
                         .embed('PDFView');
                 }
             }
+            createLeftBlock($scope,$http,$scope.doc.inLists[0]);
         }) ;
-    createLeftBlock($scope,$http,'newsCtrl');
 });
 
 
@@ -258,7 +311,7 @@ app.controller('qiyefabuCtrl',function($scope,$http){
             });
     };
     console.log('e');
-    createLeftBlock($scope,$http,'qiyefabuCtrl');
+    createLeftBlock($scope,$http,'qiyefabu');
 });
 app.controller('gaoxiaofabuCtrl',function($scope,$http){
     if (currentUser == undefined ) showLoginScreen();
@@ -280,7 +333,7 @@ app.controller('gaoxiaofabuCtrl',function($scope,$http){
             $scope.doc.area.push($scope.areas[inx]);
         }
     }
-    createLeftBlock($scope,$http,'gaoxiaofabuCtrl');
+    createLeftBlock($scope,$http,'gaoxiaofabu');
 });
 
 app.controller('gaoxiaoliulanCtrl',function($scope,$http,$routeParams){
@@ -291,7 +344,7 @@ app.controller('gaoxiaoliulanCtrl',function($scope,$http,$routeParams){
         })
     $scope.areas=["新能源","生物医药","新能源汽车","民用航空制造业","电子信息制造业","海洋工程设备","先进重大设备","软件和信息服务业","新材料","其他"]
 
-    createLeftBlock($scope,$http,'gaoxiaoliulanCtrl');
+    createLeftBlock($scope,$http,'gaoxiaofabu');
 });
 
 app.controller('qiyeliulanCtrl',function($scope,$http,$routeParams){
@@ -300,7 +353,7 @@ app.controller('qiyeliulanCtrl',function($scope,$http,$routeParams){
         .success(function(data){
             $scope.doc=data;
         })
-    createLeftBlock($scope,$http,'qiyeliulanCtrl');
+    createLeftBlock($scope,$http,'qiyefabu');
 });
 app.controller('qiyelistCtrl',function($scope,$http,$routeParams){
     Component.http=$http;Component.scope=$scope;
@@ -309,7 +362,7 @@ app.controller('qiyelistCtrl',function($scope,$http,$routeParams){
     $scope.detailPath='qiyefabuDetail';
     $scope.fabuUrl='#/qiyefabu/';
 
-    createLeftBlock($scope,$http,'qiyelistCtrl');
+    createLeftBlock($scope,$http,'qiyefabu');
 });
 app.controller('gaoxiaolistCtrl',function($scope,$http,$routeParams){
     Component.http=$http;Component.scope=$scope;
@@ -318,7 +371,7 @@ app.controller('gaoxiaolistCtrl',function($scope,$http,$routeParams){
     $scope.detailPath='gaoxiaofabuDetail';
     $scope.fabuUrl='#/gaoxiaofabu/';
 
-    createLeftBlock($scope,$http,'gaoxiaolistCtrl');
+    createLeftBlock($scope,$http,'gaoxiaofabu');
 });
 
 app.controller('qiyefabuSearchCtrl',function($scope,$http,$routeParams){
@@ -331,7 +384,7 @@ app.controller('qiyefabuSearchCtrl',function($scope,$http,$routeParams){
     $scope.detailPath='qiyefabuDetail';
     $scope.fabuUrl='#/qiyefabu/';
 
-    createLeftBlock($scope,$http,'qiyefabuSearchCtrl')
+    createLeftBlock($scope,$http,'qiyefabu')
 });
 
 app.controller('gaoxiaofabuSearchCtrl',function($scope,$http,$routeParams){
@@ -344,7 +397,7 @@ app.controller('gaoxiaofabuSearchCtrl',function($scope,$http,$routeParams){
     $scope.detailPath='gaoxiaofabuDetail';
     $scope.fabuUrl='#/gaoxiaofabu/';
 
-    createLeftBlock($scope,$http,'gaoxiaofabuSearchCtrl');
+    createLeftBlock($scope,$http,'gaoxiaofabu');
 });
 app.controller('jingjirenCtrl',function($scope,$http,$routeParams){
     Component.http=$http;Component.scope=$scope;

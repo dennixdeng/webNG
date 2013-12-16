@@ -1,15 +1,15 @@
 <div  style="width: 90%;position: relative;width:100%; height:187px;">
     <img src="images/bg.png" style="position: absolute; top:0;left: 0;width: 100%;height: 100%">
     <div class="topname" style="position: relative">
-        {{block1.name}}
+        {{block[1].name}}
     </div>
     <div class="new" style="position: relative">
         <ul class="newlist">
-            <li ng-repeat="doc in block1.category.list">
+            <li ng-repeat="doc in block[1].category.list">
                 <span style="width: 60px"> {{doc._id|Id2Date}}</span>
                 <span>|</span>
-                <a target="{{doc.redirect?'_blank':''}}"  href="#/{{block1.viewer}}/{{doc._id}}">{{doc.title|stringLeft:14}}</a></li>
+                <a target="{{doc.redirect?'_blank':''}}"  href="#/{{block[1].viewer}}/{{doc._id}}">{{doc.title|stringLeft:14}}</a></li>
         </ul>
     </div>
-    <div class="newsmore" style="position: relative"><a href="#/newslist/{{block2._id}}">更多</a></div>
+    <div class="newsmore" style="position: relative"><a href="#/newslist/{{block[1]._id}}">更多</a></div>
 </div>
