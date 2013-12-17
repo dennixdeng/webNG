@@ -21,7 +21,7 @@ b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px}
 .video { width:315px; height:292px; background:url(../images/vidobg.png) no-repeat;  margin-left:14px; margin-top:15px}
 .video_p { width:305px; height:208px; padding-top:3px; padding-left:5px;}
 .video_s { padding-left:10px; padding-top:5px;}
-#cont_right { width:625px; float:right; margin-bottom:100px;}
+#cont_right { width:625px; margin-bottom:100px;white-space: normal; display: inline-block;vertical-align: top}
 .conttit { width:615px; height:24px; padding-top:20px; padding-left:10px; font-size:15PX; color:#000000; font-weight:bold}
 .fgx { width:625px; height:4px; background:url(../images/xian.jpg) no-repeat; margin-left:0px;}
 .contlb { width:615px; padding-left:10px; padding-top:15px;}
