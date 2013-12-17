@@ -111,17 +111,23 @@
                 <div style="overflow: hidden;transition:height 0.5s;color: #aaaaaa;padding:3px 30px"
                         ng-style="(expanded[user._id+parent._id + $index])?{height:'80px'}:{height:'0px'}">
                     <div ng-repeat="list in parent.children"
-                         style="display: inline-block;padding:0px 5px 0px 5px;" ng-style="(!$first)?{'border-left':'dotted 2px #eeeeee'}:{}" >
-                        <div style="font-size: 14px;padding-bottom: 5px;font-size: 12px;">{{list.name}}</div>
+                         style="padding:0px 5px 0px 5px;" ng-style="(!$first)?{'border-left':'dotted 2px #eeeeee'}:{}" >
+
                         <span style="margin-left:10px;font-size: 12px;">
-                            <input ng-model="user.acl[list._id + '_edit']" type="checkbox" ng-change="updateACL(user,list._id + '_edit')">编辑
-                        </span><br>
-                        <span style="margin-left:10px;font-size: 12px;">
-                            <input ng-model="user.acl[list._id + '_publish']" type="checkbox" ng-change="updateACL(user,list._id + '_publish')">审核
-                        </span><br>
-                        <span style="margin-left:10px;font-size: 12px;">
-                            <input ng-model="user.acl[list._id + '_remove']" type="checkbox" ng-change="updateACL(user,list._id + '_remove')">删除
+                            <input ng-model="user.acl[list._id + '_edit']" type="checkbox"
+                                   ng-change="updateACL(user,list._id + '_edit')">编辑
                         </span>
+                        <span style="margin-left:10px;font-size: 12px;">
+                            <input ng-model="user.acl[list._id + '_publish']" type="checkbox"
+                                   ng-change="updateACL(user,list._id + '_publish')">审核
+                        </span>
+                        <span style="margin-left:10px;font-size: 12px;">
+                            <input ng-model="user.acl[list._id + '_remove']" type="checkbox"
+                                   ng-change="updateACL(user,list._id + '_remove')">删除
+                        </span>
+                        <div style="display:inline-block;font-size: 14px;padding-bottom: 5px;font-size: 12px;">
+                            {{list.name}}
+                        </div>
                     </div>
                 </div>
             </div>
