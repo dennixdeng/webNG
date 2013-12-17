@@ -1,0 +1,16 @@
+2596 error Error: read ETIMEDOUT
+2596 error     at errnoException (net.js:863:11)
+2596 error     at TCP.onread (net.js:524:19)
+2597 error If you need help, you may report this log at:
+2597 error     <http://github.com/isaacs/npm/issues>
+2597 error or email it to:
+2597 error     <npm-@googlegroups.com>
+2598 error System Darwin 13.0.0
+2599 error command "node" "/usr/local/bin/npm" "install" "request"
+2600 error cwd /Users/dennix/Documents/CodeWorkspace/webNG/contentService
+2601 error node -v v0.10.0
+2602 error npm -v 1.2.14
+2603 error syscall read
+2604 error code ETIMEDOUT
+2605 error errno ETIMEDOUT
+2606 verbose exit [ 1, true ]
