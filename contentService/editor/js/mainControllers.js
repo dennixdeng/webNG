@@ -149,7 +149,7 @@ app.controller('accountMgmCtrl',function($scope,$http,$routeParams,$window){
         });
     }
     loadUsers();
-    $scope.filter={acl:[]};
+    $scope.filter={acl:{}};
     $scope.filterUser=function(){
         $http.post(Server    + 'filterUser',{filter:$scope.filter}).success(function(d){
             $scope.userList = d.list;
