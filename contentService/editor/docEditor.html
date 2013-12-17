@@ -74,17 +74,21 @@
     </div>
     <div ng-hide="doc.isListIntro">
         <div style="padding:10px;font-size:14px">
-            <label>在首页显示图片</label>
+            <label>用于首页主幻灯片</label>
+            <input type="checkbox" ng-model="doc.showMainSlide" />
+
+            <label>在首页栏目图片显示</label>
             <input type="checkbox" ng-model="doc.showHomepage" />
 
             <label style="margin-left: 20px">固定置顶</label>
             <input type="checkbox" ng-model="doc.showTopSticky" />
 
             <label style="margin-left: 20px">来源</label>
-            <input type="text" ng-model="doc.source" style="width: 200px;padding:2px;border: none; border-bottom: solid 1px blue"/>
+            <input type="text" ng-model="doc.source" style="width: 100px;padding:2px;border: none; border-bottom: solid 1px blue"/>
 
             <label style="margin-left: 20px">发布日期</label>
-            <input type="text" ng-model="doc.displayDate" style="width: 200px;padding:2px;border: none; border-bottom: solid 1px blue"/>
+            <input type="text" ng-model="doc.displayDate" style="width: 100px;padding:2px;border: none; border-bottom: solid 1px blue"/>
+
         </div>
         <div style="padding:10px;font-size:14px">
             <label>需登录后阅读</label>
@@ -95,6 +99,7 @@
 
             <label style="margin-left: 10px" ng-show="doc.redirect">跳转目标</label>
             <input type="text" ng-show="doc.redirect" ng-model="doc.redirectTo" style="width: 400px;padding:2px;border: none; border-bottom: solid 1px blue"/>
+
         </div>
     </div>
     <div id="docPreview" style="margin:10px;width:80%;padding:5px;">
