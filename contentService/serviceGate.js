@@ -1,7 +1,7 @@
 var PORT_Content_Service=8881;
 var uuid=require('uuid');
 
-var Db = require('mongodb').Db
+zvar Db = require('mongodb').Db
     , Connection = require('mongodb').Connection
     , Server = require('mongodb').Server
     ,BSON = require('mongodb').BSONPure
@@ -37,8 +37,8 @@ getDBCollection('webNG_SUEU',['WebNG_users','publicUserPool','imagePool','attach
                                 'fabustatusPool','parentPool']);
 
 var ossAPI = require('oss-client');
-//var ossHost='oss.aliyuncs.com';
-var ossHost='oss-internal.aliyuncs.com';
+var ossHost='oss.aliyuncs.com';
+ var ossHost='oss-internal.aliyuncs.com';
 
 var oss = new ossAPI.OssClient({host:ossHost,accessKeyId: 'Ybx6lzed1szPRAuI',accessKeySecret: 'yoih8NiSadOlPJ9Syi65w7LdRsc6zA'});
 
@@ -455,9 +455,8 @@ app.post('/keyword/:pool/:top',express.bodyParser(),function(req,res){
     });
 });
 
-
 app.get('/getDocsImageList/:docLisId',function(req,res){
-    mdb['docPool'].find({inLists:{$in:[req.params.docLisId]},showHomepage:true,paraList:{$elemMatch:{image:{$ne:null}}}}).sort({displayDate:-1}).limit(6).toArray(function(e,d){
+    mdb['docPool'].find({inLists:{$in:[req.params.docLisId]},showMainSlide:true,paraList:{$elemMatch:{image:{$ne:null}}}}).sort({displayDate:-1}).limit(6).toArray(function(e,d){
         var r={list:[]};
         for (var i in d){
             var url=null;;
