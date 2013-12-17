@@ -34,16 +34,22 @@
                     <div class="biaodname">难题（项目）需求名称</div>
                     <input ng-model="doc.title" type="text" class="clearInput" style="width:330px" />
                     <div class="bdxx"></div>
-                    <div class="biaodname">合作方式</div>
+                    <div class="biaodname">合作方式
+                        <div style="font-size:12px">
+                            （300字内）
+                        </div>
+                    </div>
                     <textarea ng-model="doc.terms"  class="clearInput" style="width:400px;height:200px"></textarea>
-                    <div style="float:right;font-size:12px">（300字内）</div>
+
                     <div class="bdxx"></div>
                     <div class="biaodname">主要技术<br> 参数要求</div>
                     <textarea ng-model="doc.specs" class="clearInput" style="width:400px;height:200px"></textarea>
                     <div class="bdxx"></div>
-                    <div class="biaodname">企业简介</div>
-                    <textarea ng-model="doc.credit" class="clearInput"  style="width:400px;height:200px"></textarea>
-                    <div style="float:right;font-size:12px">（注明企业现有厂房、设备、产品等）</div>
+                    <div class="biaodname">企业简介
+
+                    </div>
+                    <textarea ng-model="doc.credit" class="clearInput" placeholder="（注明企业现有厂房、设备、产品等）" style="width:400px;height:200px"></textarea>
+
                 </form>
             </div>
         </div>
