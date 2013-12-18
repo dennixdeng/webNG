@@ -287,7 +287,7 @@ app.post('/setStatus/:pool',express.bodyParser(),function(req,res){
     });
 });
 app.get('/user/login/:uid/:pwd',function(req,res){
-    mdb['WebNG_users'].find({uid:req.params.uid,pwd:req.params.pwd}).nextObject(function(e,d){
+    mdb['WebNG_users'].find({uid:req.params.uid,pwd:req.params.pwd},{pwd:0}).nextObject(function(e,d){
         if (d) {
             d.token = make_passwd(128);
             res.send(d);
