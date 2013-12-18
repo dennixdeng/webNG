@@ -1,7 +1,7 @@
 var PORT_Content_Service=8881;
 var uuid=require('uuid');
 
-zvar Db = require('mongodb').Db
+var Db = require('mongodb').Db
     , Connection = require('mongodb').Connection
     , Server = require('mongodb').Server
     ,BSON = require('mongodb').BSONPure
