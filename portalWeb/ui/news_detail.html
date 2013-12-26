@@ -10,7 +10,8 @@
         <!--body右侧开始-->
 
     <div id="cont_right" style="white-space: normal; display: inline-block;vertical-align: top;float: none">
-        <div style="position:relative;width:615px;padding-top:20px; padding-left:10px; font-size:18PX; color:#000000; font-weight:bold">
+        <div style="position:relative;width:615px;padding:20px 10px;
+                    font-size:18PX; color:#000000; font-weight:bold; text-align: center">
             {{doc.title}}
 
         </div>
@@ -21,7 +22,7 @@
         </div>
         <div class="fgx" style="margin-bottom: 10px"></div>
 
-        <div ng-repeat="para in doc.paraList" style="white-space: normal;font-size: 14px;">
+        <div ng-repeat="para in doc.paraList" style="white-space: normal;font-size: 14px;text-align: justify">
             <div ng-show="para.html" ng-bind-html="para.html.show"></div>
             <img ng-show="para.image" style="display:block;max-width: 600px;margin: 5px auto 5px auto" ng-src="{{para.image.url}}"/>
             <div ng-show="para.attachment" style="padding: 20px">

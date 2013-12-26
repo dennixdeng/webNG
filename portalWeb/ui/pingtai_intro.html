@@ -1,6 +1,6 @@
 <div class="content" style="white-space: nowrap">
     <div id="content_left" style="width: 400px; padding: 10px;display: inline-block;white-space: normal">
-        <div style="padding: 10px 5px;font-size: 18px">{{mainDoc.title}} </div>
+        <div style="padding: 10px 5px;font-size: 18px;text-align: center;">{{mainDoc.title}} </div>
         <div ng-repeat="para in mainDoc.paraList" style="width: 100%">
             <div ng-show="para.html" ng-bind-html="para.html.show"></div>
             <img ng-show="para.image" style="display:block;max-width: 420px;margin: 5px auto 5px auto" ng-src="{{para.image.url}}"/>

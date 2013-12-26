@@ -91,7 +91,7 @@ app.controller('homepageCtrl',function($scope,$http,$location){
     });
     $scope.rdxx_image= Component.newList(1,'529b2665ec282bac9148ac13',true,function(){
         var docId = $scope.rdxx_image.list[0]?$scope.rdxx_image.list[0]._id:null;
-        $scope.rdxx= Component.newTitleList('docPool',4,'529b2665ec282bac9148ac13',docId);
+        $scope.rdxx= Component.newTitleList('docPool',3,'529b2665ec282bac9148ac13',docId);
     });
     $scope.gbh = Component.newList(5,'529b28feec282bac9148ac14');
     $scope.qtzh= Component.newList(5,'529b2c6bec282bac9148ac15');
@@ -102,7 +102,7 @@ app.controller('homepageCtrl',function($scope,$http,$location){
     });
     $scope.xzzq_image= Component.newList(1,'529b37deec282bac9148ac18',true,function(){
         var doc = $scope.xzzq_image.list[0]||{};
-        $scope.xzzq= Component.newTitleList('docPool',8,'529b37deec282bac9148ac18',doc._id);
+        $scope.xzzq= Component.newTitleList('docPool',7,'529b37deec282bac9148ac18',doc._id);
     });
     $scope.alzs= Component.newList(5,'529b3c53ec282bac9148ac19');
     $scope.qyfb= Component.newTitleList('qiyefabuPool',8,'all');
@@ -194,7 +194,7 @@ function createLeftBlock($scope,$http,page){
     var map={
         '529addfb0e66761d078fe35b':[0,1,2],
         '52a6bb92d142e9c2ee6c90e3':[1,0,2],
-        '529b37deec282bac9148ac18':[2,3,11],
+        '529b37deec282bac9148ac18':[2,3,10],
         '529b14ceec282bac9148ac10':[4,5,6],
         '529b1da2ec282bac9148ac11':[5,6,4],
         '529b2e3bec282bac9148ac16':[6,5,4],

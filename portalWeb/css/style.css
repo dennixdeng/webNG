@@ -224,7 +224,7 @@ margin: 3px 4px 0 0;
 #zsfwleft { width:246px; float:left}
 #zsfwmid { width:256px; float:left}
 #zsfwright { width:246px; float:right}
-.zsfwright_cont { color:#999999; padding-top:5px; line-height:22px;}
+.zsfwright_cont {padding-top:5px; line-height:22px;}
 .zsfwleft_h {padding-top:5px; padding-bottom:4px; font-size:13px;}
 .zsfwleft_t { width:246px; height:100px}
 .zsfwleft_t SPAN{DISPLAY: block; FLOAT: left; OVERFLOW: hidden}
@@ -233,7 +233,7 @@ margin: 3px 4px 0 0;
 .zsfwmore a { color:#666666}
 .zsfwmorez { float:right; padding-right:10px; padding-top:20px;}
 .zsfwmorez a { color:#666666}
-.zsfwmorey { float:right; padding-right:10px; padding-top:25px;}
+.zsfwmorey { float:right; padding-right:10px; padding-top:5px;}
 .zsfwmorey a { color:#666666}
 .zsfwleft_l { width:233px;background:url(../images/zuo.jpg) no-repeat;overflow: hidden; }
 .zsfwleft_l li {width:233px; height:20px; line-height:20px; overflow: hidden; FLOAT: left; padding-left:6px;}

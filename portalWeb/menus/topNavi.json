@@ -11,7 +11,13 @@
     {"caption":"新闻动态", "left":152,  "linkTo":"#/newslist/529addfb0e66761d078fe35b/新闻动态/",
         "subMenu":[
         ]},
-    {"caption":"高校会展", "left":322,  "linkTo":"","subMenu":[
+    {"caption":"知识服务平台", "left":245,  "linkTo":"", "subMenu":[
+        {"caption":"信息动态","linkTo":"#/newslist/529b14ceec282bac9148ac10"},
+        {"caption":"平台进展","linkTo":"#/newslist/529b1da2ec282bac9148ac11"},
+        {"caption":"平台简介","linkTo":"#/intro"} ,
+        {"caption":"平台通讯","linkTo":"#/newslist/529b2e3bec282bac9148ac16"}
+    ]},
+    {"caption":"高校会展", "left":400,  "linkTo":"","subMenu":[
         {"caption":"热点信息","linkTo":"#/newslist/529b2665ec282bac9148ac13/热点信息"},
         {"caption":"工博会","linkTo":"#/newslist/529b28feec282bac9148ac14/工博会"},
         {"caption":"其他展览","linkTo":"#/newslist/529b2c6bec282bac9148ac15/其他展览"}
@@ -25,9 +31,7 @@
     {"caption":"合同登记", "left":407,  "linkTo":"","subMenu":[
 
     ]},
-    {"caption":"技术转移", "left":666,  "linkTo":"", "subMenu":[
 
-    ]},
     {"caption":"政策法规", "left":577,  "linkTo":"#/newslist/529b3487ec282bac9148ac17/政策法规", "subMenu":[
 
     ]},
