@@ -19,7 +19,9 @@
                         <span ng-show="mainlist.fromList.parent == '类别'">
                             <span ng-repeat="cat in doc.inLists|removeDocClass" style="font-size: 12px;color: #aaaaaa">【{{cat|list2Name}}】</span>
                         </span>
-                        <a href="#/news/{{doc._id}}" target="{{(doc.redirect)?'_blank':''}}">{{doc.title|stringLeft:26}}</a>
+                        <a href="#/news/{{doc._id}}" target="{{(doc.redirect)?'_blank':''}}" title="{{doc.title}}">
+                            {{doc.title|stringLeft:26}}
+                        </a>
                     </div>
                     <span style="font-size: 12px;color: #aaaaaa">{{doc.displayDate|cnDate}}</span>
                 </li>

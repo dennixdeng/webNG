@@ -8,7 +8,10 @@
             <li ng-repeat="doc in block[0].category.list">
                 <div style="width: 50px;display: inline-block"> {{doc._id|Id2Date}}</div>
                 <span>|</span>
-                <a target="{{doc.redirect?'_blank':''}}"  href="#/{{block[0].viewer}}/{{doc._id}}">{{doc.title|stringLeft:16}}</a></li>
+                <a target="{{doc.redirect?'_blank':''}}"  href="#/{{block[0].viewer}}/{{doc._id}}" title="{{doc.title}}">
+                    {{doc.title|stringLeft:15}}
+                </a>
+            </li>
         </ul>
     </div>
     <div class="newsmore" style="position: relative"><a href="{{block[0].morelink}}">更多</a></div>

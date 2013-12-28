@@ -8,8 +8,8 @@
             <li ng-repeat="doc in block[2].category.list">
                 <div style="width: 50px;display: inline-block"> {{doc._id|Id2Date}}</div>
                 <span>|</span>
-                <a target="{{doc.redirect?'_blank':''}}"  href="#/{{block[2].viewer}}/{{doc._id}}">
-                    {{doc.title|stringLeft:16}}
+                <a target="{{doc.redirect?'_blank':''}}"  href="#/{{block[2].viewer}}/{{doc._id}}"  title="{{doc.title}}">
+                    {{doc.title|stringLeft:15}}
                 </a>
             </li>
         </ul>

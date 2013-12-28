@@ -39,7 +39,7 @@
     </div>
     <div id="hdy">
         <h2 ng-repeat-start="doc in xwdt.list">
-            <a  target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}" style="">
+            <a  target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}" style="" title="{{doc.title}}">
                 {{doc.title|stringLeft:24}}
             </a>
         </h2>
@@ -63,7 +63,9 @@
     <div class="zsfw">
         <div id="zsfwleft">
             <h5>信息动态</h5>
-            <div style="padding-top: 5px;"><A style="color:#555555" href="#/news/{{xxdt_image.list[0]._id}}">{{xxdt_image.list[0].title|stringLeft:18}}</A></div>
+            <div style="padding-top: 5px;"><A style="color:#555555" href="#/news/{{xxdt_image.list[0]._id}}"  title="{{doc.title}}">
+                {{xxdt_image.list[0].title|stringLeft:18}}
+            </A></div>
             <div class="zsfwleft_t">
                 <span><a href="#/news/{{xxdt_image.list[0]._id}}">
                     <img ng-src="{{xxdt_image.list[0]|docImage:0}}" border="0" alt="" style="width:118px;height:84px"/>
@@ -71,7 +73,7 @@
                 <p>{{xxdt_image.list[0]|docBrief:50}}</p></div>
             <ul style="line-height:16px">
                 <li ng-repeat="doc in xxdt.list" style="line-height:16px">
-                    <a style="color:#555555" href="#/news/{{doc._id}}">
+                    <a style="color:#555555" href="#/news/{{doc._id}}"  title="{{doc.title}}">
                         {{doc.title|stringLeft:17}}
                     </a>
                 </li>
@@ -82,7 +84,7 @@
             <h5>平台进展</h5>
             <Ul class="gbhlist">
                 <li ng-repeat="doc in ptjz.list">
-                    <a style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">
+                    <a style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}"  title="{{doc.title}}">
                         {{doc.title|stringLeft:22}}
                     </a>
                 </li>
@@ -110,7 +112,8 @@
             <div id="zsfwleft">
                 <h5>热点信息</h5>
                 <div class="zsfwleft_h">
-                    <h6><A style="color:#555555" target="{{rdxx_image.list[0].redirect?'_blank':''}}" href="#/news/{{rdxx_image.list[0]._id}}">
+                    <h6><A style="color:#555555" target="{{rdxx_image.list[0].redirect?'_blank':''}}"
+                           href="#/news/{{rdxx_image.list[0]._id}}"  title="{{rdxx_image.list[0].title}}">
                         {{rdxx_image.list[0].title|stringLeft:22}}
                     </A></h6>
                 </div>
@@ -123,7 +126,8 @@
                 <div class="zsfwleft_l">
                     <Ul>
                         <li ng-repeat="doc in rdxx.list">
-                            <A style="color:#555555"  target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">
+                            <A style="color:#555555"  target="{{doc.redirect?'_blank':''}}"
+                               href="#/news/{{doc._id}}" title="{{doc.title}}">
                                 {{doc.title|stringLeft:17}}
                             </A></li>
                     </Ul>
@@ -135,7 +139,8 @@
                 <Ul class="gbhlist">
                     <li ng-repeat="doc in gbh.list">
                         <A style="color:#555555" target="{{doc.redirect?'_blank':''}}"
-                           href="#/news/{{doc._id}}">{{doc.title|stringLeft:22}}
+                           href="#/news/{{doc._id}}"  title="{{doc.title}}">
+                            {{doc.title|stringLeft:22}}
                         </A>
                     </li>
                 </Ul>
@@ -145,7 +150,12 @@
             </div>
             <div id="zsfwright"><h5>其他展会</h5>
                 <Ul   class="gbhlist">
-                    <li ng-repeat="doc in qtzh.list"><A style="color:#555555" target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:24}}</A></li>
+                    <li ng-repeat="doc in qtzh.list">
+                        <A style="color:#555555" target="{{doc.redirect?'_blank':''}}"
+                           href="#/news/{{doc._id}}"  title="{{doc.title}}">
+                            {{doc.title|stringLeft:24}}
+                        </A>
+                    </li>
                 </Ul>
 
                 <div  class="zsfwmore"><a style="color:#555555" href="#/newslist/529b2c6bec282bac9148ac15/其他展览/">...更多>></a></div>
@@ -238,7 +248,11 @@
             </div>
             <div class="claer"><img src="images/fg2.jpg" /></div>
             <Ul class="zcfglist">
-                <li ng-repeat="doc in zcfg.list"><A target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:12}}</A></li>
+                <li ng-repeat="doc in zcfg.list">
+                    <A target="{{doc.redirect?'_blank':''}}" href="#/news/{{doc._id}}"  title="{{doc.title}}">
+                        {{doc.title|stringLeft:12}}
+                    </A>
+                </li>
             </Ul>
             <div style="text-align: right;padding: 4px"><a href="#/newslist/529b3487ec282bac9148ac17"  style="padding: 8px">...更多>></a></div>
         </div>
@@ -250,13 +264,19 @@
             <div class="xzzq_tw">
                 <div class="xzzq_tw_t"><img src="images/fileDownload2.png" alt="" border="0" style="width:80px;height:101px"/></div>
                 <div class="xzzq_tw_w" style="padding-right:4px">
-                    <div class="xzzq_tw_w_h" ><a href="#/news/{{xzzq_image.list[0]._id}}">{{xzzq_image.list[0].title|stringLeft:20}}</a></div>
+                    <div class="xzzq_tw_w_h" ><a href="#/news/{{xzzq_image.list[0]._id}}"  title="{{xzzq_image.list[0].title}}">
+                        {{xzzq_image.list[0].title|stringLeft:20}}
+                    </a></div>
                     <div class="xzzq_tw_w_h_c"><a href="#/news/{{xzzq_image.list[0]._id}}">{{xzzq_image.list[0]|docBrief:20}}</a></div>
                 </div>
             </div>
             <div class="claer"><img src="images/fg2.jpg" /></div>
             <Ul class="xzlist">
-                <li ng-repeat="doc in xzzq.list"><A style="color:#555555"  target="{{(doc.redirect)?'_blank':''}}" href="#/news/{{doc._id}}">{{doc.title|stringLeft:16}}</A></li>
+                <li ng-repeat="doc in xzzq.list">
+                    <A style="color:#555555"  target="{{(doc.redirect)?'_blank':''}}" href="#/news/{{doc._id}}" title="{{doc.title}}">
+                        {{doc.title|stringLeft:16}}
+                    </A>
+                </li>
             </Ul>
             <div style="text-align: right"><a href="#/newslist/529b37deec282bac9148ac18" style="padding: 8px">...更多>></a></div>
         </div>

@@ -5,7 +5,12 @@
             <div id="font12" class="tab1"  style="position: relative">高校发布</div>
         </div>
         <div id=TabTab03Con1 style="position: relative"><ul class="qhlist" style="position: relative">
-            <li ng-repeat="doc in gxfb.list"><span style="width: 65px"> {{doc._id|Id2Date}}</span><span> |</span> <a href="#/gaoxiaofabuDetail/{{doc._id}}">{{doc.title}}</a></li>
+            <li ng-repeat="doc in gxfb.list">
+                <span style="width: 65px"> {{doc._id|Id2Date}}</span><span> |</span>
+                <a href="#/gaoxiaofabuDetail/{{doc._id}}"  title="{{doc.title}}">
+                    {{doc.title}}
+                </a>
+            </li>
         </ul></div>
     </div>
     <div class="qhsmore" style="position: relative"><a href="#/gaoxiaofabuList">更多高校成果发布</a></div>

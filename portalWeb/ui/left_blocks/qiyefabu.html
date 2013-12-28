@@ -5,7 +5,12 @@
         </div>
         <div id=TabTab03Con1>
             <ul class="qhlist">
-                <li ng-repeat="doc in qyfb.list"><span style="width: 65px"> {{doc._id|Id2Date}}</span><span> |</span> <a href="#/qiyefabuDetail/{{doc._id}}">{{doc.title}}</a></li>
+                <li ng-repeat="doc in qyfb.list"><span style="width: 65px">
+                    {{doc._id|Id2Date}}</span><span> |</span>
+                    <a href="#/qiyefabuDetail/{{doc._id}}"  title="{{doc.title}}">
+                        {{doc.title}}
+                    </a>
+                </li>
             </ul></div>
     </div>
     <div class="qhsmore"><a href="#/qiyefabuList">更多企业需求发布</a></div>

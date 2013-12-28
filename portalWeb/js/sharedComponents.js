@@ -112,8 +112,22 @@ angular.module('etFilters', [])
     }).filter('stringLeft', function() {
         return function(src,len) {
             if(!src) return null;
-            if (src.length > len){
-                return src.slice(0,len) + '...';
+            var showLen = 0;
+            var l=0;
+            while((l < src.length) && (showLen < len)){
+                l++;
+                if (src.charCodeAt(l) < 27){
+                    showLen += 0.2;
+                }else{
+                    if (src.charCodeAt(l) <= 126){
+                        showLen += 0.5;
+                    }else{
+                        showLen += 1;
+                    }
+                }
+            }
+            if (src.length > l){
+                return src.slice(0,l) + '...';
             }else{
                 return src;
             }
