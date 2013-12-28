@@ -87,8 +87,12 @@
             <input type="text" ng-model="doc.source" style="width: 100px;padding:2px;border: none; border-bottom: solid 1px blue"/>
 
             <label style="margin-left: 20px">发布日期</label>
-            <input type="text" ng-model="doc.displayDate" style="width: 100px;padding:2px;border: none; border-bottom: solid 1px blue"/>
-
+            <input type="text" ng-model="doc.year"
+                   style="width: 40px;padding:2px;border: none; border-bottom: solid 1px blue;text-align: right"/>年
+            <input type="text" ng-model="doc.month"
+                   style="width: 20px;padding:2px;border: none; border-bottom: solid 1px blue;text-align: right"/>月
+            <input type="text" ng-model="doc.day"
+                   style="width: 20px;padding:2px;border: none; border-bottom: solid 1px blue;text-align: right"/>日
         </div>
         <div style="padding:10px;font-size:14px">
             <label>需登录后阅读</label>

@@ -64,7 +64,7 @@ console.log('Content Service listening on ' + PORT_Content_Service);
 app.get('/list/:pool/:top/:listId',function(req,res){
     if (req.params.listId == '529addfb0e66761d078fe35b') console.log(req.query);
     var qObj={};
-    var sortObj= {sort:[['_id','desc']]};
+    var sortObj= {sort:[['displayDate','desc'],['_id','desc']]};
     var getName=false;
     switch (req.params.listId){
         case 'all':qObj = {};

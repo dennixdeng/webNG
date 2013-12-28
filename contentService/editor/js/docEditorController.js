@@ -48,10 +48,13 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
         });
 
     var docId= ($location.search()).docId;
+    var defaultDate=new Date();
     $scope.doc={
         _id:docId
         ,title:''
-        ,displayDate: (new Date()).toLocaleDateString()
+        ,year: defaultDate.getFullYear()
+        ,month: defaultDate.getMonth()+1
+        ,day: defaultDate.getDate()
         ,paraList:[]
         ,inLists:(($location.search()).listId?[($location.search()).listId]:[])
         ,isListIntro:($location.search()).isListIntro
@@ -61,6 +64,10 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
     if (docId !='newdoc') $http.get(Server + 'open/docPool/' + docId)
     .success(function(data){
         $scope.doc=data;
+        if (null ==$scope.doc.displayDate || 'function'!=typeof($scope.doc.displayDate.getFullYear )) $scope.doc.displayDate=new Date();
+        $scope.doc.year=$scope.doc.displayDate.getFullYear();
+        $scope.doc.month=$scope.doc.displayDate.getMonth()+1;
+        $scope.doc.day=$scope.doc.displayDate.getDate();
         for (var i in $scope.doc.paraList) {
             var p = $scope.doc.paraList[i];
             if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
@@ -72,7 +79,8 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
         });
     };
     $scope.saveDoc=function(){
-        console.log($scope.doc);
+        $scope.doc.displayDate = new Date();
+        $scope.doc.displayDate.setFullYear($scope.doc.year,$scope.doc.month-1, $scope.doc.day);
         if ($scope.doc.title == '') {$scope.title_error = '请输入标题文字'; return};
         $scope.doc.editHistory = $scope.doc.editHistory||[];
         $scope.doc.editHistory.push({timeStamp:new Date(),user:currentUser});
