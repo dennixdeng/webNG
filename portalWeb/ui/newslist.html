@@ -21,7 +21,7 @@
                         </span>
                         <a href="#/news/{{doc._id}}" target="{{(doc.redirect)?'_blank':''}}">{{doc.title|stringLeft:26}}</a>
                     </div>
-                    <span style="font-size: 12px;color: #aaaaaa">{{doc._id|Id2Date}}</span>
+                    <span style="font-size: 12px;color: #aaaaaa">{{doc.displayDate|cnDate}}</span>
                 </li>
             </ul>
         <div style="text-align:center; padding-top:10px; color:#4074b8; padding-bottom:30px;">

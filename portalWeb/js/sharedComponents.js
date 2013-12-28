@@ -124,7 +124,10 @@ angular.module('etFilters', [])
         }
     }).filter('cnDate',function(){
         return function(date){
-
+            if (date){
+                date=new Date(date);
+                 return date.getFullYear() + '年' + (date.getMonth()+1) + '月' + date.getDate() + '日'
+             }
         }
     }).filter('docEditable',function(){
         return function(inLists,allLists){
