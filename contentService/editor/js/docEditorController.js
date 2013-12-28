@@ -64,7 +64,11 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
     if (docId !='newdoc') $http.get(Server + 'open/docPool/' + docId)
     .success(function(data){
         $scope.doc=data;
-        if (null ==$scope.doc.displayDate || 'function'!=typeof($scope.doc.displayDate.getFullYear )) $scope.doc.displayDate=new Date();
+        if (null ==$scope.doc.displayDate){
+            $scope.doc.displayDate=new Date();
+        }else{
+            $scope.doc.displayDate=new Date($scope.doc.displayDate);
+        }
         $scope.doc.year=$scope.doc.displayDate.getFullYear();
         $scope.doc.month=$scope.doc.displayDate.getMonth()+1;
         $scope.doc.day=$scope.doc.displayDate.getDate();

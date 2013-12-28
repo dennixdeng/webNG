@@ -95,7 +95,7 @@ app.get('/list/:pool/:top/:listId',function(req,res){
 });
 app.get('/list_title/:pool/:top/:listId',function(req,res){
     var qObj={};
-    var sortObj= {sort:[['_id','desc']]};
+    var sortObj= {sort:[['displayDate','desc'],['_id','desc']]};
     var getName=false;
     switch (req.params.listId){
         case 'all':qObj = {};
@@ -139,7 +139,7 @@ app.post('/filter_pool/:pool/:top',express.bodyParser(),function(req,res){
     if ('all' != req.params.top){
         sortObj.limit =  req.params.top;
     }
-    sortObj.sort={showTopSticky:-1,_id:-1};
+    sortObj.sort={showTopSticky:-1,displayDate:-1,_id:-1};
 
     mdb[req.params.pool].find(qObj,{paraList:0,pwd:0},sortObj).toArray(function(e,d){
         res.send({list:d});
