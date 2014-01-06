@@ -448,9 +448,9 @@ app.post('/keyword/:pool/:top',express.bodyParser(),function(req,res){
     if ('all' != req.params.top){
         sortObj.limit =  req.params.top;
     }
-    sortObj.sort={showTopSticky:-1,_id:-1};
+    sortObj.sort={showTopSticky:-1,displayDate:-1,_id:-1};
 
-    mdb[req.params.pool].find(qObj,{paraList:0,pwd:0},sortObj).toArray(function(e,d){
+    mdb[req.params.pool].find(qObj,{paraList:0,searchText:0,pwd:0},sortObj).toArray(function(e,d){
         res.send({list:d});
     });
 });

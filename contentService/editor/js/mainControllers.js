@@ -10,6 +10,7 @@ app.config(['$routeProvider',function($routeProvider){
         when('/newdoc/',{templateUrl:'ui/doc.html',controller:'docCtrl'}).
         when('/imageList/:listId',{templateUrl:'ui/imageList.html',controller:'imageListCtrl'}).
         when('/home',{templateUrl:'ui/home.html'}).
+        when('/allDocs',{templateUrl:'ui/AllDocsList.html',controller:'AllDocsCtrl'}).
         when('/docList/:docListId',{templateUrl:'ui/docList.html',controller:'docListCtrl'}).
         when('/accounts',{templateUrl:'ui/accountMgm.html',controller:'accountMgmCtrl'}).
         when('/docCategory',{templateUrl:'ui/categoryMgm.html',controller:'docCategoryMgmCtrl'}).
@@ -30,6 +31,31 @@ app.controller('homeCtrl',['$scope','$http',function($scope,$http){
 
 var Server="http://t.easytag.cn/";
 //var Server="http://localhost:8881/";
+var listMap={};
+app.controller('AllDocsCtrl',function($scope,$http,$routeParams,$window){
+    $http.get(Server + 'get_list/listPool').success(function(d){
+        for (var i in d){
+            listMap[d[i]._id] =d[i];
+        }
+    });
+    $scope.docList={fromList:{name:'ttt'}};
+    var loadList=function(keyword){
+        $http.post(Server + 'keyword/docPool/all',{filter:{keyword:keyword}}).success(function(d){
+            $scope.docList.list= d.list ;
+        });
+    }
+    loadList('');
+    $scope.searchByKeyword=function(){
+        loadList($scope.keyword);
+    }
+    $scope.removeDoc=function(inx){
+        if ($window.confirm('确定要删除文档《' +  $scope.docList.list[inx].title + '》？')){
+            $http.get(Server + 'remove/docPool/' + $scope.docList.list[inx]._id).success(function(d){
+                $scope.docList.list.splice(inx,1);
+            });
+        };
+    }
+});
 
 app.controller('docListCtrl',function($scope,$http,$routeParams,$window){
     $scope.docList={fromList:{name:'ttt'}};
@@ -375,4 +401,8 @@ angular.module('etFilters', [])
         }
         return r;
     };
+}).filter('list2Name',function(){
+        return function(listId){
+            return listMap[listId].name;
+    }
 })

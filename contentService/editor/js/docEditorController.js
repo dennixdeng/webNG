@@ -58,7 +58,7 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
         ,paraList:[]
         ,inLists:(($location.search()).listId?[($location.search()).listId]:[])
         ,isListIntro:($location.search()).isListIntro
-        ,createBy: currentUser
+        ,createBy: {uid:(currentUser?currentUser.uid:'errorGetUser')}
         ,editHistory:[]
     };
     if (docId !='newdoc') $http.get(Server + 'open/docPool/' + docId)
@@ -87,7 +87,7 @@ app.controller('docCtrl',function($scope,$http,$location,$sce,$upload,$filter){
         $scope.doc.displayDate.setFullYear($scope.doc.year,$scope.doc.month-1, $scope.doc.day);
         if ($scope.doc.title == '') {$scope.title_error = '请输入标题文字'; return};
         $scope.doc.editHistory = $scope.doc.editHistory||[];
-        $scope.doc.editHistory.push({timeStamp:new Date(),user:currentUser});
+        $scope.doc.editHistory.push({timeStamp:new Date(),user:{uid:currentUser?currentUser.uid:'errorGetUser'} });
         $scope.doc.searchText='';
         for (var i in $scope.doc.paraList){
             if ($scope.doc.paraList[i].html) $scope.doc.searchText += $scope.doc.paraList[i].html.raw.replace(/<[^>]*>/g, "");

@@ -1,0 +1,18 @@
+<ul>
+    <li>
+        <input type="text" ng-model="keyword">
+        <button class="pure-button pure-button-primary"ng-click="searchByKeyword()">搜索</button>
+    </li>
+    <li ng-repeat="doc in docList.list" style="line-height: 28px;vertical-align: bottom;list-style-type: none;">
+        <img ng-click="removeDoc($index)" ng-hide="docList.fromList.noEdit"
+             style="width: 20px;margin:auto 10px -3px 5px;cursor: pointer" src="images/delete.png">
+        <a href="docEditor.html?docId={{doc._id}}" target="_blank">{{doc.title}}</a>
+        <img ng-show="doc.showMainSlide" src="images/homeslider.png" title="用做首页幻灯" style="width:26px;vertical-align: top">
+        <img ng-show="doc.showHomepage" src="images/showHomepage.jpeg" title="在首页栏目图片显示" style="width:26px;vertical-align: top">
+        <img ng-show="doc.showTopSticky" src="images/topsticky.jpg" title="栏目内固定置顶" style="width:20px;vertical-align: top">
+        <div style="display: inline-block;font-size: 12px;" ng-repeat="list in doc.inLists">【{{list|list2Name}}】</div>
+        <div style="display: inline-block;font-size: 12px;color: #aaaaaa">创建人：{{doc.createBy.name}}</div>
+        <div style="display: inline-block;font-size: 12px;color: #aaaaaa">审核人：{{doc.activateBy.name}}</div>
+
+    </li>
+</ul>
