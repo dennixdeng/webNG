@@ -8,6 +8,7 @@ var app=angular.module('app',['ngRoute','etFilters']).config(['$routeProvider',f
             when('/newslist/:listId',{templateUrl:'ui/newslist.html',controller:'newslistCtrl'}).
             when('/newslist/:listId/:listName',{templateUrl:'ui/newslist.html',controller:'newslistCtrl'}).
             when('/news/:docId',{templateUrl:'ui/news_detail.html',controller:'newsCtrl'}).
+            when('/info/:docId',{templateUrl:'ui/siteInfo.html',controller:'siteInfoCtrl'}).
             when('/qiyefabu/',{templateUrl:'ui/qiyefabu.html',controller:'qiyefabuCtrl'}).
             when('/gaoxiaofabu/',{templateUrl:'ui/gaoxiaofabu.html',controller:'gaoxiaofabuCtrl'}).
             when('/gaoxiaofabuDetail/:docId',{templateUrl:'ui/gaoxiaoliulan.html',controller:'gaoxiaoliulanCtrl'}).
@@ -307,7 +308,23 @@ app.controller('newsCtrl',function($scope,$http,$routeParams,$sce,$window){
             createLeftBlock($scope,$http,$scope.doc.inLists[0]);
         }) ;
 });
-
+app.controller('siteInfoCtrl',function($scope,$http,$routeParams,$sce,$window){
+    Component.http=$http;Component.scope=$scope;
+    $http.get(Server + 'open/docPool/' + $routeParams.docId)
+        .success(function(data){
+            $scope.doc=data;
+            if (data.redirect) {$window.location.href = data.redirectTo;}
+            for (var i in $scope.doc.paraList) {
+                var p = $scope.doc.paraList[i];
+                if (p.html && ('string' == typeof(p.html.raw) ) ) { p.html.show=$sce.trustAsHtml(p.html.raw);}
+                if ((p.attachment) &&(p.attachment.name.toLowerCase().indexOf('pdf')>0)){
+                    $scope.showPdf=true;
+                    var pdf = new PDFObject({ url: p.attachment.url })
+                        .embed('PDFView');
+                }
+            }
+        }) ;
+});
 
 app.controller('qiyefabuCtrl',function($scope,$http){
     if (currentUser == undefined ) showLoginScreen();
