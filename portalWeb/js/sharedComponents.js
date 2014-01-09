@@ -160,7 +160,7 @@ angular.module('etFilters', [])
     }).filter('removeDocClass',function(){
         return function(inLists){
             var r = [];
-            for (var i in inLists) if (listMap[inLists[i]].parent != '类别' ) r.push(inLists[i]);
+            for (var i in inLists) if ( (listMap[inLists[i]].parent != '类别') && (listMap[inLists[i]].parent != '52abb502b5f067da3406fb34')) r.push(inLists[i]);
             return r;
         }
     });
